@@ -207,10 +207,10 @@ An implementation bug may justify a corrected run with an explicit explanation. 
 - [x] Explain which components follow earlier papers and what we implemented or adapted.
 - [x] Write a README with setup, data preparation, indexing, retrieval, and evaluation commands.
 - [x] Pin dependencies and model versions.
-- [ ] Re-run a small example from a clean environment or documented fresh setup.
+- [x] Re-run a small example from a clean environment or documented fresh setup.
 - [ ] Record the walkthrough using the actual implementation and saved results.
-- [ ] Verify video playback and that report tables match recorded result files.
-- [ ] Package code, configurations, and permitted sample outputs; exclude credentials, local environments, caches, and unnecessary large model/data files.
+- [x] Verify video playback and that report tables match recorded result files.
+- [x] Package code, configurations, and permitted sample outputs; exclude credentials, local environments, caches, and unnecessary large model/data files.
 - [ ] Review the submission checklist and upload the required materials through the course channel when the user is ready.
 
 **Done when:** all required deliverables are complete, inspectable, reproducible to the stated extent, and submitted by the confirmed cutoff.
@@ -483,3 +483,7 @@ Repository: https://github.com/Neeraj0704/cs421-conversational-retrieval (privat
 | R00_bm25_latest_rerank | mtrag | 161 / 174 | 0.38980 |
 
 The source/configuration hashes in the freeze manifest are authoritative; its Git SHA identifies the preceding checkpoint. The completed commit also includes the hashed working-tree changes. Final test outcomes are not used to change the selected method.
+
+## Delivery verification
+
+All ten saved runs passed independent metric/coverage checks and the 17-test suite. The five-page PDF tables were inspected. The 179-second automated narrated review video decoded without errors and its results frame was checked. A source ZIP was validated for CRC integrity and contains code, exact query snapshots, report and video while excluding corpus, model, index and environment files. Course-format review and any required student-recorded presentation remain pending the final brief.
