@@ -524,3 +524,15 @@ Evidence: `experiments/gpu_extension_v1/GPU_EXTENSION_RESULTS.md` and
 `experiments/gpu_extension_v1/analysis/full_study_verification.json`. The original CPU
 final-test results and report are preserved. A separate GPU configuration freeze and
 clearly labelled final evaluation are the next evaluation step.
+
+## GPU final follow-up preparation
+
+Frozen the GPU primary (E08 hybrid fusion, validation nDCG@5 0.4479) and family comparators
+G01 sparse + reranker (0.4281) and G02 dense + reranker (0.4366). Their exact configurations,
+source hashes, models and query snapshot are recorded in the GPU workspace’s separate
+`analysis/frozen_selection.json`. This preserves the original CPU freeze.
+
+The public final set has already been used for the earlier CPU systems. New GPU runs are
+therefore disclosed follow-up benchmarks. No new GPU final scores were used for selection.
+The ready launcher is `scripts/start_gpu_final.command`, with no indexing or rewriting
+required. All 26 automated tests pass. GPU final evaluation has not been started by the agent.

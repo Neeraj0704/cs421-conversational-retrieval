@@ -1,0 +1,14 @@
+{
+  "id": "FINAL_E08_hybrid_fusion",
+  "dataset": "mtragun",
+  "split": "all",
+  "retrieve_k": 100,
+  "pool_size": 100,
+  "rrf_k": 60,
+  "backends": [
+    "splade",
+    "dense"
+  ],
+  "query_mode": "fusion",
+  "rewrites": "cache/rewrites/mtragun.jsonl"
+}

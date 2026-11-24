@@ -1,0 +1,71 @@
+{
+  "study": "gpu_final_followup_v1",
+  "selection_rule": "Highest GPU validation mean nDCG@5 overall, plus highest within sparse and dense families; lexical tie break",
+  "primary_final_run": "FINAL_E08_hybrid_fusion",
+  "family_winners": {
+    "sparse": "G01_splade_latest_rerank",
+    "dense": "G02_dense_latest_rerank",
+    "hybrid": "E08_hybrid_fusion"
+  },
+  "development_results": {
+    "E08_hybrid_fusion": {
+      "ndcg_at_5": 0.44787850270778695,
+      "config_sha256": "fb347c71415b9983e2e852a4f3d7c3936e8848416e4bf2b17996c5df8a759c11"
+    },
+    "G01_splade_latest_rerank": {
+      "ndcg_at_5": 0.4281160017549982,
+      "config_sha256": "fc11eaadeca73c84c78e150a87e4f8a5418b4f0ca364a6906b188ec8b0e46974"
+    },
+    "G02_dense_latest_rerank": {
+      "ndcg_at_5": 0.43662571773179887,
+      "config_sha256": "02da5d8bf00d4272689651784a95e1cf59dee1acb286e83fb632003345d20674"
+    }
+  },
+  "final_configs": {
+    "FINAL_E08_hybrid_fusion": "bffeba1f215d9efdba0bfa10879e99f8e7632c747f03f940c019f5c996c7f13d",
+    "FINAL_G01_splade_latest_rerank": "248963d1009dac60b5de3875e41a5c8b7708f0a61deb7178401fcb122a55a774",
+    "FINAL_G02_dense_latest_rerank": "804b7cb54b92c551f9fec628ec5deea37db7db79769ad589b1d7f243e0072922"
+  },
+  "source_sha256": {
+    "src/convrag/__init__.py": "90d531fdb6b8c4eb9da50d1b22dcb2fc554363d659d159e8a33d3808e6da7d12",
+    "src/convrag/cli.py": "17973ddb180403e3319a3a1f23455f0bc5de61bd14661939c176469311e48d64",
+    "src/convrag/data.py": "454b4fce24ec199e891d8d585bd3b80126bc0ff6573fd937d4e6723ee72387c3",
+    "src/convrag/evaluation.py": "67f703a81ee0a3193b607bad7243dccd0285ee1e208d0273fe1f30c5dc66ad10",
+    "src/convrag/io.py": "361c7d3a274c6f79c608450bc1137d1eb2e7d8d71978f79e9911724170271ca9",
+    "src/convrag/neural.py": "a0b352afc8ff3844db5d2f54850bd9a2539a16a73e1b6ebf75ea802276af670f",
+    "src/convrag/queries.py": "ff3f615da659dbfa460b326d8d525e083c590e2d313d0e604e7ff1b013f1f40a",
+    "src/convrag/report.py": "c67fbac9a78da0dc22e8259ea7c8e6da86b6bab27266d848a70b638c2c31a2e2",
+    "src/convrag/retrieval.py": "deb7a2c36bb2928ff4caef3ce9762aa99a9c01b923220fb02cb2f5dce01d17ac"
+  },
+  "model_inventory": [
+    {
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "license": "apache-2.0",
+      "gated": false
+    },
+    {
+      "model": "cross-encoder/ms-marco-MiniLM-L6-v2",
+      "revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+      "license": "apache-2.0",
+      "gated": false
+    },
+    {
+      "model": "naver/splade-cocondenser-ensembledistil",
+      "revision": "49cf4c7b0db5b870a401ddf5e2669993ef3699c7",
+      "license": "cc-by-nc-sa-4.0",
+      "gated": false
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "license": "mit",
+      "gated": false
+    }
+  ],
+  "query_snapshot_sha256": "c4dd4f2e60a4e4c6359d869f77bf0c1b8a270ee284c470ec752b5088006b1276",
+  "original_cpu_test_results_already_known": true,
+  "disclosure": "Follow-up benchmark on the previously used public final set; not a fresh unseen holdout",
+  "new_gpu_test_scores_used_for_selection": false,
+  "created_utc": "2026-11-24T15:55:29.280952+00:00"
+}

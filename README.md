@@ -68,6 +68,20 @@ in `experiments/gpu_extension_v1/`, preserving the original CPU study and final-
 Sample estimates suggest roughly 3–4 hours including indexing and experiments. Progress is
 printed and saved; completed stages can be reused. See [GPU_ACCESS.md](GPU_ACCESS.md).
 
+## Frozen GPU final comparison
+
+The twelve-run GPU validation study is complete. Its winner and strongest single-family
+comparators are frozen for the next benchmark. Run from the GPU-enabled Terminal:
+
+```sh
+bash "/Users/neerajvp/Documents/CS421 NLP/NLP/implementation/scripts/start_gpu_final.command"
+```
+
+It reuses existing indexes and exact query snapshots, evaluates three fixed configurations,
+and writes `experiments/gpu_extension_v1/GPU_FINAL_RESULTS.md`. See the
+[follow-up protocol](experiments/gpu_extension_v1/GPU_FINAL_PROTOCOL.md). Earlier CPU scores
+on this public final set are already known, so these are explicitly labelled follow-up results.
+
 ## Optional neural corpus indexes
 
 The current completed core uses BM25, rewriting, fusion and a compact cross-encoder.
