@@ -1,0 +1,32 @@
+[
+  {
+    "chapter": "The task and the working system",
+    "start_seconds": 0,
+    "duration_seconds": 25.833
+  },
+  {
+    "chapter": "Data separation and leakage prevention",
+    "start_seconds": 25.833,
+    "duration_seconds": 24.49
+  },
+  {
+    "chapter": "Rewriting and preserving the original question",
+    "start_seconds": 50.32299999999999,
+    "duration_seconds": 23.668
+  },
+  {
+    "chapter": "Retrieval, fusion and reranking",
+    "start_seconds": 73.99099999999999,
+    "duration_seconds": 25.834
+  },
+  {
+    "chapter": "Scoring and verification",
+    "start_seconds": 99.82499999999999,
+    "duration_seconds": 29.742
+  },
+  {
+    "chapter": "Measured results and practical limits",
+    "start_seconds": 129.56699999999998,
+    "duration_seconds": 49.71
+  }
+]

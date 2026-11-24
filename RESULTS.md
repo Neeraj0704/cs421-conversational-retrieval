@@ -18,6 +18,10 @@ Validation-selected best: **R00_bm25_latest_rerank**. Selection uses development
 
 ## Frozen final comparisons
 
-Not scored yet.
+| Run | nDCG@5 | Recall@10 | Candidate R@100 | Scored / input | Median search + rank (s) |
+|---|---|---|---|---|---|
+| FINAL_B02_bm25_fusion | 0.3306 | 0.4872 | 0.8187 | 332 / 507 | 0.0018 |
+| FINAL_E00_bm25_latest | 0.2896 | 0.4261 | 0.6989 | 332 / 507 | 0.0014 |
+| FINAL_R00_bm25_latest_rerank | 0.4161 | 0.5347 | 0.6989 | 332 / 507 | 1.8638 |
 
 These are local benchmark results, not an official competition submission. Historical leaderboard equivalence is unverified. The full report includes aggregation differences, uncertainty, negative results and resource limits.

@@ -4,36 +4,63 @@ Research-driven implementation of **SemEval-2026 Task 8 / MTRAGEval Subtask A**.
 Given a conversation up to the current question, retrieve the ten best existing passages
 from its assigned collection. This project evaluates retrieval; it does not generate final answers.
 
+For a plain-language explanation, read [HOW_IT_WORKS.md](HOW_IT_WORKS.md).
+
 ## Run locally
 
-Python 3.11 or 3.12 is required. No paid API is required.
-
-To run the full CPU-feasible core and freeze a final comparison after development:
+Python 3.11 or 3.12 is required. No paid API is required. Clone this private repository
+using your authenticated GitHub account, then install the locked dependencies:
 
 ```sh
-python scripts/run_core.py --include-final
+gh repo clone Neeraj0704/cs421-conversational-retrieval
+cd cs421-conversational-retrieval
+uv sync --locked --python 3.11 --extra neural --extra report --extra test
+source .venv/bin/activate
+pytest -q
 ```
 
-This covers seven controlled ablations, selects by validation nDCG@5, preserves a simple
-baseline and fusion comparison, evaluates only the frozen final configurations, and generates
-the report. It skips verified completed runs with matching configs. Large neural indexes
-remain separate resource-gated extensions. Model generation and reranking can take tens of
-minutes on CPU; an existing full neural corpus index is not required for the core.
+The saved results are in [RESULTS.md](RESULTS.md). To reproduce them without overwriting
+recorded experiments, use an isolated workspace:
 
 ```sh
-uv venv --python 3.11 .venv
-uv pip install --python .venv/bin/python -e '.[neural,report,test]'
-source .venv/bin/activate
+python scripts/reproduce.py --name my_reproduction
+```
+
+This runs seven development comparisons and the three already frozen final configurations.
+It reuses full indexes and model downloads if available, preserves the saved generated queries,
+and recomputes reranker predictions. On a fresh checkout it downloads the pinned corpus and
+models. Outputs go to `reproductions/my_reproduction/`, with metric differences in `comparison.json`.
+A quick BM25-only check is:
+
+```sh
+python scripts/reproduce.py --baseline-only --name my_baseline
+```
+
+For an unfinished workspace with its local runtime artifacts present, resume using
+`python scripts/run_core.py --include-final`. The original run IDs are immutable checkpoints;
+use the isolated reproduction command on a fresh clone containing saved results.
+
+Ask your own question after corpus preparation and BM25 indexing:
+
+```sh
 convrag prepare
-python scripts/experiments.py
-pytest -q
 convrag index --backend bm25
-convrag run --config configs/E00_bm25_latest.json
-convrag run --config configs/E01_bm25_history.json
-convrag rewrite --split validation
-convrag run --config configs/E02_bm25_rewrite.json
-convrag run --config configs/B02_bm25_fusion.json
-convrag run --config configs/B03_bm25_rerank.json
+convrag search --domain cloud --question "How can I deploy a Python application?" --rerank
+```
+
+For a follow-up, supply `--history-file history.json` (an array of `speaker`/`text` messages)
+or `--standalone-query "your resolved question"`. This interactive command returns passages;
+benchmark experiments use the separately cached automatic rewriting pipeline. Inspect a genuine
+saved example with `python scripts/demo.py --run R00_bm25_latest_rerank` after running experiments.
+
+## Optional neural corpus indexes
+
+The current completed core uses BM25, rewriting, fusion and a compact cross-encoder.
+SPLADE and BGE-small are implemented and smoke-tested; their full-corpus quality is not reported.
+Sample CPU timings estimated approximately 10.8 and 3.2 indexing hours respectively. Run these
+as a separate development study if accelerator resources or extra time are available:
+
+```sh
 convrag index --backend splade --batch-size 8
 convrag run --config configs/E03_splade_latest.json
 convrag run --config configs/E04_splade_rewrite.json
@@ -44,29 +71,13 @@ convrag index --backend dense --batch-size 32
 convrag run --config configs/D00_dense_latest.json
 convrag run --config configs/D01_dense_fusion.json
 convrag run --config configs/E08_hybrid_fusion.json
-convrag report
 ```
 
-For exact locked dependencies, use `uv sync --extra neural --extra report --extra test`
-instead of the editable pip installation, then prefix commands with `uv run`.
-The committed `analysis/model_inventory.json` pins model revisions on a fresh checkout.
-
-Ask your own question after building the BM25 index:
-
-```sh
-convrag search --domain cloud --question "How can I deploy a Python application?" --rerank
-```
-
-For a follow-up, supply `--history-file history.json` (an array of `speaker`/`text` messages)
-or `--standalone-query "your resolved question"`. This interactive command returns passages;
-benchmark experiments use the separately cached automatic rewriting pipeline.
-To inspect a genuine saved conversational example, run `python scripts/demo.py --run E00_bm25_latest`.
-
-Corpus preparation downloads the IBM benchmark at a pinned Git commit. Models download on first use;
-their resolved revisions are recorded. Neural indexing covers the entire corpus, so it can take
-hours on a CPU. Partial pilot indexes are rejected by evaluation. Index construction is resumable.
-MLX is optional (`pip install -e '.[apple]'`), requires accessible Apple Metal, and is selected by
-passing an `mlx-community/...` rewrite model. The default CPU-compatible rewriter is Qwen2.5-0.5B-Instruct.
+Keep these exploratory results separate from the frozen core study. Full index construction is
+resumable; partial pilot indexes cannot be used for benchmark evaluation. Model revisions are
+pinned in `analysis/model_inventory.json`. MLX is optional (`pip install -e '.[apple]'`), requires
+accessible Apple Metal, and is selected with an `mlx-community/...` rewrite model. The default
+CPU-compatible rewriter is Qwen2.5-0.5B-Instruct.
 
 ## Research implemented
 
@@ -106,7 +117,27 @@ these are the strongest available models. ColBERT and model fine-tuning remain o
 `configs/` defines experiments; `splits/` fixes development partitions.
 `analysis/` holds dataset audits and comparisons; `runs/<id>/` holds metrics, per-query scores,
 config provenance, format-check logs and local predictions. Large corpus, model and index files
-are intentionally regenerated, rather than committed. `PROJECT_PLAN.md` is the original project plan.
+are intentionally regenerated, rather than committed. `PROJECT_PLAN.md` is the updated milestone tracker. Generated query snapshots in `artifacts/queries/` preserve the exact rewrites used for reproducibility; they contain no gold targets or relevant-passage labels.
+
+## Deliverables and checks
+
+- [Recorded results](RESULTS.md) and [updated milestone tracker](PROJECT_PLAN.md).
+- [Report source](report/PROJECT_REPORT.md) and [PDF](report/PROJECT_REPORT.pdf).
+- [Walkthrough script](walkthrough/WALKTHROUGH.md), [automated narrated review video](walkthrough/AUTOMATED_WALKTHROUGH.mp4), and [transcript](walkthrough/NARRATION.md).
+- `analysis/verification.json` records independent metric/coverage checks once all final runs finish.
+- `analysis/clean_environment_reproduction.json` records the exact BM25 match in a separate Python environment.
+
+The video uses a synthetic stock voice and actual saved results. It is a review aid; check the
+course instructions before using it as a submission. The separate final brief, exact cutoff,
+report format and student-presentation requirements remain unconfirmed. Nothing has been
+uploaded to a course submission portal.
+
+After all runs and the report are generated, run `python scripts/verify_artifacts.py` to
+recompute metrics and check the frozen protocol. To rebuild the optional video, install
+`walkthrough/requirements.txt`, download the checksum-verified Kokoro assets from the release
+linked in `walkthrough/narration_metadata.json` into `cache/tts/`, and run
+`python walkthrough/build_video.py` on macOS with FFmpeg installed. Retrieval itself does not
+require these video tools or TTS models.
 
 ## Sources
 
@@ -117,5 +148,5 @@ are intentionally regenerated, rather than committed. `PROJECT_PLAN.md` is the o
 - [MiniLM reranker](https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2)
 - [Qwen2.5-0.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct)
 
-Upstream data and pretrained models retain their respective licenses. This repository contains
+Upstream data and pretrained models retain their respective licenses. The IBM benchmark Apache-2.0 license is included in `third_party/IBM_BENCHMARK_LICENSE` for the derived query snapshots. This repository contains
 original pipeline code; it does not redistribute benchmark corpora or model weights.

@@ -1,6 +1,6 @@
 """Build an explicitly automated narrated tour of actual code and saved results on macOS.
 
-Requires ffmpeg, ffprobe and the macOS `say` command. It is a review aid, not a
+Requires ffmpeg, ffprobe and the optional local Kokoro narrator. It is a review aid, not a
 claim that the student recorded or presented this material.
 """
 
@@ -9,6 +9,7 @@ import json
 import subprocess
 import textwrap
 from PIL import Image, ImageDraw, ImageFont
+from generate_narration import Narrator
 
 ROOT = Path(__file__).resolve().parents[1]
 BUILD = ROOT / "walkthrough/build"
@@ -17,6 +18,7 @@ FONT = "/System/Library/Fonts/Menlo.ttc"
 
 def main():
     BUILD.mkdir(parents=True, exist_ok=True)
+    narrator = Narrator(ROOT)
     runs = []
     for p in sorted((ROOT / "runs").glob("*/metrics.json")):
         if not (p.parent / "official_format_check.txt").exists():
@@ -30,11 +32,15 @@ def main():
         runs.append((p.parent.name, m))
     dev = [r for r in runs if r[1]["dataset"] == "mtrag"]
     best = max(dev, key=lambda r: r[1]["mean_over_scored_queries"]["ndcg_cut_5"])
-    summary = ["COMPLETED RUNS — nDCG@5, mean over judged tasks", ""]
-    summary.extend(
-        f"{rid:<33} {m['mean_over_scored_queries']['ndcg_cut_5']:.4f}  ({m['scored']}/{m['submitted']} scored)"
-        for rid, m in runs
-    )
+    final_selected = next((m for rid,m in runs if rid=='FINAL_'+best[0]), None)
+    final_sentence = (f"The frozen selected system scores {final_selected['mean_over_scored_queries']['ndcg_cut_5']:.4f} on the final test, averaging over {final_selected['scored']} judged questions out of {final_selected['submitted']} inputs. " if final_selected else '')
+    summary = ["HELD-OUT DEVELOPMENT — nDCG@5, mean over judged tasks", ""]
+    for group in ['mtrag','mtragun']:
+        if group=='mtragun':summary.extend(['','FROZEN FINAL COMPARISONS',''])
+        summary.extend(
+            f"{rid:<33} {m['mean_over_scored_queries']['ndcg_cut_5']:.4f}  ({m['scored']}/{m['submitted']} scored)"
+            for rid,m in runs if m['dataset']==group
+        )
     demo = (
         json.loads((ROOT / "walkthrough/demo_output.json").read_text())
         if (ROOT / "walkthrough/demo_output.json").exists()
@@ -81,7 +87,7 @@ def main():
         ),
         (
             "Measured results and practical limits",
-            f"The strongest completed validation run is {best[0].replace('_', ' ')}, with n D C G at five of {best[1]['mean_over_scored_queries']['ndcg_cut_5']:.4f}. The screen shows only completed, format checked experiments. Development and final results are separate. Historical leaderboard equivalence is not established. The execution session has CPU access but no Metal GPU. Full learned sparse and dense indexing were deferred after timing their cost. Review the report, negative results and limitations, and adapt any submission to the actual course instructions. This automated video is a review aid; it is not a student recorded presentation.",
+            f"The strongest completed validation run is {best[0].replace('_', ' ')}, with n D C G at five of {best[1]['mean_over_scored_queries']['ndcg_cut_5']:.4f}. "+final_sentence+"The screen shows only completed, format checked experiments. Development and final results are separate. Historical leaderboard equivalence is not established. The execution session has CPU access but no Metal GPU. Full learned sparse and dense indexing were deferred after timing their cost. Review the report, negative results and limitations, and adapt any submission to the actual course instructions. This automated video is a review aid; it is not a student recorded presentation.",
             summary,
         ),
     ]
@@ -91,14 +97,11 @@ def main():
     position = 0
     for i, (heading, narration, lines) in enumerate(chapters):
         text = BUILD / f"{i:02d}.txt"
-        audio = BUILD / f"{i:02d}.aiff"
+        audio = BUILD / f"{i:02d}.wav"
         png = BUILD / f"{i:02d}.png"
         mp4 = BUILD / f"{i:02d}.mp4"
         text.write_text(narration)
-        subprocess.run(
-            ["say", "-v", "Samantha", "-r", "155", "-o", str(audio), "-f", str(text)],
-            check=True,
-        )
+        narrator.create(narration, audio)
         duration = (
             float(
                 subprocess.check_output(
@@ -164,6 +167,8 @@ def main():
                 str(duration),
                 "-c:v",
                 "libx264",
+                "-threads",
+                "2",
                 "-tune",
                 "stillimage",
                 "-r",
@@ -178,6 +183,21 @@ def main():
                 str(mp4),
             ],
             check=True,
+        )
+        duration = float(
+            subprocess.check_output(
+                [
+                    "ffprobe",
+                    "-v",
+                    "error",
+                    "-show_entries",
+                    "format=duration",
+                    "-of",
+                    "default=nw=1:nk=1",
+                    str(mp4),
+                ],
+                text=True,
+            )
         )
         segments.append(mp4)
         transcript.append(f"## {heading}\n\n{narration}")

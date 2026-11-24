@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "streams": [
+    {
+      "codec_name": "h264",
+      "codec_type": "video",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "codec_name": "aac",
+      "codec_type": "audio"
+    }
+  ],
+  "duration_seconds": 179.319667,
+  "size_bytes": 2849331,
+  "decoder_errors": "",
+  "synthetic_voice_disclosed": true,
+  "result_frame_checked": true
+}

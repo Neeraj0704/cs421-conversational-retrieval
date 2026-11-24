@@ -17,7 +17,7 @@ Adapt its duration after checking the final course instructions.
    State the best completed validation result: 0.3898 nDCG@5.
    Explain negative results and uncertainty rather than presenting only the best row.
 9. Show `analysis/frozen_selection.json` if present, then the final result table if scored.
-   There are currently 0 completed final runs; do not imply historical leaderboard equivalence.
+   There are currently 3 completed final runs; do not imply historical leaderboard equivalence.
 10. End with limitations: CPU-only session, small rewriter, retrieval candidate ceiling,
     incomplete judgments, deferred accelerator experiments and unconfirmed final brief.
 

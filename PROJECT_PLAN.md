@@ -3,7 +3,7 @@
 **Project:** Improving Multi-Turn Retrieval with Conversation History  
 **Task:** SemEval-2026 Task 8, MTRAGEval, Subtask A  
 **Plan date:** November 23, 2026 — America/Chicago  
-**Status:** Core implementation and seven development ablations complete. Frozen final evaluation in progress.
+**Status:** Core implementation and seven development ablations complete. Three frozen final comparisons complete; course-format review remains.
 **Working folder:** /Users/neerajvp/Documents/CS421 NLP/NLP/implementation
 
 ## 1. What we are trying to finish
@@ -188,11 +188,11 @@ No requirement to run every method family. RL training, full retriever fine-tuni
 - [x] Select the primary method from development results.
 - [x] Freeze code/configuration, model revisions, prompts, and selected run list.
 - [x] Preserve our simple baseline and strongest sparse baseline as final comparisons.
-- [ ] Generate final predictions before examining final relevance outcomes.
-- [ ] Validate task coverage, ten unique IDs per task, collection routing, finite scores, and deterministic ordering.
-- [ ] Score the prespecified runs on the historical competition subset.
-- [ ] Report official-style and per-scored-query aggregates with clear labels.
-- [ ] Compare with published results only to the degree the protocol has been established.
+- [x] Generate final predictions before examining final relevance outcomes.
+- [x] Validate task coverage, ten unique IDs per task, collection routing, finite scores, and deterministic ordering.
+- [x] Score the prespecified runs on the historical competition subset.
+- [x] Report official-style and per-scored-query aggregates with clear labels.
+- [x] Compare with published results only to the degree the protocol has been established.
 
 **Done when:** final results have complete provenance and comparison limits are stated.
 
@@ -217,7 +217,7 @@ An implementation bug may justify a corrected run with an explicit explanation. 
 
 ## 5. Experiment register
 
-E00 and E01 are completed; rewriting/reranking runs are in progress. Learned sparse and dense full-index runs are deferred after the CPU feasibility gate. Consult `runs/` for completed results; configuration files alone are not results. “Sparse” means the single feasible learned sparse model selected at M0/M4. If we fall back, label the model explicitly rather than retaining the sparse label.
+Seven core BM25, rewriting, fusion and reranking comparisons are complete. Learned sparse and dense full-index runs are deferred after the CPU feasibility gate. Consult `runs/` for completed results; configuration files alone are not results. “Sparse” means the single feasible learned sparse model selected at M0/M4. If we fall back, label the model explicitly rather than retaining the sparse label.
 
 | ID | Configuration | Primary comparison | Priority | Status |
 |---|---|---|---|---|
@@ -424,11 +424,11 @@ Do not script a video around components we did not implement. Ensure its duratio
 | Evaluation | Complete | Official format checks, metric parity, automated tests |
 | Baselines and core pipeline | Complete | Seven validation runs, rewrites, fusion, reranking and rank blending |
 | Learned sparse/dense extension | Implemented and smoke-tested; full experiments deferred | 16-passage index tests; estimated 10.8/3.2 CPU indexing hours |
-| Final evaluation | In progress | Frozen baseline, fusion and selected reranker configurations |
-| Report and walkthrough | Development draft; final regeneration pending | `report/`, `walkthrough/`; automated review aid is separate from student presentation |
+| Final evaluation | Complete | Frozen baseline, fusion and selected reranker configurations |
+| Report and walkthrough | Generated; course-format review pending | `report/`, `walkthrough/`; automated review aid is separate from student presentation |
 | Course submission | Pending | No course upload has been performed |
 
-**Next action:** Finish the already frozen final comparisons, regenerate deliverables, validate the artifacts and push the completed checkpoint.
+**Next action:** Review the final course brief, report and walkthrough, and run larger neural models only as a separately documented extension.
 
 ### Decision log
 
@@ -440,7 +440,7 @@ Do not script a video around components we did not implement. Ensure its duratio
 | Compare sparse-only, dense complementarity, and ColBERT conditionally | Reports disagree; experiment can settle the useful part | Accepted as staged experiments |
 | Compare pure reranking with rank-preserving fusion | Avoids assuming the reranker always improves ordering | Accepted |
 | Defer RL/fine-tuning/agent loops from the core schedule | Resource and time requirements not established | Accepted |
-| Final model names and pool sizes | Depend on feasibility and development results | Open |
+| Core model names and pool sizes | Qwen2.5-0.5B-Instruct, MiniLM-L6, pool 100; selected by fixed validation comparisons | Frozen |
 | Exact winner-comparison protocol | Requires audit and known-score artifact checks | Open |
 
 ## Sources for this plan
@@ -477,6 +477,9 @@ Repository: https://github.com/Neeraj0704/cs421-conversational-retrieval (privat
 | E00_bm25_latest | mtrag | 161 / 174 | 0.22495 |
 | E01_bm25_history | mtrag | 161 / 174 | 0.18417 |
 | E02_bm25_rewrite | mtrag | 161 / 174 | 0.21136 |
+| FINAL_B02_bm25_fusion | mtragun | 332 / 507 | 0.33063 |
+| FINAL_E00_bm25_latest | mtragun | 332 / 507 | 0.28961 |
+| FINAL_R00_bm25_latest_rerank | mtragun | 332 / 507 | 0.41608 |
 | R00_bm25_latest_rerank | mtrag | 161 / 174 | 0.38980 |
 
 The source/configuration hashes in the freeze manifest are authoritative; its Git SHA identifies the preceding checkpoint. The completed commit also includes the hashed working-tree changes. Final test outcomes are not used to change the selected method.

@@ -1,0 +1,12 @@
+{
+  "engine": "kokoro-onnx 0.6.1",
+  "model_sha256": "ae315a79b623f244700e4afb9246c46a26066782e049ba174bf3ba433970ee9c",
+  "voices_sha256": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d",
+  "voice": "af_sarah",
+  "speed": 1.0,
+  "language": "en-us",
+  "synthetic_voice": true,
+  "source": "https://github.com/thewh1teagle/kokoro-onnx/releases/tag/model-files-v1.1",
+  "model_license": "Apache-2.0",
+  "wrapper_license": "MIT"
+}

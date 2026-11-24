@@ -1,0 +1,73 @@
+{
+  "config": {
+    "id": "FINAL_E00_bm25_latest",
+    "dataset": "mtragun",
+    "split": "all",
+    "retrieve_k": 100,
+    "pool_size": 100,
+    "rrf_k": 60,
+    "backends": [
+      "bm25"
+    ],
+    "query_mode": "latest"
+  },
+  "config_sha256": "1553950c1d296d2ba5946e262c6e36970dc9917ee7294deeb1b9ea2d33418967",
+  "upstream_commit": "e0970de1b1207c2a9506adf238e6e1a22037e38a",
+  "source_sha256": {
+    "src/convrag/__init__.py": "90d531fdb6b8c4eb9da50d1b22dcb2fc554363d659d159e8a33d3808e6da7d12",
+    "src/convrag/cli.py": "17973ddb180403e3319a3a1f23455f0bc5de61bd14661939c176469311e48d64",
+    "src/convrag/data.py": "454b4fce24ec199e891d8d585bd3b80126bc0ff6573fd937d4e6723ee72387c3",
+    "src/convrag/evaluation.py": "67f703a81ee0a3193b607bad7243dccd0285ee1e208d0273fe1f30c5dc66ad10",
+    "src/convrag/io.py": "361c7d3a274c6f79c608450bc1137d1eb2e7d8d71978f79e9911724170271ca9",
+    "src/convrag/neural.py": "a0b352afc8ff3844db5d2f54850bd9a2539a16a73e1b6ebf75ea802276af670f",
+    "src/convrag/queries.py": "ff3f615da659dbfa460b326d8d525e083c590e2d313d0e604e7ff1b013f1f40a",
+    "src/convrag/report.py": "c67fbac9a78da0dc22e8259ea7c8e6da86b6bab27266d848a70b638c2c31a2e2",
+    "src/convrag/retrieval.py": "deb7a2c36bb2928ff4caef3ce9762aa99a9c01b923220fb02cb2f5dce01d17ac"
+  },
+  "input_sha256": "3acc87afd92f39dc7908fa94a22cf9de29a1fe0675ec63bd1e465bb690982177",
+  "split_sha256": "c28b1ecba781a568154fa569c352de29ab8555dca60a35e35b303cb1a7c69893",
+  "rewrite_sha256": null,
+  "indexes": {
+    "bm25": {
+      "fiqa": {
+        "backend": "bm25",
+        "documents": 61022,
+        "seconds": 2.844867791980505,
+        "tokenizer": "bm25s default, English stopwords, English Snowball stemmer",
+        "k1": 1.2,
+        "b": 0.75,
+        "method": "lucene"
+      },
+      "cloud": {
+        "backend": "bm25",
+        "documents": 72442,
+        "seconds": 5.230139708146453,
+        "tokenizer": "bm25s default, English stopwords, English Snowball stemmer",
+        "k1": 1.2,
+        "b": 0.75,
+        "method": "lucene"
+      },
+      "clapnq": {
+        "backend": "bm25",
+        "documents": 183408,
+        "seconds": 8.587258541956544,
+        "tokenizer": "bm25s default, English stopwords, English Snowball stemmer",
+        "k1": 1.2,
+        "b": 0.75,
+        "method": "lucene"
+      },
+      "govt": {
+        "backend": "bm25",
+        "documents": 49607,
+        "seconds": 4.808813499752432,
+        "tokenizer": "bm25s default, English stopwords, English Snowball stemmer",
+        "k1": 1.2,
+        "b": 0.75,
+        "method": "lucene"
+      }
+    }
+  },
+  "reranker_revision": null,
+  "python": "3.11.14",
+  "platform": "Darwin arm64"
+}

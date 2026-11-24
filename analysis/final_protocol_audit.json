@@ -1,0 +1,27 @@
+{
+  "dataset": "mtragun",
+  "performed_after_frozen_prediction_generation": true,
+  "domains": {
+    "clapnq": {
+      "judged_queries": 83,
+      "missing_input_ids": 0,
+      "missing_relevant_passage_ids": 0
+    },
+    "cloud": {
+      "judged_queries": 86,
+      "missing_input_ids": 0,
+      "missing_relevant_passage_ids": 0
+    },
+    "fiqa": {
+      "judged_queries": 58,
+      "missing_input_ids": 0,
+      "missing_relevant_passage_ids": 0
+    },
+    "govt": {
+      "judged_queries": 105,
+      "missing_input_ids": 0,
+      "missing_relevant_passage_ids": 0
+    }
+  },
+  "leaderboard_equivalence": "Not independently established"
+}

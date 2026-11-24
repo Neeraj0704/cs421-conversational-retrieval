@@ -1,0 +1,87 @@
+{
+  "status": "passed",
+  "automated_tests": 17,
+  "frozen_source_hashes_match": true,
+  "upstream_checkout_clean": true,
+  "runs": {
+    "B02_bm25_fusion": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "prediction_sha256": "61c6786d279ebdf756a8a4a607f664c841d653d0909f714a99f59999fcb779b5"
+    },
+    "B03_bm25_rerank": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "prediction_sha256": "d7d86a50116ed921f071489a2ff66ac8d8251132a4ea3657a16fe3cb6684431a"
+    },
+    "B04_bm25_blend": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "prediction_sha256": "3c95711b75df455cfa76a2d3e08841ffdce6bee47690cc18b24649f7ceaf5474"
+    },
+    "E00_bm25_latest": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "prediction_sha256": "b345b529b1f42115acbe09186fb3cb139f9205bea61f882716585b1ad02bb852"
+    },
+    "E01_bm25_history": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "prediction_sha256": "019894486cce4737ad3a85d24bd1a12f75b9b63db5bffa59847c44efa70450b0"
+    },
+    "E02_bm25_rewrite": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "prediction_sha256": "dc530331c340255d107fe6c2c6e4e19a85c1442de21c3a4c4e7a94cc407b44fe"
+    },
+    "FINAL_B02_bm25_fusion": {
+      "status": "passed",
+      "submitted": 507,
+      "scored": 332,
+      "prediction_sha256": "e8cb5ee147573dc8d17dc7d24cbf93c51d3868bfd75118f6e93897a12a3f1904"
+    },
+    "FINAL_E00_bm25_latest": {
+      "status": "passed",
+      "submitted": 507,
+      "scored": 332,
+      "prediction_sha256": "0124a5ca0dff22770eaa803974f25d7cebdb3fb6806f24769564f95ba81778ac"
+    },
+    "FINAL_R00_bm25_latest_rerank": {
+      "status": "passed",
+      "submitted": 507,
+      "scored": 332,
+      "prediction_sha256": "bca322662831d4cc1fec087de3d3e9858ea8f0f5199ca1912554bec08882df58"
+    },
+    "R00_bm25_latest_rerank": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "prediction_sha256": "942b21a418d597e6c2d564ba06110fa21d357ee177aa717c44e65ab6d8f25c65"
+    }
+  },
+  "rewrite_cache": {
+    "mtrag": {
+      "rows": 177,
+      "unique_tasks": 174,
+      "identical_repeat_rows": 3,
+      "conflicting_tasks": 0,
+      "summed_generation_seconds": 1097.1867835749872,
+      "timing_note": "Sum of recorded inference time shares; excludes download/model load, includes resumed repeated rows"
+    },
+    "mtragun": {
+      "rows": 507,
+      "unique_tasks": 507,
+      "identical_repeat_rows": 0,
+      "conflicting_tasks": 0,
+      "summed_generation_seconds": 2328.8981584245334,
+      "timing_note": "Sum of recorded inference time shares; excludes download/model load, includes resumed repeated rows"
+    }
+  },
+  "scope": "Recomputed metrics and coverage, original corpus IDs, format logs, source freeze, report values and cached rewrite consistency"
+}

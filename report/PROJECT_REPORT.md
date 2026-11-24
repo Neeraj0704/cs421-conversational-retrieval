@@ -81,7 +81,17 @@ The latest utterance is a fragment. Earlier questions supply the cotton-gin topi
 
 ## Final evaluation
 
-No final test scores have been reported yet. Final testing requires a frozen configuration manifest and explicit final-run mode.
+| Run | nDCG@5 | Recall@10 | Candidate R@100 | Scored / input | Median search + rank (s) |
+|---|---|---|---|---|---|
+| FINAL_B02_bm25_fusion | 0.3306 | 0.4872 | 0.8187 | 332 / 507 | 0.0018 |
+| FINAL_E00_bm25_latest | 0.2896 | 0.4261 | 0.6989 | 332 / 507 | 0.0014 |
+| FINAL_R00_bm25_latest_rerank | 0.4161 | 0.5347 | 0.6989 | 332 / 507 | 1.8638 |
+
+| Run | nDCG@5 mean | nDCG@5 weighted | Recall@5 mean | Recall@5 weighted |
+|---|---|---|---|---|
+| FINAL_B02_bm25_fusion | 0.3306 | 0.3332 | 0.3745 | 0.3768 |
+| FINAL_E00_bm25_latest | 0.2896 | 0.2918 | 0.3127 | 0.3149 |
+| FINAL_R00_bm25_latest_rerank | 0.4161 | 0.4188 | 0.4401 | 0.4433 |
 
 These are results on the currently pinned release. Historical competition equivalence remains unverified unless the exact original question subset, relevance judgments, filtering and aggregation are independently matched. The organizer overview (Table 4) reports AILS-NTUA at 0.578 nDCG@5 and 0.622 Recall@5; that is contextual until exact protocol equivalence is established. It is not a comparison with our development split.
 

@@ -1,0 +1,10 @@
+{
+  "metric": "ndcg_cut_5",
+  "delta_b_minus_a": 0.1264730501556857,
+  "cluster_unit": "conversation_id",
+  "bootstrap_samples": 3000,
+  "ci95": [
+    0.08907026470779227,
+    0.16519067954684935
+  ]
+}

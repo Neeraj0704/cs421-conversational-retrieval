@@ -1,0 +1,42 @@
+{
+  "files": {
+    "report/PROJECT_REPORT.md": {
+      "sha256": "fc9f8dc190ca38fd31ca85c6f26fbc440ec6a72488f3107149e663be56a75ca6",
+      "bytes": 11959
+    },
+    "report/PROJECT_REPORT.pdf": {
+      "sha256": "1ad63fe8d68a40c003503a6a90afb3a5a2c8d1897728640f66501717b3c877e3",
+      "bytes": 13511
+    },
+    "report/validation_results.png": {
+      "sha256": "bb73f9702ac014173422f02acf4e86fdd3c34b9e1b2254e6ed17831244ad71c4",
+      "bytes": 49191
+    },
+    "RESULTS.md": {
+      "sha256": "a047e3d85c93a9af4d313514dc86bde236b709da1d66ce6981e798d5ba3c9668",
+      "bytes": 1425
+    },
+    "HOW_IT_WORKS.md": {
+      "sha256": "c12fd4da7662cd407901f8736568f9f3c37d7cd3ce1f4a1ab5a3361d2eb1aa61",
+      "bytes": 4284
+    },
+    "walkthrough/AUTOMATED_WALKTHROUGH.mp4": {
+      "sha256": "29c7afe9d4bbcefe4876b1baf1e7fcfef21e13864927a224e54de9528dac9b5c",
+      "bytes": 2849331
+    },
+    "walkthrough/NARRATION.md": {
+      "sha256": "71e52f3f8c54af7dbed9e474f5b38ed6e3658934cab383afb102b6e0c8e93cca",
+      "bytes": 3065
+    },
+    "artifacts/queries/mtrag.jsonl": {
+      "sha256": "2663fa53a0df1e5372f1f3d3c02dd38a6fc82192c1d7b4280afdb92cc4fc5811",
+      "bytes": 64838
+    },
+    "artifacts/queries/mtragun.jsonl": {
+      "sha256": "c4dd4f2e60a4e4c6359d869f77bf0c1b8a270ee284c470ec752b5088006b1276",
+      "bytes": 199088
+    }
+  },
+  "course_format_review": "pending final brief",
+  "course_submission_performed": false
+}

@@ -1,0 +1,5 @@
+# Optional video-building tools; not required for retrieval or scoring.
+kokoro-onnx==0.6.1
+onnxruntime==1.32.0
+Pillow>=11,<13
+scipy>=1.12,<2

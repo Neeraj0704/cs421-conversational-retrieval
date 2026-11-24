@@ -17,5 +17,6 @@ runs/*/inputs.jsonl
 *.mp4
 *.zip
 walkthrough/build/
+reproductions/
 !walkthrough/AUTOMATED_WALKTHROUGH.mp4
 
