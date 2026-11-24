@@ -63,7 +63,7 @@ def build_report(root):
         'For each run, we separately record submitted, scored and unscored counts, per-domain metrics and the upstream-style domain aggregation weighted by submitted task counts. That weighted result can differ from a direct mean over scored questions.',
         'The unmodified official evaluate function is loaded through Python AST to avoid unrelated generation-judge imports and obsolete hard-coded data paths. Per-query nDCG@1,3,5 and Recall@5 match our wrapper on the baseline. Every completed run also passes the official JSONL format checker and stricter checks for task coverage, original corpus IDs, unique top ten, finite scores and decreasing rank scores.',
         'Prediction scores encode final rank order. Evaluation uses these numeric scores; it does not rely only on list order. Paired uncertainty uses a fixed-seed bootstrap resampling conversations, which avoids treating turns from the same conversation as independent.',
-        'Local latency includes search and ranking with possible first-query warmup. Rewrite generation and initial model/index loading are recorded separately or excluded. Cached reranking can make a later blend run appear much faster; those times are not an independent live inference benchmark.',
+        'Local latency includes search and ranking with possible first-query warmup. Rewrite generation and initial model/index loading are recorded separately or excluded. Cached reranking can make a later blend run appear much faster; those times are not an independent live inference benchmark. CPU jobs also ran concurrently during this session, so timings are practical observations rather than controlled hardware comparisons.',
       ]),
       ('Development results',[table(columns,rows(dev))]),
       ('Uncertainty and interpretation',[
@@ -73,7 +73,8 @@ def build_report(root):
         'History concatenation can bury the latest intent under earlier topics. Rewriting can resolve references, but the small rewriter may leave pronouns unresolved or change meaning. Fusion protects some exact wording but can add irrelevant candidates. A cross-encoder can only reorder retrieved passages, so candidate recall bounds what reranking can repair.',
       ]),
       ('Final evaluation',[table(columns,rows(final)) if final else 'No final test scores have been reported yet. Final testing requires a frozen configuration manifest and explicit final-run mode.',
-        'These are results on the currently pinned release. Historical competition equivalence remains unverified unless the exact original question subset, relevance judgments, filtering and aggregation are independently matched. A historical winning score is context, not proof of a fair direct comparison.']),
+        'These are results on the currently pinned release. Historical competition equivalence remains unverified unless the exact original question subset, relevance judgments, filtering and aggregation are independently matched. The organizer overview (Table 4) reports AILS-NTUA at 0.578 nDCG@5 and 0.622 Recall@5; that is contextual until exact protocol equivalence is established. It is not a comparison with our development split.',
+        'An archived IBM RAG retrieval artifact is separately checked in analysis/archived_rag_artifact_check.json. Its current per-scored-query nDCG@5 is approximately 0.4866, versus rounded ELSER values of 0.45/0.48 in the development README. Query formulation, data revision and aggregation have not been matched closely enough to claim exact historical reproduction. These are supplied predictions, not our retrieval output.']),
       ('Resources and feasibility',[
         'The implementation runs on an Apple Silicon Mac, Python 3.11. The execution session does not expose Metal/MPS, so neural feasibility measurements use CPU. No paid model API or remote GPU has been provisioned.',
         *[f"{json.loads(p.read_text())['backend']}: sampled throughput {json.loads(p.read_text())['passages_per_second']:.2f} passages/s; estimated full indexing {json.loads(p.read_text())['estimated_full_index_hours']:.1f} hours. These are estimates from small samples, not completed full-index measurements." for p in sorted((root/'analysis').glob('feasibility_*.json'))],
@@ -87,6 +88,7 @@ def build_report(root):
       ]),
       ('References',[
         'IBM MTRAG benchmark and evaluation: https://github.com/IBM/mt-rag-benchmark',
+        'Rosenthal et al. (2026), SemEval-2026 Task 8: MTRAGEval: Evaluating Multi-Turn RAG Conversations: https://aclanthology.org/2026.semeval-1.447/',
         'Formal et al. (2022), From Distillation to Hard Negative Sampling: Making Sparse Neural IR Models More Effective: https://arxiv.org/abs/2205.04733',
         'SPLADE code and model: https://github.com/naver/splade ; https://huggingface.co/naver/splade-cocondenser-ensembledistil (CC-BY-NC-SA-4.0 model)',
         'BGE-small-en-v1.5 model and usage: https://huggingface.co/BAAI/bge-small-en-v1.5 (MIT)',

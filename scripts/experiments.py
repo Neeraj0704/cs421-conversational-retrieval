@@ -3,6 +3,7 @@ from pathlib import Path
 import json
 
 configs={
+ 'R00_bm25_latest_rerank':dict(backends=['bm25'],query_mode='latest',reranker='cross-encoder/ms-marco-MiniLM-L6-v2',retrieval_rank_weight=0),
  'E00_bm25_latest':dict(backends=['bm25'],query_mode='latest'),
  'E01_bm25_history':dict(backends=['bm25'],query_mode='history'),
  'E02_bm25_rewrite':dict(backends=['bm25'],query_mode='rewrite'),

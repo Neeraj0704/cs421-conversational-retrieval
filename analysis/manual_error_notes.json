@@ -1,0 +1,17 @@
+{
+  "scope": "Two illustrative held-out development examples, not a systematic human annotation study",
+  "examples": [
+    {
+      "task_id": "a2698b2973ea7db1ee5adb5e70ec02e4<::>7",
+      "latest_question": "Do you have any information about how the ancient civilization deal with the stormwater?",
+      "delta_ndcg5": -0.6131471927654584,
+      "observation": "Earlier drainage-system questions add many repeated terms. The judged relevant passage is still in the 100-candidate pool, but raw history ranks it below the top five. This is consistent with query dilution; it does not prove the mechanism for all failures."
+    },
+    {
+      "task_id": "b2805ee4c478194c234e2384ffb0a6bf<::>7",
+      "latest_question": "The end of use of slave labor.",
+      "delta_ndcg5": 0.6131471927654584,
+      "observation": "The latest utterance is a fragment. Earlier questions supply the cotton-gin topic, and raw history improves the measured top-five result. This illustrates why history is sometimes necessary."
+    }
+  ]
+}

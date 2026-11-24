@@ -35,6 +35,21 @@ convrag run --config configs/E08_hybrid_fusion.json
 convrag report
 ```
 
+For exact locked dependencies, use `uv sync --extra neural --extra report --extra test`
+instead of the editable pip installation, then prefix commands with `uv run`.
+The committed `analysis/model_inventory.json` pins model revisions on a fresh checkout.
+
+Ask your own question after building the BM25 index:
+
+```sh
+convrag search --domain cloud --question "How can I deploy a Python application?" --rerank
+```
+
+For a follow-up, supply `--history-file history.json` (an array of `speaker`/`text` messages)
+or `--standalone-query "your resolved question"`. This interactive command returns passages;
+benchmark experiments use the separately cached automatic rewriting pipeline.
+To inspect a genuine saved conversational example, run `python scripts/demo.py --run E00_bm25_latest`.
+
 Corpus preparation downloads the IBM benchmark at a pinned Git commit. Models download on first use;
 their resolved revisions are recorded. Neural indexing covers the entire corpus, so it can take
 hours on a CPU. Partial pilot indexes are rejected by evaluation. Index construction is resumable.

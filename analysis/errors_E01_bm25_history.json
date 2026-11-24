@@ -1,0 +1,1547 @@
+{
+  "run": "E01_bm25_history",
+  "baseline": "E00_bm25_latest",
+  "counts": {
+    "no_relevant_candidate": 47,
+    "relevant_candidate_but_none_in_top5": 66,
+    "relevant_in_top5": 48
+  },
+  "sampling": "Three largest gains and regressions per domain; not representative",
+  "interpretation": "Categories describe judged retrieval/ranking outcomes; no automatic claim about rewrite correctness",
+  "examples": [
+    {
+      "task_id": "a2698b2973ea7db1ee5adb5e70ec02e4<::>7",
+      "domain": "clapnq",
+      "delta_ndcg5": -0.6131471927654584,
+      "ndcg5": 0.0,
+      "diagnosis": "relevant_candidate_but_none_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "where does water go after it enters a storm drain"
+        },
+        {
+          "speaker": "agent",
+          "text": "The water that enters a storm drain like some of the heavier sediment and small objects may settle in a catchbasin , or sump , which lies immediately below the outlet , where water from the top of the catchbasin reservoir overflows into the sewer proper . Most drains have a single large exit at their point of discharge ( often covered by a grating ) into a canal , river , lake , reservoir , sea or ocean . Storm drains may discharge into man - made excavations known as recharge basins or retention ponds ."
+        },
+        {
+          "speaker": "user",
+          "text": "What is a catchbasin and how they are designed?"
+        },
+        {
+          "speaker": "agent",
+          "text": "A catchbasin is a component in a storm drain system that serves as a first-line pretreatment for other treatment practices. It functions similarly to the trap in household wastewater plumbing by capturing large sediments and street litter from urban runoff before it enters the storm drainage pipes. It is designed with a single large exit at its point of discharge, often covered by a grating, and lies immediately below the outlet of the storm drain. Water from the top of the catchbasin reservoir overflows into the sewer proper, and most catchbasins are connected to a piping system that leads to a canal, river, lake, reservoir, sea, or ocean.  Unlike the plumbing trap , the catchbasin does not necessarily prevent sewer gases such as hydrogen sulfide and methane from escaping. Its performance at removing sediment and other pollutants depends on the design of the catchbasin ( for example , the size of the sump ) , and on routine maintenance to retain the storage available in the sump to capture sediment . Some  catch basins are also commonly designed with a sump area below the outlet pipe level which is a reservoir for water and debris to help prevent the pipe from clogging "
+        },
+        {
+          "speaker": "user",
+          "text": "Does the basin really capture the litter  and debris from the water from the streets, roads, roofs?"
+        },
+        {
+          "speaker": "agent",
+          "text": "As I mentioned before the are commonly designed to capture large sediments and street litter from urban runoff before it enters the storm drainage pipes. However its  functionality is questionable , as these catch basins are most commonly not cleaned annually as is needed to make them perform as designed . The trapping of debris serves no purpose because once filled they operate as if no basins were present , but continue to allow a shallow area of water retention for the breeding of mosquito since it is cool , dark , and retains stagnant water for long periods of time . Combined with standard grates which have holes large enough for mosquitoes to enter and leave the basin , this is a major problem in mosquito control .  . Moreover , even if cleaned and maintained , the water reservoir remains filled , accommodating the breeding of mosquitoes ."
+        },
+        {
+          "speaker": "user",
+          "text": "Could be the water that enters a storm drain recycled and be used in the house chores like cleaning, gardening , etc?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The water from urban runoff is very dirty. It tends to pick up gasoline , motor oil , heavy metals , trash and other pollutants from roadways and parking lots , as well as fertilizers and pesticides from lawns  and may become contaminated while running down the road or other impervious surface , before entering the drain and could not be used in house chores. However,  Many local governments conduct public awareness campaigns about this including sustainable urban drainage systems or low impact development or green infrastructure practices   into municipal plans , helping lest waste be dumped into the storm drain system . In the city of Cleveland , Ohio , for example , all new catch basins installed have inscriptions on them not to dump any waste , and usually include a fish imprint as well . "
+        },
+        {
+          "speaker": "user",
+          "text": "And about on the level of the Federal government, do  they have guidelines or even a law to how to build more sustainable storm drain so the water could be recycled ?"
+        },
+        {
+          "speaker": "agent",
+          "text": "At the federal level in the United States,  we have the National Environmental Policy Act ( NEPA ) and the Environmental Protection Agency ( EPA )created and signed during President Nixon term. That legislation was concerned primarily first - generation pollutants in the air , surface water , groundwater , and solid waste disposal . Later solid waste contaminants from agriculture , industry , mining , municipalities , and others were put under control .EPA have spent more than than $8.7 million on environmental education annually to increase public knowledge and awareness about the current environmental issues and the consequences . They aim to promote the popularization of the necessary skills and knowledge for the public to make decisions and participate in activities that lead to the resolution of environmental challenges . Virtually all of the executive branch 's departments have some area of environmental authority .The Environmental Protection Agency ( EPA ) issued stormwater regulations for  cities , suburban communities and towns with over 10,000 population requiring them  to obtain discharge permits for their storm sewer systems , under the Clean Water Act . The permits require local governments to operate stormwater management programs , covering both construction of new buildings and facilities , and maintenance of their existing municipal drainage networks . Many municipalities have revised their local ordinances covering management of runoff . State government facilities , such as roads and highways , are also subject to the stormwater management regulations . Many local municipalities have placed ordinances for both commercial and residential stormwater management practices to be designed , implemented , and approved before an occupancy permit is released .New developments might be required to construct their own storm drain processing capacity for returning the runoff to the water table and bioswales may be required in sensitive ecological areas to protect the watershed "
+        },
+        {
+          "speaker": "user",
+          "text": "How does the storm drain work in the other parts of the world."
+        },
+        {
+          "speaker": "agent",
+          "text": "I do not have much information about how storm drain works around the world, but an international subculture has grown up around the exploration of stormwater drains . Societies such as the Cave Clan regularly explore the drains underneath cities . This is commonly known as `` urban exploration '' , but is also known as draining when in specific relation to storm drains . Storm drain , storm sewer ( U.S. and Canada ) , surface water drain / sewer ( United Kingdom ) , or stormwater drain ( Australia and New Zealand ) is usually designed to drain excess rain and ground water from impervious surfaces such as paved streets , car parks , parking lots , footpaths , sidewalks , and roofs. In UK, there are here are two main types of stormwater drain : the highway drain or road gully in the UK inlets."
+        },
+        {
+          "speaker": "user",
+          "text": "Do you have any information about how the ancient civilization deal with the stormwater?"
+        }
+      ],
+      "queries": [
+        "where does water go after it enters a storm drain What is a catchbasin and how they are designed? Does the basin really capture the litter  and debris from the water from the streets, roads, roofs? Could be the water that enters a storm drain recycled and be used in the house chores like cleaning, gardening , etc? And about on the level of the Federal government, do  they have guidelines or even a law to how to build more sustainable storm drain so the water could be recycled ? How does the storm drain work in the other parts of the world. Do you have any information about how the ancient civilization deal with the stormwater?"
+      ],
+      "relevant_ids": [
+        "804150900_3742-4703-0-961",
+        "834226571_18029-18605-0-576"
+      ],
+      "top5": [
+        "834226571_364-764-0-400",
+        "834226571_6342-6558-0-216",
+        "834226571_765-1254-0-489",
+        "834226571_13168-13671-0-503",
+        "834226571_5082-5403-0-321"
+      ],
+      "first_relevant_excerpt": "Ancient Egypt\nThe success of ancient Egyptian civilization came partly from its ability to adapt to the conditions of the Nile River valley for agriculture . The predictable flooding and controlled irrigation of the fertile valley produced surplus crops , which supported a more dense population , and social development and culture . With resources to spare , the administration sponsored mineral exploitation of the valley and surrounding desert regions , the early development of an independent writing system , the organization of collective construction and agricultural projects , trade with surrounding regions , and a military intended to defeat foreign enemies and assert Egyptian dominance . Motivating and organizing these activities was a bureaucracy of elite scribes , religious leaders , and administrators under the control of a pharaoh , who ensured the cooperation and unity of the Egyptian people in the context of an elaborate system of religious beliefs .",
+      "top_ranked_excerpt": "Storm drain\nA storm drain , storm sewer ( U.S. and Canada ) , surface water drain / sewer ( United Kingdom ) , or stormwater drain ( Australia and New Zealand ) is designed to drain excess rain and ground water from impervious surfaces such as paved streets , car parks , parking lots , footpaths , sidewalks , and roofs . Storm drains vary in design from small residential dry wells to large municipal systems ."
+    },
+    {
+      "task_id": "a2698b2973ea7db1ee5adb5e70ec02e4<::>4",
+      "domain": "clapnq",
+      "delta_ndcg5": -0.3903800499921017,
+      "ndcg5": 0.0,
+      "diagnosis": "relevant_candidate_but_none_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "where does water go after it enters a storm drain"
+        },
+        {
+          "speaker": "agent",
+          "text": "The water that enters a storm drain like some of the heavier sediment and small objects may settle in a catchbasin , or sump , which lies immediately below the outlet , where water from the top of the catchbasin reservoir overflows into the sewer proper . Most drains have a single large exit at their point of discharge ( often covered by a grating ) into a canal , river , lake , reservoir , sea or ocean . Storm drains may discharge into man - made excavations known as recharge basins or retention ponds ."
+        },
+        {
+          "speaker": "user",
+          "text": "What is a catchbasin and how they are designed?"
+        },
+        {
+          "speaker": "agent",
+          "text": "A catchbasin is a component in a storm drain system that serves as a first-line pretreatment for other treatment practices. It functions similarly to the trap in household wastewater plumbing by capturing large sediments and street litter from urban runoff before it enters the storm drainage pipes. It is designed with a single large exit at its point of discharge, often covered by a grating, and lies immediately below the outlet of the storm drain. Water from the top of the catchbasin reservoir overflows into the sewer proper, and most catchbasins are connected to a piping system that leads to a canal, river, lake, reservoir, sea, or ocean.  Unlike the plumbing trap , the catchbasin does not necessarily prevent sewer gases such as hydrogen sulfide and methane from escaping. Its performance at removing sediment and other pollutants depends on the design of the catchbasin ( for example , the size of the sump ) , and on routine maintenance to retain the storage available in the sump to capture sediment . Some  catch basins are also commonly designed with a sump area below the outlet pipe level which is a reservoir for water and debris to help prevent the pipe from clogging "
+        },
+        {
+          "speaker": "user",
+          "text": "Does the basin really capture the litter  and debris from the water from the streets, roads, roofs?"
+        },
+        {
+          "speaker": "agent",
+          "text": "As I mentioned before the are commonly designed to capture large sediments and street litter from urban runoff before it enters the storm drainage pipes. However its  functionality is questionable , as these catch basins are most commonly not cleaned annually as is needed to make them perform as designed . The trapping of debris serves no purpose because once filled they operate as if no basins were present , but continue to allow a shallow area of water retention for the breeding of mosquito since it is cool , dark , and retains stagnant water for long periods of time . Combined with standard grates which have holes large enough for mosquitoes to enter and leave the basin , this is a major problem in mosquito control .  . Moreover , even if cleaned and maintained , the water reservoir remains filled , accommodating the breeding of mosquitoes ."
+        },
+        {
+          "speaker": "user",
+          "text": "Could be the water that enters a storm drain recycled and be used in the house chores like cleaning, gardening , etc?"
+        }
+      ],
+      "queries": [
+        "where does water go after it enters a storm drain What is a catchbasin and how they are designed? Does the basin really capture the litter  and debris from the water from the streets, roads, roofs? Could be the water that enters a storm drain recycled and be used in the house chores like cleaning, gardening , etc?"
+      ],
+      "relevant_ids": [
+        "834226571_10005-10224-0-219",
+        "834226571_10375-11016-0-641",
+        "834226571_13168-13671-0-503",
+        "834226571_8587-9336-0-749"
+      ],
+      "top5": [
+        "834226571_6342-6558-0-216",
+        "834226571_364-764-0-400",
+        "834226571_5082-5403-0-321",
+        "834226571_765-1254-0-489",
+        "834226571_11488-12059-0-571"
+      ],
+      "first_relevant_excerpt": "Storm drain\nThe first flush from urban runoff can be extremely dirty . Storm water may become contaminated while running down the road or other impervious surface , or from lawn chemical run - off , before entering the drain . Lack",
+      "top_ranked_excerpt": "Storm drain\nCatchbasins act as a first - line pretreatment for other treatment practices , such as retention basins , by capturing large sediments and street litter from urban runoff before it enters the storm drainage pipes . A"
+    },
+    {
+      "task_id": "a2698b2973ea7db1ee5adb5e70ec02e4<::>5",
+      "domain": "clapnq",
+      "delta_ndcg5": -0.3391602052736161,
+      "ndcg5": 0.0,
+      "diagnosis": "relevant_candidate_but_none_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "where does water go after it enters a storm drain"
+        },
+        {
+          "speaker": "agent",
+          "text": "The water that enters a storm drain like some of the heavier sediment and small objects may settle in a catchbasin , or sump , which lies immediately below the outlet , where water from the top of the catchbasin reservoir overflows into the sewer proper . Most drains have a single large exit at their point of discharge ( often covered by a grating ) into a canal , river , lake , reservoir , sea or ocean . Storm drains may discharge into man - made excavations known as recharge basins or retention ponds ."
+        },
+        {
+          "speaker": "user",
+          "text": "What is a catchbasin and how they are designed?"
+        },
+        {
+          "speaker": "agent",
+          "text": "A catchbasin is a component in a storm drain system that serves as a first-line pretreatment for other treatment practices. It functions similarly to the trap in household wastewater plumbing by capturing large sediments and street litter from urban runoff before it enters the storm drainage pipes. It is designed with a single large exit at its point of discharge, often covered by a grating, and lies immediately below the outlet of the storm drain. Water from the top of the catchbasin reservoir overflows into the sewer proper, and most catchbasins are connected to a piping system that leads to a canal, river, lake, reservoir, sea, or ocean.  Unlike the plumbing trap , the catchbasin does not necessarily prevent sewer gases such as hydrogen sulfide and methane from escaping. Its performance at removing sediment and other pollutants depends on the design of the catchbasin ( for example , the size of the sump ) , and on routine maintenance to retain the storage available in the sump to capture sediment . Some  catch basins are also commonly designed with a sump area below the outlet pipe level which is a reservoir for water and debris to help prevent the pipe from clogging "
+        },
+        {
+          "speaker": "user",
+          "text": "Does the basin really capture the litter  and debris from the water from the streets, roads, roofs?"
+        },
+        {
+          "speaker": "agent",
+          "text": "As I mentioned before the are commonly designed to capture large sediments and street litter from urban runoff before it enters the storm drainage pipes. However its  functionality is questionable , as these catch basins are most commonly not cleaned annually as is needed to make them perform as designed . The trapping of debris serves no purpose because once filled they operate as if no basins were present , but continue to allow a shallow area of water retention for the breeding of mosquito since it is cool , dark , and retains stagnant water for long periods of time . Combined with standard grates which have holes large enough for mosquitoes to enter and leave the basin , this is a major problem in mosquito control .  . Moreover , even if cleaned and maintained , the water reservoir remains filled , accommodating the breeding of mosquitoes ."
+        },
+        {
+          "speaker": "user",
+          "text": "Could be the water that enters a storm drain recycled and be used in the house chores like cleaning, gardening , etc?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The water from urban runoff is very dirty. It tends to pick up gasoline , motor oil , heavy metals , trash and other pollutants from roadways and parking lots , as well as fertilizers and pesticides from lawns  and may become contaminated while running down the road or other impervious surface , before entering the drain and could not be used in house chores. However,  Many local governments conduct public awareness campaigns about this including sustainable urban drainage systems or low impact development or green infrastructure practices   into municipal plans , helping lest waste be dumped into the storm drain system . In the city of Cleveland , Ohio , for example , all new catch basins installed have inscriptions on them not to dump any waste , and usually include a fish imprint as well . "
+        },
+        {
+          "speaker": "user",
+          "text": "And about on the level of the Federal government, do  they have guidelines or even a law to how to build more sustainable storm drain so the water could be recycled ?"
+        }
+      ],
+      "queries": [
+        "where does water go after it enters a storm drain What is a catchbasin and how they are designed? Does the basin really capture the litter  and debris from the water from the streets, roads, roofs? Could be the water that enters a storm drain recycled and be used in the house chores like cleaning, gardening , etc? And about on the level of the Federal government, do  they have guidelines or even a law to how to build more sustainable storm drain so the water could be recycled ?"
+      ],
+      "relevant_ids": [
+        "799262937_14460-15670-0-1210",
+        "799262937_4587-5000-0-413",
+        "834226571_15633-15953-0-320",
+        "834226571_15954-16896-0-942",
+        "848480323_34054-34448-0-394"
+      ],
+      "top5": [
+        "834226571_6342-6558-0-216",
+        "834226571_765-1254-0-489",
+        "834226571_364-764-0-400",
+        "834226571_5082-5403-0-321",
+        "834226571_12060-12659-0-599"
+      ],
+      "first_relevant_excerpt": "Environmental policy of the United States\nOn January 1 , 1970 , President Richard Nixon signed the National Environmental Policy Act ( NEPA ) , beginning the 1970s as the environmental decade . NEPA created the Council on Environmental Quality which oversaw the environmental impact of federal actions . Later in the year , Nixon created the Environmental Protection Agency ( EPA ) , which consolidated environmental programs from other agencies into a single entity . The legislation during this period concerned primarily first - generation pollutants in the air , surface water , groundwater , and solid waste disposal . Air pollutants such as particulates , sulfur dioxide , nitrogen dioxide , carbon monoxide , and ozone were put under regulation , and issues such as acid rain , visibility , and global warming were also concerns . In surface water , the contaminants of concern were dissolved oxygen , bacteria , suspended and dissolved solids , nutrients , and toxic substances such as metals . For groundwater , the pollutants included biological contaminants , inorganic and organic substances , and radionuclides . Finally , solid waste contaminants from agriculture , industry , mining , ",
+      "top_ranked_excerpt": "Storm drain\nCatchbasins act as a first - line pretreatment for other treatment practices , such as retention basins , by capturing large sediments and street litter from urban runoff before it enters the storm drainage pipes . A"
+    },
+    {
+      "task_id": "b2805ee4c478194c234e2384ffb0a6bf<::>7",
+      "domain": "clapnq",
+      "delta_ndcg5": 0.6131471927654584,
+      "ndcg5": 0.6131471927654584,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "where was the cotton gin invented and where is it used today"
+        },
+        {
+          "speaker": "agent",
+          "text": "According to the worm gear roller gin, it was invented in the Indian subcontinent, specifically during the early Delhi Sultanate era of the 13th-14th centuries. It came into use in the Mughal Empire around the 16th century and is still used in the Indian subcontinent today. However, it's important to note that there were different types of cotton gins, including a handheld roller gin used in India since at least 500 CE, and a single-roller cotton gin found in the Ajanta caves of India and used until innovations were made in the form of foot-powered gins. The modern mechanical cotton gin was created by American inventor Eli Whitney in 1793 and patented in 1794, but I have no information as to its current usage. The early history of the cotton gin is ambiguous , because archeologists likely mistook the cotton gin 's parts for other tools ."
+        },
+        {
+          "speaker": "user",
+          "text": "Did the need for cotton workers increase?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, the demand for cotton workers did increase after the invention of the modern mechanical cotton gin by Eli Whitney in 1793. This invention revolutionized the cotton industry in the United States, leading to a rapid increase in the demand for cotton workers. This increased demand for labor has been identified as a contributing factor to the growth of slavery in the American South.  The number of slaves rose in concert with the increase in cotton production , increasing from around 700,000 in 1790 to around 3.2 million in 1850."
+        },
+        {
+          "speaker": "user",
+          "text": "By how much did the cotton gin increase production?"
+        },
+        {
+          "speaker": "agent",
+          "text": "I have no specific numbers regarding the increase in cotton production due to the cotton gin. However, the cotton gin revolutionized the cotton industry in the United States, significantly increasing productivity. The modern automated cotton gins offer far higher productivity than their hand-powered forebears. Cotton production expanded from 750,000 bales in 1830 to 2.85 million bales in 1850."
+        },
+        {
+          "speaker": "user",
+          "text": "Was the invention of the cotton gin indirectly a cause of the American Civil War?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, the invention of the cotton gin has been identified as an inadvertent contributing factor to the outbreak of the American Civil War. The increased demand for cotton workers, primarily filled by slaves, in the American South after the invention of the cotton gin led to the growth of slavery and tensions between the North and South over the issue of slavery. These tensions were one of the main causes of the American Civil War.  Because of its inadvertent effect on American slavery , and on its ensuring that the South 's economy developed in the direction of plantation - based agriculture , the invention of the cotton gin is frequently cited as one of the indirect causes of the American Civil War ."
+        },
+        {
+          "speaker": "user",
+          "text": "Was Britain relying on Southern cotton?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, Britain was heavily reliant on cotton from the American South. The increased productivity brought about by the cotton gin led to a surge in cotton production, and a significant portion of this cotton was sent to Britain, which used it to fuel its burgeoning textile industry. By 1860 , black slave labor from the American South was providing two - thirds of the world 's supply of cotton , and up to 80 % of the crucial British market."
+        },
+        {
+          "speaker": "user",
+          "text": "Modern cotton gins."
+        },
+        {
+          "speaker": "agent",
+          "text": "Modern cotton gins have evolved from the early mechanical cotton gins. They use multiple powered cleaning cylinders and saws to automate the process and offer far higher productivity than their hand-powered forebears. These modern gins are used worldwide, including in the United States and the Indian subcontinent, to efficiently process large quantities of cotton fiber. The cotton enters a dryer , which removes excess moisture. The cylinder cleaner uses six or seven rotating , spiked cylinders to break up large clumps of cotton . Finer foreign material , such as soil and leaves , passes through rods or screens for removal . The stick machine uses centrifugal force to remove larger foreign matter , such as sticks and burrs , while the cotton is held by rapidly rotating saw cylinders ."
+        },
+        {
+          "speaker": "user",
+          "text": "The end of use of slave labor."
+        }
+      ],
+      "queries": [
+        "where was the cotton gin invented and where is it used today Did the need for cotton workers increase? By how much did the cotton gin increase production? Was the invention of the cotton gin indirectly a cause of the American Civil War? Was Britain relying on Southern cotton? Modern cotton gins. The end of use of slave labor."
+      ],
+      "relevant_ids": [
+        "805474955_697-1691-0-994",
+        "843670088_41538-42214-0-676"
+      ],
+      "top5": [
+        "805474955_697-1691-0-994",
+        "805474955_10307-11336-0-1029",
+        "805474955_11384-11748-0-364",
+        "805474955_2511-2926-0-415",
+        "805474955_6417-7243-0-826"
+      ],
+      "first_relevant_excerpt": "Cotton gin\nHandheld roller gins had been used in India and then other countries since at earliest 500 CE . The Indian worm - gear roller gin , invented some time around the sixteenth century , has , according to Lakwete , remained virtually unchanged up to the present time . A modern mechanical cotton gin was created by American inventor Eli Whitney in 1793 and patented in 1794 . Whitney 's gin used a combination of a wire screen and small wire hooks to pull the cotton through , while brushes continuously removed the loose cotton lint to prevent jams . It revolutionized the cotton industry in the United States , but also led to the growth of slavery in the American South as the demand for cotton workers rapidly increased . The invention has thus been identified as an inadvertent contributing factor to the outbreak of the American Civil War . Modern automated cotton gins use multiple powered cleaning cylinders and saws , and offer far higher productivity than their hand - powered forebears .",
+      "top_ranked_excerpt": "Cotton gin\nHandheld roller gins had been used in India and then other countries since at earliest 500 CE . The Indian worm - gear roller gin , invented some time around the sixteenth century , has , according to Lakwete , remained virtually unchanged up to the present time . A modern mechanical cotton gin was created by American inventor Eli Whitney in 1793 and patented in 1794 . Whitney 's gin used a combination of a wire screen and small wire hooks to pull the cotton through , while brushes continuously removed the loose cotton lint to prevent jams . It revolutionized the cotton industry in the United States , but also led to the growth of slavery in the American South as the demand for cotton workers rapidly increased . The invention has thus been identified as an inadvertent contributing factor to the outbreak of the American Civil War . Modern automated cotton gins use multiple powered cleaning cylinders and saws , and offer far higher productivity than their hand - powered forebears ."
+    },
+    {
+      "task_id": "aea2634b0e5f1c2444550d31c41adc94<::>5",
+      "domain": "clapnq",
+      "delta_ndcg5": 0.6131471927654584,
+      "ndcg5": 0.6131471927654584,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "what is the defense of marriage act 1996"
+        },
+        {
+          "speaker": "agent",
+          "text": "The Defense of Marriage Act (DOMA) is a United States federal law that defines and protects the institution of marriage. enacted in 1996. It was introduced by Georgia Representative Bob Barr and Senator Don Nickles of Oklahoma. The Act was intended by Congress to reflect and honor a collective moral judgment and to express moral disapproval of homosexuality. It also defined marriage for federal purposes as the legal union of a man and a woman as husband and wife, and a spouse as a husband or wife of the opposite sex. Section 3 of DOMA defines marriage and spouse for federal purposes. Section 3 codified non-recognition of same - sex marriages for all federal purposes, including insurance benefits for government employees, social security survivors ' benefits, immigration, bankruptcy, and the filing of joint tax returns, as well as excluding same - sex spouses from the scope of laws protecting families of federal officers, laws evaluating financial aid eligibility, and federal ethics laws applicable to opposite - sex spouses."
+        },
+        {
+          "speaker": "user",
+          "text": "How is marriage defined?"
+        },
+        {
+          "speaker": "agent",
+          "text": "In determining the meaning of any Act of Congress , or of any ruling , regulation , or interpretation of the various administrative bureaus and agencies of the United States , the word ' marriage ' means only a legal union between one man and one woman as husband and wife. Additionally, any other State , territory , possession , or tribe respecting a relationship between persons of the same sex that is treated as a marriage under the laws of such other State , territory , possession , or tribe , or a right or claim arising from such relationship based on \"Defense of Marriage Act,\"."
+        },
+        {
+          "speaker": "user",
+          "text": "How are weddings celebrated?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The typical wedding involves a couple proclaiming their commitment to one another in front of their close relatives and friends , often presided over by a religious figure such as a minister , priest , or rabbi , depending upon the faith of the couple . In traditional Christian ceremonies , the bride 's father will `` give away '' ( hand off ) the bride to the groom . Secular weddings are also common , often presided over by a judge , Justice of the Peace , or other municipal official . At a wedding reception , the father of the bride , in his role as host , regularly offers the first toast , thanking the guests for attending , offering tasteful remembrances of the bride 's childhood , and wishing the newlyweds a happy life together . The best man usually proposes a toast in the form of best wishes and congratulations to the newlyweds . A best man 's toast takes the form of a short speech ( 3 -- 5 minutes ) that combines a mixture of humor and sincerity . The actual `` toast '' is then delivered at the end of the speech and is a short phrase wishing the newlyweds a happy , healthy , loving life together . The maid of honor may follow suit , appropriately tailoring her comments to the bride . The groom may offer the final toast , thanking the bride 's parents for hosting the wedding , the wedding party for their participation , and finally dedicating the toast to the bridesmaids ."
+        },
+        {
+          "speaker": "user",
+          "text": "What is the meaning of the glass being broken at a Jewish wedding?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The primary reason is that joy must always be tempered . This is based on two accounts in the Talmud of rabbis who , upon seeing that their son 's wedding celebration was getting out of hand , broke a vessel -- in the second case a glass -- to calm things down . Another explanation is that it is a reminder that despite the joy , Jews still mourn the destruction of the Temple in Jerusalem ."
+        },
+        {
+          "speaker": "user",
+          "text": "Do all states allow same sex marriages?"
+        }
+      ],
+      "queries": [
+        "what is the defense of marriage act 1996 How is marriage defined? How are weddings celebrated? What is the meaning of the glass being broken at a Jewish wedding? Do all states allow same sex marriages?"
+      ],
+      "relevant_ids": [
+        "834188205_1272-2165-0-891",
+        "853841453_32491-32620-0-129"
+      ],
+      "top5": [
+        "834188205_1272-2165-0-891",
+        "834188205_9951-10695-0-744",
+        "810054124_63604-64213-0-609",
+        "834188205_5925-6800-0-875",
+        "834188205_15835-16436-0-601"
+      ],
+      "first_relevant_excerpt": "Defense of Marriage Act\nThe Defense of Marriage Act ( DOMA ) ( Pub. L. 104 -- 199 , 110 Stat. 2419 , enacted September 21 , 1996 , 1 U.S.C. § 7 and 28 U.S.C. § 1738C ) was a United States federal law that , prior to being ruled unconstitutional , defined marriage for federal purposes as the union of one man and one woman , and allowed states to refuse to recognize same - sex marriages granted under the laws of other states . Until Section 3 of the Act was struck down in 2013 ( United States v. Windsor ) , DOMA , in conjunction with other statutes , had barred same - sex married couples from being recognized as `` spouses '' for purposes of federal laws , effectively barring them from receiving federal marriage benefits . DOMA 's passage did not prevent individual states from recognizing same - sex marriage , but it imposed constraints on the benefits received by all legally married same - sex couples .",
+      "top_ranked_excerpt": "Defense of Marriage Act\nThe Defense of Marriage Act ( DOMA ) ( Pub. L. 104 -- 199 , 110 Stat. 2419 , enacted September 21 , 1996 , 1 U.S.C. § 7 and 28 U.S.C. § 1738C ) was a United States federal law that , prior to being ruled unconstitutional , defined marriage for federal purposes as the union of one man and one woman , and allowed states to refuse to recognize same - sex marriages granted under the laws of other states . Until Section 3 of the Act was struck down in 2013 ( United States v. Windsor ) , DOMA , in conjunction with other statutes , had barred same - sex married couples from being recognized as `` spouses '' for purposes of federal laws , effectively barring them from receiving federal marriage benefits . DOMA 's passage did not prevent individual states from recognizing same - sex marriage , but it imposed constraints on the benefits received by all legally married same - sex couples ."
+    },
+    {
+      "task_id": "717ca9138f07b4621887812f47499d74<::>6",
+      "domain": "clapnq",
+      "delta_ndcg5": 0.6131471927654584,
+      "ndcg5": 0.6131471927654584,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "how much were the actors in friends paid"
+        },
+        {
+          "speaker": "agent",
+          "text": "In the first season, the cast members were paid $22,500 per episode. In the second season, their salaries ranged from $20,000 to $40,000 per episode. From the third season onwards, they negotiated for equal salaries as a group. They were paid $75,000 per episode in season three, $85,000 in season four, $100,000 in season five, $125,000 in season six, $750,000 in seasons seven and eight, and $1 million in seasons nine and ten. Additionally, each actor, Jennifer Aniston , Courteney Cox , Lisa Kudrow , Matt LeBlanc , Matthew Perry and David Schwimmer, receives about $20 million in annual residuals from syndication revenue."
+        },
+        {
+          "speaker": "user",
+          "text": "oh my god, I am a big fan of Jennifer Aniston. how was she introduced in Friends"
+        },
+        {
+          "speaker": "agent",
+          "text": "Jennifer Aniston portrayed the character Rachel Green in the TV show Friends. She was introduced in the pilot episode as a naive runaway bride who reunites with her childhood best friend Monica. Rachel starts off as a spoiled, inexperienced \"daddy's girl\" but gradually evolves into a successful businesswoman throughout the series."
+        },
+        {
+          "speaker": "user",
+          "text": "how many seasons does Friends have? When did it start and end?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Friends has a total of 10 seasons with episodes 236. It aired on NBC from September 22 , 1994 to May 6 , 2004."
+        },
+        {
+          "speaker": "user",
+          "text": "did Friends air in different countries? I also wonder if the show earned any awards"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, Friends aired in various countries including Australia on the Seven Network, Nine Network, Network Ten, GEM, and Arena; in New Zealand on TV2; in Greece on Star Channel; in Cyprus on CyBC 2 and TVOne; in Canada on Global, Slice, DTour, and TVTropolis; and on different channels in the UK. Regarding awards, It was nominated for 62 Primetime Emmy Awards, winning six. Jennifer Aniston and Lisa Kudrow are the only main cast members to win an Emmy, while Courteney Cox is the only actor not to be nominated. The series also won an American Comedy Award, one GLAAD Media Award, one Golden Globe Award, three Logie Awards, six People's Choice Awards, one Satellite Award, and one Screen Actors Guild Award."
+        },
+        {
+          "speaker": "user",
+          "text": "how was Friends final episode? are the actors still get along after the final episode?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The series ends with all friends plus Monica and Chandler 's new babies leaving the apartment, heading to Central Perk for a final cup of coffee. The camera 's last view is of all of the characters ' keys to the apartment on the counter table , finishing with a shot of the apartment 's purple door. As for the cast's relationship after the show, they have remained good friends. Jennifer Aniston is even the godmother to Courteney Cox's daughter, Coco. In the official farewell commemorative book Friends 'Til the End, each cast member acknowledged that the cast had become their family."
+        },
+        {
+          "speaker": "user",
+          "text": "I am very curious about why each members are receiving the same pay. Isn't it usually different?"
+        }
+      ],
+      "queries": [
+        "how much were the actors in friends paid oh my god, I am a big fan of Jennifer Aniston. how was she introduced in Friends how many seasons does Friends have? When did it start and end? did Friends air in different countries? I also wonder if the show earned any awards how was Friends final episode? are the actors still get along after the final episode? I am very curious about why each members are receiving the same pay. Isn't it usually different?"
+      ],
+      "relevant_ids": [
+        "826231264_17922-20342-0-2420",
+        "834324633_12232-12814-0-582"
+      ],
+      "top5": [
+        "826231264_17922-20342-0-2420",
+        "834324633_43497-44459-0-962",
+        "834324633_11142-12231-0-1089",
+        "842488486_3433-4435-0-1002",
+        "834324633_38245-38608-0-363"
+      ],
+      "first_relevant_excerpt": "Rachel Green\nCrane and Kauffman strongly envisioned Friends as an ensemble comedy , and Warner Bros. initially marketed the show as such by having the cast appear in their entirety for all press , interviews and photo shoots . One of few sitcoms at the time to be neither a workplace comedy , family sitcom or star a famous comedian , Elizabeth Kolbert of The New York Times explained that each of the show 's main characters are `` of equal importance . '' As a writer , Crane preferred it this way because `` utilizing six equal players , rather than emphasizing one or two , would allow for myriad story lines . '' Kauffman echoed `` that Friends worked best when the entire ensemble was onstage . '' The only reason Aniston is credited first during the show 's title sequence is because the cast is listed alphabetically . The show 's ensemble format is also believed to have prevented jealous conflicts among the cast . Famously , the Friends cast became the first in television history to negotiate as a group for equal salaries , refusing to work until their demands of $100,000 per episode were met during season three , which eventually increased to $1 million per episode by seasons nine an",
+      "top_ranked_excerpt": "Rachel Green\nCrane and Kauffman strongly envisioned Friends as an ensemble comedy , and Warner Bros. initially marketed the show as such by having the cast appear in their entirety for all press , interviews and photo shoots . One of few sitcoms at the time to be neither a workplace comedy , family sitcom or star a famous comedian , Elizabeth Kolbert of The New York Times explained that each of the show 's main characters are `` of equal importance . '' As a writer , Crane preferred it this way because `` utilizing six equal players , rather than emphasizing one or two , would allow for myriad story lines . '' Kauffman echoed `` that Friends worked best when the entire ensemble was onstage . '' The only reason Aniston is credited first during the show 's title sequence is because the cast is listed alphabetically . The show 's ensemble format is also believed to have prevented jealous conflicts among the cast . Famously , the Friends cast became the first in television history to negotiate as a group for equal salaries , refusing to work until their demands of $100,000 per episode were met during season three , which eventually increased to $1 million per episode by seasons nine an"
+    },
+    {
+      "task_id": "ddbbbe7ea13560c5768639207e1ca604<::>5",
+      "domain": "cloud",
+      "delta_ndcg5": -0.8854598815714874,
+      "ndcg5": 0.0,
+      "diagnosis": "relevant_candidate_but_none_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "What is the Score Agreement level if it is less than 0?"
+        },
+        {
+          "speaker": "agent",
+          "text": "If the Score Agreement level is less than 0, it indicates poor agreement among the annotators, taking into account that what constitutes an acceptable level of agreement depends on your domain data and type system. This score can suggest that the annotation guidelines or instructions may need to be revised to improve consistency."
+        },
+        {
+          "speaker": "user",
+          "text": "How many annotators are needed?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The number of annotators needed can vary depending on the specific requirements of the project. However, inter-annotator agreement scores cannot be calculated unless two or more human annotators annotate the same documents. That allows you to view the scores by comparing a pair of human annotators (for example, compare all of John's mention annotations to all of Mary's mention annotations). You can also view the scores by comparing specific documents (for example, compare the relation annotations that John made in one document to the relation annotations that Mary made in the same document)."
+        },
+        {
+          "speaker": "user",
+          "text": "data volume"
+        },
+        {
+          "speaker": "agent",
+          "text": "There are certain guidelines for the volume of data when adding documents for annotation to train a machine learning model. It is recommended to provide a set of documents that have a total size of about 300,000 words. The number of words can be adjusted based on the complexity of the type system. Each document should be limited to a page or two of content, preferably fewer than 2,000 words and closer to 1,000 words per document.  A goal to aim for is to eventually have at least 50 annotations for each entity type and 50 for each relation type in the document collection.  The set of documents for training must contain at least 10 annotated documents."
+        },
+        {
+          "speaker": "user",
+          "text": "So, 3 ppl at least?"
+        },
+        {
+          "speaker": "agent",
+          "text": "I am not sure what you are asking. The minimal number of annotators needed is two, as per my answer to your previous question above. There can of course be more than two annotators depending on the project, but the minimal requirement is two annotators."
+        },
+        {
+          "speaker": "user",
+          "text": "pre-annotations make the task easier"
+        }
+      ],
+      "queries": [
+        "What is the Score Agreement level if it is less than 0? How many annotators are needed? data volume So, 3 ppl at least? pre-annotations make the task easier"
+      ],
+      "relevant_ids": [
+        "ibmcld_16444-7-2064",
+        "ibmcld_16507-7-2044",
+        "ibmcld_16563-3072-4738"
+      ],
+      "top5": [
+        "ibmcld_16417-3559-5683",
+        "ibmcld_16481-3559-5682",
+        "ibmcld_16410-11549-13658",
+        "ibmcld_16417-5155-7505",
+        "ibmcld_16481-5154-7504"
+      ],
+      "first_relevant_excerpt": "\nBootstrapping annotation \n\nSimplify the job of the human annotator by pre-annotating the documents in a workspace. A pre-annotator is a Knowledge Studio dictionary, rule-based model, or machine learning model that you can run to find and annotate mentions automatically.\n\nPre-annotation makes the job of human annotators easier because it covers the straightforward annotations, and gets the job of annotating the documents underway.\n\nThe method that you use to pre-annotate documents in no way restricts the ways that you can use the resulting model. For example, just because you use the Natural Language Understanding service to pre-annotate documents does not mean you must deploy the final machine learning model that you build to the Natural Language Understanding service.\n\n\n\n Pre-annotation methods \n\nThe following pre-annotators are available:\n\n\n\n* Dictionary\n\nUses a dictionary of terms that you provide and associate with an entity type to find mentions of that entity type in the documents. This choice is best for fields with unique or specialized terminology because this pre-annotator does not analyze the context in which the term is used in the way a machine learning pre-annotator ",
+      "top_ranked_excerpt": "\nTo help you identify areas that require investigation, scores that fall below the value that you specified for the inter-annotator agreement threshold are highlighted in red. In early stages of your annotation project, you might find that relation scores are often worse than mention scores because a perfect relation annotation requires that the mentions that define the relationship be in agreement first.\n\nThe score in the All column is a Fleiss Kappa score. It represents how consistently the same annotation was applied by multiple human annotators across all overlapping documents in the task. The value, which can range up to 1 and even be negative, can help you identify weaknesses in the annotation guidelines or particular human annotators. The following guidelines (Landis and Koch, 1977) provide a starting point for assessing overall performance.\n\nTable 1: Inter-annotator Guidelines\n\n\n\n Score Agreement level \n\n <0 Poor \n .01 - .20 Slight \n .21 - .40 Fair \n .41 - .60 Moderate \n .61 - .80 Substantial \n .81 - 1.0 Perfect \n\n\n\nThe score in the other columns is an F1 measure. It represents the level of annotation consistency between a pair of human annotators. The value can range from "
+    },
+    {
+      "task_id": "c6c3b02ca32795af64c903dd76700517<::>3",
+      "domain": "cloud",
+      "delta_ndcg5": -0.75369761125927,
+      "ndcg5": 0.0,
+      "diagnosis": "relevant_candidate_but_none_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "Does Vulnerability Advisor scan encrypted imagery?"
+        },
+        {
+          "speaker": "agent",
+          "text": "No, encrypted images are not scanned by Vulnerability Advisor."
+        },
+        {
+          "speaker": "user",
+          "text": "Then what does Vulnerability Advisor scan? what does it actually do?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Vulnerability Advisor scans images that are stored in IBM Cloud Container Registry to find potential security vulnerabilities in the image content. It checks for known software vulnerabilities and weak system configurations. Also, it detects security issues and potential vulnerabilities. When it finds any issues, it provides suggestions to help fix the reported vulnerabilities. "
+        },
+        {
+          "speaker": "user",
+          "text": "I currently have Vulnerability Advisor version 3..."
+        }
+      ],
+      "queries": [
+        "Does Vulnerability Advisor scan encrypted imagery? Then what does Vulnerability Advisor scan? what does it actually do? I currently have Vulnerability Advisor version 3..."
+      ],
+      "relevant_ids": [
+        "ibmcld_01410-2747-3497",
+        "ibmcld_01441-1679-3819",
+        "ibmcld_01441-7-2257",
+        "ibmcld_01442-7-2257"
+      ],
+      "top5": [
+        "ibmcld_07578-365833-367834",
+        "ibmcld_16727-365807-367808",
+        "ibmcld_01494-97628-98949",
+        "ibmcld_01415-4937-6994",
+        "ibmcld_01533-6329-8623"
+      ],
+      "first_relevant_excerpt": "\nVersion 1.0.0 of the CLI was released on 15 September 2022.\n\nThis release has the following changes:\n\n\n\n* Vulnerability Advisor v4 is now available, see [Vulnerability Advisor 4 is available from Container Registry plug-in 1.0.0](https://cloud.ibm.com/docs/Registry?topic=Registry-registry_release_notes15sep2022_va_version_4).\n* Image and digest list output no longer includes security status by default. You can either add the --va argument to include security status for all the listed images, or you can use the ibmcloud cr va command to query security status for an individual image.\n\n\n\n\n\n\n\n Version 0.1.582 \n\nVersion 0.1.582 of the CLI was released on 15 September 2022.\n\nThis release has the following changes:\n\n\n\n* Vulnerability remediations.",
+      "top_ranked_excerpt": "\nThe images that are not eligible are still displayed, but they do not count toward the total number of images that is set in the retention policy and are not removed.\n* What regions are available?\n\n What regions are available? \n\nTo find out about the regions that are available for IBM Cloud Container Registry, see [Regions](https://cloud.ibm.com/docs/Registry?topic=Registry-registry_overviewregistry_regions).\n* How much does Vulnerability Advisor cost?\n\n How much does Vulnerability Advisor cost? \n\nThe cost of Vulnerability Advisor is built into the pricing for IBM Cloud Container Registry. For more information, see [Billing for storage and pull traffic](https://cloud.ibm.com/docs/Registry?topic=Registry-registry_overviewregistry_billing_traffic).\n* Can images from other registries be scanned?\n\n Can images from other registries be scanned? \n\nVulnerability Advisor scans images from IBM Cloud Container Registry only.\n* How is a Vulnerability Advisor scan triggered?\n\n How is a Vulnerability Advisor scan triggered? \n\nFor more information about how the scanning of an image is triggered, see [Vulnerable packages](https://cloud.ibm.com/docs/Registry?topic=Registry-va_index&interface=uipac"
+    },
+    {
+      "task_id": "1c041ce47a81941c26899fdf08bde961<::>5",
+      "domain": "cloud",
+      "delta_ndcg5": -0.6131471927654584,
+      "ndcg5": 0.0,
+      "diagnosis": "relevant_candidate_but_none_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "I cannot get select query to work, what steps should I take?"
+        },
+        {
+          "speaker": "agent",
+          "text": "1. Check if you have the correct access rights: You need at least 'Reader' access to the buckets that contain the input objects. 2. After the FROM keyword, specify one or more unique resource identifiers (URIs) which can be thought of as tables. Each URI can specify one or more input objects, which can also be thought of as table partitions. 3. If the format of the input objects is CSV, and no special options are required, it is not necessary to specify a STORED AS clause. However, if the format is JSON, ORC, Parquet, or AVRO, after the FROM clause, specify STORED AS JSON, STORED AS ORC, STORED AS PARQUET, or STORED AS AVRO. 4. If text formats, such as JSON and CSV, are compressed with either gzip or bzip2 and have the extensions .gz and .bz, they automatically get recognized as compressed files. However, do not use these kinds of compressed files due to performance reasons. 5. If the format of the input objects is CSV and a delimiter other than the default , (comma) is used, you must specify the delimiter by using the FIELDS TERMINATED BY option of the STORED AS clause. All single Unicode characters are allowed as delimiters. 6. Check for a header line: By default, it is assumed that CSV input objects have a header line that specifies the names of the input columns."
+        },
+        {
+          "speaker": "user",
+          "text": "query definition"
+        },
+        {
+          "speaker": "agent",
+          "text": "The Query is a standard JavaScript object, which is passed to the db.find function which it POSTs to the _find endpoint on your behalf. To retrieve data from Discovery after it is ingested, indexed, and enriched, submit a query."
+        },
+        {
+          "speaker": "user",
+          "text": "how can I improve query"
+        },
+        {
+          "speaker": "agent",
+          "text": "You can use the tools that are built into Discovery to make improvements. If you want more control over how queries are handled, you must use the query API. Cataloging improves your query performance, especially for text-based data formats where the schema inference requires a full scan of the data before the actual query execution. Adding a custom stop words list can improve the relevance of results for natural language queries. You can also improve the quality of search results by expanding the meaning of the queries that are submitted by customers."
+        },
+        {
+          "speaker": "user",
+          "text": "can you give more details about the query API?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Watson Query provides REST APIs that you can use to interact with your instance. When you submit a search from the product user interface, your text is passed as a natural language query value to the Query API. You can use operators when you write queries to submit to Discovery by using the Query API. The API coordination node can make a request directly to servers that host that data rather than needing to combine responses from many servers. The API coordination node is also free from buffering the response since it has no combination step to carry out. As a result, the data arrives at the client more quickly."
+        },
+        {
+          "speaker": "user",
+          "text": "Can I address my storage space limits? how can I add or delete storage?"
+        }
+      ],
+      "queries": [
+        "I cannot get select query to work, what steps should I take? query definition how can I improve query can you give more details about the query API? Can I address my storage space limits? how can I add or delete storage?"
+      ],
+      "relevant_ids": [
+        "ibmcld_14573-0-1280",
+        "ibmcld_16551-0-1579"
+      ],
+      "top5": [
+        "ibmcld_07237-1522-3387",
+        "ibmcld_07115-5269-7471",
+        "ibmcld_07045-7-2118",
+        "ibmcld_07115-11488-13386",
+        "ibmcld_13480-7-2163"
+      ],
+      "first_relevant_excerpt": "\n\n\n\n\n\n\n  Adding and deleting storage \n\nYou can increase or decrease the NFS storage capacity of your deployment by adding or deleting storage to and from a cluster.\n\n\n\n1.  In the VMware Solutions console, click Resources > VMware as a Service from the left navigation pane.\n2.  In the VMware as a Service table, click the Cloud director sites tab, then click an instance name..\n3.  Click the Infrastructure tab.\n4.  On the Clusters tab, click a cluster name to expand its details.\n5.  Click Edit NFS storage.\n6.  In the Edit shared storage window, increase or decrease the current sizings for the performance tiers available.\n7.  Review the new cost, select the confirmation checkbox, and click Change to confirm.\n\n\n\nEditing the storage details might take up to 24 hours to complete. If a storage update is in progress, you cannot edit the storage until the previous operation is complete.\n\n\n\n  Related links \n\n\n\n*  [Adding virtual data centers](https://cloud.ibm.com/docs/vmware-service?topic=vmware-service-vdc-adding)\n*  [Viewing and deleting virtual data centers](https://cloud.ibm.com/docs/vmware-service?topic=vmware-service-vdc-view-delete)\n*  [Viewing VMware as a Service instances](https://c",
+      "top_ranked_excerpt": "\nIf you have recently deleted a Lite instance and then receive a 400 - Only one free environment is allowed per resource group error message when creating a new environment in a new Lite instance, you need to finish deleting the original Lite instance. See [ibmcloud resource reclamations](https://cloud.ibm.com/docs/cli?topic=cli-ibmcloud_commands_resourceibmcloud_resource_reclamations) and follow the reclamation-delete instructions.\n\n\n\n\n\n Is there size limitation on the length of Natural Language Queries (NLQ)? \n\nThe maximum query string length for a natural language query is 2048. For more information, see [Natural language query](https://cloud.ibm.com/docs/discovery?topic=discovery-query-parametersnlq).\n\n\n\n\n\n How do you improve query results? \n\nThe relevance of natural language query results can be improved in IBM Watson Discovery with training. You can train your private collections using either the Discovery tooling, or the Discovery APIs. For information, see [Improving result relevance with the tooling](https://cloud.ibm.com/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling).\n\n\n\n\n\n How do you know that relevancy training is complete? \n\nFor answers to "
+    },
+    {
+      "task_id": "c6c3b02ca32795af64c903dd76700517<::>9",
+      "domain": "cloud",
+      "delta_ndcg5": 0.0,
+      "ndcg5": 0.0,
+      "diagnosis": "no_relevant_candidate",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "Does Vulnerability Advisor scan encrypted imagery?"
+        },
+        {
+          "speaker": "agent",
+          "text": "No, encrypted images are not scanned by Vulnerability Advisor."
+        },
+        {
+          "speaker": "user",
+          "text": "Then what does Vulnerability Advisor scan? what does it actually do?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Vulnerability Advisor scans images that are stored in IBM Cloud Container Registry to find potential security vulnerabilities in the image content. It checks for known software vulnerabilities and weak system configurations. Also, it detects security issues and potential vulnerabilities. When it finds any issues, it provides suggestions to help fix the reported vulnerabilities. "
+        },
+        {
+          "speaker": "user",
+          "text": "I currently have Vulnerability Advisor version 3..."
+        },
+        {
+          "speaker": "agent",
+          "text": "Vulnerability Advisor v4 is now available, and you should update Vulnerability Advisor to version 4 by 19 June 2023. If you use one of the Vulnerability Advisor version 3 SDKs to access Vulnerability Advisor, you must update to the Vulnerability Advisor version 4 SDK."
+        },
+        {
+          "speaker": "user",
+          "text": "how can I get this Vulnerability Advisor v4?"
+        },
+        {
+          "speaker": "agent",
+          "text": "About how to update to version 4, see Update Vulnerability Advisor to version 4 by 19 June 2023."
+        },
+        {
+          "speaker": "user",
+          "text": "what is difference between Vulnerability Advisor version 3 and version 4?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Vulnerability Advisor version 4 uses new architecture and a different scanning engine compared to version 3. In version 4, the image is indexed the first time it is pushed and the vulnerability assessment is calculated every time Vulnerability Advisor is queried about that image. In contrast, version 3 triggers the scanning of an image when a new image is pushed to the registry, when a new security notice is released for a package that is installed in the image, or while an image is tagged in the registry. Additionally, version 3 is deprecated from 19 June 2023 and it is recommended to update to version 4."
+        },
+        {
+          "speaker": "user",
+          "text": "What if I want to create encrypted image since Vulnerability Advisor can not scan it?"
+        },
+        {
+          "speaker": "agent",
+          "text": "You can protect the confidentiality of your IBM Cloud® Container Registry images, and ensure that hosts that aren't trusted can't run the images. You can create an encrypted image by using an RSA public-private key pair to encrypt and decrypt the image. The public key is used to encrypt the image, while a private key is a secret and then build a container image by using a Dockerfile, and only users that have that private key can use it to decrypt the image."
+        },
+        {
+          "speaker": "user",
+          "text": "can you clarify IBM Cloud® Container Registry you are mentioning here?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, of course! IBM Cloud® Container Registry is integrated with the Security and Compliance Center to help you manage security and compliance for your organization. It provides a multi-tenant, highly available, scalable, and encrypted private image registry. It allows you to store and access your private container images, and it is hosted and managed by IBM. You can use Container Registry by setting up your own image namespace and pushing container images to your namespace. This service is required if you are using Red Hat OpenShift on IBM Cloud."
+        },
+        {
+          "speaker": "user",
+          "text": "Container Registry Grant Access"
+        },
+        {
+          "speaker": "agent",
+          "text": "You can authorize a user to configure the registry by adding a second user to your account and grant them the ability to configure IBM Cloud Container Registry. Also, you can authorize a user to access specific namespaces by creating some namespaceswith sample images, and grant access to them. You create policies to grant different roles to each namespace, and show what effect that has."
+        },
+        {
+          "speaker": "user",
+          "text": "I do not know how to set up namespaces ..."
+        }
+      ],
+      "queries": [
+        "Does Vulnerability Advisor scan encrypted imagery? Then what does Vulnerability Advisor scan? what does it actually do? I currently have Vulnerability Advisor version 3... how can I get this Vulnerability Advisor v4? what is difference between Vulnerability Advisor version 3 and version 4? What if I want to create encrypted image since Vulnerability Advisor can not scan it? can you clarify IBM Cloud® Container Registry you are mentioning here? Container Registry Grant Access I do not know how to set up namespaces ..."
+      ],
+      "relevant_ids": [
+        "ibmcld_01484-4131-5923",
+        "ibmcld_02813-2689-4113",
+        "ibmcld_06882-2689-4113"
+      ],
+      "top5": [
+        "ibmcld_07578-365833-367834",
+        "ibmcld_16727-365807-367808",
+        "ibmcld_01415-4937-6994",
+        "ibmcld_01494-97628-98949",
+        "ibmcld_01415-6473-8616"
+      ],
+      "first_relevant_excerpt": "\nFor more information about resource groups, see [Assigning existing namespaces to resource groups](https://cloud.ibm.com/docs/Registry?topic=Registry-registry_setup_cli_namespaceregistry_namespace_assign).\n\nNamespaces that are assigned to a resource group show in the Resource list page of the IBM Cloud console.\n\nYou can set up multiple namespaces, for example, to have separate repositories for your production and staging environments. If you want to use the registry in multiple IBM Cloud regions, you must set up a namespace for each region. Namespace names are unique within regions. You can use the same namespace name for each region, unless someone else already has a namespace with that name in that region.\n\nYou can have 100 namespaces in each region.\n\nTo work with the IBM-provided public images only, you do not need to set up a namespace.\n\nIf you're unsure whether a namespace is already set for your account, run the ibmcloud cr namespace-list command with the -v option to retrieve existing namespace information.\n\nConsider the following rules when you choose a namespace:\n\n\n\n* Your namespace must be unique across all IBM Cloud accounts in the same region.\n* Your namespace must hav",
+      "top_ranked_excerpt": "\nThe images that are not eligible are still displayed, but they do not count toward the total number of images that is set in the retention policy and are not removed.\n* What regions are available?\n\n What regions are available? \n\nTo find out about the regions that are available for IBM Cloud Container Registry, see [Regions](https://cloud.ibm.com/docs/Registry?topic=Registry-registry_overviewregistry_regions).\n* How much does Vulnerability Advisor cost?\n\n How much does Vulnerability Advisor cost? \n\nThe cost of Vulnerability Advisor is built into the pricing for IBM Cloud Container Registry. For more information, see [Billing for storage and pull traffic](https://cloud.ibm.com/docs/Registry?topic=Registry-registry_overviewregistry_billing_traffic).\n* Can images from other registries be scanned?\n\n Can images from other registries be scanned? \n\nVulnerability Advisor scans images from IBM Cloud Container Registry only.\n* How is a Vulnerability Advisor scan triggered?\n\n How is a Vulnerability Advisor scan triggered? \n\nFor more information about how the scanning of an image is triggered, see [Vulnerable packages](https://cloud.ibm.com/docs/Registry?topic=Registry-va_index&interface=uipac"
+    },
+    {
+      "task_id": "747a810abfd6da4a9c37cdb74feec95e<::>6",
+      "domain": "cloud",
+      "delta_ndcg5": 0.18154179253735267,
+      "ndcg5": 0.18154179253735267,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "How do I build my client application using dialogue nodes?"
+        },
+        {
+          "speaker": "agent",
+          "text": "To build your client application using dialog nodes, you need to follow these steps: create a simple conversation with two intents; the dialog uses intents to identify the purpose of the user's input regardless of the precise wording used, and then responds in the way you specify. The client application sends a message containing user input and the user input triggers a dialog node."
+        },
+        {
+          "speaker": "user",
+          "text": "what are worker nodes?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Worker nodes carry the deployments and services that make up your app. Virtual machines that your cluster manages are instances that are called worker nodes. Worker nodes are provisioned in to an IBM Cloud account that is owned by IBM to enable monitoring of malicious activities and apply security updates. "
+        },
+        {
+          "speaker": "user",
+          "text": "what are VPC clusters?"
+        },
+        {
+          "speaker": "agent",
+          "text": "With IBM Cloud Kubernetes Service, you can create a standard cluster in a Virtual Private Cloud (VPC). A VPC gives you the security of a private cloud environment with the dynamic scalability of a public cloud."
+        },
+        {
+          "speaker": "user",
+          "text": "How to create a cluster."
+        },
+        {
+          "speaker": "agent",
+          "text": "To create a cluster, you need to set up your account and then decide on the setup of your cluster. It is recommended that you have those things in mind when create a cluster. You also need to have a least two servers running Windows  2019 and SQL 2010 to  cluster, A Bastion host with external also is necessary and  as well have deployed active directory."
+        },
+        {
+          "speaker": "user",
+          "text": "How much do the IBM Cloud Schematics templates cost?"
+        },
+        {
+          "speaker": "agent",
+          "text": " Getting started tutorial incurs costs. You must have an IBM Cloud Pay-As-You-Go or Subscription account to proceed. IBM Cloud Schematics Workspaces are provided to you at no cost. However, when you decide to apply your Terraform template in IBM Cloud by clicking Apply plan from the workspace details page or running the IBM cloud schematics apply command, you are charged for the IBM Cloud resources that are described in your Terraform template."
+        },
+        {
+          "speaker": "user",
+          "text": "And what is the charge for VPC?"
+        }
+      ],
+      "queries": [
+        "How do I build my client application using dialogue nodes? what are worker nodes? what are VPC clusters? How to create a cluster. How much do the IBM Cloud Schematics templates cost? And what is the charge for VPC?"
+      ],
+      "relevant_ids": [
+        "ibmcld_04031-1609-3779",
+        "ibmcld_04031-7-2093",
+        "ibmcld_12170-1498-3591"
+      ],
+      "top5": [
+        "ibmcld_07578-278658-280528",
+        "ibmcld_16727-278632-280502",
+        "ibmcld_07578-594919-596894",
+        "ibmcld_16727-594877-596852",
+        "ibmcld_12170-1498-3591"
+      ],
+      "first_relevant_excerpt": "\nFor IBM Blockchain Platform cost estimation purposes, 1 VPC = 1 CPU = 1 vCPU = 1 Core. The term \"VPC\" is also used to refer to a type of infrastructure on IBM Cloud and is unrelated to this topic.\n\nFor a total cost estimate, remember that your blockchain network consists of an Kubernetes cluster on IBM Cloud that contains IBM Blockchain Platform components and uses storage of your choice. Your Kubernetes cluster on IBM Cloud and the storage that you choose incur separate charges. You will not be charged for the cluster that the Operational Tooling instance, also known as the console, is running on. See the [Architecture reference](https://cloud.ibm.com/docs/blockchain?topic=blockchain-ibp-console-overviewibp-console-overview-architecture) topic for an illustration. More details on how to calculate charges are described below.\n\n\n\n Benefits of the new pricing model \n\n\n\n* No membership fees: Freedom from membership fees means that you can invest directly in your blockchain components.\n* Estimation clarity: A simple hourly pricing model makes cost estimation clear and easy by using the cost estimator tool that is available in the IBM Cloud dashboard.\n* No minimum fee required: Pay for",
+      "top_ranked_excerpt": "\nWhen you create a resource such as a location or cluster, you can review a cost estimate in the Summary pane of the console. For other types of estimates, see [Estimating your costs](https://cloud.ibm.com/docs/billing-usage?topic=billing-usage-costcost).\n\nKeep in mind that some charges are not reflected in the estimate, such as the costs for your underlying infrastructure.\n* Can I view and control my current usage?\n\nSee [View your usage](https://cloud.ibm.com/docs/billing-usage?topic=billing-usage-viewingusageviewingusage) and [Set spending notifications](https://cloud.ibm.com/docs/billing-usage?topic=billing-usage-spending) for general IBM Cloud account guidance.\n\n\n\nSlurm on IBM Cloud\n\n\n\n* What Slurm version is used in cluster nodes deployed with this offering?\n\nCluster nodes that are deployed with this offering include Slurm 19.05.5-1 Advanced Edition.\n* What locations are available for deploying VPC resources?\n\nAvailable regions and zones for deploying VPC resources, and a mapping of those to city locations and data centers can be found in [Locations for resource deployment](https://cloud.ibm.com/docs/overview?topic=overview-locations).\n* What permissions do I need in order to "
+    },
+    {
+      "task_id": "c6c3b02ca32795af64c903dd76700517<::>5",
+      "domain": "cloud",
+      "delta_ndcg5": 0.38364913903790027,
+      "ndcg5": 0.38364913903790027,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "Does Vulnerability Advisor scan encrypted imagery?"
+        },
+        {
+          "speaker": "agent",
+          "text": "No, encrypted images are not scanned by Vulnerability Advisor."
+        },
+        {
+          "speaker": "user",
+          "text": "Then what does Vulnerability Advisor scan? what does it actually do?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Vulnerability Advisor scans images that are stored in IBM Cloud Container Registry to find potential security vulnerabilities in the image content. It checks for known software vulnerabilities and weak system configurations. Also, it detects security issues and potential vulnerabilities. When it finds any issues, it provides suggestions to help fix the reported vulnerabilities. "
+        },
+        {
+          "speaker": "user",
+          "text": "I currently have Vulnerability Advisor version 3..."
+        },
+        {
+          "speaker": "agent",
+          "text": "Vulnerability Advisor v4 is now available, and you should update Vulnerability Advisor to version 4 by 19 June 2023. If you use one of the Vulnerability Advisor version 3 SDKs to access Vulnerability Advisor, you must update to the Vulnerability Advisor version 4 SDK."
+        },
+        {
+          "speaker": "user",
+          "text": "how can I get this Vulnerability Advisor v4?"
+        },
+        {
+          "speaker": "agent",
+          "text": "About how to update to version 4, see Update Vulnerability Advisor to version 4 by 19 June 2023."
+        },
+        {
+          "speaker": "user",
+          "text": "what is difference between Vulnerability Advisor version 3 and version 4?"
+        }
+      ],
+      "queries": [
+        "Does Vulnerability Advisor scan encrypted imagery? Then what does Vulnerability Advisor scan? what does it actually do? I currently have Vulnerability Advisor version 3... how can I get this Vulnerability Advisor v4? what is difference between Vulnerability Advisor version 3 and version 4?"
+      ],
+      "relevant_ids": [
+        "ibmcld_01533-4-2366",
+        "ibmcld_01533-6329-8623",
+        "ibmcld_01535-6381-8675"
+      ],
+      "top5": [
+        "ibmcld_07578-365833-367834",
+        "ibmcld_16727-365807-367808",
+        "ibmcld_01494-97628-98949",
+        "ibmcld_01533-6329-8623",
+        "ibmcld_01535-6381-8675"
+      ],
+      "first_relevant_excerpt": "\n* UI\n* CLI\n\n\n\n\n\n\n\n Managing image security with Vulnerability Advisor \n\nVulnerability Advisor is provided as part of IBM Cloud® Container Registry. Vulnerability Advisor checks the security status of container images that are provided by IBM, third parties, or added to your organization's registry namespace.\n\nVulnerability Advisor provides security management for [IBM Cloud Container Registry](https://cloud.ibm.com/docs/Registry?topic=Registry-getting-startedgetting-started). Vulnerability Advisor generates a security status report that includes suggested fixes and best practices. Vulnerability Advisor is available in two versions: version 3 and version 4. Version 4 uses new architecture and a different scanning engine.\n\nVulnerability Advisor version 3 is deprecated from 19 June 2023. For more information about how to update to version 4, see [Update Vulnerability Advisor to version 4 by 19 June 2023](https://cloud.ibm.com/docs/Registry?topic=Registry-registry_notices_va_v4&interface=ui).\n\nWhen you add an image to a namespace, the image is automatically scanned by Vulnerability Advisor to detect security issues and potential vulnerabilities. If security issues are found, instructi",
+      "top_ranked_excerpt": "\nThe images that are not eligible are still displayed, but they do not count toward the total number of images that is set in the retention policy and are not removed.\n* What regions are available?\n\n What regions are available? \n\nTo find out about the regions that are available for IBM Cloud Container Registry, see [Regions](https://cloud.ibm.com/docs/Registry?topic=Registry-registry_overviewregistry_regions).\n* How much does Vulnerability Advisor cost?\n\n How much does Vulnerability Advisor cost? \n\nThe cost of Vulnerability Advisor is built into the pricing for IBM Cloud Container Registry. For more information, see [Billing for storage and pull traffic](https://cloud.ibm.com/docs/Registry?topic=Registry-registry_overviewregistry_billing_traffic).\n* Can images from other registries be scanned?\n\n Can images from other registries be scanned? \n\nVulnerability Advisor scans images from IBM Cloud Container Registry only.\n* How is a Vulnerability Advisor scan triggered?\n\n How is a Vulnerability Advisor scan triggered? \n\nFor more information about how the scanning of an image is triggered, see [Vulnerable packages](https://cloud.ibm.com/docs/Registry?topic=Registry-va_index&interface=uipac"
+    },
+    {
+      "task_id": "6af5334fbd010b919d7fa174823abd12<::>10",
+      "domain": "fiqa",
+      "delta_ndcg5": -0.7653606369886217,
+      "ndcg5": 0.0,
+      "diagnosis": "relevant_candidate_but_none_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "When applying for a mortgage, can it also cover outstanding debts?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The documents do not provide an answer to the question."
+        },
+        {
+          "speaker": "user",
+          "text": "Is refinancing the same as getting a mortgage?"
+        },
+        {
+          "speaker": "agent",
+          "text": "No, they are not the same. A mortgage is a secured debt consisting of a promissory note and a security interest that provides the mortgage holder with a secured interest in the property. A mortgage is a loan backed by a property, as specific laws cover it due to its wide usage. Therefore, the bank is not an \"investor\" in your house; it is simply lending you money with the property as collateral. Thus, it does not receive any share of the profit. On the other hand, refinancing, or re-fi, occurs when a debtor takes out a new loan, usually with new bank, to pay off an old one. This can be done for various reasons, primarily because the new loan terms will result in a lower monthly payment."
+        },
+        {
+          "speaker": "user",
+          "text": "What is the typical down payment amount for a mortgage?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Ideally, a 20% down payment is suggested when buying a house. The idea behind this is that if someone can't save 1/5 of the cost of a house, they might not be responsible enough to ensure loan repayment. Additionally, by putting down 20%, you can avoid paying costly private mortgage insurance (PMI)."
+        },
+        {
+          "speaker": "user",
+          "text": "Do I need to buy house insurance?"
+        },
+        {
+          "speaker": "agent",
+          "text": "You can obtain various types of insurance, each with commendable rules. If you require a specific kind of insurance, the insurance company can offer it to you. Homeowners insurance helps to protect against the potential devastation of a catastrophic event, which could otherwise wipe out a large portion of our net worth. For many individuals, a fully paid-off house represents their most significant asset, often more valuable than all other savings combined. It's a risk that most people would prefer to avoid."
+        },
+        {
+          "speaker": "user",
+          "text": "Which is more convenient: renting or buying"
+        },
+        {
+          "speaker": "agent",
+          "text": "Renting vs. buying: There are advantages to buying, such as that instead of money going towards rent, with a mortgage, some of the payment goes towards interest, but you are also building equity. Eventually, you'll pay off the mortgage and can live rent-free. Buying with a 20% down payment can give you a strong position in the market. If you have the financial ability to assume the risk of owning, you may be better off. On the other hand, renting provides flexibility to move with minimum hassle, and the landlord assumes the risk of owning the property. Buying is sometimes better than renting, even if you're not mobile; that depends on local market conditions. If you're investing the money reasonably, you may do as well as or better than a homebuyer, and your funds will be significantly more liquid."
+        },
+        {
+          "speaker": "user",
+          "text": "Value"
+        },
+        {
+          "speaker": "agent",
+          "text": "A home is an investment, but the value it provides isn't primarily financial. Instead, it offers consumption value as a place to live. This sets it apart from other types of investments. While you may experience some capital gains, typically in line with inflation, they are not guaranteed, and it's not easy to realize them without selling the house and moving. Essentially, there are two ways to benefit from an appreciating asset like a home: (a) Sell it and take the profit. However, if you still need a place to live, this doesn't really benefit you unless you buy a cheaper home to replace it."
+        },
+        {
+          "speaker": "user",
+          "text": "Gifting"
+        },
+        {
+          "speaker": "agent",
+          "text": "Gift taxes kick in at around $14K per giver per recipient per year. That means a straight-up gift of $200K (as cash or a house) will incur a tax. If the father has a spouse, he and the spouse could each give the mother and each child the total gift limit. Put the house in your name right from the get-go. He gives you the money, but you sign over a promissory note to him so that you net less than $14000 (gift tax annual exclusion for the calendar year). He can give everyone in your household 14k per year tax-free, which he could give you and your partner in less than seven years."
+        },
+        {
+          "speaker": "user",
+          "text": "Not payment"
+        },
+        {
+          "speaker": "agent",
+          "text": " Mortgage holders sign a promissory note, a promise to pay. But the contract explicitly details the penalty for nonpayment — surrender of the property. The borrower isn't escaping the consequences; he is suffering them from a purely financial standpoint. If you look at the downsides of walking away, The issues with the credit rating are well known, but you need to consider any open lines of credit you currently have and any need you might have to open a line of credit in the future. 401(k) and IRA accounts are not at risk when you default on a mortgage, even in states that aren't non-recourse. The bank cannot go after you in states where mortgages are non-recourse loans. They get the keys, and whatever they recover from the house sale is it."
+        },
+        {
+          "speaker": "user",
+          "text": "What is the minimum age requirement for applying for a mortgage?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Generally, you need to be of legal age (usually 18) to apply for a loan. Also, your credit score should be good enough for the bank or loan company to feel comfortable lending you money. The reason for the age requirement is that if you're not 18, any contract you sign can be canceled (made invalid) by either you or your parents. This means that it would be legal for you to ask the bank for a $1000 loan and for the bank to provide it, if you're under 18."
+        },
+        {
+          "speaker": "user",
+          "text": "15- or 30-year mortgage?"
+        }
+      ],
+      "queries": [
+        "When applying for a mortgage, can it also cover outstanding debts? Is refinancing the same as getting a mortgage? What is the typical down payment amount for a mortgage? Do I need to buy house insurance? Which is more convenient: renting or buying Value Gifting Not payment What is the minimum age requirement for applying for a mortgage? 15- or 30-year mortgage?"
+      ],
+      "relevant_ids": [
+        "390642-0-493",
+        "404605-0-335",
+        "496752-0-1995"
+      ],
+      "top5": [
+        "104788-0-1186",
+        "22519-0-1528",
+        "294167-0-1759",
+        "14083-0-1198",
+        "464355-0-758"
+      ],
+      "first_relevant_excerpt": "\nIf the interest rate in both mortgages is the same, then yes, you will end up paying the same amount in interest if both are paid off in 15 years. However, in practice, almost always a 15-year mortgage will have a much lower interest rate that a 30-year mortgage. Also, if you are thinking of taking out a 30-year mortgage with the intention of paying it off early, make sure it does not have an early payment penalty; this is a penalty the bank will charge you if you pay back the loan early.",
+      "top_ranked_excerpt": "\nI think  the cleanest way to do this is to rent the house from your father for 2 years, possibly adding an option to buy at a set price to the lease agreement.  That takes care of any gift issues, and avoids complications like you living in a house that you couldn't afford to own otherwise.  If/when you are able to afford a mortgage, get a mortgage on the house and buy it from your father.   Will a bank be willing to take out a mortgage on a house that I technically own for the full amount? I would not take out a mortgage for anything more than 80% of the house's market value.  Anything more than that, and you need to pay mortgage insurance, which will increase your monthly payment for no benefit to you.   My biggest concern is that you won't be able to afford an 80% mortgage after 2 years.  If your father really wants to keep the house in the family then he should either keep the house and rent it to you, or give you the down payment as a gift (keeping under the maximum gift to avoid taxes). If neither you or your father cannot afford the house you may have no choice but to sell it.  I would not advise you make a bad financial decision purely for sentimental reasons."
+    },
+    {
+      "task_id": "1c74814752c3f9d4ed0b99c16e1ed192<::>6",
+      "domain": "fiqa",
+      "delta_ndcg5": -0.6131471927654584,
+      "ndcg5": 0.0,
+      "diagnosis": "no_relevant_candidate",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "Alternative means of salary for my employees"
+        },
+        {
+          "speaker": "agent",
+          "text": "There are different ways to consider salary compensation besides the traditional gross salary. Total compensation includes salary and bonuses, as well as the cost or value of employer-paid healthcare, retirement, company cars, expense accounts, stock options, and other valuable goods or services. Additionally, the total employee cost is generally double the gross cash compensation (salary + bonuses) and includes employer-paid payroll taxes and practical costs like the cost of your computer, cubicle or office furniture, and the portion of utility costs that keep you well-lit, clean and comfortable. It's also important to consider the cost of living in the area where your employees live, as this can significantly impact the actual value of their salaries. For example, $100k in California may not go as far as $100k in other parts of the U.S. Finally, it's worth noting that salary pay does not directly translate to hourly wages, as salaried employees are compensated for a week of work, which may require more or less than 40 hours."
+        },
+        {
+          "speaker": "user",
+          "text": "Do employers need to report their employee's salaries and withhold money for income tax purposes?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes. In many countries, employers are required to report their employee's salaries and withhold a portion for income tax, which is commonly known as \"pay as you earn,\" \"withholding taxes,\" or taxing \"at the source.\" Your employer uses the W4 form in the USA to determine how much to withhold from your wages. If you leave everything at default, your salary is your only taxable income, and you only benefit from default deductions. Your employer will calculate your tax withholding based on this information. When you start a new job, your employer will typically ask you to fill out a tax form such as the W-4 Employee's Withholding Allowance Certificate so they can withhold the correct federal income tax from your wages. If your employer doesn't do this, you are responsible for calculating and filing your income taxes, especially if you are self-employed, an independent contractor, or paid under the table. If your employer is reputable, they will provide you with additional information, usually in February. You must file your taxes correctly before the IRS tax deadline, generally April 15th for most people. Do I have to worry about money in my bank account? Unless you have a significant amount in your bank savings account earning interest, you won't have to pay any sort of tax on money in your bank account. If you do earn enough taxable interest, the bank will send you the proper forms to file your taxes."
+        },
+        {
+          "speaker": "user",
+          "text": "In that case, could you please explain why I still have to pay income tax?"
+        },
+        {
+          "speaker": "agent",
+          "text": "In the U.S., most salaries are expressed as \"gross salaries\" before individual taxes are deducted. You must report all income from work, regardless of whether you save, spend, or keep it aside. This includes income from non-tax-advantaged accounts, as well as any gains or losses and dividends received. Gains and losses are realized when you actually sell, and is the difference between the price you bought for, and the price you sold for. Gains are taxed at the capital gains rate, either short-term or long-term depending on how long you owned the stock"
+        },
+        {
+          "speaker": "user",
+          "text": "Deductions"
+        },
+        {
+          "speaker": "agent",
+          "text": "The number of allowances you can claim is calculated by dividing your total deductions by the personal exemptions for the tax year. In 2015, the standard deduction for a married couple filing jointly is $12,600, and each person gets a personal exemption of $4,000. If your deductions exceed the standard deduction, you can subtract property taxes from your income. For example, if your income is $95,000, after taking into account the standard deduction of $12,600 and $8,000 in exemptions, your taxable income would be just under $10,000, unless you have additional undisclosed income. The most common tax credit for most people is student loan interest. If you pay $500 in student loan interest, that sum is subtracted from your tax bill."
+        },
+        {
+          "speaker": "user",
+          "text": "What about FICA?"
+        },
+        {
+          "speaker": "agent",
+          "text": "In the United States, nearly all workers must pay Social Security and Medicare taxes, also known as payroll taxes or FICA. It's important to understand that these taxes are not savings plans, and the money you pay is not explicitly allocated to an account in your name. Instead, it funds the benefits received by current retirees and beneficiaries. When you retire, your benefits will be financed by the contributions of the still-employed workers paying these taxes. It's worth noting that FICA taxes are separate from federal and state income taxes, and as a sole proprietor, you are responsible for both types of taxes. Furthermore, there's a distinction between FICA taxes when you are an employee and when you are self-employed. Typically, FICA taxes are divided equally between the employer and the employee, with each paying half. However, if you are self-employed, you are responsible for paying both halves. This is commonly known as the self-employment tax. You may be receiving benefits, but you are also still working, so you still have to pay the tax."
+        },
+        {
+          "speaker": "user",
+          "text": "Is personal income tax the same as corporate tax?"
+        }
+      ],
+      "queries": [
+        "Alternative means of salary for my employees Do employers need to report their employee's salaries and withhold money for income tax purposes? In that case, could you please explain why I still have to pay income tax? Deductions What about FICA? Is personal income tax the same as corporate tax?"
+      ],
+      "relevant_ids": [
+        "419488-0-370",
+        "471700-0-458"
+      ],
+      "top5": [
+        "245451-0-792",
+        "252843-0-1938",
+        "255101-0-2143",
+        "205341-0-2128",
+        "361954-0-768"
+      ],
+      "first_relevant_excerpt": "\nCorporations are taxed on their profits.  Multinational corporations can report their profits in any country they have operations, regardless of where they made the sale.  In other words, it's impossible to nail down exactly where a company 'made it's money'.  So the US doesn't try, we just tax them on earnings everywhere, minus taxes paid elsewhere.  edit for clarity",
+      "top_ranked_excerpt": "\nMany countries have employers report their employees' salaries and withhold some money for income tax purposes (it's called “pay as you earn”, “withholding taxes” or taxing “at the source”). Often the system is designed in such a way that most people actually pay too much and can get money back at the end of the year. In that case, the salary you receive can certainly be considered a “net salary”. Depending on the tax system, individuals might need to file a separate tax returns to report any other income (investments, rents, whatever) or benefit from tax incentives but it can also be optional. If you live in such a country and your situation is simple enough that there are no applicable deductibles, you might simply choose to forgo it and let your employer take care of everything."
+    },
+    {
+      "task_id": "535ebd306304982e4e49cc989ce5b10b<::>5",
+      "domain": "fiqa",
+      "delta_ndcg5": -0.46927872602275644,
+      "ndcg5": 0.0,
+      "diagnosis": "relevant_candidate_but_none_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "How to pay with cash when car shopping?"
+        },
+        {
+          "speaker": "agent",
+          "text": "When paying with cash for a car, you need to get a cashier's check made out for the amount. Note that dealers may not accept personal checks as they may bounce. You would typically pay a deposit of $500, which can be a check or bank deposit after negotiation. Then, you can return to the dealership later the same day or within a few days with a cashier's check for the remaining amount. Keep in mind that if you give the dealership $10,000 or more in actual cash, they will be required to fill out a form 8300 with the IRS."
+        },
+        {
+          "speaker": "user",
+          "text": "Or installment easier?"
+        },
+        {
+          "speaker": "agent",
+          "text": "I'm sorry, but I don't have an answer to your question."
+        },
+        {
+          "speaker": "user",
+          "text": "Then, 0% interest same as having benefits of the both?"
+        },
+        {
+          "speaker": "agent",
+          "text": "A 0% interest rate offer can provide some benefits of both paying in cash and financing. With a 0% interest rate, you can effectively borrow money from the dealership without paying any interest, which can make your payments lower and more manageable.  This can be beneficial if you want to preserve your savings by not paying the full price of the car upfront.  However, zero percent interest may sound great,  those deals often have extra margin built into the price to make up for it. There might also be late payment fees, prepayment penalties, and other clauses.  Also, these tend to be shorter 12 months vs  72 months. "
+        },
+        {
+          "speaker": "user",
+          "text": "If my friend paid for me with her bank's check, what is a consequence?"
+        },
+        {
+          "speaker": "agent",
+          "text": "If your friend pays for the car using her bank's check (also known as a cashier's check), there should not be any legal consequences for you.  In the US, gift tax always falls on the donor, never the recipient, and gifts are not taxable income to the recipient up to $14K for the whole year."
+        },
+        {
+          "speaker": "user",
+          "text": "Do I really need an extra warranty on my new car?"
+        }
+      ],
+      "queries": [
+        "How to pay with cash when car shopping? Or installment easier? Then, 0% interest same as having benefits of the both? If my friend paid for me with her bank's check, what is a consequence? Do I really need an extra warranty on my new car?"
+      ],
+      "relevant_ids": [
+        "129350-3347-5243",
+        "250672-1605-2622",
+        "506194-0-1907"
+      ],
+      "top5": [
+        "235484-0-1770",
+        "105694-0-598",
+        "455851-0-1877",
+        "7311-0-1018",
+        "322238-0-1617"
+      ],
+      "first_relevant_excerpt": "\nA new vehicle does not have unknown risk associated with the purchase, and also comes with peace of mind through a manufacturer warranty. You can purchase a used car warranty, but they are expensive, and often come with (different) problems. Finance Terms - A buyer can purchase a new vehicle with lower financing rate than a used vehicle. And you get nothing of value from the additional finance charges, so the difference between a new and used car also includes higher finance costs. Own versus Rent - You are assuming that people actually want to 'own' their cars. And I would suggest that people want to 'own' their car until it begins to present problems (repair and maintenance issues), and then they want a new vehicle to replace it. But renting or leasing a vehicle is an even more expensive, and less flexible means to obtain transportation. Expense Allocation - A vehicle is an expense. As the owner of a vehicle, you are willing to pay for that expense, to fill your need for transportation. Paying for the product as you use the product makes sense, and financing is one way to align the payment with the consumption of the product, and to pay for the expense of the vehicle as you enjo",
+      "top_ranked_excerpt": "\n\"Is all interest on a first time home deductible on taxes? What does   that even mean? If I pay $14,000 in taxes will My taxes be $14,000   less. Will my taxable income by that much less? If you use the standard deduction in the US (assuming United States), you will have 0 benefit from a mortgage.   If you itemize deductions, then your interest paid (not principal) and your property tax paid is deductible and reduces your income for tax purposes.  If your marginal tax rate is 25% and you pay $10000 in interest and property tax, then when you file your taxes, you'll owe (or get a refund) of $2500 (marginal tax rate * (amount of interest + property tax)). I have heard the term \"\"The equity on your home is like a bank\"\". What   does that mean? I suppose I could borrow using the equity in my home   as collateral? If you pay an extra $500 to your mortgage, then your equity in your house goes up by $500 as well.   When you pay down the principal by $500 on a car loan (depreciating asset) you end up with less than $500 in value in the car because the car's value is going down.   When you do the same in an appreciating asset, you still have that money available to you though you either ne"
+    },
+    {
+      "task_id": "8040ccdfc0a0ffb8e3f82d94f92ddb5c<::>2",
+      "domain": "fiqa",
+      "delta_ndcg5": 0.0,
+      "ndcg5": 0.0,
+      "diagnosis": "relevant_candidate_but_none_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "hi, can you help me"
+        },
+        {
+          "speaker": "agent",
+          "text": "Of course! I'm here to help. However, I might need more context or information about what you're looking for. Could you please provide more details about your question or request?"
+        },
+        {
+          "speaker": "user",
+          "text": "what's the difference between debit and credit cards"
+        }
+      ],
+      "queries": [
+        "hi, can you help me what's the difference between debit and credit cards"
+      ],
+      "relevant_ids": [
+        "152039-0-563",
+        "167202-0-404",
+        "399382-0-325",
+        "539007-0-594"
+      ],
+      "top5": [
+        "89161-0-2037",
+        "38720-0-444",
+        "89161-1606-2344",
+        "394928-0-1102",
+        "564180-0-680"
+      ],
+      "first_relevant_excerpt": "\nLets say Debit is what you pay and Credit is what somebody else pays for you. A Debit card will charge your bank account directly. A Credit card will charge your bank account some time later. In both cases the shop owner has the money available directly. It's called Credit because somebody believes you will be able to pay your debt on time (or later with an interest). As for purchase and sales. A customer buys = makes a purchase. A shopkeeper sells = makes a sale. Note from a bar: I made an agreement with the bank. They don't sell beer, I don't give Credit.",
+      "top_ranked_excerpt": "\n\"You ask about the difference between credit and debit, but that may be because you're missing something important. Regardless of credit/debit, there is value in carrying two different cards associated with two different accounts. The reason is simply that because of loss, fraud, or your own mismanagement, or even the bank's technical error, any card can become unusable for some period of time. Exactly how long depends what happened, but just sending you a new card can easily take more than one business day, which might well be longer than you'd like to go without access to any funds. In that situation you would be glad of a credit card, and you would equally be glad of a second debit card on a separate account. So if your question is \"\"I have one bank account with one debit card, and the only options I'm willing to contemplate are (a) do nothing or (b) take a credit card as well\"\", then the answer is yes, take a credit card as well, regardless of the pros or cons of credit vs debit. Even if you only use the credit card in the event that you drop your debit card down a drain. So what you can now consider is the pros and cons of a credit card vs managing an additional bank account "
+    },
+    {
+      "task_id": "8040ccdfc0a0ffb8e3f82d94f92ddb5c<::>3",
+      "domain": "fiqa",
+      "delta_ndcg5": 0.0,
+      "ndcg5": 0.0,
+      "diagnosis": "no_relevant_candidate",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "hi, can you help me"
+        },
+        {
+          "speaker": "agent",
+          "text": "Of course! I'm here to help. However, I might need more context or information about what you're looking for. Could you please provide more details about your question or request?"
+        },
+        {
+          "speaker": "user",
+          "text": "what's the difference between debit and credit cards"
+        },
+        {
+          "speaker": "agent",
+          "text": "  A debit card takes the funds directly from your  checking account when you make a purchase. There's no loan or credit involved, it's just your money being spent.  A credit card facilitates a short term loan. When you make a purchase with a credit card, you're essentially borrowing money from the bank, which you then pay back later."
+        },
+        {
+          "speaker": "user",
+          "text": "how do I select a credit card, there are so many choices, it is overwhelming"
+        }
+      ],
+      "queries": [
+        "hi, can you help me what's the difference between debit and credit cards how do I select a credit card, there are so many choices, it is overwhelming"
+      ],
+      "relevant_ids": [
+        "539610-0-1307",
+        "596692-0-327"
+      ],
+      "top5": [
+        "89161-0-2037",
+        "572796-0-1181",
+        "38720-0-444",
+        "89161-1606-2344",
+        "585661-0-942"
+      ],
+      "first_relevant_excerpt": "\nYou have 3 assumptions about the use of credit cards for all your purchases: 1) May be a moot point. At current interest rates that will not make much of a difference. If somebody links their card to a checking account that doesn't pay any interest there will be no additional interest earned. If the rate on their account is <1% they may make a couple of dollars a month. 2) Make sure that the card delivers on the benefits you expect. Don't select a card with an annual fee. Cash is better than miles for most people. Also make sure the best earnings aren't from only shopping at one gas station or one store. You might not make as much as you expect. Especially if the gas station is generally the most expensive in the area. Sometimes the maximum cash back is only for a limited time, or only after you have charged thousands of dollars that year. 3) It can have a positive impact on your credit rating. I have also found that the use of the credit card does minimize the chances of accidentally overdrawing the linked account. There is only one big scheduled withdraw a month, instead of dozens of unscheduled ones. There is some evidence that by disconnecting the drop in balance from the purc",
+      "top_ranked_excerpt": "\n\"You ask about the difference between credit and debit, but that may be because you're missing something important. Regardless of credit/debit, there is value in carrying two different cards associated with two different accounts. The reason is simply that because of loss, fraud, or your own mismanagement, or even the bank's technical error, any card can become unusable for some period of time. Exactly how long depends what happened, but just sending you a new card can easily take more than one business day, which might well be longer than you'd like to go without access to any funds. In that situation you would be glad of a credit card, and you would equally be glad of a second debit card on a separate account. So if your question is \"\"I have one bank account with one debit card, and the only options I'm willing to contemplate are (a) do nothing or (b) take a credit card as well\"\", then the answer is yes, take a credit card as well, regardless of the pros or cons of credit vs debit. Even if you only use the credit card in the event that you drop your debit card down a drain. So what you can now consider is the pros and cons of a credit card vs managing an additional bank account "
+    },
+    {
+      "task_id": "6af5334fbd010b919d7fa174823abd12<::>2",
+      "domain": "fiqa",
+      "delta_ndcg5": 0.46927872602275644,
+      "ndcg5": 0.46927872602275644,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "When applying for a mortgage, can it also cover outstanding debts?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The documents do not provide an answer to the question."
+        },
+        {
+          "speaker": "user",
+          "text": "Is refinancing the same as getting a mortgage?"
+        }
+      ],
+      "queries": [
+        "When applying for a mortgage, can it also cover outstanding debts? Is refinancing the same as getting a mortgage?"
+      ],
+      "relevant_ids": [
+        "104857-0-1939",
+        "181081-0-1825",
+        "274870-0-1888"
+      ],
+      "top5": [
+        "104857-0-1939",
+        "465905-0-941",
+        "39074-0-608",
+        "58353-0-320",
+        "421136-0-468"
+      ],
+      "first_relevant_excerpt": "\n\"A re-financing, or re-fi, is when a debtor takes out a new loan for the express purpose of paying off an old one. This can be done for several reasons; usually the primary reason is that the terms of the new loan will result in a lower monthly payment. Debt consolidation (taking out one big loan at a relatively low interest rate to pay off the smaller, higher-interest loans that rack up, like credit card debt, medical bills, etc) is a form of refinancing, but you most commonly hear the term when referring to refinancing a home mortgage, as in your example. To answer your questions, most of the money comes from a new bank. That bank understands up front that this is a re-fi and not \"\"new debt\"\"; the homeowner isn't asking for any additional money, but instead the money they get will pay off outstanding debt. Therefore, the net amount of outstanding debt remains roughly equal. Even then, a re-fi can be difficult for a homeowner to get (at least on terms he'd be willing to take). First off, if the homeowner owes more than the home's worth, a re-fi may not cover the full principal of the existing loan. The bank may reject the homeowner outright as not creditworthy (a new house is a H",
+      "top_ranked_excerpt": "\n\"A re-financing, or re-fi, is when a debtor takes out a new loan for the express purpose of paying off an old one. This can be done for several reasons; usually the primary reason is that the terms of the new loan will result in a lower monthly payment. Debt consolidation (taking out one big loan at a relatively low interest rate to pay off the smaller, higher-interest loans that rack up, like credit card debt, medical bills, etc) is a form of refinancing, but you most commonly hear the term when referring to refinancing a home mortgage, as in your example. To answer your questions, most of the money comes from a new bank. That bank understands up front that this is a re-fi and not \"\"new debt\"\"; the homeowner isn't asking for any additional money, but instead the money they get will pay off outstanding debt. Therefore, the net amount of outstanding debt remains roughly equal. Even then, a re-fi can be difficult for a homeowner to get (at least on terms he'd be willing to take). First off, if the homeowner owes more than the home's worth, a re-fi may not cover the full principal of the existing loan. The bank may reject the homeowner outright as not creditworthy (a new house is a H"
+    },
+    {
+      "task_id": "2cc753bcef23767c18aedad06c4405c4<::>10",
+      "domain": "govt",
+      "delta_ndcg5": -1.0,
+      "ndcg5": 0.0,
+      "diagnosis": "relevant_candidate_but_none_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "What should I do if my garbage/recycling/organics collection is missed?"
+        },
+        {
+          "speaker": "agent",
+          "text": "If you are in City of Piedmont, you should call Republic Services at their toll-free number, (800) 320-8077 before 12 noon for a return trip on the same day. "
+        },
+        {
+          "speaker": "user",
+          "text": "do i need to pay for garbage/recycling/organics service? what if I do not have enough money?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, service rates are based upon the size of your garbage cart. According to the Piedmont Municipal Code, every owner of any premises is required to ensure that arrangements are made to properly dispose of solid waste, recyclable material, and organic waste created, produced, or accumulated on the premises. There are ways to reduce the cost of garbage collection service. For example, you may be able to switch to a smaller garbage cart to save money; or you can switch to curbside service."
+        },
+        {
+          "speaker": "user",
+          "text": "can you please clarify the service rate here?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The service rates for single-family residences in the City of Piedmont are based on the size of the garbage cart. The rates for curbside collection are as follows: $94.76 per month for a 20-gallon garbage cart, $100.41 per month for a 35-gallon garbage cart, $138.33 per month for a 65-gallon garbage cart, and $154.91 per month for a 95-gallon garbage cart. Each residential account includes unlimited recycling and organics carts. On-premises (backyard) collection rates are different and are limited to a maximum size of 35 gallons. Additional garbage carts are available for an additional cost.\nFor residents of Madison County, NY, there is no charge for residential yard waste drop-off if the items are up to 6 inches in diameter and no longer than 10 feet in length. Commercial yard waste, stumps, and oversized tree limbs are charged per ton and must go over the scales before unloading."
+        },
+        {
+          "speaker": "user",
+          "text": "recycle food scraps"
+        },
+        {
+          "speaker": "agent",
+          "text": "Properly sorting your food scraps and food soiled paper not only helps fight climate change, it's now the law. To recycle food scraps in the City of Piedmont, you should collect food scraps and food-soiled paper in the green kitchen pail and then empty the pail contents into the large green Organics cart for collection. "
+        },
+        {
+          "speaker": "user",
+          "text": "I do not want to miss my garbage collection service again...especially during the holiday time"
+        },
+        {
+          "speaker": "agent",
+          "text": "Service hours are Monday - Friday from 7:00 a.m. to 3:00 p.m. Regarding your concern about not missing the garbage collection service during the holiday season, there is no garbage, organics, or recycling collection on New Year's Day, Independence Day, Labor Day, Thanksgiving Day, and Christmas Day. During weeks when these holidays fall on a weekday, pickup is one day later for the rest of the week, including Saturday. LOJO Technology will also offer quarterly Saturday collection dates for those who cannot make it during the week. 2024 Saturday dates from 9 AM to 1 PM for electronic recycling. To set up an HHW appointment for Hazardous waste, please fill out the reservation form and enter your preferred date/time. Miller Environmental Group, Inc. is open Monday - Friday, 8 AM to 3 PM. "
+        },
+        {
+          "speaker": "user",
+          "text": "what is electronic waste and hazardous waste here?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Electronic waste (e-waste) considers items such as TVs, computer accessories, cables, small accessories, inkjet printers/scanners/fax machines, laser printers, desktop copiers, stereos, audio/video equipment, video games, laptops, cellular/cordless phones and answering machines, power supplies. Hazardous waste, on the other hand, refers to any household material that is toxic or corrosive, or can catch fire, react or explode under certain conditions. Examples include bleaches, cleaning solvents, pesticides, pool chemicals and more. In Madison County, NY, there is a free household hazardous waste program for its residents where they can bring their waste to Miller Environmental Group in Syracuse, NY. Appointments are required and there is a limit of 1 visit per household per year."
+        },
+        {
+          "speaker": "user",
+          "text": "how do I recycle paint?"
+        },
+        {
+          "speaker": "agent",
+          "text": "To recycle paint in the City of Piedmont, you should take latex and oil-based paint to an Alameda County Household Hazardous Waste Facility. You can call (800) 606-6606 or visit http://www.StopWaste.org/recycling/residents/household-hazardous-waste/paints."
+        },
+        {
+          "speaker": "user",
+          "text": "I am allergic to latex..."
+        },
+        {
+          "speaker": "agent",
+          "text": "If you are allergic to latex, you should avoid contact with natural rubber latex products. If you have to wear gloves in your work, ask your employer for nonlatex gloves. Avoid areas where you might inhale the powder from latex gloves worn by other workers. Wear a personal medical emergency ID bracelet. If prescribed by your physician, carry an emergency epinephrine kit in case you are accidentally exposed to latex and go into anaphylactic shock. Learn how to use it and make sure family members, friends and fellow employees know how to use it. If you use latex-based products on the job, alert your employer about your allergy. Before dental and medical procedures or examinations, alert health care providers about your allergy. Ask to be scheduled as the first patient in the morning to minimize your exposure to airborne latex particles. Participate in educational and training programs regarding latex allergy. If the allergy sufferer is a child, alert school and/or day care providers. Work with your allergist, local hospital and medical facilities to find latex-safe environments where you can go for treatment. Contact your local emergency responders (police, fire and ambulance service) to inform them of your condition so a plan of care can be developed before there is an actual emergency. Health care facilities are beginning to create latex-safe treatment areas and surgical suites to accommodate people who are allergic to latex. Check with your local hospital."
+        },
+        {
+          "speaker": "user",
+          "text": "if I plan to remodel my house, do I need to pay for the debris? can I move debris myself out from my house?"
+        },
+        {
+          "speaker": "agent",
+          "text": "No. There are no additional City fees associated with the requirement to recycle C&D debris. Contractors, or any other paid hauler other than Republic Services, cannot remove the debris for the homeowner. Only home-owners who do not pay to have debris removed but personally transport the debris to the solid waste and/or recycling facility are exempt from the exclusive franchise agreement."
+        },
+        {
+          "speaker": "user",
+          "text": "I heard that Alameda County has three recycling ordinances that are mandatory. please explain with penalty."
+        }
+      ],
+      "queries": [
+        "What should I do if my garbage/recycling/organics collection is missed? do i need to pay for garbage/recycling/organics service? what if I do not have enough money? can you please clarify the service rate here? recycle food scraps I do not want to miss my garbage collection service again...especially during the holiday time what is electronic waste and hazardous waste here? how do I recycle paint? I am allergic to latex... if I plan to remodel my house, do I need to pay for the debris? can I move debris myself out from my house? I heard that Alameda County has three recycling ordinances that are mandatory. please explain with penalty."
+      ],
+      "relevant_ids": [
+        "48bba2114bb2383e-1553-3675",
+        "48bba2114bb2383e-3131-5447",
+        "48bba2114bb2383e-4897-7329",
+        "48bba2114bb2383e-8282-10276"
+      ],
+      "top5": [
+        "fe8c82cdf4a51f27-12212-14051",
+        "fe8c82cdf4a51f27-13646-15675",
+        "3d169ce80ed6ba28-1508-3344",
+        "fe8c82cdf4a51f27-10667-12565",
+        "fe8c82cdf4a51f27-4768-6684"
+      ],
+      "first_relevant_excerpt": "\r\n\tOrdinances and Regulations - City of Piedmont\r\n\nOrdinances and RegulationsRecycling, Organic Waste, & Garbage Collection Service in PiedmontCollection ServicesFAQsResourcesGarbageRecyclingOrganicsBulky ItemsConstruction and DemolitionE WasteHousehold Hazardous WasteOrdinances and RegulationsSB 1383COVID-19 Updates and InformationClimate ActionSolid Waste Data\nLast item for navigation\n\nCity of Piedmont » Departments » Public Works » Recycling, Organic Waste, & Garbage Collection Service in Piedmont » Ordinances and RegulationsShare ThisPrint Page A+Increase Font A-decrease font \n\nWhat do you need to recycle?\n\nCOVID-19\nUpdates and Information\n\n   (510) 420-3040 \n\nOrdinances and Regulations\n With the passage of Assembly Bill 341 (Mandatory Commercial Recycling law) in 2011, California enacted a statewide program to reduce greenhouse gas emissions by diverting commercial solid waste from landfills. The law also established a statewide recycling goal of 75% by 2020. In 2016, AB 1826 (Mandatory Organics Recycling law) went into effect, requiring businesses and multifamily complexes that generated specified amounts of organic waste to arrange for organics collection services. Most rece",
+      "top_ranked_excerpt": "\r\n\tFAQs - City of Piedmont\r\n\nA. Latex and oil-based paint needs to be taken to an Alameda County Household Hazardous Waste Facility. Call (800) 606-6606 or visit http://www.StopWaste.org/recycling/residents/household-hazardous-waste/paints.\n\nQ. What do I do with syringes and hypodermic needles?\n\nA. They cannot be recycled or thrown in the garbage and must be disposed of properly. Please visit the Alameda County Household Hazardous Waste website or call (800) 606-6606 for proper disposal instructions.\n\nQ. I have some unusual items to recycle. Where can I get more information about what to do with them?\n\nA. Visit the web site of StopWaste.org. or call their toll-free hotline, (877) 786-7927.\n\nQ. Who should I call about the disposal of household hazardous waste?\n\nA. Call the Alameda County Household Hazardous Waste Program at (800) 606-6606.\n\nCollection Day Information\n\nQ. What are the hours of collection?\n\nA. Service hours are Monday - Friday from 7:00 a.m. to 3:00 p.m.\n\nQ. What is my collection schedule during holidays?\n\nA. There is no garbage, organics, or recycling collection on New Year's Day, Independence Day, Labor Day, Thanksgiving Day, and Christmas Day. During weeks when the"
+    },
+    {
+      "task_id": "91715ec6ec7e9a11925e58e707b6626e<::>3",
+      "domain": "govt",
+      "delta_ndcg5": -0.9197207891481876,
+      "ndcg5": 0.0,
+      "diagnosis": "relevant_candidate_but_none_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "How can I obtain a replacement for my lost New York boating safety certificate?"
+        },
+        {
+          "speaker": "agent",
+          "text": "You can order a replacement for your lost New York boating safety certificate online at https://www.ilostmycard.com/. However, if you lost temporary certificates, the temporary certificates cannot be replaced. Additionally, please note that NYS can only issue replacement certificates for the NY Safe Boating Course."
+        },
+        {
+          "speaker": "user",
+          "text": "do I have to have Boating safety certificates ?"
+        },
+        {
+          "speaker": "agent",
+          "text": "In New York, anyone operating a Personal Watercraft (JetSki™, Wave Runner™, etc.) must have a boating safety certificate and be at least 14 years of age or older. Starting in 2024, if you are operating any other type of motorized boat, you will need a safety certificate if you were born on or after January 1, 1978. Starting in 2025, all operators of motorized vessels, regardless of age, will be required to have a safety certificate. However, if you are renting a boat, you do not need a safety certificate if you are at least 18 years old, although the livery must demonstrate how to properly use the boat before renting it. Persons under the age of 18 may only rent a motorboat if they hold a safety certificate."
+        },
+        {
+          "speaker": "user",
+          "text": "I need to register my boat and boat trailer"
+        }
+      ],
+      "queries": [
+        "How can I obtain a replacement for my lost New York boating safety certificate? do I have to have Boating safety certificates ? I need to register my boat and boat trailer"
+      ],
+      "relevant_ids": [
+        "37a833f0b34a3508-5053-7382",
+        "37a833f0b34a3508-6800-8014"
+      ],
+      "top5": [
+        "fcbb1026145f7922-1541-3606",
+        "fcbb1026145f7922-3175-5322",
+        "fcbb1026145f7922-8034-10114",
+        "fcbb1026145f7922-4764-6943",
+        "fcbb1026145f7922-6543-8514"
+      ],
+      "first_relevant_excerpt": "Motor Boating - NYSDEC\nBe sure to adhere to all boating regulations and requirements prior to launching, including properly cleaning your boat, getting your boat registered, and obtaining boater safety certification.\n \n \n\nPlaces to Launch Your Boat\n\nBoat Launch Sites\n\nDECinfo Locator (an interactive map)\n\nNew York State Boat Launching Sites (PDF)\n\nHuntFishNY Mobile App\n\nBoat Cleaning and DisinfectingBoats, trailers, waders and other fishing equipment can spread harmful aquatic invasive species from waterbody to waterbody unless properly cleaned after use. DEC regulations prohibit boats from launching or leaving sites without first draining the boat and cleaning the boat, trailer and equipment. Furthermore, many New York counties, towns, and villages also have laws in place that prohibit the transport of aquatic invasive species on boats, trailers and equipment.To avoid spreading invasive species, follow the 'Clean.Drain.Dry.' method for properly disinfecting your boat and equipment before launching. If you need help, many public boat launches have boat stewards on-site to inspect your watercraft and gear.Use our interactive map feature to locate a boat inspection station and boat s",
+      "top_ranked_excerpt": "\r\n\tBoating Frequently Asked Questions - NYS Parks, Recreation & Historic Preservation\r\n\nWe do not have all course records prior to 2000. Any certificate issued prior to 2000 is only acceptable if you have a copy of it and you were under 18 years of age when it was issued. All NYS boating safety certificates issued\r\n\tafter 2000, regardless of age, are acceptable.\nI took course prior to 2000, but lost my certificate - what should I do?\r\n\tUnfortunately, we do not have records for all students who took the course prior to the year 2000. Search for your record online at ilostmycard.com. You can also email us at boating@parks.ny.gov with your name and date of birth to search for your record. If your record is not found, you will need to retake the course to obtain a certificate.\nCan I use my NY safety certificate in other states?\r\n\tYes, because the New York Safe Boating Certificate is nationally accredited and valid in other states and Canada. Please note that the Adventure License is not acceptable proof of a safe boating certificate outside of New York State.\nI'm visiting New York. Will my safety certificate from my home state be sufficient?\r\n\tYes, provided it was issued from your curr"
+    },
+    {
+      "task_id": "2cc753bcef23767c18aedad06c4405c4<::>8",
+      "domain": "govt",
+      "delta_ndcg5": -0.8854598815714874,
+      "ndcg5": 0.0,
+      "diagnosis": "no_relevant_candidate",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "What should I do if my garbage/recycling/organics collection is missed?"
+        },
+        {
+          "speaker": "agent",
+          "text": "If you are in City of Piedmont, you should call Republic Services at their toll-free number, (800) 320-8077 before 12 noon for a return trip on the same day. "
+        },
+        {
+          "speaker": "user",
+          "text": "do i need to pay for garbage/recycling/organics service? what if I do not have enough money?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, service rates are based upon the size of your garbage cart. According to the Piedmont Municipal Code, every owner of any premises is required to ensure that arrangements are made to properly dispose of solid waste, recyclable material, and organic waste created, produced, or accumulated on the premises. There are ways to reduce the cost of garbage collection service. For example, you may be able to switch to a smaller garbage cart to save money; or you can switch to curbside service."
+        },
+        {
+          "speaker": "user",
+          "text": "can you please clarify the service rate here?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The service rates for single-family residences in the City of Piedmont are based on the size of the garbage cart. The rates for curbside collection are as follows: $94.76 per month for a 20-gallon garbage cart, $100.41 per month for a 35-gallon garbage cart, $138.33 per month for a 65-gallon garbage cart, and $154.91 per month for a 95-gallon garbage cart. Each residential account includes unlimited recycling and organics carts. On-premises (backyard) collection rates are different and are limited to a maximum size of 35 gallons. Additional garbage carts are available for an additional cost.\nFor residents of Madison County, NY, there is no charge for residential yard waste drop-off if the items are up to 6 inches in diameter and no longer than 10 feet in length. Commercial yard waste, stumps, and oversized tree limbs are charged per ton and must go over the scales before unloading."
+        },
+        {
+          "speaker": "user",
+          "text": "recycle food scraps"
+        },
+        {
+          "speaker": "agent",
+          "text": "Properly sorting your food scraps and food soiled paper not only helps fight climate change, it's now the law. To recycle food scraps in the City of Piedmont, you should collect food scraps and food-soiled paper in the green kitchen pail and then empty the pail contents into the large green Organics cart for collection. "
+        },
+        {
+          "speaker": "user",
+          "text": "I do not want to miss my garbage collection service again...especially during the holiday time"
+        },
+        {
+          "speaker": "agent",
+          "text": "Service hours are Monday - Friday from 7:00 a.m. to 3:00 p.m. Regarding your concern about not missing the garbage collection service during the holiday season, there is no garbage, organics, or recycling collection on New Year's Day, Independence Day, Labor Day, Thanksgiving Day, and Christmas Day. During weeks when these holidays fall on a weekday, pickup is one day later for the rest of the week, including Saturday. LOJO Technology will also offer quarterly Saturday collection dates for those who cannot make it during the week. 2024 Saturday dates from 9 AM to 1 PM for electronic recycling. To set up an HHW appointment for Hazardous waste, please fill out the reservation form and enter your preferred date/time. Miller Environmental Group, Inc. is open Monday - Friday, 8 AM to 3 PM. "
+        },
+        {
+          "speaker": "user",
+          "text": "what is electronic waste and hazardous waste here?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Electronic waste (e-waste) considers items such as TVs, computer accessories, cables, small accessories, inkjet printers/scanners/fax machines, laser printers, desktop copiers, stereos, audio/video equipment, video games, laptops, cellular/cordless phones and answering machines, power supplies. Hazardous waste, on the other hand, refers to any household material that is toxic or corrosive, or can catch fire, react or explode under certain conditions. Examples include bleaches, cleaning solvents, pesticides, pool chemicals and more. In Madison County, NY, there is a free household hazardous waste program for its residents where they can bring their waste to Miller Environmental Group in Syracuse, NY. Appointments are required and there is a limit of 1 visit per household per year."
+        },
+        {
+          "speaker": "user",
+          "text": "how do I recycle paint?"
+        },
+        {
+          "speaker": "agent",
+          "text": "To recycle paint in the City of Piedmont, you should take latex and oil-based paint to an Alameda County Household Hazardous Waste Facility. You can call (800) 606-6606 or visit http://www.StopWaste.org/recycling/residents/household-hazardous-waste/paints."
+        },
+        {
+          "speaker": "user",
+          "text": "I am allergic to latex..."
+        }
+      ],
+      "queries": [
+        "What should I do if my garbage/recycling/organics collection is missed? do i need to pay for garbage/recycling/organics service? what if I do not have enough money? can you please clarify the service rate here? recycle food scraps I do not want to miss my garbage collection service again...especially during the holiday time what is electronic waste and hazardous waste here? how do I recycle paint? I am allergic to latex..."
+      ],
+      "relevant_ids": [
+        "2855541e728ba8c8-1521-3656",
+        "2855541e728ba8c8-6455-8477",
+        "2855541e728ba8c8-8033-10105"
+      ],
+      "top5": [
+        "fe8c82cdf4a51f27-12212-14051",
+        "fe8c82cdf4a51f27-13646-15675",
+        "fe8c82cdf4a51f27-1513-3509",
+        "3d169ce80ed6ba28-1508-3344",
+        "fe8c82cdf4a51f27-4768-6684"
+      ],
+      "first_relevant_excerpt": "Latex Allergy Information\nThis sap is used in manufacturing latex products. If someone who is sensitive to this protein comes in contact with it by touching or breathing it, an allergic reaction can occur. This allergic reaction can range from a simple skin rash to shock (which is rare). The amount of latex exposure needed to produce sensitization or an allergic reaction is unknown, but frequent exposure to latex proteins increases the risk.\nPeople who experience allergic symptoms should avoid contact until medically evaluated. Some other chemicals used in the manufacture of gloves may also cause sensitization and serious reactions, particularly skin reactions.\nWhat items contain natural rubber latex?\nLatex is used in a variety of products. Many everyday items contain latex but not all brands of all these items always contain latex. Check labels or contact the manufacturer. Following are examples of some products that may contain latex:\n\nmedical devices, such as gloves, syringes, blood pressure cuffs, bandages, IV tubes and catheters;\ndental items, such as toothbrushes with rubber grips, irrigation tips, dams, orthodontic rubber bands and elastic;\nclothing items, such as the elasti",
+      "top_ranked_excerpt": "\r\n\tFAQs - City of Piedmont\r\n\nA. Latex and oil-based paint needs to be taken to an Alameda County Household Hazardous Waste Facility. Call (800) 606-6606 or visit http://www.StopWaste.org/recycling/residents/household-hazardous-waste/paints.\n\nQ. What do I do with syringes and hypodermic needles?\n\nA. They cannot be recycled or thrown in the garbage and must be disposed of properly. Please visit the Alameda County Household Hazardous Waste website or call (800) 606-6606 for proper disposal instructions.\n\nQ. I have some unusual items to recycle. Where can I get more information about what to do with them?\n\nA. Visit the web site of StopWaste.org. or call their toll-free hotline, (877) 786-7927.\n\nQ. Who should I call about the disposal of household hazardous waste?\n\nA. Call the Alameda County Household Hazardous Waste Program at (800) 606-6606.\n\nCollection Day Information\n\nQ. What are the hours of collection?\n\nA. Service hours are Monday - Friday from 7:00 a.m. to 3:00 p.m.\n\nQ. What is my collection schedule during holidays?\n\nA. There is no garbage, organics, or recycling collection on New Year's Day, Independence Day, Labor Day, Thanksgiving Day, and Christmas Day. During weeks when the"
+    },
+    {
+      "task_id": "72ba19c38518da1fc894fc638a2802f7<::>5",
+      "domain": "govt",
+      "delta_ndcg5": 0.5855700749881525,
+      "ndcg5": 1.0,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "If I include a scoring system, how should I total the points?"
+        },
+        {
+          "speaker": "agent",
+          "text": "You have the flexibility to determine how points are totaled in your game's scoring system. You could, for example, increase the score by one or more points for each sample tube collected. However, it does not provide specific details on how to total the points. Therefore, you can choose a method that best fits your game design."
+        },
+        {
+          "speaker": "user",
+          "text": "any sample setting?"
+        },
+        {
+          "speaker": "agent",
+          "text": "I don't have a specific sample setting for the Mars Sample Collection Video Game. However, you are encouraged to carefully study the backdrop images and identify interesting areas to place sample tubes. You should develop a scoring system by creating code that increases the score by one or more points for each sample tube collected."
+        },
+        {
+          "speaker": "user",
+          "text": "How to make the game interesting "
+        },
+        {
+          "speaker": "agent",
+          "text": "To make the game more interesting, you can consider adding various features such as: 1.  Increase the complexity of the terrain or add more hazards from steep slopes and deep sand to sharp rocks and high radiation, there are countless ways a mission can be delayed or end unexpectedly.  2. Specify a landing site by creating scripts that place the rover at a certain location at the beginning of the game.  3.  Let others play it and suggest improvements."
+        },
+        {
+          "speaker": "user",
+          "text": "sprite the sprite of bevarage?"
+        },
+        {
+          "speaker": "agent",
+          "text": "It seems like there might be a typo in your question.  A Mars fetch rover sprite is a sample collection tube.  "
+        },
+        {
+          "speaker": "user",
+          "text": "Of course I knew it!  just teasing, sorry.  How to scripts sprite?"
+        }
+      ],
+      "queries": [
+        "If I include a scoring system, how should I total the points? any sample setting? How to make the game interesting  sprite the sprite of bevarage? Of course I knew it!  just teasing, sorry.  How to scripts sprite?"
+      ],
+      "relevant_ids": [
+        "6e97640495151e68-1401-3422",
+        "6e97640495151e68-3-1866",
+        "6e97640495151e68-3007-5072",
+        "6e97640495151e68-4584-6689"
+      ],
+      "top5": [
+        "6e97640495151e68-4584-6689",
+        "6e97640495151e68-3007-5072",
+        "6e97640495151e68-1401-3422",
+        "6e97640495151e68-3-1866",
+        "6e97640495151e68-6174-8304"
+      ],
+      "first_relevant_excerpt": "Student Project: Code a Mars Sample Collection Video Game | NASA/JPL Edu\nMaterials Computer with internet accessFree Scratch accountMars fetch rover sprite – Download PNGMars sample collection tube sprite – Download PNG Jezero crater surface images – Download ZIP\n\n1. Get set up Download the Jezero Crater surface images, the Mars sample collection tube image, and Mars fetch rover sprite image, and save them to a computer. Unzip the surface images zip file into a new folder. On the Scratch website, click Create to begin a new project. (Sign in or create an account if you want to save your work so you can revisit or redesign your game in the future.) Create a new backdrop by moving the mouse over Choose a Backdrop in the Stage window and selecting Upload Backdrop. Pick the Jezero Crater surface image of your choice. The Stage area of the screen should now display your selected backdrop image. (See example image.) Create a new sprite by moving the mouse over Choose a sprite in the Sprite window and selecting Upload sprite. Choose the Mars fetch rover sprite image. There should now be a rover placed over your backdrop image along with the original cat sprite. (See example image.) Delete",
+      "top_ranked_excerpt": "Student Project: Code a Mars Sample Collection Video Game | NASA/JPL Edu\nMake the sample tube sprites reappear when players click the green flag to restart the game.\n\n+ Expand image\n\n4. Add a countdown timer NASA’s missions to Mars and other destinations have a planned life expectancy. Some missions, including every Mars rover to date, have been extended and operated beyond their planned mission life expectancy, while others experience problems that shorten their mission. You can create a timer that counts down to the end of the mission and ends the game. Your timer should not be so short that the game is unplayable or unwinnable, but it should not be so long that there is no challenge to playing the game. As a bonus, you can create code to extend or shorten the planned mission time.\nTasks\n\nCreate a timer that counts from a set time down to zero. Hint: Create a Time variable that you can program to change. (See example image.)\nMake gameplay stop when the timer reaches zero.\nMake a “Mission Over” message appear when the timer reaches zero.\nMake the timer start over when a player clicks the green flag to restart the game.\nBonus: Develop code that will increase or decrease the amount "
+    },
+    {
+      "task_id": "72ba19c38518da1fc894fc638a2802f7<::>2",
+      "domain": "govt",
+      "delta_ndcg5": 0.7653606369886217,
+      "ndcg5": 0.7653606369886217,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "If I include a scoring system, how should I total the points?"
+        },
+        {
+          "speaker": "agent",
+          "text": "You have the flexibility to determine how points are totaled in your game's scoring system. You could, for example, increase the score by one or more points for each sample tube collected. However, it does not provide specific details on how to total the points. Therefore, you can choose a method that best fits your game design."
+        },
+        {
+          "speaker": "user",
+          "text": "any sample setting?"
+        }
+      ],
+      "queries": [
+        "If I include a scoring system, how should I total the points? any sample setting?"
+      ],
+      "relevant_ids": [
+        "6e97640495151e68-3007-5072",
+        "6e97640495151e68-4584-6689",
+        "6e97640495151e68-6174-8304"
+      ],
+      "top5": [
+        "6e97640495151e68-4584-6689",
+        "6e97640495151e68-6174-8304",
+        "c225494fb67307fa-172115-174278",
+        "83bebde8b4e075c7-1232-3185",
+        "c225494fb67307fa-173719-175969"
+      ],
+      "first_relevant_excerpt": "Student Project: Code a Mars Sample Collection Video Game | NASA/JPL Edu\nRovers on Mars aren’t controlled with joysticks or keyboards. But in the future, astronauts in orbit around Mars or on the surface of the planet could use remote controls to drive rovers. Your game can use keys on the keyboard to make the rover drive.\nTasks\n\nMake the rover move up, down, left, and right on the screen using four different keys on the keyboard. Hint: See if a block in the Events section will help. (See example image.)\nSpecify how far the rover will move each time one of those keys is pressed. Select a distance that makes the rover movement appear smooth when the key is pressed and held. Hint: See if a block in the Motion section will help. (See example image.) \nMake the rover rotate so it points in the direction of travel.\nBonus: Make the rover move diagonally using keys other than the keys already assigned.\n\n+ Expand image\n\n3. Add sample tubes for collection Sample tubes contain valuable rock samples collected by the Perseverance Mars rover and left behind for a fetch rover to collect. You should add sample collection tubes to your game to provide destinations for your rover. By studying the ba",
+      "top_ranked_excerpt": "Student Project: Code a Mars Sample Collection Video Game | NASA/JPL Edu\nMake the sample tube sprites reappear when players click the green flag to restart the game.\n\n+ Expand image\n\n4. Add a countdown timer NASA’s missions to Mars and other destinations have a planned life expectancy. Some missions, including every Mars rover to date, have been extended and operated beyond their planned mission life expectancy, while others experience problems that shorten their mission. You can create a timer that counts down to the end of the mission and ends the game. Your timer should not be so short that the game is unplayable or unwinnable, but it should not be so long that there is no challenge to playing the game. As a bonus, you can create code to extend or shorten the planned mission time.\nTasks\n\nCreate a timer that counts from a set time down to zero. Hint: Create a Time variable that you can program to change. (See example image.)\nMake gameplay stop when the timer reaches zero.\nMake a “Mission Over” message appear when the timer reaches zero.\nMake the timer start over when a player clicks the green flag to restart the game.\nBonus: Develop code that will increase or decrease the amount "
+    },
+    {
+      "task_id": "766728e82e315ca65d97b6b162faea0c<::>3",
+      "domain": "govt",
+      "delta_ndcg5": 1.0,
+      "ndcg5": 1.0,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "Name the sources of light pollution that affect skywatching."
+        },
+        {
+          "speaker": "agent",
+          "text": "Light pollution is caused by stray light from various human activities, including parking lots, sport complexes, street lights, and other sources. This scattered light makes it difficult to observe fainter stars and the Milky Way in the night sky. The larger and more developed a city is, the more light pollution it tends to produce, and the effect decreases the farther away you travel from a city."
+        },
+        {
+          "speaker": "user",
+          "text": "if I get away from the city can I see jupiter's rings?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The light pollution effect decreases the farther away you travel from a city. Additionally, if you use binoculars or a small telescope you will be able to see details of things like the large moons of Jupiter."
+        },
+        {
+          "speaker": "user",
+          "text": "oh I meant saturn"
+        }
+      ],
+      "queries": [
+        "Name the sources of light pollution that affect skywatching. if I get away from the city can I see jupiter's rings? oh I meant saturn"
+      ],
+      "relevant_ids": [
+        "351d62c973f5a12e-1481-3556",
+        "bfd4514593f8c09e-21337-23369"
+      ],
+      "top5": [
+        "351d62c973f5a12e-1481-3556",
+        "bfd4514593f8c09e-21337-23369",
+        "351d62c973f5a12e-2-2050",
+        "bfd4514593f8c09e-19699-21767",
+        "351d62c973f5a12e-2967-4975"
+      ],
+      "first_relevant_excerpt": "Skywatching FAQ\nIf you have access to binoculars or a telescope, they will extend your vision and enhance the experience – but they are by no means necessary to get started. How do I find a good location for skywatching or stargazing?The number one priority when seeking an excellent location for skywatching is to get away from bright city lights. Scattered light from urban areas creates light pollution that washes out the fainter stars and the Milky Way. Wide open areas without lots of tall trees or mountains nearby make for good viewing spots, since you can see more of the sky. Examples include places like a large field, a wide valley, and the shore of a lake or the ocean. Any location you select should be a place where you can feel safe at night.> More about finding a good skywatching locationWhat can I see in the night sky?The whole universe is accessible to skywatchers. Your own eyes will show you stars, a handful of bright planets, the Moon, comets and meteors (shooting stars), to name a few sights. Binoculars or a small telescope enable you to see finer details than your eyes can detect, making visible things like the large moons of Jupiter and the rings of Saturn, as well as",
+      "top_ranked_excerpt": "Skywatching FAQ\nIf you have access to binoculars or a telescope, they will extend your vision and enhance the experience – but they are by no means necessary to get started. How do I find a good location for skywatching or stargazing?The number one priority when seeking an excellent location for skywatching is to get away from bright city lights. Scattered light from urban areas creates light pollution that washes out the fainter stars and the Milky Way. Wide open areas without lots of tall trees or mountains nearby make for good viewing spots, since you can see more of the sky. Examples include places like a large field, a wide valley, and the shore of a lake or the ocean. Any location you select should be a place where you can feel safe at night.> More about finding a good skywatching locationWhat can I see in the night sky?The whole universe is accessible to skywatchers. Your own eyes will show you stars, a handful of bright planets, the Moon, comets and meteors (shooting stars), to name a few sights. Binoculars or a small telescope enable you to see finer details than your eyes can detect, making visible things like the large moons of Jupiter and the rings of Saturn, as well as"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "dense": {
+    "status": "passed",
+    "shape": [
+      16,
+      384
+    ],
+    "nonfinite": false,
+    "pilot_rejected_by_benchmark_loader": true,
+    "metadata": {
+      "backend": "dense",
+      "model": "BAAI/bge-small-en-v1.5",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "documents": 16,
+      "max_length": 256,
+      "batch_size": 8,
+      "document_top_terms": null,
+      "seconds": 1.1076901252381504,
+      "limited_corpus": true,
+      "device": "cpu"
+    }
+  },
+  "splade": {
+    "status": "passed",
+    "shape": [
+      16,
+      30522
+    ],
+    "nonfinite": false,
+    "pilot_rejected_by_benchmark_loader": true,
+    "metadata": {
+      "backend": "splade",
+      "model": "naver/splade-cocondenser-ensembledistil",
+      "revision": "49cf4c7b0db5b870a401ddf5e2669993ef3699c7",
+      "documents": 16,
+      "max_length": 256,
+      "batch_size": 8,
+      "document_top_terms": 128,
+      "seconds": 3.201113708782941,
+      "limited_corpus": true,
+      "device": "cpu"
+    }
+  }
+}

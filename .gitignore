@@ -13,8 +13,9 @@ cache/
 models/
 runs/*/candidates.jsonl
 runs/*/traces.jsonl
-runs/*/predictions.jsonl
 runs/*/inputs.jsonl
 *.mp4
 *.zip
+walkthrough/build/
+!walkthrough/AUTOMATED_WALKTHROUGH.mp4
 

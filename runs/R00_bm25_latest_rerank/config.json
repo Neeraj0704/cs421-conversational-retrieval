@@ -1,0 +1,64 @@
+{
+  "config": {
+    "id": "R00_bm25_latest_rerank",
+    "dataset": "mtrag",
+    "split": "validation",
+    "retrieve_k": 100,
+    "pool_size": 100,
+    "rrf_k": 60,
+    "backends": [
+      "bm25"
+    ],
+    "query_mode": "latest",
+    "reranker": "cross-encoder/ms-marco-MiniLM-L6-v2",
+    "retrieval_rank_weight": 0
+  },
+  "config_sha256": "35ec745343d3dea3e831902c24b5114b6cbdafd41dde012c958fa0f0ff474903",
+  "upstream_commit": "e0970de1b1207c2a9506adf238e6e1a22037e38a",
+  "input_sha256": "a880a1ad67fbba4bc51018078834a96d245be8a57085bbb658490ca027c76d64",
+  "split_sha256": "c28b1ecba781a568154fa569c352de29ab8555dca60a35e35b303cb1a7c69893",
+  "rewrite_sha256": null,
+  "indexes": {
+    "bm25": {
+      "govt": {
+        "backend": "bm25",
+        "documents": 49607,
+        "seconds": 4.808813499752432,
+        "tokenizer": "bm25s default, English stopwords, English Snowball stemmer",
+        "k1": 1.2,
+        "b": 0.75,
+        "method": "lucene"
+      },
+      "fiqa": {
+        "backend": "bm25",
+        "documents": 61022,
+        "seconds": 2.844867791980505,
+        "tokenizer": "bm25s default, English stopwords, English Snowball stemmer",
+        "k1": 1.2,
+        "b": 0.75,
+        "method": "lucene"
+      },
+      "clapnq": {
+        "backend": "bm25",
+        "documents": 183408,
+        "seconds": 8.587258541956544,
+        "tokenizer": "bm25s default, English stopwords, English Snowball stemmer",
+        "k1": 1.2,
+        "b": 0.75,
+        "method": "lucene"
+      },
+      "cloud": {
+        "backend": "bm25",
+        "documents": 72442,
+        "seconds": 5.230139708146453,
+        "tokenizer": "bm25s default, English stopwords, English Snowball stemmer",
+        "k1": 1.2,
+        "b": 0.75,
+        "method": "lucene"
+      }
+    }
+  },
+  "reranker_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+  "python": "3.11.14",
+  "platform": "Darwin arm64"
+}

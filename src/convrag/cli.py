@@ -28,6 +28,9 @@ def run(args):
         allowed=json.loads(frozen.read_text())["final_configs"]
         if cfg["id"] not in allowed or allowed[cfg["id"]]!=fingerprint(cfg):
             raise ValueError("Final config was not prespecified in frozen_selection.json")
+        locked=json.loads(frozen.read_text())["source_sha256"]
+        if any(file_hash(root/p)!=sha for p,sha in locked.items()):
+            raise ValueError("Source changed after freeze; preserve the original test protocol or document a correction")
     tasks=select_tasks(root,dataset,cfg.get("split","validation"),cfg.get("limit"))
     rewrite_file=cfg.get("rewrites")
     rewrites=None
@@ -91,6 +94,7 @@ def run(args):
     index_metadata={b:{d:json.loads((root/"indexes"/b/d/"metadata.json").read_text()) for d in by_domain}
                     for b in cfg.get("backends",["bm25"])}
     manifest={"config":cfg,"config_sha256":fingerprint(cfg),"upstream_commit":UPSTREAM_COMMIT,
+              "source_sha256":{str(p.relative_to(root)):file_hash(p) for p in sorted((root/'src').rglob('*.py'))},
               "input_sha256":file_hash(root/"data/processed"/(dataset+".inputs.jsonl")),
               "split_sha256":file_hash(root/"splits/conversations.json"),
               "rewrite_sha256":file_hash(root/rewrite_file) if rewrite_file else None,
@@ -115,6 +119,12 @@ def main():
     parser.add_argument("--upstream",default="data/upstream")
     sub=parser.add_subparsers(dest="command",required=True)
     sub.add_parser("prepare")
+    search=sub.add_parser("search",help="Retrieve passages for your own question")
+    search.add_argument("--domain",choices=list(COLLECTIONS),required=True)
+    search.add_argument("--question",required=True)
+    search.add_argument("--history-file",help="JSON array of earlier speaker/text messages")
+    search.add_argument("--standalone-query",help="Optional user-supplied resolved question; fused with original")
+    search.add_argument("--rerank",action="store_true")
     idx=sub.add_parser("index");idx.add_argument("--backend",choices=["bm25","splade","dense"],default="bm25")
     idx.add_argument("--domains",nargs="+",default=list(COLLECTIONS))
     idx.add_argument("--batch-size",type=int,default=16)
@@ -132,6 +142,23 @@ def main():
     args=parser.parse_args()
     root=Path(args.root).resolve();upstream=root/args.upstream
     if args.command=="prepare": print(json.dumps(prepare(root,upstream),indent=2))
+    elif args.command=="search":
+        history=json.loads(Path(args.history_file).read_text()) if args.history_file else []
+        task={"input":[*history,{"speaker":"user","text":args.question}]}
+        views=[args.question]
+        if args.standalone_query:views.append(args.standalone_query)
+        elif history:views.extend(query_views(task,"history"))
+        views=list(dict.fromkeys(views))
+        index=BM25Index(root/"indexes/bm25"/args.domain)
+        ranking=rrf([index.search(q,100) for q in views])[:100]
+        docs={d['id']:d for d in corpus(upstream,args.domain)}
+        if args.rerank:
+            from .neural import Reranker
+            ranking=Reranker(root,"cross-encoder/ms-marco-MiniLM-L6-v2").rank(
+                args.standalone_query or args.question,ranking,{k:d['text'] for k,d in docs.items()})
+        print(json.dumps({"query_views":views,"domain":args.domain,
+            "results":[{"rank":i+1,"document_id":pid,"text":docs[pid]['text'],"title":docs[pid]['title']}
+                       for i,(pid,_) in enumerate(ranking[:10])]},indent=2,ensure_ascii=False))
     elif args.command=="index":
         if args.backend=="bm25": build_bm25(root,upstream,args.domains)
         else:
