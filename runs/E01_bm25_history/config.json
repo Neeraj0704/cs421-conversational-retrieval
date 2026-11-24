@@ -1,0 +1,18 @@
+{
+  "config": {
+    "id": "E01_bm25_history",
+    "dataset": "mtrag",
+    "split": "validation",
+    "retrieve_k": 100,
+    "pool_size": 100,
+    "rrf_k": 60,
+    "backends": [
+      "bm25"
+    ],
+    "query_mode": "history"
+  },
+  "config_sha256": "db8c173e17889c447d3ef3d3f591006361866662b148bb10eeb0f3edca923587",
+  "upstream_commit": "e0970de1b1207c2a9506adf238e6e1a22037e38a",
+  "python": "3.11.14",
+  "platform": "Darwin arm64"
+}

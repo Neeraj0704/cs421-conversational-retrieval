@@ -1,0 +1,12 @@
+{
+  "E01_bm25_history": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": -0.04077919710139322,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      -0.09086704771517716,
+      0.009699214389858678
+    ]
+  }
+}

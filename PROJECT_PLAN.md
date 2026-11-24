@@ -3,8 +3,8 @@
 **Project:** Improving Multi-Turn Retrieval with Conversation History  
 **Task:** SemEval-2026 Task 8, MTRAGEval, Subtask A  
 **Plan date:** November 23, 2026 — America/Chicago  
-**Status:** Planning complete; implementation and our retrieval experiments have not started.  
-**Working folder:** /Users/neerajvp/Documents/CS421 NLP/NLP
+**Status:** Implementation active. Private GitHub repository and pipeline created; data audit, scoring parity, BM25 baselines and CPU feasibility completed. Rewriting/reranking experiments in progress.  
+**Working folder:** /Users/neerajvp/Documents/CS421 NLP/NLP/implementation
 
 ## 1. What we are trying to finish
 
@@ -86,10 +86,10 @@ Do not proceed past a gate when a failure would invalidate later scores.
 **Tasks**
 
 - [ ] Obtain the final-project instructions and confirm deadline time/timezone, report format, walkthrough length, code packaging, citations, and any assistance-disclosure requirements.
-- [ ] Record Python version, operating system, available memory, accelerator support, and free disk.
-- [ ] Choose a local environment and a minimal dependency set for retrieval evaluation.
-- [ ] Audit candidate checkpoint access and licenses.
-- [ ] Select one rewriter and one reranker for a short feasibility check.
+- [x] Record Python version, operating system, available memory, accelerator support, and free disk.
+- [x] Choose a local environment and a minimal dependency set for retrieval evaluation.
+- [x] Audit candidate checkpoint access and licenses.
+- [x] Select one rewriter and one reranker for a short feasibility check.
 - [ ] Record decisions and unresolved items in the decision log.
 
 **Done when:** we have a feasible core configuration and an explicit list of unknown submission requirements.
@@ -100,15 +100,15 @@ If the final brief remains unavailable, continue independent setup and experimen
 
 **Tasks**
 
-- [ ] Pin the IBM repository commit.
-- [ ] Download official passage-level corpora, MTRAG tasks, relevance files, and evaluation/format-checking code.
-- [ ] Verify archive integrity and inventory actual record counts.
+- [x] Pin the IBM repository commit.
+- [x] Download official passage-level corpora, MTRAG tasks, relevance files, and evaluation/format-checking code.
+- [x] Verify archive integrity and inventory actual record counts.
 - [ ] Inspect several real examples across all four domains.
-- [ ] Preserve passage boundaries and identifiers.
-- [ ] Verify relevance-file IDs against actual corpus IDs; document any ingestion-offset mapping explicitly.
-- [ ] Establish query-to-collection routing.
-- [ ] Save file checksums and an immutable data manifest.
-- [ ] Prepare final-test inputs and scoring files separately; do not inspect final per-query relevance to guide development.
+- [x] Preserve passage boundaries and identifiers.
+- [x] Verify relevance-file IDs against actual corpus IDs; document any ingestion-offset mapping explicitly.
+- [x] Establish query-to-collection routing.
+- [x] Save file checksums and an immutable data manifest.
+- [x] Prepare final-test inputs and scoring files separately; do not inspect final per-query relevance to guide development.
 
 **Done when:** sampled tasks route correctly, all relevant corpus IDs can be resolved, counts are documented, and a fresh run can locate every required file.
 
@@ -118,14 +118,14 @@ Published counts differ between some reports and repository descriptions. Record
 
 **Tasks**
 
-- [ ] Make a small valid prediction file and pass the official format checker.
-- [ ] Fix explicit paths/configuration needed to select development versus final relevance files; record every change.
-- [ ] Confirm how numerical scores determine order.
-- [ ] Check duplicate IDs, ties, omitted tasks, empty results, wrong-domain IDs, and nonfinite scores with small controlled inputs.
-- [ ] Compare the official-style domain-weighted aggregate with a direct mean over scored queries.
-- [ ] Count submitted, scored, unscored, and missing judged queries separately.
+- [x] Make a small valid prediction file and pass the official format checker.
+- [x] Fix explicit paths/configuration needed to select development versus final relevance files; record every change.
+- [x] Confirm how numerical scores determine order.
+- [x] Check duplicate IDs, ties, omitted tasks, empty results, wrong-domain IDs, and nonfinite scores with small controlled inputs.
+- [x] Compare the official-style domain-weighted aggregate with a direct mean over scored queries.
+- [x] Count submitted, scored, unscored, and missing judged queries separately.
 - [ ] Use a known-score official prediction artifact as a reproduction check if available.
-- [ ] Verify a tiny hand-understood ranking against the metric calculation.
+- [x] Verify a tiny hand-understood ranking against the metric calculation.
 
 **Done when:** scores respond as expected, query coverage is explicit, and there is no silent use of development qrels for final evaluation.
 
@@ -135,13 +135,13 @@ Tasks with no judgments are not automatically retrieval failures. A required jud
 
 **Tasks**
 
-- [ ] Create and save the development split.
-- [ ] Build the BM25 index for each assigned collection.
-- [ ] Run latest-question-only BM25.
-- [ ] Run BM25 with prior user questions plus the latest question.
+- [x] Create and save the development split.
+- [x] Build the BM25 index for each assigned collection.
+- [x] Run latest-question-only BM25.
+- [x] Run BM25 with prior user questions plus the latest question.
 - [ ] Generate and cache conservative rewrites, if a model is feasible.
 - [ ] Run BM25 using those rewrites.
-- [ ] Save predictions, per-query scores, per-domain metrics, runtime, and configuration.
+- [x] Save predictions, per-query scores, per-domain metrics, runtime, and configuration.
 
 **Done when:** the original project question can be answered with real comparisons, even if later enhancements fail.
 
@@ -149,7 +149,7 @@ Tasks with no judgments are not automatically retrieval failures. A required jud
 
 **Tasks**
 
-- [ ] Time sparse encoding on a sample and estimate full indexing work.
+- [x] Time sparse encoding on a sample and estimate full indexing work.
 - [ ] Build one learned sparse index if it passes the feasibility gate.
 - [ ] Run sparse retrieval with latest question and with rewrite separately.
 - [ ] Fuse original and rewrite rankings.
@@ -205,8 +205,8 @@ An implementation bug may justify a corrected run with an explicit explanation. 
 - [ ] Complete report according to the actual final brief.
 - [ ] Include results, ablations, errors, limitations, references, and resource measurements.
 - [ ] Explain which components follow earlier papers and what we implemented or adapted.
-- [ ] Write a README with setup, data preparation, indexing, retrieval, and evaluation commands.
-- [ ] Pin dependencies and model versions.
+- [x] Write a README with setup, data preparation, indexing, retrieval, and evaluation commands.
+- [x] Pin dependencies and model versions.
 - [ ] Re-run a small example from a clean environment or documented fresh setup.
 - [ ] Record the walkthrough using the actual implementation and saved results.
 - [ ] Verify video playback and that report tables match recorded result files.
@@ -217,12 +217,12 @@ An implementation bug may justify a corrected run with an explicit explanation. 
 
 ## 5. Experiment register
 
-All rows are **planned**, not completed. “Sparse” means the single feasible learned sparse model selected at M0/M4. If we fall back, label the model explicitly rather than retaining the sparse label.
+E00 and E01 are completed; rewriting/reranking runs are in progress. Learned sparse and dense full-index runs are deferred after the CPU feasibility gate. Consult `runs/` for completed results; configuration files alone are not results. “Sparse” means the single feasible learned sparse model selected at M0/M4. If we fall back, label the model explicitly rather than retaining the sparse label.
 
 | ID | Configuration | Primary comparison | Priority | Status |
 |---|---|---|---|---|
-| E00 | BM25, latest question | Starting point | Required | Planned |
-| E01 | Same BM25, prior user questions + latest | E00: raw history | Required | Planned |
+| E00 | BM25, latest question | Starting point | Required | Complete: validation nDCG@5 0.22495 |
+| E01 | Same BM25, prior user questions + latest | E00: raw history | Required | Complete: validation nDCG@5 0.18417 |
 | E02 | Same BM25, conservative rewrite | E00/E01: rewriting | Required if rewriter feasible | Planned |
 | E03 | Sparse, latest question | E00: stronger retriever | Core target | Planned |
 | E04 | Same sparse, conservative rewrite | E03: rewrite effect | Core target | Planned |
@@ -453,3 +453,16 @@ Do not script a video around components we did not implement. Ensure its duratio
 
 These reports contain secondary synthesis and proposed adaptations. Their claims about specific models, primary-paper review counts, scorer behavior, and resource requirements must be checked where they affect an implementation decision. This plan does not claim that an untested architecture is the best system or will exceed the winner's score.
 
+
+
+## Implementation checkpoint — November 23, 2026
+
+Repository: https://github.com/Neeraj0704/cs421-conversational-retrieval (private).
+
+- Audited 366,479 original passages, 842 development prefixes, 507 current final inputs. Zero missing development relevance passage IDs.
+- Validation: 174 submitted, 161 judged tasks in 22 held-out conversations.
+- Official format checks passed for E00/E01; unmodified upstream metric function matches per-query nDCG@1,3,5 and Recall@5.
+- 13 meaningful automated tests pass.
+- CPU feasibility: SPLADE ~10.8 hours and BGE-small ~3.2 hours estimated full indexing. These are sample estimates. Metal/MPS is not exposed in this session.
+- Execute the plan’s BM25 + rewrite + fusion + compact reranker fallback; full learned sparse/dense code remains available and is not reported as a completed full-corpus experiment.
+- Final brief, report rubric, walkthrough duration and exact cutoff remain unknown. No submission has been made.

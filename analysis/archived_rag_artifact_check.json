@@ -1,0 +1,90 @@
+{
+  "provenance": "IBM mtrag-human/generation_tasks/RAG.jsonl; archived supplied retrieval predictions, NOT our output",
+  "summary": {
+    "dataset": "mtrag",
+    "submitted": 842,
+    "scored": 777,
+    "unscored": 65,
+    "domains": {
+      "clapnq": {
+        "submitted": 224,
+        "scored": 208,
+        "metrics": {
+          "recall_5": 0.5785141941391941,
+          "recall_10": 0.5785141941391941,
+          "recall_50": 0.5785141941391941,
+          "recall_100": 0.5785141941391941,
+          "ndcg_cut_1": 0.5336538461538461,
+          "ndcg_cut_3": 0.5030315911932723,
+          "ndcg_cut_5": 0.5411271339717516,
+          "ndcg_cut_10": 0.5378349485997541
+        }
+      },
+      "govt": {
+        "submitted": 214,
+        "scored": 201,
+        "metrics": {
+          "recall_5": 0.5550481718392166,
+          "recall_10": 0.5550481718392166,
+          "recall_50": 0.5550481718392166,
+          "recall_100": 0.5550481718392166,
+          "ndcg_cut_1": 0.472636815920398,
+          "ndcg_cut_3": 0.47936141816492006,
+          "ndcg_cut_5": 0.509997909550833,
+          "ndcg_cut_10": 0.5070729286367714
+        }
+      },
+      "fiqa": {
+        "submitted": 199,
+        "scored": 180,
+        "metrics": {
+          "recall_5": 0.49734126984126975,
+          "recall_10": 0.49734126984126975,
+          "recall_50": 0.49734126984126975,
+          "recall_100": 0.49734126984126975,
+          "ndcg_cut_1": 0.42777777777777776,
+          "ndcg_cut_3": 0.41291798419357545,
+          "ndcg_cut_5": 0.4586616420183723,
+          "ndcg_cut_10": 0.45599095661086436
+        }
+      },
+      "cloud": {
+        "submitted": 205,
+        "scored": 188,
+        "metrics": {
+          "recall_5": 0.46401975683890584,
+          "recall_10": 0.46401975683890584,
+          "recall_50": 0.46401975683890584,
+          "recall_100": 0.46401975683890584,
+          "ndcg_cut_1": 0.4148936170212766,
+          "ndcg_cut_3": 0.40456834225010385,
+          "ndcg_cut_5": 0.42794225656533513,
+          "ndcg_cut_10": 0.4273438676744885
+        }
+      }
+    },
+    "mean_over_scored_queries": {
+      "recall_5": 0.5259366509366509,
+      "recall_10": 0.5259366509366509,
+      "recall_50": 0.5259366509366509,
+      "recall_100": 0.5259366509366509,
+      "ndcg_cut_1": 0.4646074646074646,
+      "ndcg_cut_3": 0.45220888226153505,
+      "ndcg_cut_5": 0.48658463768781446,
+      "ndcg_cut_10": 0.4841832011293429
+    },
+    "official_style_submitted_count_weighted": {
+      "recall_5": 0.5254889548693586,
+      "recall_10": 0.5254889548693586,
+      "recall_50": 0.5254889548693586,
+      "recall_100": 0.5254889548693586,
+      "ndcg_cut_1": 0.4642081116389549,
+      "ndcg_cut_3": 0.4517454750593824,
+      "ndcg_cut_5": 0.48616883610451306,
+      "ndcg_cut_10": 0.48376913301662705
+    },
+    "historical_leaderboard_equivalence": "unverified"
+  },
+  "published_reference": "mtrag-human/retrieval_tasks/README.md; rounded ELSER last-turn nDCG@5 0.45, rewrite 0.48",
+  "caution": "Artifact query formulation and historical aggregate alignment not established"
+}

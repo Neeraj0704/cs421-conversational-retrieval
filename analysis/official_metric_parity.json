@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "source": "Unmodified upstream evaluate function extracted via AST; paths routed explicitly",
+  "metrics": [
+    "nDCG@1,3,5",
+    "Recall@5"
+  ],
+  "domains": {
+    "govt": {
+      "NDCG@5": 0.42337,
+      "queries": 44
+    },
+    "fiqa": {
+      "NDCG@5": 0.12654,
+      "queries": 34
+    },
+    "clapnq": {
+      "NDCG@5": 0.19886,
+      "queries": 45
+    },
+    "cloud": {
+      "NDCG@5": 0.11414,
+      "queries": 38
+    }
+  },
+  "upstream_commit": "e0970de1b1207c2a9506adf238e6e1a22037e38a"
+}

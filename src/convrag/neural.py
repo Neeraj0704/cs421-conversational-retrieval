@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 from scipy import sparse
 from .data import corpus, select_tasks
-from .io import read_jsonl, write_json
+from .io import read_jsonl, write_json, fingerprint
 from .queries import latest, rewrite_messages, cache_key
 
 MODELS = {"splade":"naver/splade-cocondenser-ensembledistil", "dense":"BAAI/bge-small-en-v1.5"}
@@ -28,9 +28,12 @@ def revision(root, model):
     from huggingface_hub import HfApi
     path=Path(root)/"cache/model_revisions.json"
     versions=json.loads(path.read_text()) if path.exists() else {}
+    inventory=Path(root)/'analysis/model_inventory.json'
+    if model not in versions and inventory.exists():
+        versions.update({x['model']:x['revision'] for x in json.loads(inventory.read_text())})
     if model not in versions:
         versions[model]=HfApi().model_info(model).sha
-        write_json(path,versions)
+    write_json(path,versions)
     return versions[model]
 
 class Encoder:
@@ -58,7 +61,9 @@ class Encoder:
                 if not query:
                     val,idx=torch.topk(vectors,k=128,dim=1)
                     rows=np.repeat(np.arange(len(texts)),128)
-                    return sparse.csr_matrix((val.cpu().numpy().ravel(),(rows,idx.cpu().numpy().ravel())),shape=(len(texts),vectors.shape[1]))
+                    result=sparse.csr_matrix((val.cpu().numpy().ravel(),(rows,idx.cpu().numpy().ravel())),shape=(len(texts),vectors.shape[1]))
+                    result.eliminate_zeros()
+                    return result
                 return sparse.csr_matrix(vectors.cpu().numpy())
             vectors=torch.nn.functional.normalize(outputs.last_hidden_state[:,0],p=2,dim=1)
             return vectors.cpu().numpy()
@@ -66,11 +71,18 @@ class Encoder:
 def build_neural(root,upstream,args):
     root=Path(root); encoder=Encoder(root,args.backend,max_length=args.max_length)
     for domain in args.domains:
-        path=root/"indexes"/args.backend/domain
+        path=(root/"indexes/pilots"/args.backend/domain if args.limit else root/"indexes"/args.backend/domain)
         if (path/"metadata.json").exists(): continue
         path.mkdir(parents=True,exist_ok=True)
         docs=list(corpus(upstream,domain))
         if args.limit: docs=docs[:args.limit]
+        buildspec={"model":encoder.model_id,"revision":encoder.revision,"max_length":args.max_length,
+                   "batch_size":args.batch_size,"ids_sha256":fingerprint([d['id'] for d in docs]),
+                   "document_top_terms":128 if args.backend=='splade' else None}
+        specfile=path/'build_spec.json'
+        if specfile.exists() and json.loads(specfile.read_text())!=buildspec:
+            raise ValueError('Existing shards have a different build specification; use a fresh index directory')
+        write_json(specfile,buildspec)
         parts=[]; start=time.perf_counter()
         # Resumable shards avoid losing a long indexing job on interruption.
         for i in range(0,len(docs),args.batch_size):
@@ -114,10 +126,17 @@ class Reranker:
         environment(root)
         from sentence_transformers import CrossEncoder
         self.model_id=model;self.revision=revision(root,model)
+        self.cache=Path(root)/"cache/rerank"
         self.model=CrossEncoder(model,revision=self.revision,device=device(),max_length=384)
     def rank(self,query,ranking,texts):
+        key=fingerprint({"query":query,"passages":[p for p,_ in ranking],"model":self.model_id,
+                         "revision":self.revision,"max_length":384})
+        cached=self.cache/(key+".json")
+        if cached.exists(): return [tuple(x) for x in json.loads(cached.read_text())]
         scores=self.model.predict([(query,texts[p]) for p,_ in ranking],batch_size=32,show_progress_bar=False)
-        return sorted([(p,float(s)) for (p,_),s in zip(ranking,scores)],key=lambda x:(-x[1],x[0]))
+        ordered=sorted([(p,float(s)) for (p,_),s in zip(ranking,scores)],key=lambda x:(-x[1],x[0]))
+        write_json(cached,ordered)
+        return ordered
 
 def generate_rewrites(root,args):
     environment(root)
@@ -128,33 +147,40 @@ def generate_rewrites(root,args):
         from huggingface_hub import snapshot_download
         path=snapshot_download(args.model,revision=modelrev,allow_patterns=["*.json","*.safetensors","*.model","*.txt","*.jinja"])
         model,tokenizer=load(path)
-        def infer(messages):
-            prompt=tokenizer.apply_chat_template(messages,tokenize=False,add_generation_prompt=True)
-            return generate(model,tokenizer,prompt=prompt,max_tokens=128,sampler=make_sampler(temp=0),verbose=False)
+        def infer_many(messages):
+            return [generate(model,tokenizer,prompt=tokenizer.apply_chat_template(m,tokenize=False,add_generation_prompt=True),
+                             max_tokens=128,sampler=make_sampler(temp=0),verbose=False) for m in messages]
     else:
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
         target=device()
         tokenizer=AutoTokenizer.from_pretrained(args.model,revision=modelrev)
+        tokenizer.padding_side='left'
+        if tokenizer.pad_token_id is None:tokenizer.pad_token=tokenizer.eos_token
         model=AutoModelForCausalLM.from_pretrained(args.model,revision=modelrev).to(target).eval()
-        def infer(messages):
-            prompt=tokenizer.apply_chat_template(messages,tokenize=False,add_generation_prompt=True)
-            tokens=tokenizer(prompt,return_tensors="pt").to(target)
+        def infer_many(messages):
+            prompts=[tokenizer.apply_chat_template(m,tokenize=False,add_generation_prompt=True) for m in messages]
+            tokens=tokenizer(prompts,padding=True,return_tensors="pt").to(target)
             with torch.inference_mode():
                 result=model.generate(**tokens,max_new_tokens=128,do_sample=False,pad_token_id=tokenizer.eos_token_id)
-            return tokenizer.decode(result[0,tokens['input_ids'].shape[1]:],skip_special_tokens=True)
+            return tokenizer.batch_decode(result[:,tokens['input_ids'].shape[1]:],skip_special_tokens=True)
     output=Path(root)/args.output;output.parent.mkdir(parents=True,exist_ok=True)
     existing={r["cache_key"] for r in read_jsonl(output)} if output.exists() else set()
     tasks=select_tasks(root,args.dataset,args.split,args.limit)
+    tasks=[t for t in tasks if cache_key(t,args.model,modelrev,args.history_mode) not in existing]
+    tasks.sort(key=lambda t:sum(len(x['text']) for x in t['input']))
     with output.open("a") as f:
-        for i,t in enumerate(tasks):
-            key=cache_key(t,args.model,modelrev,args.history_mode)
-            if key in existing: continue
+        for i in range(0,len(tasks),args.batch_size):
+            batch=tasks[i:i+args.batch_size]
             start=time.perf_counter()
-            answer=infer(rewrite_messages(t,args.history_mode)).strip()
-            answer=answer.removeprefix("Standalone question:").strip().strip('"')
-            if not answer: answer=latest(t)
-            row={"task_id":t["task_id"],"cache_key":key,"rewrite":answer,"model":args.model,"revision":modelrev,
-                 "history_mode":args.history_mode,"seconds":time.perf_counter()-start}
-            f.write(json.dumps(row,ensure_ascii=False)+"\n");f.flush()
-            if i%10==0: print("Rewrite",i,"/",len(tasks),round(row["seconds"],2),flush=True)
+            answers=infer_many([rewrite_messages(t,args.history_mode) for t in batch])
+            elapsed=time.perf_counter()-start
+            for t,answer in zip(batch,answers):
+                answer=answer.strip().removeprefix("Standalone question:").strip().strip('"')
+                if not answer:answer=latest(t)
+                row={"task_id":t["task_id"],"cache_key":cache_key(t,args.model,modelrev,args.history_mode),
+                     "rewrite":answer,"model":args.model,"revision":modelrev,"history_mode":args.history_mode,
+                     "seconds":elapsed/len(batch),"generation_batch_size":len(batch)}
+                f.write(json.dumps(row,ensure_ascii=False)+"\n")
+            f.flush()
+            print("Rewrite",i+len(batch),"/",len(tasks),"batch_seconds",round(elapsed,2),flush=True)

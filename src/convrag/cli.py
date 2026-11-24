@@ -8,7 +8,7 @@ from pathlib import Path
 from collections import defaultdict
 import numpy as np
 from .data import prepare, select_tasks, COLLECTIONS, corpus, UPSTREAM_COMMIT
-from .io import read_jsonl, write_json, write_jsonl, fingerprint
+from .io import read_jsonl, write_json, write_jsonl, fingerprint, file_hash
 from .queries import query_views
 from .retrieval import BM25Index, build_bm25, rrf
 from .evaluation import evaluate, validate_predictions, bootstrap_difference
@@ -22,6 +22,12 @@ def run(args):
     dataset=cfg.get("dataset","mtrag")
     if dataset=="mtragun" and not args.final:
         raise ValueError("Final dataset requires explicit --final after a frozen development decision")
+    if dataset=="mtragun":
+        frozen=root/"analysis/frozen_selection.json"
+        if not frozen.exists(): raise ValueError("Freeze the selected development configs before final testing")
+        allowed=json.loads(frozen.read_text())["final_configs"]
+        if cfg["id"] not in allowed or allowed[cfg["id"]]!=fingerprint(cfg):
+            raise ValueError("Final config was not prespecified in frozen_selection.json")
     tasks=select_tasks(root,dataset,cfg.get("split","validation"),cfg.get("limit"))
     rewrite_file=cfg.get("rewrites")
     rewrites=None
@@ -82,7 +88,14 @@ def run(args):
                         "p95_query_seconds":float(np.quantile(latencies,.95)),
                         "rewrite_generation_seconds":"excluded; cached, recorded separately",
                         "includes_first_query_warmup":True}
+    index_metadata={b:{d:json.loads((root/"indexes"/b/d/"metadata.json").read_text()) for d in by_domain}
+                    for b in cfg.get("backends",["bm25"])}
     manifest={"config":cfg,"config_sha256":fingerprint(cfg),"upstream_commit":UPSTREAM_COMMIT,
+              "input_sha256":file_hash(root/"data/processed"/(dataset+".inputs.jsonl")),
+              "split_sha256":file_hash(root/"splits/conversations.json"),
+              "rewrite_sha256":file_hash(root/rewrite_file) if rewrite_file else None,
+              "indexes":index_metadata,
+              "reranker_revision":reranker.revision if reranker else None,
               "python":platform.python_version(),"platform":platform.system()+" "+platform.machine()}
     write_json(out/"config.json",manifest);write_json(out/"metrics.json",summary)
     write_json(out/"per_query.json",scores)
@@ -110,6 +123,7 @@ def main():
     rew=sub.add_parser("rewrite");rew.add_argument("--model",default="Qwen/Qwen2.5-0.5B-Instruct")
     rew.add_argument("--split",default="all");rew.add_argument("--dataset",default="mtrag")
     rew.add_argument("--limit",type=int);rew.add_argument("--history-mode",default="full",choices=["full","selected"])
+    rew.add_argument("--batch-size",type=int,default=4)
     rew.add_argument("--output",default="cache/rewrites/mtrag.jsonl")
     runp=sub.add_parser("run");runp.add_argument("--config",required=True)
     runp.add_argument("--overwrite",action="store_true");runp.add_argument("--final",action="store_true")

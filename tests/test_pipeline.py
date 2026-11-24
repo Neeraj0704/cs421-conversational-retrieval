@@ -30,6 +30,19 @@ def test_prediction_contract():
     p['contexts'][-1]['score']=float('nan')
     with pytest.raises(ValueError):validate_predictions([p],[t])
 
+@pytest.mark.parametrize('failure',['duplicate_task','duplicate_passage','tie','wrong_collection','missing','wrong_passage'])
+def test_invalid_outputs_cannot_silently_score(failure):
+    t=task();p={'task_id':t['task_id'],'Collection':t['Collection'],
+        'contexts':[{'document_id':str(i),'score':10-i} for i in range(10)]}
+    preds=[p]
+    if failure=='duplicate_task':preds=[p,p]
+    elif failure=='duplicate_passage':p['contexts'][1]['document_id']='0'
+    elif failure=='tie':p['contexts'][1]['score']=10
+    elif failure=='wrong_collection':p['Collection']='wrong'
+    elif failure=='missing':preds=[]
+    elif failure=='wrong_passage':p['contexts'][0]['document_id']='absent'
+    with pytest.raises(ValueError):validate_predictions(preds,[t],{'cloud':set(map(str,range(10)))})
+
 def test_evaluation_does_not_drop_empty_or_failed_queries(tmp_path):
     folder=tmp_path/'mtrag-human/retrieval_tasks/cloud/qrels';folder.mkdir(parents=True)
     (folder/'dev.tsv').write_text('query_id\tcorpus_id\tscore\nc<::>2\ta\t1\nc<::>3\tb\t1\n')
