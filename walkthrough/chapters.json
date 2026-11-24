@@ -7,26 +7,26 @@
   {
     "chapter": "Data separation and leakage prevention",
     "start_seconds": 25.833,
-    "duration_seconds": 24.49
+    "duration_seconds": 32.453
   },
   {
     "chapter": "Rewriting and preserving the original question",
-    "start_seconds": 50.32299999999999,
+    "start_seconds": 58.286,
     "duration_seconds": 23.668
   },
   {
     "chapter": "Retrieval, fusion and reranking",
-    "start_seconds": 73.99099999999999,
-    "duration_seconds": 25.834
+    "start_seconds": 81.95400000000001,
+    "duration_seconds": 38.275
   },
   {
     "chapter": "Scoring and verification",
-    "start_seconds": 99.82499999999999,
+    "start_seconds": 120.22900000000001,
     "duration_seconds": 29.742
   },
   {
     "chapter": "Measured results and practical limits",
-    "start_seconds": 129.56699999999998,
-    "duration_seconds": 49.71
+    "start_seconds": 149.971,
+    "duration_seconds": 61.096
   }
 ]

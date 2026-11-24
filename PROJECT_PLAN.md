@@ -3,7 +3,7 @@
 **Project:** Improving Multi-Turn Retrieval with Conversation History  
 **Task:** SemEval-2026 Task 8, MTRAGEval, Subtask A  
 **Plan date:** November 23, 2026 — America/Chicago  
-**Status:** Core implementation and seven development ablations complete. Three frozen final comparisons complete; course-format review remains.
+**Status:** Seven CPU and twelve GPU validation experiments, full neural indexes and six total final comparisons complete. Combined report and review video updated; course-format review remains.
 **Working folder:** /Users/neerajvp/Documents/CS421 NLP/NLP/implementation
 
 ## 1. What we are trying to finish
@@ -14,7 +14,7 @@ Our course deliverables are a working implementation, measured results, an expla
 
 The scientific objective is to improve our own strong baselines and compare the frozen system with the historical winner if the evaluation protocol can be matched. Beating the published score is an ambition, not a completion requirement or a promised outcome.
 
-**Immediate priority:** establish a trustworthy end-to-end baseline, then add research ideas one at a time.
+**Immediate priority:** review the completed results and adapt deliverables to the final course brief. See the latest completion checkpoint below; earlier checkpoints record project history.
 
 ## 2. How we will use the research
 
@@ -217,7 +217,7 @@ An implementation bug may justify a corrected run with an explicit explanation. 
 
 ## 5. Experiment register
 
-Seven core BM25, rewriting, fusion and reranking comparisons are complete. Learned sparse and dense full-index runs are deferred after the CPU feasibility gate. Consult `runs/` for completed results; configuration files alone are not results. “Sparse” means the single feasible learned sparse model selected at M0/M4. If we fall back, label the model explicitly rather than retaining the sparse label.
+Seven core BM25 comparisons and twelve GPU validation comparisons are complete. Both full neural indexes and the frozen GPU final follow-up are complete. Consult `runs/` for completed results; configuration files alone are not results. “Sparse” means the single feasible learned sparse model selected at M0/M4. If we fall back, label the model explicitly rather than retaining the sparse label.
 
 | ID | Configuration | Primary comparison | Priority | Status |
 |---|---|---|---|---|
@@ -423,12 +423,12 @@ Do not script a video around components we did not implement. Ensure its duratio
 | Data audit | Complete | 366,479 passages; pinned source and checksums in `analysis/data_manifest.json` |
 | Evaluation | Complete | Official format checks, metric parity, automated tests |
 | Baselines and core pipeline | Complete | Seven validation runs, rewrites, fusion, reranking and rank blending |
-| Learned sparse/dense extension | Implemented and smoke-tested; full experiments deferred | 16-passage index tests; estimated 10.8/3.2 CPU indexing hours |
-| Final evaluation | Complete | Frozen baseline, fusion and selected reranker configurations |
+| Learned sparse/dense extension | Complete | Full 366,479-passage MPS indexes and twelve verified validation runs |
+| Final evaluation | Complete | Three original CPU runs and three frozen GPU follow-up runs; all 507 inputs covered |
 | Report and walkthrough | Generated; course-format review pending | `report/`, `walkthrough/`; automated review aid is separate from student presentation |
 | Course submission | Pending | No course upload has been performed |
 
-**Next action:** Review the final course brief, report and walkthrough, and run larger neural models only as a separately documented extension.
+**Next action:** Review report/FINAL_PROJECT_REPORT.pdf and the walkthrough against the final course brief. Preserve the completed experiment checkpoints.
 
 ### Decision log
 
@@ -536,3 +536,20 @@ The public final set has already been used for the earlier CPU systems. New GPU 
 therefore disclosed follow-up benchmarks. No new GPU final scores were used for selection.
 The ready launcher is `scripts/start_gpu_final.command`, with no indexing or rewriting
 required. All 26 automated tests pass. GPU final evaluation has not been started by the agent.
+
+## GPU final follow-up completed — November 24, 2026
+
+All three validation-selected final configurations completed in the user’s GPU-enabled Terminal
+and passed an independent metric/coverage recheck. The primary E08 hybrid scores 0.4334 mean
+nDCG@5, 0.4379 submitted-domain-weighted nDCG@5 and 0.6211 Recall@10. Sparse + reranker scores
+0.4199; dense + reranker scores 0.4040 (direct means). Each covers 507 inputs and 332 judged tasks.
+
+Against plain BM25, the hybrid’s paired nDCG@5 delta is +0.1438, 95% conversation-bootstrap
+interval [+0.1017, +0.1879]. Against the earlier BM25 reranker the delta is +0.0173 with interval
+[-0.0178, +0.0525], so that smaller improvement remains uncertain. Primary selection is unchanged.
+The public final set was already used for CPU evaluation; this is a disclosed follow-up, not
+a fresh unseen holdout. Historical leaderboard equivalence remains unverified.
+
+The combined report is report/FINAL_PROJECT_REPORT.md and .pdf; the earlier CPU report remains
+intact. RESULTS.md, the plain-language guide and automated review walkthrough reflect both stages.
+Final course formatting, any required student presentation and course upload remain pending.

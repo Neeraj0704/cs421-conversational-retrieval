@@ -1,0 +1,87 @@
+{
+  "config": {
+    "id": "FINAL_G02_dense_latest_rerank",
+    "dataset": "mtragun",
+    "split": "all",
+    "backends": [
+      "dense"
+    ],
+    "query_mode": "latest",
+    "retrieve_k": 100,
+    "pool_size": 100,
+    "rrf_k": 60,
+    "reranker": "cross-encoder/ms-marco-MiniLM-L6-v2",
+    "retrieval_rank_weight": 0
+  },
+  "config_sha256": "804b7cb54b92c551f9fec628ec5deea37db7db79769ad589b1d7f243e0072922",
+  "upstream_commit": "e0970de1b1207c2a9506adf238e6e1a22037e38a",
+  "source_sha256": {
+    "src/convrag/__init__.py": "90d531fdb6b8c4eb9da50d1b22dcb2fc554363d659d159e8a33d3808e6da7d12",
+    "src/convrag/cli.py": "17973ddb180403e3319a3a1f23455f0bc5de61bd14661939c176469311e48d64",
+    "src/convrag/data.py": "454b4fce24ec199e891d8d585bd3b80126bc0ff6573fd937d4e6723ee72387c3",
+    "src/convrag/evaluation.py": "67f703a81ee0a3193b607bad7243dccd0285ee1e208d0273fe1f30c5dc66ad10",
+    "src/convrag/io.py": "361c7d3a274c6f79c608450bc1137d1eb2e7d8d71978f79e9911724170271ca9",
+    "src/convrag/neural.py": "a0b352afc8ff3844db5d2f54850bd9a2539a16a73e1b6ebf75ea802276af670f",
+    "src/convrag/queries.py": "ff3f615da659dbfa460b326d8d525e083c590e2d313d0e604e7ff1b013f1f40a",
+    "src/convrag/report.py": "c67fbac9a78da0dc22e8259ea7c8e6da86b6bab27266d848a70b638c2c31a2e2",
+    "src/convrag/retrieval.py": "deb7a2c36bb2928ff4caef3ce9762aa99a9c01b923220fb02cb2f5dce01d17ac"
+  },
+  "input_sha256": "3acc87afd92f39dc7908fa94a22cf9de29a1fe0675ec63bd1e465bb690982177",
+  "split_sha256": "c28b1ecba781a568154fa569c352de29ab8555dca60a35e35b303cb1a7c69893",
+  "rewrite_sha256": null,
+  "indexes": {
+    "dense": {
+      "fiqa": {
+        "backend": "dense",
+        "model": "BAAI/bge-small-en-v1.5",
+        "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+        "documents": 61022,
+        "max_length": 256,
+        "batch_size": 16,
+        "document_top_terms": null,
+        "seconds": 379.44352791598067,
+        "limited_corpus": false,
+        "device": "mps"
+      },
+      "cloud": {
+        "backend": "dense",
+        "model": "BAAI/bge-small-en-v1.5",
+        "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+        "documents": 72442,
+        "max_length": 256,
+        "batch_size": 16,
+        "document_top_terms": null,
+        "seconds": 441.4588414155878,
+        "limited_corpus": false,
+        "device": "mps"
+      },
+      "clapnq": {
+        "backend": "dense",
+        "model": "BAAI/bge-small-en-v1.5",
+        "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+        "documents": 183408,
+        "max_length": 256,
+        "batch_size": 16,
+        "document_top_terms": null,
+        "seconds": 1016.2051689159125,
+        "limited_corpus": false,
+        "device": "mps"
+      },
+      "govt": {
+        "backend": "dense",
+        "model": "BAAI/bge-small-en-v1.5",
+        "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+        "documents": 49607,
+        "max_length": 256,
+        "batch_size": 16,
+        "document_top_terms": null,
+        "seconds": 303.5299217076972,
+        "limited_corpus": false,
+        "device": "mps"
+      }
+    }
+  },
+  "reranker_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+  "python": "3.11.14",
+  "platform": "Darwin arm64"
+}

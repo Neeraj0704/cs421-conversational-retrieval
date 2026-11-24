@@ -30,17 +30,28 @@ def main():
             continue
         m = json.loads(p.read_text())
         runs.append((p.parent.name, m))
-    dev = [r for r in runs if r[1]["dataset"] == "mtrag"]
-    best = max(dev, key=lambda r: r[1]["mean_over_scored_queries"]["ndcg_cut_5"])
-    final_selected = next((m for rid,m in runs if rid=='FINAL_'+best[0]), None)
-    final_sentence = (f"The frozen selected system scores {final_selected['mean_over_scored_queries']['ndcg_cut_5']:.4f} on the final test, averaging over {final_selected['scored']} judged questions out of {final_selected['submitted']} inputs. " if final_selected else '')
-    summary = ["HELD-OUT DEVELOPMENT — nDCG@5, mean over judged tasks", ""]
-    for group in ['mtrag','mtragun']:
-        if group=='mtragun':summary.extend(['','FROZEN FINAL COMPARISONS',''])
-        summary.extend(
-            f"{rid:<33} {m['mean_over_scored_queries']['ndcg_cut_5']:.4f}  ({m['scored']}/{m['submitted']} scored)"
-            for rid,m in runs if m['dataset']==group
-        )
+    gpu = ROOT / 'experiments/gpu_extension_v1'
+    gpu_runs = [(p.parent.name, json.loads(p.read_text()))
+                for p in sorted((gpu / 'runs').glob('*/metrics.json'))
+                if 'Format is valid' in (p.parent / 'official_format_check.txt').read_text()]
+    protocol = json.loads((gpu / 'analysis/frozen_selection.json').read_text())
+    primary = protocol['primary_final_run']
+    best = next((rid,m) for rid,m in gpu_runs if rid == primary.removeprefix('FINAL_'))
+    final_selected = next(m for rid,m in gpu_runs if rid == primary)
+    final_sentence = (f"The prespecified hybrid primary scores {final_selected['mean_over_scored_queries']['ndcg_cut_5']:.4f} on the final follow up, "
+                      f"over {final_selected['scored']} judged questions out of {final_selected['submitted']} inputs. ")
+    summary = ["VALIDATION / FINAL — separate datasets, nDCG@5 means", "",
+               "Validation: earlier BM25 + reranker 0.3898; hybrid fusion 0.4479", "",
+               "FINAL COMPARISONS — same 332 judged / 507 inputs", ""]
+    for rid,m in [*runs,*gpu_runs]:
+        if m['dataset'] == 'mtragun':
+            summary.append(f"{rid:<36} {m['mean_over_scored_queries']['ndcg_cut_5']:.4f}")
+    summary += ["", "Primary: sparse + dense, original + rewritten query; no reranker",
+                "Primary Recall@10: 0.6211; weighted nDCG@5: 0.4379",
+                "Gain vs BM25 reranker: +0.0173; 95% interval [-0.0178, +0.0525]",
+                "Public final set already used for CPU stage: follow-up, not fresh holdout",
+                "MPS indexing: dense ~36 minutes; SPLADE ~156 minutes",
+                "Historical leaderboard equivalence remains unverified"]
     demo = (
         json.loads((ROOT / "walkthrough/demo_output.json").read_text())
         if (ROOT / "walkthrough/demo_output.json").exists()
@@ -67,7 +78,7 @@ def main():
         ),
         (
             "Data separation and leakage prevention",
-            "The data module pins the upstream IBM commit and preserves the original passage identifiers. It uses a field whitelist, so gold answers, reference contexts and labels do not enter the retrieval model. The development split is by whole conversation, not individual turns. Twenty two conversations are held out for validation. Final test configurations are frozen before scores are used.",
+            "The data module pins the upstream IBM commit and preserves the original passage identifiers. It uses a field whitelist, so gold answers, reference contexts and labels do not enter the retrieval model. The development split is by whole conversation, not individual turns. Twenty two conversations are held out for validation. CPU and GPU final configurations were frozen separately. The GPU follow up reuses a public final set already evaluated in the CPU stage.",
             (ROOT / "src/convrag/data.py").read_text().splitlines()[43:67],
         ),
         (
@@ -77,7 +88,7 @@ def main():
         ),
         (
             "Retrieval, fusion and reranking",
-            "BM 25 provides a fast lexical baseline over the complete original collections. Reciprocal rank fusion combines query views without assuming their numeric scores are calibrated. A Mini L M cross encoder then scores the query with each candidate passage. We compare pure reranking and a fifty fifty blend of retrieval and reranker ranks, using the same candidate pool. This separates better retrieval from better ordering.",
+            "BM 25 provides a fast lexical baseline over the complete original collections. Reciprocal rank fusion combines query views without assuming their numeric scores are calibrated. A Mini L M cross encoder then scores the query with each candidate passage. We compare pure reranking and a fifty fifty blend of retrieval and reranker ranks, using the same candidate pool. The GPU study adds learned sparse SPLADE and B G E semantic search. Its selected hybrid combines original and rewritten query rankings without a cross encoder. This separates better retrieval from better ordering.",
             (ROOT / "src/convrag/retrieval.py").read_text().splitlines()[9:32],
         ),
         (
@@ -87,7 +98,7 @@ def main():
         ),
         (
             "Measured results and practical limits",
-            f"The strongest completed validation run is {best[0].replace('_', ' ')}, with n D C G at five of {best[1]['mean_over_scored_queries']['ndcg_cut_5']:.4f}. "+final_sentence+"The screen shows only completed, format checked experiments. Development and final results are separate. Historical leaderboard equivalence is not established. The execution session has CPU access but no Metal GPU. Full learned sparse and dense indexing were deferred after timing their cost. Review the report, negative results and limitations, and adapt any submission to the actual course instructions. This automated video is a review aid; it is not a student recorded presentation.",
+            f"The strongest GPU validation run is hybrid fusion, with n D C G at five of {best[1]['mean_over_scored_queries']['ndcg_cut_5']:.4f}. " + final_sentence + "Recall at ten is 0.6211. The improvement over plain B M 25 is clear. The smaller gain over B M 25 plus reranking has a paired uncertainty interval including zero. Both complete neural indexes and all twelve GPU validation runs finished in the user's Metal enabled Terminal. The agent process itself could not access Metal. These are follow up results on a public final set already used for the CPU study. Historical leaderboard equivalence remains unverified. Review the combined report and the actual course instructions. This synthetic voice video is an automated review aid, not a student recorded presentation.",
             summary,
         ),
     ]

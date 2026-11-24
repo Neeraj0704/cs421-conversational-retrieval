@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "automated_tests": 17,
+  "automated_tests": 26,
   "frozen_source_hashes_match": true,
   "upstream_checkout_clean": true,
   "runs": {

@@ -27,37 +27,40 @@ Only the already supplied conversation prefix is available to the model.
 
 ## What our experiments found
 
-On the held-out development conversations:
+We first tested BM25, conversation history, rewriting, fusion and reranking. The strongest
+CPU method searched the latest question and reranked its candidates. We then completed full
+SPLADE and dense indexes using your Mac's GPU and tested twelve more configurations.
 
-| Method | nDCG@5 |
-|---|---:|
-| Latest question + BM25 | 0.2249 |
-| Earlier user questions + BM25 | 0.1842 |
-| Generated rewrite + BM25 | 0.2114 |
-| Original + rewrite fusion | 0.2472 |
-| Fusion + reranker | 0.3464 |
-| Fusion + retrieval/reranker rank blend | 0.3138 |
-| Latest question + BM25 + reranker | **0.3898** |
+Our selected system searches in four ways: sparse search with the original question, sparse
+search with the rewrite, dense search with the original, and dense search with the rewrite.
+It combines those rankings and returns the top ten. Duplicate query views are removed.
+This hybrid worked best on validation without the cross-encoder reranker.
 
-We selected the last method using development results. The tested small rewriter sometimes
-leaves references unresolved or changes the question. The reranker provides the strongest
-measured improvement in this setup. These findings apply to the tested models and settings;
-stronger conversation models remain a useful next experiment.
+| Method | Final nDCG@5 | Final Recall@10 |
+|---|---:|---:|
+| Plain BM25 | 0.2896 | 0.4261 |
+| BM25 + reranker | 0.4161 | 0.5347 |
+| Selected sparse + dense fusion | **0.4334** | **0.6211** |
 
-The final test uses three choices fixed in advance: plain BM25, fusion, and the selected
-reranked method. See [RESULTS.md](RESULTS.md) for completed final scores and the report for
-uncertainty and aggregation details.
+All three rows score the same 332 judged questions from 507 inputs. nDCG is a ranking-quality
+score, not a percentage of correct answers. The separate domain-weighted nDCG@5 for the
+hybrid is 0.4379. Do not mix that with the direct means above.
+
+The hybrid finds more relevant candidates. Its small ranking improvement over the stronger
+BM25 reranker is uncertain: the paired 95% interval includes zero. Its improvement over plain
+BM25 is clearer. Because the public final set was already used for the CPU stage, the GPU
+comparison is labelled a follow-up benchmark. We have not established an official competition rank.
 
 ## How the research shaped the implementation
 
-The research gave us ideas to test: resolve conversational references, preserve original
-wording, combine retrieval signals, and improve the ordering of candidates. We measured
-each addition. We retained the strongest validated configuration and kept negative results.
+We tested several research ideas: resolve conversational references, keep the original question,
+combine sparse and semantic search, and rerank candidates. The results show why each addition
+needs testing: raw history can dilute a question, rewrites can lose terms, and reranking can
+hurt an already useful fusion. The selected configuration follows validation evidence.
 
-We also implemented SPLADE learned sparse retrieval and BGE dense retrieval. Small index
-tests passed. Full indexing was estimated at about 10.8 and 3.2 CPU hours in this session,
-so their complete benchmark experiments are deferred. Their code is available for a later
-accelerator run. ColBERT, retriever training and agent loops remain future extensions.
+Full GPU indexing and final comparisons are complete. ColBERT, retriever training, stronger
+rewriters and adaptive search remain future experiments. See [RESULTS.md](RESULTS.md) and the
+[combined report](report/FINAL_PROJECT_REPORT.md) for all comparisons and limitations.
 
 ## Where to look in the code
 

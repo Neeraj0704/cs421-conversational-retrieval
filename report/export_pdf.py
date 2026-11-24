@@ -20,8 +20,8 @@ from reportlab.lib.styles import getSampleStyleSheet
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def main():
-    source = (ROOT / "report/PROJECT_REPORT.md").read_text().splitlines()
+def main(source_path=None, target_path=None):
+    source = Path(source_path or ROOT / "report/PROJECT_REPORT.md").read_text().splitlines()
     styles = getSampleStyleSheet()
     styles["BodyText"].fontSize = 9.5
     styles["BodyText"].leading = 13.8
@@ -35,7 +35,7 @@ def main():
     i = 0
 
     def short(value):
-        match = re.match(r"^(FINAL_)?([BER]\d\d)_", value)
+        match = re.match(r"^(FINAL_)?([BDERG]\d\d)_", value)
         return ("Final " if match.group(1) else "") + match.group(2) if match else value
 
     while i < len(source):
@@ -112,7 +112,7 @@ def main():
         )
         canvas.drawRightString(545, 28, str(doc.page))
 
-    target = ROOT / "report/PROJECT_REPORT.pdf"
+    target = Path(target_path or ROOT / "report/PROJECT_REPORT.pdf")
     SimpleDocTemplate(
         str(target),
         pagesize=(595, 842),

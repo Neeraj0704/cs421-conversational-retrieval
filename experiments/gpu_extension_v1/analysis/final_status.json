@@ -1,0 +1,13 @@
+{
+  "study": "gpu_final_followup_v1",
+  "state": "completed",
+  "started_utc": "2026-11-24T15:58:37.917091+00:00",
+  "completed_runs": [
+    "FINAL_E08_hybrid_fusion",
+    "FINAL_G01_splade_latest_rerank",
+    "FINAL_G02_dense_latest_rerank"
+  ],
+  "current_run": null,
+  "current_log": "/Users/neerajvp/Documents/CS421 NLP/NLP/implementation/experiments/gpu_extension_v1/logs/FINAL_G02_dense_latest_rerank.log",
+  "finished_utc": "2026-11-24T16:06:58.577793+00:00"
+}

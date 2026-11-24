@@ -1,3 +1,12 @@
+# GPU workflow completion — November 24, 2026
+
+Full dense and SPLADE indexing, twelve validation experiments and three frozen final
+follow-up comparisons are complete. Both indexes cover 366,479 passages. The selected
+hybrid scores 0.4334 mean final nDCG@5 (0.4379 weighted); see
+[verified final results](experiments/gpu_extension_v1/GPU_FINAL_RESULTS.md).
+The commands below document the workflow and support checkpoint reuse. No further
+permission change is needed. Actual MPS work ran in the user’s normal Terminal.
+
 # Apple GPU access and first benchmarks
 
 The installed PyTorch build includes MPS. The current restricted execution session

@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "runs": {
+    "FINAL_E08_hybrid_fusion": {
+      "status": "passed",
+      "submitted": 507,
+      "scored": 332,
+      "prediction_sha256": "e7d3664eec1b73cfcee48149c407f89e4794c1054286b87fe4b2d3eb3ec58258",
+      "paired_vs_bm25": {
+        "metric": "ndcg_cut_5",
+        "delta_b_minus_a": 0.14380338615761057,
+        "cluster_unit": "conversation_id",
+        "bootstrap_samples": 3000,
+        "ci95": [
+          0.1017178486226056,
+          0.187913663569113
+        ]
+      }
+    },
+    "FINAL_G01_splade_latest_rerank": {
+      "status": "passed",
+      "submitted": 507,
+      "scored": 332,
+      "prediction_sha256": "75e20ef15acfd01629f77cb869c503dd26793aeab72f507be88388bc9d240c48",
+      "paired_vs_bm25": {
+        "metric": "ndcg_cut_5",
+        "delta_b_minus_a": 0.13031148789006558,
+        "cluster_unit": "conversation_id",
+        "bootstrap_samples": 3000,
+        "ci95": [
+          0.09230533302609373,
+          0.17057624321218948
+        ]
+      }
+    },
+    "FINAL_G02_dense_latest_rerank": {
+      "status": "passed",
+      "submitted": 507,
+      "scored": 332,
+      "prediction_sha256": "23999d9eb9571f18c88f4e3e89d81da3f5c738cedf62fae3823a6d2adfe8e2ee",
+      "paired_vs_bm25": {
+        "metric": "ndcg_cut_5",
+        "delta_b_minus_a": 0.11444216581625749,
+        "cluster_unit": "conversation_id",
+        "bootstrap_samples": 3000,
+        "ci95": [
+          0.07459782446106093,
+          0.1547666421714798
+        ]
+      }
+    }
+  },
+  "primary_final_run": "FINAL_E08_hybrid_fusion",
+  "original_cpu_artifacts_preserved": true,
+  "original_test_results_already_known": true
+}

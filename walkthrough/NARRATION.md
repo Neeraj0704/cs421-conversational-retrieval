@@ -6,7 +6,7 @@ This is an automated narrated walkthrough of the CS 421 conversational retrieval
 
 ## Data separation and leakage prevention
 
-The data module pins the upstream IBM commit and preserves the original passage identifiers. It uses a field whitelist, so gold answers, reference contexts and labels do not enter the retrieval model. The development split is by whole conversation, not individual turns. Twenty two conversations are held out for validation. Final test configurations are frozen before scores are used.
+The data module pins the upstream IBM commit and preserves the original passage identifiers. It uses a field whitelist, so gold answers, reference contexts and labels do not enter the retrieval model. The development split is by whole conversation, not individual turns. Twenty two conversations are held out for validation. CPU and GPU final configurations were frozen separately. The GPU follow up reuses a public final set already evaluated in the CPU stage.
 
 ## Rewriting and preserving the original question
 
@@ -14,7 +14,7 @@ The small local Qwen model rewrites the latest question using the supplied past 
 
 ## Retrieval, fusion and reranking
 
-BM 25 provides a fast lexical baseline over the complete original collections. Reciprocal rank fusion combines query views without assuming their numeric scores are calibrated. A Mini L M cross encoder then scores the query with each candidate passage. We compare pure reranking and a fifty fifty blend of retrieval and reranker ranks, using the same candidate pool. This separates better retrieval from better ordering.
+BM 25 provides a fast lexical baseline over the complete original collections. Reciprocal rank fusion combines query views without assuming their numeric scores are calibrated. A Mini L M cross encoder then scores the query with each candidate passage. We compare pure reranking and a fifty fifty blend of retrieval and reranker ranks, using the same candidate pool. The GPU study adds learned sparse SPLADE and B G E semantic search. Its selected hybrid combines original and rewritten query rankings without a cross encoder. This separates better retrieval from better ordering.
 
 ## Scoring and verification
 
@@ -22,4 +22,4 @@ The primary metric is n D C G at five. Recall at ten measures final retrieval co
 
 ## Measured results and practical limits
 
-The strongest completed validation run is R00 bm25 latest rerank, with n D C G at five of 0.3898. The frozen selected system scores 0.4161 on the final test, averaging over 332 judged questions out of 507 inputs. The screen shows only completed, format checked experiments. Development and final results are separate. Historical leaderboard equivalence is not established. The execution session has CPU access but no Metal GPU. Full learned sparse and dense indexing were deferred after timing their cost. Review the report, negative results and limitations, and adapt any submission to the actual course instructions. This automated video is a review aid; it is not a student recorded presentation.
+The strongest GPU validation run is hybrid fusion, with n D C G at five of 0.4479. The prespecified hybrid primary scores 0.4334 on the final follow up, over 332 judged questions out of 507 inputs. Recall at ten is 0.6211. The improvement over plain B M 25 is clear. The smaller gain over B M 25 plus reranking has a paired uncertainty interval including zero. Both complete neural indexes and all twelve GPU validation runs finished in the user's Metal enabled Terminal. The agent process itself could not access Metal. These are follow up results on a public final set already used for the CPU study. Historical leaderboard equivalence remains unverified. Review the combined report and the actual course instructions. This synthetic voice video is an automated review aid, not a student recorded presentation.

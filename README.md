@@ -26,7 +26,7 @@ recorded experiments, use an isolated workspace:
 python scripts/reproduce.py --name my_reproduction
 ```
 
-This runs seven development comparisons and the three already frozen final configurations.
+This reproduces the CPU stage: seven development comparisons and three frozen final configurations.
 It reuses full indexes and model downloads if available, preserves the saved generated queries,
 and recomputes reranker predictions. On a fresh checkout it downloads the pinned corpus and
 models. Outputs go to `reproductions/my_reproduction/`, with metric differences in `comparison.json`.
@@ -53,60 +53,36 @@ or `--standalone-query "your resolved question"`. This interactive command retur
 benchmark experiments use the separately cached automatic rewriting pipeline. Inspect a genuine
 saved example with `python scripts/demo.py --run R00_bm25_latest_rerank` after running experiments.
 
-## GPU workflow on this Mac
+## Completed GPU study and final follow-up
 
-Normal macOS Terminal has confirmed working MPS access and CPU/GPU vector agreement.
-The agent's separate tool process still cannot see Metal. Start the prepared full study
-from the working Terminal with:
+The user's normal macOS Terminal completed full SPLADE and BGE-small indexing on MPS.
+The agent's separate process cannot see Metal. Both indexes contain all 366,479 passages.
+Twelve fixed GPU validation comparisons and three frozen final comparisons are complete.
 
-```sh
-bash "/Users/neerajvp/Documents/CS421 NLP/NLP/implementation/scripts/start_gpu_study.command"
-```
+The validation-selected primary is **E08: SPLADE + dense original/rewrite fusion**.
+It scores **0.4479 validation nDCG@5** and **0.4334 final follow-up nDCG@5**
+(**0.4379** under the separate submitted-domain-weighted aggregate).
+Final Recall@10 is **0.6211**. The earlier CPU BM25 reranker scores 0.4161 on the same
+final set; the paired interval for the +0.0173 difference includes zero.
 
-It builds dense and SPLADE indexes and runs twelve fixed **validation-only** experiments
-in `experiments/gpu_extension_v1/`, preserving the original CPU study and final-test results.
-Sample estimates suggest roughly 3–4 hours including indexing and experiments. Progress is
-printed and saved; completed stages can be reused. See [GPU_ACCESS.md](GPU_ACCESS.md).
+See [GPU development results](experiments/gpu_extension_v1/GPU_EXTENSION_RESULTS.md),
+[GPU final results](experiments/gpu_extension_v1/GPU_FINAL_RESULTS.md), and the
+[combined final report](report/FINAL_PROJECT_REPORT.pdf).
+The final set was previously used for the CPU stage, so GPU results are explicitly disclosed
+follow-up benchmarks. Historical leaderboard equivalence remains unverified.
 
-## Frozen GPU final comparison
-
-The twelve-run GPU validation study is complete. Its winner and strongest single-family
-comparators are frozen for the next benchmark. Run from the GPU-enabled Terminal:
-
-```sh
-bash "/Users/neerajvp/Documents/CS421 NLP/NLP/implementation/scripts/start_gpu_final.command"
-```
-
-It reuses existing indexes and exact query snapshots, evaluates three fixed configurations,
-and writes `experiments/gpu_extension_v1/GPU_FINAL_RESULTS.md`. See the
-[follow-up protocol](experiments/gpu_extension_v1/GPU_FINAL_PROTOCOL.md). Earlier CPU scores
-on this public final set are already known, so these are explicitly labelled follow-up results.
-
-## Optional neural corpus indexes
-
-The current completed core uses BM25, rewriting, fusion and a compact cross-encoder.
-The GPU extension has completed the full BGE-small dense index and three validation experiments; see [GPU development results](experiments/gpu_extension_v1/GPU_EXTENSION_RESULTS.md). Both full indexes and all twelve GPU validation runs are now complete; the highest observed GPU validation nDCG@5 is 0.4479. This is separate from the earlier CPU final-test result.
-Sample CPU timings estimated approximately 10.8 and 3.2 indexing hours respectively. Run these
-as a separate development study if accelerator resources or extra time are available:
+To restore missing runtime assets and resume the prepared workflows from an MPS-enabled Terminal:
 
 ```sh
-convrag index --backend splade --batch-size 8
-convrag run --config configs/E03_splade_latest.json
-convrag run --config configs/E04_splade_rewrite.json
-convrag run --config configs/E05_splade_fusion.json
-convrag run --config configs/E06_splade_rerank.json
-convrag run --config configs/E07_splade_blend.json
-convrag index --backend dense --batch-size 32
-convrag run --config configs/D00_dense_latest.json
-convrag run --config configs/D01_dense_fusion.json
-convrag run --config configs/E08_hybrid_fusion.json
+python scripts/run_gpu_study.py
+python scripts/run_gpu_final.py
 ```
 
-Keep these exploratory results separate from the frozen core study. Full index construction is
-resumable; partial pilot indexes cannot be used for benchmark evaluation. Model revisions are
-pinned in `analysis/model_inventory.json`. MLX is optional (`pip install -e '.[apple]'`), requires
-accessible Apple Metal, and is selected with an `mlx-community/...` rewrite model. The default
-CPU-compatible rewriter is Qwen2.5-0.5B-Instruct.
+Completed stages are reused. On this Mac, the corresponding `scripts/start_gpu_study.command`
+and `scripts/start_gpu_final.command` launchers use the existing environment and keep the
+machine awake. See [GPU_ACCESS.md](GPU_ACCESS.md) and the
+[frozen follow-up protocol](experiments/gpu_extension_v1/GPU_FINAL_PROTOCOL.md).
+Use a separately named study for future changes; preserve these recorded checkpoints.
 
 ## Research implemented
 
@@ -135,8 +111,8 @@ these are the strongest available models. ColBERT and model fine-tuning remain o
 - We also report the upstream scorer's submitted-count-weighted domain aggregation separately.
   This is not automatically the same as the simple average over scored questions.
 - Official format checking runs on every prediction file. Metric parity is checked separately.
-- MTRAG-UN is reserved for final testing after a frozen development decision. A final run requires
-  `--final`; no performance claim is made before a completed run.
+- Final configurations are frozen before evaluation. The original CPU final test and subsequent
+  GPU follow-up are separately recorded; the latter is not a fresh unseen holdout.
 - Historical winner comparisons require matching released data, qrels and aggregation. Until
   that is established, scores are contextual comparisons rather than official competition results.
 
@@ -151,7 +127,8 @@ are intentionally regenerated, rather than committed. `PROJECT_PLAN.md` is the u
 ## Deliverables and checks
 
 - [Recorded results](RESULTS.md) and [updated milestone tracker](PROJECT_PLAN.md).
-- [Report source](report/PROJECT_REPORT.md) and [PDF](report/PROJECT_REPORT.pdf).
+- [Combined report source](report/FINAL_PROJECT_REPORT.md) and [PDF](report/FINAL_PROJECT_REPORT.pdf).
+- Preserved [CPU-stage report](report/PROJECT_REPORT.md) and [PDF](report/PROJECT_REPORT.pdf).
 - [Walkthrough script](walkthrough/WALKTHROUGH.md), [automated narrated review video](walkthrough/AUTOMATED_WALKTHROUGH.mp4), and [transcript](walkthrough/NARRATION.md).
 - `analysis/verification.json` records independent metric/coverage checks once all final runs finish.
 - `analysis/clean_environment_reproduction.json` records the exact BM25 match in a separate Python environment.
