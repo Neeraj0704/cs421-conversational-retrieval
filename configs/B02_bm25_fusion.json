@@ -1,0 +1,13 @@
+{
+  "id": "B02_bm25_fusion",
+  "dataset": "mtrag",
+  "split": "validation",
+  "retrieve_k": 100,
+  "pool_size": 100,
+  "rrf_k": 60,
+  "backends": [
+    "bm25"
+  ],
+  "query_mode": "fusion",
+  "rewrites": "cache/rewrites/mtrag.jsonl"
+}

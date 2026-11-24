@@ -1,0 +1,12 @@
+{
+  "id": "E00_bm25_latest",
+  "dataset": "mtrag",
+  "split": "validation",
+  "retrieve_k": 100,
+  "pool_size": 100,
+  "rrf_k": 60,
+  "backends": [
+    "bm25"
+  ],
+  "query_mode": "latest"
+}
