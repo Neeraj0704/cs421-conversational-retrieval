@@ -29,6 +29,10 @@ def build_report(root):
         return [[rid,f"{m['mean_over_scored_queries']['ndcg_cut_5']:.4f}",
                  f"{m['mean_over_scored_queries']['recall_10']:.4f}",f"{m['candidate_recall']['recall_100']:.4f}",
                  f"{m['scored']} / {m['submitted']}",f"{m['runtime']['median_query_seconds']:.4f}"] for rid,cfg,m in group]
+    aggregate_rows=[[rid,f"{m['mean_over_scored_queries']['ndcg_cut_5']:.4f}",
+                     f"{m['official_style_submitted_count_weighted']['ndcg_cut_5']:.4f}",
+                     f"{m['mean_over_scored_queries']['recall_5']:.4f}",
+                     f"{m['official_style_submitted_count_weighted']['recall_5']:.4f}"] for rid,cfg,m in final]
     comparisons=[]
     base=root/'runs/E00_bm25_latest/per_query.json'
     if base.exists():
@@ -71,8 +75,13 @@ def build_report(root):
               [[rid,f"{r['delta_b_minus_a']:+.4f}",f"[{r['ci95'][0]:+.4f}, {r['ci95'][1]:+.4f}]"] for rid,r in comparisons]),
         'Intervals covering zero do not establish a clear directional effect on this small validation sample. Selecting the best of several validation runs also introduces selection optimism; the final test is reserved for the frozen comparisons.',
         'History concatenation can bury the latest intent under earlier topics. Rewriting can resolve references, but the small rewriter may leave pronouns unresolved or change meaning. Fusion protects some exact wording but can add irrelevant candidates. A cross-encoder can only reorder retrieved passages, so candidate recall bounds what reranking can repair.',
+        *([table(['Validation diagnostic','Questions'],[[k,v] for k,v in json.loads((root/'analysis'/('errors_'+best[0]+'.json')).read_text())['counts'].items()])]
+          if (root/'analysis'/('errors_'+best[0]+'.json')).exists() else []),
+        *([x['observation']+f" Observed delta nDCG@5: {x['delta_ndcg5']:+.4f}." for x in json.loads((root/'analysis/manual_error_notes.json').read_text())['examples']]
+          if (root/'analysis/manual_error_notes.json').exists() else []),
       ]),
       ('Final evaluation',[table(columns,rows(final)) if final else 'No final test scores have been reported yet. Final testing requires a frozen configuration manifest and explicit final-run mode.',
+        *([table(['Run','nDCG@5 mean','nDCG@5 weighted','Recall@5 mean','Recall@5 weighted'],aggregate_rows)] if final else []),
         'These are results on the currently pinned release. Historical competition equivalence remains unverified unless the exact original question subset, relevance judgments, filtering and aggregation are independently matched. The organizer overview (Table 4) reports AILS-NTUA at 0.578 nDCG@5 and 0.622 Recall@5; that is contextual until exact protocol equivalence is established. It is not a comparison with our development split.',
         'An archived IBM RAG retrieval artifact is separately checked in analysis/archived_rag_artifact_check.json. Its current per-scored-query nDCG@5 is approximately 0.4866, versus rounded ELSER values of 0.45/0.48 in the development README. Query formulation, data revision and aggregation have not been matched closely enough to claim exact historical reproduction. These are supplied predictions, not our retrieval output.']),
       ('Resources and feasibility',[
@@ -98,6 +107,13 @@ def build_report(root):
       ])]
     markdown='\n\n'.join(('## ' if i else '# ')+h+'\n\n'+'\n\n'.join(paras) for i,(h,paras) in enumerate(sections))+'\n'
     (out/'PROJECT_REPORT.md').write_text(markdown)
+    (root/'RESULTS.md').write_text('# Recorded results\n\n'+
+        'Only completed runs passing the official format checker are listed.\n\n'+
+        '## Held-out development conversations\n\n'+table(columns,rows(dev))+'\n\n'+
+        f"Validation-selected best: **{best[0]}**. Selection uses development data only.\n\n"+
+        '## Frozen final comparisons\n\n'+(table(columns,rows(final)) if final else 'Not scored yet.')+'\n\n'+
+        'These are local benchmark results, not an official competition submission. Historical leaderboard equivalence is unverified. '+
+        'The full report includes aggregation differences, uncertainty, negative results and resource limits.\n')
     _pdf(out/'PROJECT_REPORT.pdf',sections)
     _walkthrough(root,best,dev,final)
     _plot(out,dev)

@@ -3,7 +3,7 @@
 **Project:** Improving Multi-Turn Retrieval with Conversation History  
 **Task:** SemEval-2026 Task 8, MTRAGEval, Subtask A  
 **Plan date:** November 23, 2026 — America/Chicago  
-**Status:** Implementation active. Private GitHub repository and pipeline created; data audit, scoring parity, BM25 baselines and CPU feasibility completed. Rewriting/reranking experiments in progress.  
+**Status:** Core implementation and seven development ablations complete. Frozen final evaluation in progress.
 **Working folder:** /Users/neerajvp/Documents/CS421 NLP/NLP/implementation
 
 ## 1. What we are trying to finish
@@ -90,7 +90,7 @@ Do not proceed past a gate when a failure would invalidate later scores.
 - [x] Choose a local environment and a minimal dependency set for retrieval evaluation.
 - [x] Audit candidate checkpoint access and licenses.
 - [x] Select one rewriter and one reranker for a short feasibility check.
-- [ ] Record decisions and unresolved items in the decision log.
+- [x] Record decisions and unresolved items in the decision log.
 
 **Done when:** we have a feasible core configuration and an explicit list of unknown submission requirements.
 
@@ -103,7 +103,7 @@ If the final brief remains unavailable, continue independent setup and experimen
 - [x] Pin the IBM repository commit.
 - [x] Download official passage-level corpora, MTRAG tasks, relevance files, and evaluation/format-checking code.
 - [x] Verify archive integrity and inventory actual record counts.
-- [ ] Inspect several real examples across all four domains.
+- [x] Inspect several real examples across all four domains.
 - [x] Preserve passage boundaries and identifiers.
 - [x] Verify relevance-file IDs against actual corpus IDs; document any ingestion-offset mapping explicitly.
 - [x] Establish query-to-collection routing.
@@ -124,7 +124,7 @@ Published counts differ between some reports and repository descriptions. Record
 - [x] Check duplicate IDs, ties, omitted tasks, empty results, wrong-domain IDs, and nonfinite scores with small controlled inputs.
 - [x] Compare the official-style domain-weighted aggregate with a direct mean over scored queries.
 - [x] Count submitted, scored, unscored, and missing judged queries separately.
-- [ ] Use a known-score official prediction artifact as a reproduction check if available.
+- [x] Use a known-score official prediction artifact as a reproduction check if available.
 - [x] Verify a tiny hand-understood ranking against the metric calculation.
 
 **Done when:** scores respond as expected, query coverage is explicit, and there is no silent use of development qrels for final evaluation.
@@ -139,8 +139,8 @@ Tasks with no judgments are not automatically retrieval failures. A required jud
 - [x] Build the BM25 index for each assigned collection.
 - [x] Run latest-question-only BM25.
 - [x] Run BM25 with prior user questions plus the latest question.
-- [ ] Generate and cache conservative rewrites, if a model is feasible.
-- [ ] Run BM25 using those rewrites.
+- [x] Generate and cache conservative rewrites, if a model is feasible.
+- [x] Run BM25 using those rewrites.
 - [x] Save predictions, per-query scores, per-domain metrics, runtime, and configuration.
 
 **Done when:** the original project question can be answered with real comparisons, even if later enhancements fail.
@@ -152,10 +152,10 @@ Tasks with no judgments are not automatically retrieval failures. A required jud
 - [x] Time sparse encoding on a sample and estimate full indexing work.
 - [ ] Build one learned sparse index if it passes the feasibility gate.
 - [ ] Run sparse retrieval with latest question and with rewrite separately.
-- [ ] Fuse original and rewrite rankings.
-- [ ] Rerank a fixed candidate pool with the selected compact model.
-- [ ] Compare pure reranking with a blend of retrieval and reranker ranks.
-- [ ] Check retrieval and ranking failures separately.
+- [x] Fuse original and rewrite rankings.
+- [x] Rerank a fixed candidate pool with the selected compact model.
+- [x] Compare pure reranking with a blend of retrieval and reranker ranks.
+- [x] Check retrieval and ranking failures separately.
 
 **Done when:** the main pipeline runs across the development evaluation set, produces ten valid passages per task, and each stage has a measured contribution.
 
@@ -171,11 +171,11 @@ If learned sparse indexing cannot fit the schedule, complete the same query/fusi
 
 **Tasks**
 
-- [ ] Choose one experiment based on current error analysis and remaining time.
+- [x] Choose one experiment based on current error analysis and remaining time.
 - [ ] Hold the final reranking pool and model fixed.
 - [ ] Measure unique relevant candidates contributed by the new branch.
 - [ ] Record quality, indexing cost, query time, and memory.
-- [ ] Keep or reject the component using the rules below.
+- [x] Keep or reject the component using the rules below.
 
 **Done when:** there is a documented outcome for each attempted extension, including negative results or feasibility failures.
 
@@ -185,9 +185,9 @@ No requirement to run every method family. RL training, full retriever fine-tuni
 
 **Tasks**
 
-- [ ] Select the primary method from development results.
-- [ ] Freeze code/configuration, model revisions, prompts, and selected run list.
-- [ ] Preserve our simple baseline and strongest sparse baseline as final comparisons.
+- [x] Select the primary method from development results.
+- [x] Freeze code/configuration, model revisions, prompts, and selected run list.
+- [x] Preserve our simple baseline and strongest sparse baseline as final comparisons.
 - [ ] Generate final predictions before examining final relevance outcomes.
 - [ ] Validate task coverage, ten unique IDs per task, collection routing, finite scores, and deterministic ordering.
 - [ ] Score the prespecified runs on the historical competition subset.
@@ -203,8 +203,8 @@ An implementation bug may justify a corrected run with an explicit explanation. 
 **Tasks**
 
 - [ ] Complete report according to the actual final brief.
-- [ ] Include results, ablations, errors, limitations, references, and resource measurements.
-- [ ] Explain which components follow earlier papers and what we implemented or adapted.
+- [x] Include results, ablations, errors, limitations, references, and resource measurements.
+- [x] Explain which components follow earlier papers and what we implemented or adapted.
 - [x] Write a README with setup, data preparation, indexing, retrieval, and evaluation commands.
 - [x] Pin dependencies and model versions.
 - [ ] Re-run a small example from a clean environment or documented fresh setup.
@@ -223,14 +223,14 @@ E00 and E01 are completed; rewriting/reranking runs are in progress. Learned spa
 |---|---|---|---|---|
 | E00 | BM25, latest question | Starting point | Required | Complete: validation nDCG@5 0.22495 |
 | E01 | Same BM25, prior user questions + latest | E00: raw history | Required | Complete: validation nDCG@5 0.18417 |
-| E02 | Same BM25, conservative rewrite | E00/E01: rewriting | Required if rewriter feasible | Planned |
-| E03 | Sparse, latest question | E00: stronger retriever | Core target | Planned |
-| E04 | Same sparse, conservative rewrite | E03: rewrite effect | Core target | Planned |
-| E05 | Same sparse, original+rewrite searches, flat RRF | E04: preserve original wording | Core target | Planned |
-| E06 | E05 candidates, pure cross-encoder ordering | E05: reranking | Core target | Planned |
-| E07 | Exact same E06 candidates/scores, retrieval-rank + reranker-rank fusion | E06: preserve retrieval signal | Core target | Planned |
-| E08 | Best fixed query views, sparse+dense, same final pool/reranker | Best sparse-only: dense complementarity | Stretch | Planned |
-| E09 | Same views, sparse+ColBERT, same final pool/reranker | Best sparse-only and E08: late interaction | Stretch | Planned |
+| E02 | Same BM25, conservative rewrite | E00/E01: rewriting | Required if rewriter feasible | Complete: validation nDCG@5 0.21136 |
+| E03 | Sparse, latest question | E00: stronger retriever | Core target | Deferred full-index experiment after CPU feasibility gate |
+| E04 | Same sparse, conservative rewrite | E03: rewrite effect | Core target | Deferred full-index experiment after CPU feasibility gate |
+| E05 | Same sparse, original+rewrite searches, flat RRF | E04: preserve original wording | Core target | Deferred full-index experiment after CPU feasibility gate |
+| E06 | E05 candidates, pure cross-encoder ordering | E05: reranking | Core target | Deferred full-index experiment after CPU feasibility gate |
+| E07 | Exact same E06 candidates/scores, retrieval-rank + reranker-rank fusion | E06: preserve retrieval signal | Core target | Deferred full-index experiment after CPU feasibility gate |
+| E08 | Best fixed query views, sparse+dense, same final pool/reranker | Best sparse-only: dense complementarity | Stretch | Deferred full-index experiment after CPU feasibility gate |
+| E09 | Same views, sparse+ColBERT, same final pool/reranker | Best sparse-only and E08: late interaction | Stretch | Deferred full-index experiment after CPU feasibility gate |
 | E10 | Add one keyword-focused view to best feasible system | Two versus three views | Stretch | Planned |
 | E11 | Same system, selected history instead of full prefix | History filtering | Stretch | Planned |
 | E12 | More views with flat versus nested RRF | Fusion structure at identical views and budget | Later | Planned |
@@ -417,18 +417,18 @@ Do not script a video around components we did not implement. Ensure its duratio
 
 | Milestone | Status | Evidence |
 |---|---|---|
-| Research reports read and compared | Complete for planning | Reports linked below; selected primary-source checks remain |
-| Implementation plan written | Complete | This file |
-| Final-project brief obtained | Pending | Only proposal instructions currently established |
-| Hardware/model feasibility checked | Not started | No measured configuration |
-| Official data downloaded and audited in this project | Not started | Current implementation folder has no corpus |
-| Evaluation verified for our runs | Not started | Prior proposal checks are not our new experiment |
-| Baselines run | Not started | No project scores |
-| Strong pipeline implemented | Not started | No code yet |
-| Modern-method extension tested | Not started | No extension scores |
-| Final results/report/video | Not started | Pending implementation |
+| Research synthesis and plan | Complete for implementation scope | Research map and source links; 50-primary-paper audit not verified |
+| Final-project brief | Pending | Proposal instructions only; exact final rubric unavailable |
+| Hardware/model feasibility | Complete | `analysis/feasibility_*.json`, `analysis/model_inventory.json` |
+| Data audit | Complete | 366,479 passages; pinned source and checksums in `analysis/data_manifest.json` |
+| Evaluation | Complete | Official format checks, metric parity, automated tests |
+| Baselines and core pipeline | Complete | Seven validation runs, rewrites, fusion, reranking and rank blending |
+| Learned sparse/dense extension | Implemented and smoke-tested; full experiments deferred | 16-passage index tests; estimated 10.8/3.2 CPU indexing hours |
+| Final evaluation | In progress | Frozen baseline, fusion and selected reranker configurations |
+| Report and walkthrough | Development draft; final regeneration pending | `report/`, `walkthrough/`; automated review aid is separate from student presentation |
+| Course submission | Pending | No course upload has been performed |
 
-**Next action:** start M0, check resources and submission requirements, then obtain/pin the official data and establish M1/M2. Do not begin a large neural indexing job before the sample timing check.
+**Next action:** Finish the already frozen final comparisons, regenerate deliverables, validate the artifacts and push the completed checkpoint.
 
 ### Decision log
 
@@ -466,3 +466,17 @@ Repository: https://github.com/Neeraj0704/cs421-conversational-retrieval (privat
 - CPU feasibility: SPLADE ~10.8 hours and BGE-small ~3.2 hours estimated full indexing. These are sample estimates. Metal/MPS is not exposed in this session.
 - Execute the plan’s BM25 + rewrite + fusion + compact reranker fallback; full learned sparse/dense code remains available and is not reported as a completed full-corpus experiment.
 - Final brief, report rubric, walkthrough duration and exact cutoff remain unknown. No submission has been made.
+
+## Latest implementation results
+
+| Run | Dataset | Scored / input | nDCG@5 |
+|---|---|---|---|
+| B02_bm25_fusion | mtrag | 161 / 174 | 0.24724 |
+| B03_bm25_rerank | mtrag | 161 / 174 | 0.34643 |
+| B04_bm25_blend | mtrag | 161 / 174 | 0.31378 |
+| E00_bm25_latest | mtrag | 161 / 174 | 0.22495 |
+| E01_bm25_history | mtrag | 161 / 174 | 0.18417 |
+| E02_bm25_rewrite | mtrag | 161 / 174 | 0.21136 |
+| R00_bm25_latest_rerank | mtrag | 161 / 174 | 0.38980 |
+
+The source/configuration hashes in the freeze manifest are authoritative; its Git SHA identifies the preceding checkpoint. The completed commit also includes the hashed working-tree changes. Final test outcomes are not used to change the selected method.

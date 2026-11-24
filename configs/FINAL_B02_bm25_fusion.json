@@ -1,0 +1,13 @@
+{
+  "id": "FINAL_B02_bm25_fusion",
+  "dataset": "mtragun",
+  "split": "all",
+  "retrieve_k": 100,
+  "pool_size": 100,
+  "rrf_k": 60,
+  "backends": [
+    "bm25"
+  ],
+  "query_mode": "fusion",
+  "rewrites": "cache/rewrites/mtragun.jsonl"
+}

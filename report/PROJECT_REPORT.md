@@ -4,7 +4,7 @@ Implementation and experiment report. Prepared from saved, format-checked runs; 
 
 The system receives a conversation up to the latest user question and retrieves ten passages from the assigned collection. It implements SemEval-2026 Task 8 / MTRAGEval Subtask A. It does not generate an answer.
 
-The strongest completed validation run is E00_bm25_latest, with nDCG@5 = 0.2249. This is our local development result, not an official competition submission or a verified win over the historical leaderboard.
+The strongest completed validation run is R00_bm25_latest_rerank, with nDCG@5 = 0.3898. This is our local development result, not an official competition submission or a verified win over the historical leaderboard.
 
 ## Research question and method
 
@@ -40,30 +40,52 @@ The unmodified official evaluate function is loaded through Python AST to avoid 
 
 Prediction scores encode final rank order. Evaluation uses these numeric scores; it does not rely only on list order. Paired uncertainty uses a fixed-seed bootstrap resampling conversations, which avoids treating turns from the same conversation as independent.
 
-Local latency includes search and ranking with possible first-query warmup. Rewrite generation and initial model/index loading are recorded separately or excluded. Cached reranking can make a later blend run appear much faster; those times are not an independent live inference benchmark.
+Local latency includes search and ranking with possible first-query warmup. Rewrite generation and initial model/index loading are recorded separately or excluded. Cached reranking can make a later blend run appear much faster; those times are not an independent live inference benchmark. CPU jobs also ran concurrently during this session, so timings are practical observations rather than controlled hardware comparisons.
 
 ## Development results
 
 | Run | nDCG@5 | Recall@10 | Candidate R@100 | Scored / input | Median search + rank (s) |
 |---|---|---|---|---|---|
+| B02_bm25_fusion | 0.2472 | 0.3516 | 0.6271 | 161 / 174 | 0.0013 |
+| B03_bm25_rerank | 0.3464 | 0.4388 | 0.6271 | 161 / 174 | 0.8993 |
+| B04_bm25_blend | 0.3138 | 0.4246 | 0.6271 | 161 / 174 | 0.0026 |
 | E00_bm25_latest | 0.2249 | 0.3265 | 0.5688 | 161 / 174 | 0.0021 |
 | E01_bm25_history | 0.1842 | 0.2816 | 0.5404 | 161 / 174 | 0.0008 |
+| E02_bm25_rewrite | 0.2114 | 0.3156 | 0.5896 | 161 / 174 | 0.0022 |
+| R00_bm25_latest_rerank | 0.3898 | 0.4679 | 0.5688 | 161 / 174 | 1.8340 |
 
 ## Uncertainty and interpretation
 
 | Compared with BM25 latest | Delta nDCG@5 | 95% conversation-bootstrap interval |
 |---|---|---|
+| B02_bm25_fusion | +0.0223 | [-0.0166, +0.0626] |
+| B03_bm25_rerank | +0.1215 | [+0.0637, +0.1863] |
+| B04_bm25_blend | +0.0888 | [+0.0372, +0.1425] |
 | E01_bm25_history | -0.0408 | [-0.0909, +0.0097] |
+| E02_bm25_rewrite | -0.0136 | [-0.0586, +0.0305] |
+| R00_bm25_latest_rerank | +0.1648 | [+0.1068, +0.2323] |
 
 Intervals covering zero do not establish a clear directional effect on this small validation sample. Selecting the best of several validation runs also introduces selection optimism; the final test is reserved for the frozen comparisons.
 
 History concatenation can bury the latest intent under earlier topics. Rewriting can resolve references, but the small rewriter may leave pronouns unresolved or change meaning. Fusion protects some exact wording but can add irrelevant candidates. A cross-encoder can only reorder retrieved passages, so candidate recall bounds what reranking can repair.
 
+| Validation diagnostic | Questions |
+|---|---|
+| no_relevant_candidate | 46 |
+| relevant_candidate_but_none_in_top5 | 17 |
+| relevant_in_top5 | 98 |
+
+Earlier drainage-system questions add many repeated terms. The judged relevant passage is still in the 100-candidate pool, but raw history ranks it below the top five. This is consistent with query dilution; it does not prove the mechanism for all failures. Observed delta nDCG@5: -0.6131.
+
+The latest utterance is a fragment. Earlier questions supply the cotton-gin topic, and raw history improves the measured top-five result. This illustrates why history is sometimes necessary. Observed delta nDCG@5: +0.6131.
+
 ## Final evaluation
 
 No final test scores have been reported yet. Final testing requires a frozen configuration manifest and explicit final-run mode.
 
-These are results on the currently pinned release. Historical competition equivalence remains unverified unless the exact original question subset, relevance judgments, filtering and aggregation are independently matched. A historical winning score is context, not proof of a fair direct comparison.
+These are results on the currently pinned release. Historical competition equivalence remains unverified unless the exact original question subset, relevance judgments, filtering and aggregation are independently matched. The organizer overview (Table 4) reports AILS-NTUA at 0.578 nDCG@5 and 0.622 Recall@5; that is contextual until exact protocol equivalence is established. It is not a comparison with our development split.
+
+An archived IBM RAG retrieval artifact is separately checked in analysis/archived_rag_artifact_check.json. Its current per-scored-query nDCG@5 is approximately 0.4866, versus rounded ELSER values of 0.45/0.48 in the development README. Query formulation, data revision and aggregation have not been matched closely enough to claim exact historical reproduction. These are supplied predictions, not our retrieval output.
 
 ## Resources and feasibility
 
@@ -88,6 +110,8 @@ The final course brief is still needed to check page limits, video requirements,
 ## References
 
 IBM MTRAG benchmark and evaluation: https://github.com/IBM/mt-rag-benchmark
+
+Rosenthal et al. (2026), SemEval-2026 Task 8: MTRAGEval: Evaluating Multi-Turn RAG Conversations: https://aclanthology.org/2026.semeval-1.447/
 
 Formal et al. (2022), From Distillation to Hard Negative Sampling: Making Sparse Neural IR Models More Effective: https://arxiv.org/abs/2205.04733
 

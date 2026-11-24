@@ -1,0 +1,12 @@
+{
+  "python": "3.11.14",
+  "os": "macOS-26.5.2-arm64-arm-64bit",
+  "architecture": "arm64",
+  "logical_cpus": 10,
+  "mps_built": true,
+  "mps_available": false,
+  "cuda_available": false,
+  "disk_free_gib": 29.48,
+  "working_directory": "/Users/neerajvp/Documents/CS421 NLP/NLP/implementation",
+  "resource_context": "GPU unavailable to this execution session; neural runs use CPU"
+}

@@ -1,0 +1,1377 @@
+{
+  "run": "R00_bm25_latest_rerank",
+  "baseline": "E00_bm25_latest",
+  "counts": {
+    "no_relevant_candidate": 46,
+    "relevant_candidate_but_none_in_top5": 17,
+    "relevant_in_top5": 98
+  },
+  "sampling": "Three largest gains and regressions per domain; not representative",
+  "interpretation": "Categories describe judged retrieval/ranking outcomes; no automatic claim about rewrite correctness",
+  "examples": [
+    {
+      "task_id": "5c13daa9432149f6243aa1115629cd1a<::>5",
+      "domain": "clapnq",
+      "delta_ndcg5": -0.7653606369886217,
+      "ndcg5": 0.0,
+      "diagnosis": "relevant_candidate_but_none_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "where is bone marrow found what does it do for the body"
+        },
+        {
+          "speaker": "agent",
+          "text": "Bone marrow is found within the spongy or cancellous portions of bones. Human marrow produces approximately 500 billion blood cells per day. The main functional component of bone marrow includes the progenitor cells which are destined to mature into blood and lymphoid cells. These include white blood cells, red blood cells, and platelets. In humans, the red marrow of some bones is an important site for blood cell production, in order to replace existing cells that have been destroyed by the liver. "
+        },
+        {
+          "speaker": "user",
+          "text": "What happens if it does not work well?"
+        },
+        {
+          "speaker": "agent",
+          "text": "If bone marrow does not function properly, it can lead to a decrease in the production of blood cells and blood platelets. This can be caused by various factors such as aplastic anemia, malignancies like multiple myeloma, congenital defects , autoimmune diseases, infections like tuberculosis, leukemia, or exposure to radiation or chemotherapy. Symptoms of a malfunctioning bone marrow can include fatigue, increased risk of infection, and easy bruising or bleeding. In the case of sickle cell disease, the bone marrow's attempt to compensate for the destruction of red cells is not sufficient, leading to anemia."
+        },
+        {
+          "speaker": "user",
+          "text": "How is Sickle cell treated?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The treatment for sickle cell disease may include infection prevention with vaccination and antibiotics, high fluid intake, folic acid supplementation, pain medication, blood transfusion, and the medication hydroxycarbamide (hydroxyurea). A small percentage of people can be cured by a transplant of bone marrow cells. When treating avascular necrosis of the bone in people with sickle cell disease, the aim of treatment is to reduce or stop the pain and maintain joint mobility. Current treatment options are to rest the joint, physical therapy, pain relief medicine, joint replacement surgery, or bone grafting. High quality randomized controlled trials are needed to assess the most effective treatment option and determine if a combination of physical therapy and surgery are more effective than physical therapy alone."
+        },
+        {
+          "speaker": "user",
+          "text": "Will it kill me?"
+        },
+        {
+          "speaker": "agent",
+          "text": "A small percentage of people can be cured by a transplant of bone marrow cells. Life expectancy for people with sickle cell disease in the developed world is 40 to 60 years. About 90 % of people survive to age 20, and close to 50 % survive beyond age 50, and many people with the condition live well into adulthood with proper medical care. The disease can be life-threatening, but with appropriate treatment and management, the prognosis can be improved. "
+        },
+        {
+          "speaker": "user",
+          "text": "How about transplant?"
+        }
+      ],
+      "queries": [
+        "How about transplant?"
+      ],
+      "relevant_ids": [
+        "853377429_22796-23121-0-325",
+        "853377429_36903-37132-0-229",
+        "853377429_37780-38219-0-439"
+      ],
+      "top5": [
+        "825171915_11920-12748-0-828",
+        "825171915_1248-1580-0-332",
+        "825171915_12749-13209-0-460",
+        "838273203_21281-21553-0-272",
+        "842629338_3606-3996-0-390"
+      ],
+      "first_relevant_excerpt": "Sickle cell disease\nBone marrow transplants have proven effective in children . Bone marrow transplants are the only known cure for SCD . However , bone marrow transplants are difficult to obtain because of the specific HLA typing necessary . Ideally , a close relative ( allogeneic ) would donate the bone marrow necessary for transplantation .",
+      "top_ranked_excerpt": "Bone marrow\nIn a bone marrow transplant , hematopoietic stem cells are removed from a person and infused into another person ( allogenic ) or into the same person at a later time ( autologous ) . If the donor and recipient are compatible , these infused cells will then travel to the bone marrow and initiate blood cell production . Transplantation from one person to another is conducted for the treatment of severe bone marrow diseases , such as congenital defects , autoimmune diseases or malignancies . The patient 's own marrow is first killed off with drugs or radiation , and then the new stem cells are introduced . Before radiation therapy or chemotherapy in cases of cancer , some of the patient 's hematopoietic stem cells are sometimes harvested and later infused back when the therapy is finished to restore the immune system ."
+    },
+    {
+      "task_id": "b2805ee4c478194c234e2384ffb0a6bf<::>5",
+      "domain": "clapnq",
+      "delta_ndcg5": -0.3065735963827292,
+      "ndcg5": 0.0,
+      "diagnosis": "relevant_candidate_but_none_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "where was the cotton gin invented and where is it used today"
+        },
+        {
+          "speaker": "agent",
+          "text": "According to the worm gear roller gin, it was invented in the Indian subcontinent, specifically during the early Delhi Sultanate era of the 13th-14th centuries. It came into use in the Mughal Empire around the 16th century and is still used in the Indian subcontinent today. However, it's important to note that there were different types of cotton gins, including a handheld roller gin used in India since at least 500 CE, and a single-roller cotton gin found in the Ajanta caves of India and used until innovations were made in the form of foot-powered gins. The modern mechanical cotton gin was created by American inventor Eli Whitney in 1793 and patented in 1794, but I have no information as to its current usage. The early history of the cotton gin is ambiguous , because archeologists likely mistook the cotton gin 's parts for other tools ."
+        },
+        {
+          "speaker": "user",
+          "text": "Did the need for cotton workers increase?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, the demand for cotton workers did increase after the invention of the modern mechanical cotton gin by Eli Whitney in 1793. This invention revolutionized the cotton industry in the United States, leading to a rapid increase in the demand for cotton workers. This increased demand for labor has been identified as a contributing factor to the growth of slavery in the American South.  The number of slaves rose in concert with the increase in cotton production , increasing from around 700,000 in 1790 to around 3.2 million in 1850."
+        },
+        {
+          "speaker": "user",
+          "text": "By how much did the cotton gin increase production?"
+        },
+        {
+          "speaker": "agent",
+          "text": "I have no specific numbers regarding the increase in cotton production due to the cotton gin. However, the cotton gin revolutionized the cotton industry in the United States, significantly increasing productivity. The modern automated cotton gins offer far higher productivity than their hand-powered forebears. Cotton production expanded from 750,000 bales in 1830 to 2.85 million bales in 1850."
+        },
+        {
+          "speaker": "user",
+          "text": "Was the invention of the cotton gin indirectly a cause of the American Civil War?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, the invention of the cotton gin has been identified as an inadvertent contributing factor to the outbreak of the American Civil War. The increased demand for cotton workers, primarily filled by slaves, in the American South after the invention of the cotton gin led to the growth of slavery and tensions between the North and South over the issue of slavery. These tensions were one of the main causes of the American Civil War.  Because of its inadvertent effect on American slavery , and on its ensuring that the South 's economy developed in the direction of plantation - based agriculture , the invention of the cotton gin is frequently cited as one of the indirect causes of the American Civil War ."
+        },
+        {
+          "speaker": "user",
+          "text": "Was Britain relying on Southern cotton?"
+        }
+      ],
+      "queries": [
+        "Was Britain relying on Southern cotton?"
+      ],
+      "relevant_ids": [
+        "805474955_10307-11336-0-1029",
+        "816711474_8730-9389-0-659"
+      ],
+      "top5": [
+        "835528347_5926-6218-0-292",
+        "836877453_40949-41949-0-1000",
+        "837063451_87279-88129-0-850",
+        "853000512_45525-46393-0-868",
+        "801059786_12890-13145-0-255"
+      ],
+      "first_relevant_excerpt": "Cotton gin\nThe invention of the cotton gin caused massive growth in the production of cotton in the United States , concentrated mostly in the South . Cotton production expanded from 750,000 bales in 1830 to 2.85 million bales in 1850 . As a result , the region became even more dependent on plantations and slavery , with plantation agriculture becoming the largest sector of its economy . While it took a single slave about ten hours to separate a single pound of fiber from the seeds , a team of two or three slaves using a cotton gin could produce around fifty pounds of cotton in just one day . The number of slaves rose in concert with the increase in cotton production , increasing from around 700,000 in 1790 to around 3.2 million in 1850 . By 1860 , black slave labor from the American South was providing two - thirds of the world 's supply of cotton , and up to 80 % of the crucial British market . The cotton gin thus `` transformed cotton as a crop and the American South into the globe 's first agricultural powerhouse '' . An",
+      "top_ranked_excerpt": "Foreign trade of the United States\nDuring the Civil War period , leaders of the Confederacy were confident that Britain would come to their aid because of British reliance on Southern cotton . The Union was able to avoid this , through skillful use of diplomacy and threats to other aspects of European - U.S. trade relations ."
+    },
+    {
+      "task_id": "b2805ee4c478194c234e2384ffb0a6bf<::>3",
+      "domain": "clapnq",
+      "delta_ndcg5": 0.0,
+      "ndcg5": 0.0,
+      "diagnosis": "relevant_candidate_but_none_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "where was the cotton gin invented and where is it used today"
+        },
+        {
+          "speaker": "agent",
+          "text": "According to the worm gear roller gin, it was invented in the Indian subcontinent, specifically during the early Delhi Sultanate era of the 13th-14th centuries. It came into use in the Mughal Empire around the 16th century and is still used in the Indian subcontinent today. However, it's important to note that there were different types of cotton gins, including a handheld roller gin used in India since at least 500 CE, and a single-roller cotton gin found in the Ajanta caves of India and used until innovations were made in the form of foot-powered gins. The modern mechanical cotton gin was created by American inventor Eli Whitney in 1793 and patented in 1794, but I have no information as to its current usage. The early history of the cotton gin is ambiguous , because archeologists likely mistook the cotton gin 's parts for other tools ."
+        },
+        {
+          "speaker": "user",
+          "text": "Did the need for cotton workers increase?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, the demand for cotton workers did increase after the invention of the modern mechanical cotton gin by Eli Whitney in 1793. This invention revolutionized the cotton industry in the United States, leading to a rapid increase in the demand for cotton workers. This increased demand for labor has been identified as a contributing factor to the growth of slavery in the American South.  The number of slaves rose in concert with the increase in cotton production , increasing from around 700,000 in 1790 to around 3.2 million in 1850."
+        },
+        {
+          "speaker": "user",
+          "text": "By how much did the cotton gin increase production?"
+        }
+      ],
+      "queries": [
+        "By how much did the cotton gin increase production?"
+      ],
+      "relevant_ids": [
+        "805474955_4694-5305-0-611"
+      ],
+      "top5": [
+        "805474955_10307-11336-0-1029",
+        "816711474_7021-8605-0-1584",
+        "805474955_5306-5706-0-400",
+        "816711474_8730-9389-0-659",
+        "816711474_76002-77373-0-1371"
+      ],
+      "first_relevant_excerpt": "Cotton gin\nThe worm gear roller gin , which was invented in the Indian subcontinent during the early Delhi Sultanate era of the 13th -- 14th centuries , came into use in the Mughal Empire some time around the 16th century , and is still used in the Indian subcontinent through to the present day . Another innovation , the incorporation of the crank handle in the cotton gin , first appeared some time during the late Delhi Sultanate or the early Mughal Empire . The incorporation of the worm gear and crank handle into the roller cotton gin led to greatly expanded Indian cotton textile production during the Mughal era .",
+      "top_ranked_excerpt": "Cotton gin\nThe invention of the cotton gin caused massive growth in the production of cotton in the United States , concentrated mostly in the South . Cotton production expanded from 750,000 bales in 1830 to 2.85 million bales in 1850 . As a result , the region became even more dependent on plantations and slavery , with plantation agriculture becoming the largest sector of its economy . While it took a single slave about ten hours to separate a single pound of fiber from the seeds , a team of two or three slaves using a cotton gin could produce around fifty pounds of cotton in just one day . The number of slaves rose in concert with the increase in cotton production , increasing from around 700,000 in 1790 to around 3.2 million in 1850 . By 1860 , black slave labor from the American South was providing two - thirds of the world 's supply of cotton , and up to 80 % of the crucial British market . The cotton gin thus `` transformed cotton as a crop and the American South into the globe 's first agricultural powerhouse '' . An"
+    },
+    {
+      "task_id": "3a07680acfb0f951fc3210a8c1a282c9<::>6",
+      "domain": "clapnq",
+      "delta_ndcg5": 0.9674679834891693,
+      "ndcg5": 0.9674679834891693,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "What are the categories of people for which it is especially important to get a flu vaccine? "
+        },
+        {
+          "speaker": "agent",
+          "text": "I do not have specific information about those categories of people that should get a flu vaccine. Nevertheless, vaccination is a cheap and effective way of preventing infections by viruses.  Their use has resulted in a dramatic decline in morbidity ( illness ) and mortality ( death ) associated with viral infections such as polio , measles , mumps and rubella . In fact, vaccines are available to prevent over thirteen viral infections of humans , and more are used to prevent viral infections of animals .                                            "
+        },
+        {
+          "speaker": "user",
+          "text": "Can you tell me the greatest pandemics worldwide before  COVID in 2020?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, a number of pandemics have affected the world before COVID. The 1918 flu pandemic , which lasted until 1919, was a category 5 influenza pandemic caused by an unusually severe and deadly influenza A virus . The victims were healthy young adults , in contrast to most influenza outbreaks , which predominantly affect juvenile , elderly , or otherwise - weakened patients . Older estimates say it killed 40 -- 50 million people , while more recent research suggests that it may have killed as many as 100 million people , or 5 % of the world 's population in 1918. The third bubonic plague pandemic, also known as the modern pandemic, spread the bubonic plague disease to port cities throughout the world in the second half of the 19th century and early 20th century via shipping routes . The bubonic plague affected people in Chinatown in San Francisco from 1900 - 1904, and the people of Oakland and east bay again from 1907 - 1909. In 1994, Zimbabwe suffered outbreaks of acute diseases like plague. In 2014, West African had the Ebola virus epidemic. In 2001 the Bubonic plague affected Zambia , India , Malawi , Algeria , China , Peru , and the Democratic Republic of the Congo .   2009 saw a pandemic involving the H1N1 influenza virus (swine flu). These are just some examples of other modern-day pandemics.               "
+        },
+        {
+          "speaker": "user",
+          "text": "What about HIV pandemic? did it kill many people?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, the HIV pandemic has also had a significant global impact. Approximately 38.6 million people are living with HIV worldwide, and there have been around 25 million deaths caused by AIDS since it was first recognized on 5 June 1981 , making it one of the most destructive epidemics in recorded history . It is estimated that in  the Democratic Republic of the Congo  about 1.1 % of adults aged 15 -- 49 were living with HIV / AIDS .   According to the 2015 UNAIDS Report , South Africa has an estimated 7 million people living with HIV -- more than any other country in the world . A 2008 study revealed that HIV / AIDS infection in South Africa is distinctly divided along racial lines : 13.6 % of blacks are HIV - positive , whereas only 0.3 % of whites have the disease . Most deaths are experienced by economically active individuals , resulting in many AIDS orphans who in many cases depend on the state for care and financial support                                     "
+        },
+        {
+          "speaker": "user",
+          "text": "How did  HIV originated and where did start the first cases?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The origin of HIV is still a matter of debate among scientists, but it is believed originated in sub-Saharan Africa (Southeast Cameroon) through exposure to infected blood and body fluids while butchering bushmeat during the 20th century , although  symptomatic infections were not reported until the 1980s. AIDS was at first considered a disease of gay men and drug addicts but then in Africa it took off among the general population . AIDS became a significant problem for the region , particularly in Côte d'Ivoire , Liberia , and Nigeria . The onset of the HIV epidemic in the region began in 1985 with reported cases in Benin and Nigeri , and in nearby countries, such as Côte d'Ivoire, in subsequent years ."
+        },
+        {
+          "speaker": "user",
+          "text": "Is there a cure for HIV?"
+        },
+        {
+          "speaker": "agent",
+          "text": "With proper medical care, HIV can be controlled. It was reported in  October 2011 that  the anti-HIV drug tenofovir , when used topically in a microbicidal vaginal gel  reduce herpes virus sexual transmission by 51 % . Also  a genetic approach involving intrabodies that block CCR5 expression has been proposed as a treatment for HIV - 1 infected individuals . Some good results were reported in 2014 when enrollment of HIV - positive patients in a clinical trial was started in 2009 in which the patients ' cells were genetically modified with a zinc finger nuclease to carry the CCR5 - Δ32 trait and then reintroduced into the body as a potential HIV treatment ."
+        },
+        {
+          "speaker": "user",
+          "text": "Is Herpes a lethal disease and how is it transmitted?"
+        }
+      ],
+      "queries": [
+        "Is Herpes a lethal disease and how is it transmitted?"
+      ],
+      "relevant_ids": [
+        "824547656_10452-11170-0-718",
+        "824547656_16163-16562-0-399",
+        "824547656_1908-2904-0-996"
+      ],
+      "top5": [
+        "824547656_10452-11170-0-718",
+        "824547656_1908-2904-0-996",
+        "799931694_50928-51331-0-403",
+        "824547656_16163-16562-0-399",
+        "824547656_8366-9025-0-659"
+      ],
+      "first_relevant_excerpt": "Herpes simplex\nHerpes is contracted through direct contact with an active lesion or body fluid of an infected person . Herpes transmission occurs between discordant partners ; a person with a history of infection ( HSV seropositive ) can pass the virus to an HSV seronegative person . Herpes simplex virus 2 is typically contracted through direct skin - to - skin contact with an infected individual , but can also be contracted by exposure to infected saliva , semen , vaginal fluid , or the fluid from herpetic blisters . To infect a new individual , HSV travels through tiny breaks in the skin or mucous membranes in the mouth or genital areas . Even microscopic abrasions on mucous membranes are sufficient to allow viral entry .",
+      "top_ranked_excerpt": "Herpes simplex\nHerpes is contracted through direct contact with an active lesion or body fluid of an infected person . Herpes transmission occurs between discordant partners ; a person with a history of infection ( HSV seropositive ) can pass the virus to an HSV seronegative person . Herpes simplex virus 2 is typically contracted through direct skin - to - skin contact with an infected individual , but can also be contracted by exposure to infected saliva , semen , vaginal fluid , or the fluid from herpetic blisters . To infect a new individual , HSV travels through tiny breaks in the skin or mucous membranes in the mouth or genital areas . Even microscopic abrasions on mucous membranes are sufficient to allow viral entry ."
+    },
+    {
+      "task_id": "aea2634b0e5f1c2444550d31c41adc94<::>8",
+      "domain": "clapnq",
+      "delta_ndcg5": 1.0,
+      "ndcg5": 1.0,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "what is the defense of marriage act 1996"
+        },
+        {
+          "speaker": "agent",
+          "text": "The Defense of Marriage Act (DOMA) is a United States federal law that defines and protects the institution of marriage. enacted in 1996. It was introduced by Georgia Representative Bob Barr and Senator Don Nickles of Oklahoma. The Act was intended by Congress to reflect and honor a collective moral judgment and to express moral disapproval of homosexuality. It also defined marriage for federal purposes as the legal union of a man and a woman as husband and wife, and a spouse as a husband or wife of the opposite sex. Section 3 of DOMA defines marriage and spouse for federal purposes. Section 3 codified non-recognition of same - sex marriages for all federal purposes, including insurance benefits for government employees, social security survivors ' benefits, immigration, bankruptcy, and the filing of joint tax returns, as well as excluding same - sex spouses from the scope of laws protecting families of federal officers, laws evaluating financial aid eligibility, and federal ethics laws applicable to opposite - sex spouses."
+        },
+        {
+          "speaker": "user",
+          "text": "How is marriage defined?"
+        },
+        {
+          "speaker": "agent",
+          "text": "In determining the meaning of any Act of Congress , or of any ruling , regulation , or interpretation of the various administrative bureaus and agencies of the United States , the word ' marriage ' means only a legal union between one man and one woman as husband and wife. Additionally, any other State , territory , possession , or tribe respecting a relationship between persons of the same sex that is treated as a marriage under the laws of such other State , territory , possession , or tribe , or a right or claim arising from such relationship based on \"Defense of Marriage Act,\"."
+        },
+        {
+          "speaker": "user",
+          "text": "How are weddings celebrated?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The typical wedding involves a couple proclaiming their commitment to one another in front of their close relatives and friends , often presided over by a religious figure such as a minister , priest , or rabbi , depending upon the faith of the couple . In traditional Christian ceremonies , the bride 's father will `` give away '' ( hand off ) the bride to the groom . Secular weddings are also common , often presided over by a judge , Justice of the Peace , or other municipal official . At a wedding reception , the father of the bride , in his role as host , regularly offers the first toast , thanking the guests for attending , offering tasteful remembrances of the bride 's childhood , and wishing the newlyweds a happy life together . The best man usually proposes a toast in the form of best wishes and congratulations to the newlyweds . A best man 's toast takes the form of a short speech ( 3 -- 5 minutes ) that combines a mixture of humor and sincerity . The actual `` toast '' is then delivered at the end of the speech and is a short phrase wishing the newlyweds a happy , healthy , loving life together . The maid of honor may follow suit , appropriately tailoring her comments to the bride . The groom may offer the final toast , thanking the bride 's parents for hosting the wedding , the wedding party for their participation , and finally dedicating the toast to the bridesmaids ."
+        },
+        {
+          "speaker": "user",
+          "text": "What is the meaning of the glass being broken at a Jewish wedding?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The primary reason is that joy must always be tempered . This is based on two accounts in the Talmud of rabbis who , upon seeing that their son 's wedding celebration was getting out of hand , broke a vessel -- in the second case a glass -- to calm things down . Another explanation is that it is a reminder that despite the joy , Jews still mourn the destruction of the Temple in Jerusalem ."
+        },
+        {
+          "speaker": "user",
+          "text": "Do all states allow same sex marriages?"
+        },
+        {
+          "speaker": "agent",
+          "text": "As of the time when the Defense of Marriage Act (DOMA) was in effect, it allowed states to refuse to recognize same-sex marriages granted under the laws of other states. Therefore, not all states allowed same-sex marriages. However, same - sex marriage has been legal in the United States since 26 June 2015 by the Society of the United States Marriage laws."
+        },
+        {
+          "speaker": "user",
+          "text": "Can same sex couples adopt children?"
+        },
+        {
+          "speaker": "agent",
+          "text": "I am sorry that I do not have that information."
+        },
+        {
+          "speaker": "user",
+          "text": "Legal immigration for same sex couples."
+        },
+        {
+          "speaker": "agent",
+          "text": "I am sorry that I do not have information, either."
+        },
+        {
+          "speaker": "user",
+          "text": "Restrictions to immigration."
+        }
+      ],
+      "queries": [
+        "Restrictions to immigration."
+      ],
+      "relevant_ids": [
+        "820778119_33451-34196-0-745"
+      ],
+      "top5": [
+        "820778119_33451-34196-0-745",
+        "841833960_29956-30622-0-666",
+        "838023554_12891-13093-0-202",
+        "838023554_2316-2634-0-318",
+        "820778119_28307-28624-0-317"
+      ],
+      "first_relevant_excerpt": "History of immigration to the United States\nRestriction proceeded piecemeal over the course of the late 19th and early 20th centuries , but immediately after the end of World War I ( 1914 -- 18 ) and into the early 1920s , Congress changed the nation 's basic policy about immigration . The National Origins Formula of 1921 ( and its final form in 1924 ) not only restricted the number of immigrants who might enter the United States , but also assigned slots according to quotas based on national origins . A complicated piece of legislation , it essentially gave preference to immigrants from Central , Northern and Western Europe , severely limiting the numbers from Russia and Southern Europe , and declared all potential immigrants from Asia unworthy of entry into the United States .",
+      "top_ranked_excerpt": "History of immigration to the United States\nRestriction proceeded piecemeal over the course of the late 19th and early 20th centuries , but immediately after the end of World War I ( 1914 -- 18 ) and into the early 1920s , Congress changed the nation 's basic policy about immigration . The National Origins Formula of 1921 ( and its final form in 1924 ) not only restricted the number of immigrants who might enter the United States , but also assigned slots according to quotas based on national origins . A complicated piece of legislation , it essentially gave preference to immigrants from Central , Northern and Western Europe , severely limiting the numbers from Russia and Southern Europe , and declared all potential immigrants from Asia unworthy of entry into the United States ."
+    },
+    {
+      "task_id": "717ca9138f07b4621887812f47499d74<::>7",
+      "domain": "clapnq",
+      "delta_ndcg5": 1.0,
+      "ndcg5": 1.0,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "how much were the actors in friends paid"
+        },
+        {
+          "speaker": "agent",
+          "text": "In the first season, the cast members were paid $22,500 per episode. In the second season, their salaries ranged from $20,000 to $40,000 per episode. From the third season onwards, they negotiated for equal salaries as a group. They were paid $75,000 per episode in season three, $85,000 in season four, $100,000 in season five, $125,000 in season six, $750,000 in seasons seven and eight, and $1 million in seasons nine and ten. Additionally, each actor, Jennifer Aniston , Courteney Cox , Lisa Kudrow , Matt LeBlanc , Matthew Perry and David Schwimmer, receives about $20 million in annual residuals from syndication revenue."
+        },
+        {
+          "speaker": "user",
+          "text": "oh my god, I am a big fan of Jennifer Aniston. how was she introduced in Friends"
+        },
+        {
+          "speaker": "agent",
+          "text": "Jennifer Aniston portrayed the character Rachel Green in the TV show Friends. She was introduced in the pilot episode as a naive runaway bride who reunites with her childhood best friend Monica. Rachel starts off as a spoiled, inexperienced \"daddy's girl\" but gradually evolves into a successful businesswoman throughout the series."
+        },
+        {
+          "speaker": "user",
+          "text": "how many seasons does Friends have? When did it start and end?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Friends has a total of 10 seasons with episodes 236. It aired on NBC from September 22 , 1994 to May 6 , 2004."
+        },
+        {
+          "speaker": "user",
+          "text": "did Friends air in different countries? I also wonder if the show earned any awards"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, Friends aired in various countries including Australia on the Seven Network, Nine Network, Network Ten, GEM, and Arena; in New Zealand on TV2; in Greece on Star Channel; in Cyprus on CyBC 2 and TVOne; in Canada on Global, Slice, DTour, and TVTropolis; and on different channels in the UK. Regarding awards, It was nominated for 62 Primetime Emmy Awards, winning six. Jennifer Aniston and Lisa Kudrow are the only main cast members to win an Emmy, while Courteney Cox is the only actor not to be nominated. The series also won an American Comedy Award, one GLAAD Media Award, one Golden Globe Award, three Logie Awards, six People's Choice Awards, one Satellite Award, and one Screen Actors Guild Award."
+        },
+        {
+          "speaker": "user",
+          "text": "how was Friends final episode? are the actors still get along after the final episode?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The series ends with all friends plus Monica and Chandler 's new babies leaving the apartment, heading to Central Perk for a final cup of coffee. The camera 's last view is of all of the characters ' keys to the apartment on the counter table , finishing with a shot of the apartment 's purple door. As for the cast's relationship after the show, they have remained good friends. Jennifer Aniston is even the godmother to Courteney Cox's daughter, Coco. In the official farewell commemorative book Friends 'Til the End, each cast member acknowledged that the cast had become their family."
+        },
+        {
+          "speaker": "user",
+          "text": "I am very curious about why each members are receiving the same pay. Isn't it usually different?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Elizabeth Kolbert of The New York Times explained that each of the show 's main characters are of equal importance. Famously, the Friends cast became the first in television history to negotiate for equal salaries, refusing to work until their demands were met. Also, Friends Series creator David Crane wanted all six actors to be equally prominent."
+        },
+        {
+          "speaker": "user",
+          "text": "where was the Friends filmed?"
+        }
+      ],
+      "queries": [
+        "where was the Friends filmed?"
+      ],
+      "relevant_ids": [
+        "834324633_2659-3131-0-472",
+        "834324633_33076-34076-0-1000",
+        "834324633_34077-35207-0-1130"
+      ],
+      "top5": [
+        "834324633_2659-3131-0-472",
+        "834324633_33076-34076-0-1000",
+        "834324633_34077-35207-0-1130",
+        "834324633_54637-55225-0-588",
+        "856927559_57224-57726-0-502"
+      ],
+      "first_relevant_excerpt": "Friends\nFilming of the show took place at Warner Bros. Studios in Burbank , California . All ten seasons of Friends ranked within the top ten of the final television season ratings ; ultimately reaching the number one spot in its eighth season . The series finale , aired on May 6 , 2004 , was watched by around 52.5 million American viewers , making it the fifth most - watched series finale in television history , and the most - watched television episode of the 2000s decade .",
+      "top_ranked_excerpt": "Friends\nFilming of the show took place at Warner Bros. Studios in Burbank , California . All ten seasons of Friends ranked within the top ten of the final television season ratings ; ultimately reaching the number one spot in its eighth season . The series finale , aired on May 6 , 2004 , was watched by around 52.5 million American viewers , making it the fifth most - watched series finale in television history , and the most - watched television episode of the 2000s decade ."
+    },
+    {
+      "task_id": "1c041ce47a81941c26899fdf08bde961<::>1",
+      "domain": "cloud",
+      "delta_ndcg5": 0.0,
+      "ndcg5": 0.0,
+      "diagnosis": "no_relevant_candidate",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "I cannot get select query to work, what steps should I take?"
+        }
+      ],
+      "queries": [
+        "I cannot get select query to work, what steps should I take?"
+      ],
+      "relevant_ids": [
+        "ibmcld_09989-0-1547",
+        "ibmcld_13493-7-1679"
+      ],
+      "top5": [
+        "ibmcld_02522-7188-8827",
+        "ibmcld_16666-10416-12326",
+        "ibmcld_02547-1335-2984",
+        "ibmcld_03156-9116-11288",
+        "ibmcld_13163-5397-7355"
+      ],
+      "first_relevant_excerpt": "\n\n\n\n\n\n\n  Query editor \n\nWith the query editor, you can run SQL queries on a specific host and database. You can also save any of the queries that you create.\n\n\n\n  Creating queries \n\n\n\n1.  Go to Query editor.\n2.  From Data objects, select the database and schema in which you want to run the query.\nIf you do not pick a schema, the default database schema is selected.\n3.  Type the SQL query that you want to run.\nIf your query is a select statement, a Set Limit option shows up to allow you to specify how many rows of data you would like to retrieve. The default is No limit.\n\nIn the Worksheet settings you can specify your Default maximum number of rows limit in result. If you decide, however, to add a limit clause in a select statement that is greater than your Default maximum number of rows limit in result, for example: select * from table1 limit 10;, the Results field shows the smaller value of these two parameters.\n\nIn the Worksheet settings you can also specify the Statement separator you want to use. A semicolon (\";\") is the default Statement separator and you must change it to an ampersand (\"&\") when your queries contain semicolons (\";\") to avoid errors.\n4.  When you input the inf",
+      "top_ranked_excerpt": "\nWhen the Data Engine query UI opens, a COS bucket is automatically generated. This bucket is used by default by the Data Engine service to store the results from your SQL queries.\n\nWen you run queries, you can specify a custom bucket to store results in. If your query does not specify one, the default one is used.\n\n\n\n\n\n Step 3.2. Get information on the file that you want to query in COS \n\nComplete the following steps:\n\n\n\n1. In the IBM Cloud dashboard, click the Menu icon ![Menu icon](https://cloud.ibm.com/docs-content/v1/content/6f3c07c34058f637b1c86044ca4f9b24214330a7/icons/icon_hamburger.svg) > Resource list > Storage.\n2. Select the Data Engine instance that has the bucket with the archive files.\n\nContact your IBM Cloud Activity Tracker administrator to get the COS information.\n3. Select Buckets.\n4. Select the bucket name. You can see the list of archive files in the bucket.\n5. Identify the file that you want to query.\n\nNotice that the file name has the name of your IBM Cloud Activity Tracker instance and the date, in UTC format, of the events that are included.\n\nIf you get a file of 20 bytes, that file does not have any data.\n6. For that file, select SQL URL.\n\nA window opens th"
+    },
+    {
+      "task_id": "1c041ce47a81941c26899fdf08bde961<::>2",
+      "domain": "cloud",
+      "delta_ndcg5": 0.0,
+      "ndcg5": 0.0,
+      "diagnosis": "no_relevant_candidate",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "I cannot get select query to work, what steps should I take?"
+        },
+        {
+          "speaker": "agent",
+          "text": "1. Check if you have the correct access rights: You need at least 'Reader' access to the buckets that contain the input objects. 2. After the FROM keyword, specify one or more unique resource identifiers (URIs) which can be thought of as tables. Each URI can specify one or more input objects, which can also be thought of as table partitions. 3. If the format of the input objects is CSV, and no special options are required, it is not necessary to specify a STORED AS clause. However, if the format is JSON, ORC, Parquet, or AVRO, after the FROM clause, specify STORED AS JSON, STORED AS ORC, STORED AS PARQUET, or STORED AS AVRO. 4. If text formats, such as JSON and CSV, are compressed with either gzip or bzip2 and have the extensions .gz and .bz, they automatically get recognized as compressed files. However, do not use these kinds of compressed files due to performance reasons. 5. If the format of the input objects is CSV and a delimiter other than the default , (comma) is used, you must specify the delimiter by using the FIELDS TERMINATED BY option of the STORED AS clause. All single Unicode characters are allowed as delimiters. 6. Check for a header line: By default, it is assumed that CSV input objects have a header line that specifies the names of the input columns."
+        },
+        {
+          "speaker": "user",
+          "text": "query definition"
+        }
+      ],
+      "queries": [
+        "query definition"
+      ],
+      "relevant_ids": [
+        "ibmcld_00580-39512-41555",
+        "ibmcld_07086-7-2167"
+      ],
+      "top5": [
+        "ibmcld_07086-6808-9095",
+        "ibmcld_00539-2548-4016",
+        "ibmcld_09994-7-1823",
+        "ibmcld_00539-7-1755",
+        "ibmcld_09991-7-1416"
+      ],
+      "first_relevant_excerpt": "\nThe Query is a standard JavaScript object, which is passed to the db.find function which it POSTs to the _find endpoint on your behalf.\n\nNow, time for a practical exercise. Devise your own IBM Cloudant Query that finds the titles of books that are written in the 20th Century. The IBM Cloudant Query documentation is at the on-screen URL if you need it.\n\nPause the presentation here if you don't want to know the answer...\n\nSee one solution:\n\nI use the $and operator to combine two clauses on the date attribute. One clause to locate documents whose date >= 1900, the other to find documents whose date is < the year 2000. Both clauses have to be true to select a document. As we need only the title of the matching books, we can supply a fields attribute instead of being returned the entire document.\n\nTo summarize, IBM Cloudant Query is a query language that is inspired by MongoDB where the syntax is expressed in JSON form.\n\nQueries select subsets of documents from the database by using clauses that operate on data inside the document - not just the document's _id.\n\nQueries are sent to the database's _find endpoint, either programmatically, by using curl, or by using the Dashboard.\n\nThe qu",
+      "top_ranked_excerpt": "\nFor relevancy training to be used, you must successfully train the project either programmatically ([Create training query method](https://cloud.ibm.com/apidocs/discovery-datacreatetrainingquery)) or by using the product user interface.\n\nQPP\n: A Query Performance Prediction algorithm that, given a query and a list of top results, produces a score that determines how relevant a document is. Used only if no Relevancy training ranker is available.\n\nfilter\n: The filter parameter can be passed along with query and natural_language_query requests to remove documents that don't meet certain criteria from the result set. The filter is shown as the last step within the document retrieval phase. However, it is used at different times in the flow. Its placement in the diagram is chosen to emphasize the fact that any documents that don't match the filter definition are excluded from the result set. The exclusion applies even to documents that might be specified in a curation.\n\nPassage retrieval\n: Returns passages from documents when the passages.enabled=true parameter is included with a natural language query request.\n\nAnswer finding\n: When the passages.find_answers=true parameter is included"
+    },
+    {
+      "task_id": "1c041ce47a81941c26899fdf08bde961<::>5",
+      "domain": "cloud",
+      "delta_ndcg5": 0.0,
+      "ndcg5": 0.6131471927654584,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "I cannot get select query to work, what steps should I take?"
+        },
+        {
+          "speaker": "agent",
+          "text": "1. Check if you have the correct access rights: You need at least 'Reader' access to the buckets that contain the input objects. 2. After the FROM keyword, specify one or more unique resource identifiers (URIs) which can be thought of as tables. Each URI can specify one or more input objects, which can also be thought of as table partitions. 3. If the format of the input objects is CSV, and no special options are required, it is not necessary to specify a STORED AS clause. However, if the format is JSON, ORC, Parquet, or AVRO, after the FROM clause, specify STORED AS JSON, STORED AS ORC, STORED AS PARQUET, or STORED AS AVRO. 4. If text formats, such as JSON and CSV, are compressed with either gzip or bzip2 and have the extensions .gz and .bz, they automatically get recognized as compressed files. However, do not use these kinds of compressed files due to performance reasons. 5. If the format of the input objects is CSV and a delimiter other than the default , (comma) is used, you must specify the delimiter by using the FIELDS TERMINATED BY option of the STORED AS clause. All single Unicode characters are allowed as delimiters. 6. Check for a header line: By default, it is assumed that CSV input objects have a header line that specifies the names of the input columns."
+        },
+        {
+          "speaker": "user",
+          "text": "query definition"
+        },
+        {
+          "speaker": "agent",
+          "text": "The Query is a standard JavaScript object, which is passed to the db.find function which it POSTs to the _find endpoint on your behalf. To retrieve data from Discovery after it is ingested, indexed, and enriched, submit a query."
+        },
+        {
+          "speaker": "user",
+          "text": "how can I improve query"
+        },
+        {
+          "speaker": "agent",
+          "text": "You can use the tools that are built into Discovery to make improvements. If you want more control over how queries are handled, you must use the query API. Cataloging improves your query performance, especially for text-based data formats where the schema inference requires a full scan of the data before the actual query execution. Adding a custom stop words list can improve the relevance of results for natural language queries. You can also improve the quality of search results by expanding the meaning of the queries that are submitted by customers."
+        },
+        {
+          "speaker": "user",
+          "text": "can you give more details about the query API?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Watson Query provides REST APIs that you can use to interact with your instance. When you submit a search from the product user interface, your text is passed as a natural language query value to the Query API. You can use operators when you write queries to submit to Discovery by using the Query API. The API coordination node can make a request directly to servers that host that data rather than needing to combine responses from many servers. The API coordination node is also free from buffering the response since it has no combination step to carry out. As a result, the data arrives at the client more quickly."
+        },
+        {
+          "speaker": "user",
+          "text": "Can I address my storage space limits? how can I add or delete storage?"
+        }
+      ],
+      "queries": [
+        "Can I address my storage space limits? how can I add or delete storage?"
+      ],
+      "relevant_ids": [
+        "ibmcld_14573-0-1280",
+        "ibmcld_16551-0-1579"
+      ],
+      "top5": [
+        "ibmcld_16551-0-1579",
+        "ibmcld_05149-4519-6367",
+        "ibmcld_10537-1499-3628",
+        "ibmcld_10543-6878-9007",
+        "ibmcld_06102-6869-9068"
+      ],
+      "first_relevant_excerpt": "\n\n\n\n\n\n\n  Adding and deleting storage \n\nYou can increase or decrease the NFS storage capacity of your deployment by adding or deleting storage to and from a cluster.\n\n\n\n1.  In the VMware Solutions console, click Resources > VMware as a Service from the left navigation pane.\n2.  In the VMware as a Service table, click the Cloud director sites tab, then click an instance name..\n3.  Click the Infrastructure tab.\n4.  On the Clusters tab, click a cluster name to expand its details.\n5.  Click Edit NFS storage.\n6.  In the Edit shared storage window, increase or decrease the current sizings for the performance tiers available.\n7.  Review the new cost, select the confirmation checkbox, and click Change to confirm.\n\n\n\nEditing the storage details might take up to 24 hours to complete. If a storage update is in progress, you cannot edit the storage until the previous operation is complete.\n\n\n\n  Related links \n\n\n\n*  [Adding virtual data centers](https://cloud.ibm.com/docs/vmware-service?topic=vmware-service-vdc-adding)\n*  [Viewing and deleting virtual data centers](https://cloud.ibm.com/docs/vmware-service?topic=vmware-service-vdc-view-delete)\n*  [Viewing VMware as a Service instances](https://c",
+      "top_ranked_excerpt": "\n\n\n\n\n\n\n  How can I address storage space limits? \n\nDepending on your subscription plan, you might reach the storage limit that is specified for your plan and be prevented from completing tasks.\n\n  What’s happening \n\nYou might see a message about exceeding the allowed storage space when you attempt to perform one of these tasks:\n\n\n\n*  Upload documents or dictionaries\n*  Deploy a model or version a model\n*  Run a pre-annotator on documents\n\n\n\n  Why it’s happening \n\nThe storage limit is met or exceeded if the action proceeds.\n\n  How to fix it \n\nThe largest consumers of storage space are machine learning and rule-based models. To free up space, you can take the following actions:\n\n\n\n*  Delete snapshot versions of any models that you do not expect to need to revert to.\n*  Delete any models that you do not need.\n*  If your models are too important to delete, consider upgrading your plan to one that provides a larger allotment of storage space.\n\n\n\nAfter you remove models or model versions, wait an hour before you retry the action that resulted in the error message. It can take up to an hour for the storage space that you freed up to be available for use.\n\nTo manage your monthly bill, if t"
+    },
+    {
+      "task_id": "1c041ce47a81941c26899fdf08bde961<::>3",
+      "domain": "cloud",
+      "delta_ndcg5": 0.5531464700081437,
+      "ndcg5": 0.5531464700081437,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "I cannot get select query to work, what steps should I take?"
+        },
+        {
+          "speaker": "agent",
+          "text": "1. Check if you have the correct access rights: You need at least 'Reader' access to the buckets that contain the input objects. 2. After the FROM keyword, specify one or more unique resource identifiers (URIs) which can be thought of as tables. Each URI can specify one or more input objects, which can also be thought of as table partitions. 3. If the format of the input objects is CSV, and no special options are required, it is not necessary to specify a STORED AS clause. However, if the format is JSON, ORC, Parquet, or AVRO, after the FROM clause, specify STORED AS JSON, STORED AS ORC, STORED AS PARQUET, or STORED AS AVRO. 4. If text formats, such as JSON and CSV, are compressed with either gzip or bzip2 and have the extensions .gz and .bz, they automatically get recognized as compressed files. However, do not use these kinds of compressed files due to performance reasons. 5. If the format of the input objects is CSV and a delimiter other than the default , (comma) is used, you must specify the delimiter by using the FIELDS TERMINATED BY option of the STORED AS clause. All single Unicode characters are allowed as delimiters. 6. Check for a header line: By default, it is assumed that CSV input objects have a header line that specifies the names of the input columns."
+        },
+        {
+          "speaker": "user",
+          "text": "query definition"
+        },
+        {
+          "speaker": "agent",
+          "text": "The Query is a standard JavaScript object, which is passed to the db.find function which it POSTs to the _find endpoint on your behalf. To retrieve data from Discovery after it is ingested, indexed, and enriched, submit a query."
+        },
+        {
+          "speaker": "user",
+          "text": "how can I improve query"
+        }
+      ],
+      "queries": [
+        "how can I improve query"
+      ],
+      "relevant_ids": [
+        "ibmcld_07045-7-2118",
+        "ibmcld_07108-7-1958",
+        "ibmcld_07163-1627-3707",
+        "ibmcld_13075-7-2200",
+        "ibmcld_13498-1605-3435"
+      ],
+      "top5": [
+        "ibmcld_07045-7-2118",
+        "ibmcld_07108-7-1958",
+        "ibmcld_07108-2897-3942",
+        "ibmcld_07175-7-2035",
+        "ibmcld_07163-7-1995"
+      ],
+      "first_relevant_excerpt": "\nImproving your query results \n\nLearn about actions you can take to improve the quality of your query results.\n\nYou can use the tools that are built in to Discovery to make improvements.\n\n\n\n Results include more than exact matches \n\nUnlike some other search applications, adding quotation marks to a phrase that you submit does not return only exact matches. Queries that are submitted from the product user interface are natural language queries. When quoted text is submitted in a natural language query, the phrase is used to boost result scores. However, results are not limited to documents that contain the entire phrase.\n\nIf you want more control over how queries are handled, you must use the query API. For more information about the phrase operator of the query API, see [Query operators](https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-query-operatorsphrase).\n\n\n\n\n\n A short query returns irrelevant results \n\nIt might be that your query contains too many stop words and not enough distinct terms to trigger a meaningful search. When you submit a query, the query text is analyzed and optimized before it is submitted to the project. One of the changes that occurs is the rem",
+      "top_ranked_excerpt": "\nImproving your query results \n\nLearn about actions you can take to improve the quality of your query results.\n\nYou can use the tools that are built in to Discovery to make improvements.\n\n\n\n Results include more than exact matches \n\nUnlike some other search applications, adding quotation marks to a phrase that you submit does not return only exact matches. Queries that are submitted from the product user interface are natural language queries. When quoted text is submitted in a natural language query, the phrase is used to boost result scores. However, results are not limited to documents that contain the entire phrase.\n\nIf you want more control over how queries are handled, you must use the query API. For more information about the phrase operator of the query API, see [Query operators](https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-query-operatorsphrase).\n\n\n\n\n\n A short query returns irrelevant results \n\nIt might be that your query contains too many stop words and not enough distinct terms to trigger a meaningful search. When you submit a query, the query text is analyzed and optimized before it is submitted to the project. One of the changes that occurs is the rem"
+    },
+    {
+      "task_id": "747a810abfd6da4a9c37cdb74feec95e<::>5",
+      "domain": "cloud",
+      "delta_ndcg5": 0.6797310500037655,
+      "ndcg5": 0.6797310500037655,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "How do I build my client application using dialogue nodes?"
+        },
+        {
+          "speaker": "agent",
+          "text": "To build your client application using dialog nodes, you need to follow these steps: create a simple conversation with two intents; the dialog uses intents to identify the purpose of the user's input regardless of the precise wording used, and then responds in the way you specify. The client application sends a message containing user input and the user input triggers a dialog node."
+        },
+        {
+          "speaker": "user",
+          "text": "what are worker nodes?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Worker nodes carry the deployments and services that make up your app. Virtual machines that your cluster manages are instances that are called worker nodes. Worker nodes are provisioned in to an IBM Cloud account that is owned by IBM to enable monitoring of malicious activities and apply security updates. "
+        },
+        {
+          "speaker": "user",
+          "text": "what are VPC clusters?"
+        },
+        {
+          "speaker": "agent",
+          "text": "With IBM Cloud Kubernetes Service, you can create a standard cluster in a Virtual Private Cloud (VPC). A VPC gives you the security of a private cloud environment with the dynamic scalability of a public cloud."
+        },
+        {
+          "speaker": "user",
+          "text": "How to create a cluster."
+        },
+        {
+          "speaker": "agent",
+          "text": "To create a cluster, you need to set up your account and then decide on the setup of your cluster. It is recommended that you have those things in mind when create a cluster. You also need to have a least two servers running Windows  2019 and SQL 2010 to  cluster, A Bastion host with external also is necessary and  as well have deployed active directory."
+        },
+        {
+          "speaker": "user",
+          "text": "How much do the IBM Cloud Schematics templates cost?"
+        }
+      ],
+      "queries": [
+        "How much do the IBM Cloud Schematics templates cost?"
+      ],
+      "relevant_ids": [
+        "ibmcld_07578-623552-625809",
+        "ibmcld_12098-7-1814",
+        "ibmcld_16727-623510-625767"
+      ],
+      "top5": [
+        "ibmcld_12095-1659-3450",
+        "ibmcld_12098-7-1814",
+        "ibmcld_12099-7-1795",
+        "ibmcld_07578-623552-625809",
+        "ibmcld_16727-623510-625767"
+      ],
+      "first_relevant_excerpt": "\nIBM Cloud Schematics provides powerful tools to automate your cloud infrastructure provisioning and management process, the configuration and operation of your cloud resources, and the deployment of your app workloads.\n\nTo do so, Schematics uses open source projects, such as Terraform, Ansible, Red Hat OpenShift, Operators, and Helm, and delivers these capabilities to you as a managed service. Rather than installing each open source project on your system, and learn the API or CLI. You can declare the tasks that you want to run in IBM Cloud and watch Schematics run these tasks for you.\n\nFor more information about how Schematics Works, see [About IBM Cloud Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-learn-about-schematics).\n* What is Infrastructure as Code?\n\nInfrastructure as Code (IaC) helps you codify your cloud environment so that you can automate the provisioning and management of your resources in the cloud. Rather than manually provisioning and configuring infrastructure resources or by using scripts to adjust your cloud environment, you use a high-level scripting language to specify your resource and its configuration. Then, you use tools like Terrafor",
+      "top_ranked_excerpt": "\nIBM Cloud Schematics Workspaces are provided to you at no cost. However, when you decide to apply your Terraform template in IBM Cloud by clicking Apply plan from the workspace details page or running the ibmcloud schematics apply command, you are charged for the IBM Cloud resources that are described in your Terraform template. Review available service plans and pricing information for each resource that you are about to create. Some services come with a limit per IBM Cloud account. If you are about to reach the service limit for your account, the resource is not provisioned until you increase the service quota, or remove existing services first.\n\nThe Schematics ibmcloud terraform command usage displays warning and deprecation message as Alias Terraform are deprecated. Use schematics or sch in your command.\n\n\n\n\n\n Does IBM Cloud Schematics support multiple Terraform provider versions? \n\nYes, IBM Cloud Schematics supports multiple Terraform provider versions. You need to add Terraform provider block with the right provider version. By default the provider run current version 1.21.0, and previous four versions such as 1.20.1, 1.20.0, 1.19.0, 1.18.0 are supported.\n\nExample for a mult"
+    },
+    {
+      "task_id": "1c041ce47a81941c26899fdf08bde961<::>6",
+      "domain": "cloud",
+      "delta_ndcg5": 1.0,
+      "ndcg5": 1.0,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "I cannot get select query to work, what steps should I take?"
+        },
+        {
+          "speaker": "agent",
+          "text": "1. Check if you have the correct access rights: You need at least 'Reader' access to the buckets that contain the input objects. 2. After the FROM keyword, specify one or more unique resource identifiers (URIs) which can be thought of as tables. Each URI can specify one or more input objects, which can also be thought of as table partitions. 3. If the format of the input objects is CSV, and no special options are required, it is not necessary to specify a STORED AS clause. However, if the format is JSON, ORC, Parquet, or AVRO, after the FROM clause, specify STORED AS JSON, STORED AS ORC, STORED AS PARQUET, or STORED AS AVRO. 4. If text formats, such as JSON and CSV, are compressed with either gzip or bzip2 and have the extensions .gz and .bz, they automatically get recognized as compressed files. However, do not use these kinds of compressed files due to performance reasons. 5. If the format of the input objects is CSV and a delimiter other than the default , (comma) is used, you must specify the delimiter by using the FIELDS TERMINATED BY option of the STORED AS clause. All single Unicode characters are allowed as delimiters. 6. Check for a header line: By default, it is assumed that CSV input objects have a header line that specifies the names of the input columns."
+        },
+        {
+          "speaker": "user",
+          "text": "query definition"
+        },
+        {
+          "speaker": "agent",
+          "text": "The Query is a standard JavaScript object, which is passed to the db.find function which it POSTs to the _find endpoint on your behalf. To retrieve data from Discovery after it is ingested, indexed, and enriched, submit a query."
+        },
+        {
+          "speaker": "user",
+          "text": "how can I improve query"
+        },
+        {
+          "speaker": "agent",
+          "text": "You can use the tools that are built into Discovery to make improvements. If you want more control over how queries are handled, you must use the query API. Cataloging improves your query performance, especially for text-based data formats where the schema inference requires a full scan of the data before the actual query execution. Adding a custom stop words list can improve the relevance of results for natural language queries. You can also improve the quality of search results by expanding the meaning of the queries that are submitted by customers."
+        },
+        {
+          "speaker": "user",
+          "text": "can you give more details about the query API?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Watson Query provides REST APIs that you can use to interact with your instance. When you submit a search from the product user interface, your text is passed as a natural language query value to the Query API. You can use operators when you write queries to submit to Discovery by using the Query API. The API coordination node can make a request directly to servers that host that data rather than needing to combine responses from many servers. The API coordination node is also free from buffering the response since it has no combination step to carry out. As a result, the data arrives at the client more quickly."
+        },
+        {
+          "speaker": "user",
+          "text": "Can I address my storage space limits? how can I add or delete storage?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, you can take the following actions to free up space: 1. Delete snapshot versions of any models that you do not expect to need to revert to. 2. Delete any models that you do not need. 3. If your models are too important to delete, consider upgrading your plan to one that provides a larger allotment of storage space. 4. After you remove models or model versions, wait an hour before you retry the action that resulted in the error message. Regarding add or delete storage question: In the VMware Solutions console, click Resources > VMware as a Service from the left navigation pane. In the VMware as a Service table, click the Cloud director sites tab, then click an instance name.. Click the Infrastructure tab. On the Clusters tab, click a cluster name to expand its details. Click Edit NFS storage. In the Edit shared storage window, increase or decrease the current sizings for the performance tiers available. Review the new cost, select the confirmation checkbox, and click Change to confirm."
+        },
+        {
+          "speaker": "user",
+          "text": "what is Data lakes"
+        }
+      ],
+      "queries": [
+        "what is Data lakes"
+      ],
+      "relevant_ids": [
+        "ibmcld_09984-0-1283",
+        "ibmcld_16728-6533-8457"
+      ],
+      "top5": [
+        "ibmcld_09984-0-1283",
+        "ibmcld_16728-6533-8457",
+        "ibmcld_13162-7-1878",
+        "ibmcld_16729-11586-13439",
+        "ibmcld_16657-0-905"
+      ],
+      "first_relevant_excerpt": "\n\n\n\n\n\n\n  Overview \n\nData lakes are an essential tool for storing structured and unstructured data on the cloud. With IBM® Netezza® Performance Server for IBM Cloud Pak® for Data as a Service, you can use external tables to access parquet files that are stored outside of your database in data lakes (on AWS S3). Also, you can analyze this data by using the robust and massively parallel Netezza Performance Server execution engine.\n\nExternal data sources use connection strings to specify how you can access an external system. Each connection string describes where your data is placed and how to authenticate to your data source. Each external data source has a definition (schema), but the actual data exists external to the Netezza Performance Server database.\n\nYou cannot backup (nzbackup) and restore (nzrestore) external data source objects.\n\nUse cases for external data source include:\n\n\n\n*  [Running queries against parquet data that is stored in a data lake](https://cloud.ibm.com/docs/netezza?topic=netezza-querying_singularity).\n*  [Ingesting data into Netezza Performance Server](https://cloud.ibm.com/docs/netezza?topic=netezza-ingest_singularity).\n*  [Querying both local and remote da",
+      "top_ranked_excerpt": "\n\n\n\n\n\n\n  Overview \n\nData lakes are an essential tool for storing structured and unstructured data on the cloud. With IBM® Netezza® Performance Server for IBM Cloud Pak® for Data as a Service, you can use external tables to access parquet files that are stored outside of your database in data lakes (on AWS S3). Also, you can analyze this data by using the robust and massively parallel Netezza Performance Server execution engine.\n\nExternal data sources use connection strings to specify how you can access an external system. Each connection string describes where your data is placed and how to authenticate to your data source. Each external data source has a definition (schema), but the actual data exists external to the Netezza Performance Server database.\n\nYou cannot backup (nzbackup) and restore (nzrestore) external data source objects.\n\nUse cases for external data source include:\n\n\n\n*  [Running queries against parquet data that is stored in a data lake](https://cloud.ibm.com/docs/netezza?topic=netezza-querying_singularity).\n*  [Ingesting data into Netezza Performance Server](https://cloud.ibm.com/docs/netezza?topic=netezza-ingest_singularity).\n*  [Querying both local and remote da"
+    },
+    {
+      "task_id": "6af5334fbd010b919d7fa174823abd12<::>4",
+      "domain": "fiqa",
+      "delta_ndcg5": -0.05309757047402555,
+      "ndcg5": 0.18154179253735267,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "When applying for a mortgage, can it also cover outstanding debts?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The documents do not provide an answer to the question."
+        },
+        {
+          "speaker": "user",
+          "text": "Is refinancing the same as getting a mortgage?"
+        },
+        {
+          "speaker": "agent",
+          "text": "No, they are not the same. A mortgage is a secured debt consisting of a promissory note and a security interest that provides the mortgage holder with a secured interest in the property. A mortgage is a loan backed by a property, as specific laws cover it due to its wide usage. Therefore, the bank is not an \"investor\" in your house; it is simply lending you money with the property as collateral. Thus, it does not receive any share of the profit. On the other hand, refinancing, or re-fi, occurs when a debtor takes out a new loan, usually with new bank, to pay off an old one. This can be done for various reasons, primarily because the new loan terms will result in a lower monthly payment."
+        },
+        {
+          "speaker": "user",
+          "text": "What is the typical down payment amount for a mortgage?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Ideally, a 20% down payment is suggested when buying a house. The idea behind this is that if someone can't save 1/5 of the cost of a house, they might not be responsible enough to ensure loan repayment. Additionally, by putting down 20%, you can avoid paying costly private mortgage insurance (PMI)."
+        },
+        {
+          "speaker": "user",
+          "text": "Do I need to buy house insurance?"
+        }
+      ],
+      "queries": [
+        "Do I need to buy house insurance?"
+      ],
+      "relevant_ids": [
+        "263145-0-705",
+        "430612-0-1543",
+        "545800-5034-6397"
+      ],
+      "top5": [
+        "545082-0-363",
+        "155640-0-859",
+        "497630-0-801",
+        "430637-0-1329",
+        "263145-0-705"
+      ],
+      "first_relevant_excerpt": "\nThey all have rules about what type of insurance you must have;  and if you don't have the required insurance,  they will offer to contract one for you.  That's fair enough,  I had to prove to my CU that the insurance I have was up to their standards,  no biggy.  Where it becomes a scam,  is when i) the lender refuses to accept your existing insurance as valid no matter what;  ii) buys an insurance on your behalf without asking/giving you the option of getting your own;  and iii) buys an overpriced insurance (e.g., insurance for the fair market value of your house rather than the cost of rebuilding it...),  likely from themselves  (and possibly iv) uses this as a pretext to foreclose your house).",
+      "top_ranked_excerpt": "\nI've had many home loans, and all have been sold to a big bank.  They have certain rules about how much insurance you need to have, but I've never had one buy insurance on my behalf - they always send letters telling me I need to increase the insurance.  They do say that if I don't get enough insurance, they will do it for me, but this has never been necessary."
+    },
+    {
+      "task_id": "535ebd306304982e4e49cc989ce5b10b<::>3",
+      "domain": "fiqa",
+      "delta_ndcg5": 0.0,
+      "ndcg5": 0.0,
+      "diagnosis": "no_relevant_candidate",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "How to pay with cash when car shopping?"
+        },
+        {
+          "speaker": "agent",
+          "text": "When paying with cash for a car, you need to get a cashier's check made out for the amount. Note that dealers may not accept personal checks as they may bounce. You would typically pay a deposit of $500, which can be a check or bank deposit after negotiation. Then, you can return to the dealership later the same day or within a few days with a cashier's check for the remaining amount. Keep in mind that if you give the dealership $10,000 or more in actual cash, they will be required to fill out a form 8300 with the IRS."
+        },
+        {
+          "speaker": "user",
+          "text": "Or installment easier?"
+        },
+        {
+          "speaker": "agent",
+          "text": "I'm sorry, but I don't have an answer to your question."
+        },
+        {
+          "speaker": "user",
+          "text": "Then, 0% interest same as having benefits of the both?"
+        }
+      ],
+      "queries": [
+        "Then, 0% interest same as having benefits of the both?"
+      ],
+      "relevant_ids": [
+        "130850-0-703",
+        "167129-0-1904",
+        "380368-0-200",
+        "396853-0-988",
+        "420018-0-507"
+      ],
+      "top5": [
+        "16626-0-903",
+        "235484-0-1770",
+        "112223-0-1037",
+        "286023-0-488",
+        "257046-0-1613"
+      ],
+      "first_relevant_excerpt": "\nVery good answers as to how 0% loans are typically done.  In addition, many are either tied to a specific large item purchase, or credit cards with a no interest period.  On credit card transactions the bank is getting a fee from the retailer, who in turn is giving you a hidden charge to cover that fee.  In the case of a large purchase item like a car, the retailer is again quite likely paying a fee to cover what would be that interest, something they are willing to do to make the sale.  They will typically be less prone to deal as low a price in negotiation if you were not making that deal, or at times they may offer either a rebate or special low to zero finance rates, but you don't get both.",
+      "top_ranked_excerpt": "\n\"Here's a number-crunching example of how the \"\"Zero interest rate\"\" offer is misleading. Suppose the offer is that a car \"\"costs $24,000.00 with zero percent financing over 24 months\"\"  or as an alternative, \"\"$3,000.00 off for cash\"\". Ignore the hype:  the quoted prices and the quoted interest rates.  Look at what really happens to two people who take advantage of the two offers, One person hands over $21,000.00 cash, and leaves with the new car. The second promises to make 24 payments of $1000.00, one a month, starting in one month's time, and also leaves with the same make and model new car. The two people have received exactly the same benefit, so the two payment schemes must have the same value. A mortgage program will tell you that paying off a $21,000.00 loan by making 24 monthly payments of $1000.00 requires an interest rate of 1.10% a month, or an effective annual rate of 14.03%.\""
+    },
+    {
+      "task_id": "535ebd306304982e4e49cc989ce5b10b<::>4",
+      "domain": "fiqa",
+      "delta_ndcg5": 0.0,
+      "ndcg5": 0.0,
+      "diagnosis": "no_relevant_candidate",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "How to pay with cash when car shopping?"
+        },
+        {
+          "speaker": "agent",
+          "text": "When paying with cash for a car, you need to get a cashier's check made out for the amount. Note that dealers may not accept personal checks as they may bounce. You would typically pay a deposit of $500, which can be a check or bank deposit after negotiation. Then, you can return to the dealership later the same day or within a few days with a cashier's check for the remaining amount. Keep in mind that if you give the dealership $10,000 or more in actual cash, they will be required to fill out a form 8300 with the IRS."
+        },
+        {
+          "speaker": "user",
+          "text": "Or installment easier?"
+        },
+        {
+          "speaker": "agent",
+          "text": "I'm sorry, but I don't have an answer to your question."
+        },
+        {
+          "speaker": "user",
+          "text": "Then, 0% interest same as having benefits of the both?"
+        },
+        {
+          "speaker": "agent",
+          "text": "A 0% interest rate offer can provide some benefits of both paying in cash and financing. With a 0% interest rate, you can effectively borrow money from the dealership without paying any interest, which can make your payments lower and more manageable.  This can be beneficial if you want to preserve your savings by not paying the full price of the car upfront.  However, zero percent interest may sound great,  those deals often have extra margin built into the price to make up for it. There might also be late payment fees, prepayment penalties, and other clauses.  Also, these tend to be shorter 12 months vs  72 months. "
+        },
+        {
+          "speaker": "user",
+          "text": "If my friend paid for me with her bank's check, what is a consequence?"
+        }
+      ],
+      "queries": [
+        "If my friend paid for me with her bank's check, what is a consequence?"
+      ],
+      "relevant_ids": [
+        "194136-0-703",
+        "328403-0-669",
+        "464204-0-176"
+      ],
+      "top5": [
+        "541298-0-595",
+        "42032-0-1281",
+        "213331-0-1239",
+        "157496-0-929",
+        "528661-0-888"
+      ],
+      "first_relevant_excerpt": "\nIn the US, gift tax always falls on the donor, never the recipient, and gifts are not taxable income to the recipient. The IRS could raise questions if there is an employer-employee relationship between donor and recipient; your employer cannot give you money or property (e.g. a Rolex watch) or benefits (e.g. a house to live in rent-free) and claim that it is a gift, so that you do not have to pay income tax on that money.  But, your parents need to be careful; that $14K per person is the exemption for the whole year and once they give you that, anything extra (birthday present, Christmas present etc) is subject to gift tax (for them) though you can still enjoy your gifts without any tax issue.",
+      "top_ranked_excerpt": "\nI would like to add one minor point for clarity: Cosigning means that you, alongside your friend, enter into a contract with the bank. It does not necessarily mean that you now have a contract with your friend, although that could implicitly be concluded. If the bank makes use of their contracted right to make you pay your friend's debts with them, this has no effect on your legal relationship with your friend. Of course, you can hold him or her liable for your damages he or she has caused. It is another question whether this would help you in practice, but that has been discussed before."
+    },
+    {
+      "task_id": "1c74814752c3f9d4ed0b99c16e1ed192<::>5",
+      "domain": "fiqa",
+      "delta_ndcg5": 0.6131471927654584,
+      "ndcg5": 1.0,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "Alternative means of salary for my employees"
+        },
+        {
+          "speaker": "agent",
+          "text": "There are different ways to consider salary compensation besides the traditional gross salary. Total compensation includes salary and bonuses, as well as the cost or value of employer-paid healthcare, retirement, company cars, expense accounts, stock options, and other valuable goods or services. Additionally, the total employee cost is generally double the gross cash compensation (salary + bonuses) and includes employer-paid payroll taxes and practical costs like the cost of your computer, cubicle or office furniture, and the portion of utility costs that keep you well-lit, clean and comfortable. It's also important to consider the cost of living in the area where your employees live, as this can significantly impact the actual value of their salaries. For example, $100k in California may not go as far as $100k in other parts of the U.S. Finally, it's worth noting that salary pay does not directly translate to hourly wages, as salaried employees are compensated for a week of work, which may require more or less than 40 hours."
+        },
+        {
+          "speaker": "user",
+          "text": "Do employers need to report their employee's salaries and withhold money for income tax purposes?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes. In many countries, employers are required to report their employee's salaries and withhold a portion for income tax, which is commonly known as \"pay as you earn,\" \"withholding taxes,\" or taxing \"at the source.\" Your employer uses the W4 form in the USA to determine how much to withhold from your wages. If you leave everything at default, your salary is your only taxable income, and you only benefit from default deductions. Your employer will calculate your tax withholding based on this information. When you start a new job, your employer will typically ask you to fill out a tax form such as the W-4 Employee's Withholding Allowance Certificate so they can withhold the correct federal income tax from your wages. If your employer doesn't do this, you are responsible for calculating and filing your income taxes, especially if you are self-employed, an independent contractor, or paid under the table. If your employer is reputable, they will provide you with additional information, usually in February. You must file your taxes correctly before the IRS tax deadline, generally April 15th for most people. Do I have to worry about money in my bank account? Unless you have a significant amount in your bank savings account earning interest, you won't have to pay any sort of tax on money in your bank account. If you do earn enough taxable interest, the bank will send you the proper forms to file your taxes."
+        },
+        {
+          "speaker": "user",
+          "text": "In that case, could you please explain why I still have to pay income tax?"
+        },
+        {
+          "speaker": "agent",
+          "text": "In the U.S., most salaries are expressed as \"gross salaries\" before individual taxes are deducted. You must report all income from work, regardless of whether you save, spend, or keep it aside. This includes income from non-tax-advantaged accounts, as well as any gains or losses and dividends received. Gains and losses are realized when you actually sell, and is the difference between the price you bought for, and the price you sold for. Gains are taxed at the capital gains rate, either short-term or long-term depending on how long you owned the stock"
+        },
+        {
+          "speaker": "user",
+          "text": "Deductions"
+        },
+        {
+          "speaker": "agent",
+          "text": "The number of allowances you can claim is calculated by dividing your total deductions by the personal exemptions for the tax year. In 2015, the standard deduction for a married couple filing jointly is $12,600, and each person gets a personal exemption of $4,000. If your deductions exceed the standard deduction, you can subtract property taxes from your income. For example, if your income is $95,000, after taking into account the standard deduction of $12,600 and $8,000 in exemptions, your taxable income would be just under $10,000, unless you have additional undisclosed income. The most common tax credit for most people is student loan interest. If you pay $500 in student loan interest, that sum is subtracted from your tax bill."
+        },
+        {
+          "speaker": "user",
+          "text": "What about FICA?"
+        }
+      ],
+      "queries": [
+        "What about FICA?"
+      ],
+      "relevant_ids": [
+        "252843-0-1938",
+        "259881-0-582"
+      ],
+      "top5": [
+        "259881-0-582",
+        "252843-0-1938",
+        "458079-0-322",
+        "279936-0-686",
+        "356316-0-1213"
+      ],
+      "first_relevant_excerpt": "\nFICA taxes are separate from federal and state income taxes. As a sole proprietor you owe all of those.  Additionally, there is a difference with FICA when you are employed vs. self employed.  Typically FICA taxes are actually split between the employer and the employee, so you pay half, they pay half. But when you're self employed, you pay both halves. This is what is commonly referred to as the self employment tax. If you are both employed and self employed as I am, your employer pays their portion of FICA on the income you earn there, and you pay both halves on the income you earn in your business. Edit: As @JoeTaxpayer added in his comment, you can specify an extra amount to be withheld from your pay when you fill out your W-4 form. This is separate from the calculation of how much to withhold based on dependents and such; see line 6 on the linked form. This could allow you to avoid making quarterly estimated payments for your self-employment income. I think this is much easier when your side income is predictable. Personally, I find it easier to come up with a percentage I must keep aside from my side income (for me this is about 35%), and then I immediately set that aside wh",
+      "top_ranked_excerpt": "\nThis is something that many people misunderstand. Nearly everyone who works in the U.S. is required to pay Social Security and Medicare taxes (sometimes called payroll taxes or FICA).  These are not a savings plan, and the money you pay is not going into an account with your name on it.  This money is used to pay for the benefits of the current retirees/beneficiaries.  When you retire, the benefits you get will be paid for by the workers that are still working and paying that tax. You may be receiving benefits, but you are also still working, so you still have to pay the tax."
+    },
+    {
+      "task_id": "6af5334fbd010b919d7fa174823abd12<::>3",
+      "domain": "fiqa",
+      "delta_ndcg5": 0.6131471927654584,
+      "ndcg5": 0.6131471927654584,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "When applying for a mortgage, can it also cover outstanding debts?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The documents do not provide an answer to the question."
+        },
+        {
+          "speaker": "user",
+          "text": "Is refinancing the same as getting a mortgage?"
+        },
+        {
+          "speaker": "agent",
+          "text": "No, they are not the same. A mortgage is a secured debt consisting of a promissory note and a security interest that provides the mortgage holder with a secured interest in the property. A mortgage is a loan backed by a property, as specific laws cover it due to its wide usage. Therefore, the bank is not an \"investor\" in your house; it is simply lending you money with the property as collateral. Thus, it does not receive any share of the profit. On the other hand, refinancing, or re-fi, occurs when a debtor takes out a new loan, usually with new bank, to pay off an old one. This can be done for various reasons, primarily because the new loan terms will result in a lower monthly payment."
+        },
+        {
+          "speaker": "user",
+          "text": "What is the typical down payment amount for a mortgage?"
+        }
+      ],
+      "queries": [
+        "What is the typical down payment amount for a mortgage?"
+      ],
+      "relevant_ids": [
+        "447580-0-742",
+        "453051-0-943"
+      ],
+      "top5": [
+        "447580-0-742",
+        "529456-0-772",
+        "254454-0-972",
+        "27073-0-861",
+        "352339-0-901"
+      ],
+      "first_relevant_excerpt": "\n\"The typical down-payment was expected to be 20%.  The idea being that if one could not save 1/5 of the cost of a house, they were not responsible enough to ensure repayment of the loan. It is hard to say whether this is truly a relevant measure.  However, in the absence of other data points, it is pretty decent.  It typically requires a fair amount of time to amass that much money and it does demonstrate some restraint.  (e.g. it is easily the cost of a decent new car or some other shiny \"\"toy.\"\") Income is not necessarily a good measure, on its own.  I am certainly more responsible with my spending when I have less money to spend.  (Lately, I have been feeling like my father, scrutinizing every single purchase down to the penny.)\"",
+      "top_ranked_excerpt": "\n\"The typical down-payment was expected to be 20%.  The idea being that if one could not save 1/5 of the cost of a house, they were not responsible enough to ensure repayment of the loan. It is hard to say whether this is truly a relevant measure.  However, in the absence of other data points, it is pretty decent.  It typically requires a fair amount of time to amass that much money and it does demonstrate some restraint.  (e.g. it is easily the cost of a decent new car or some other shiny \"\"toy.\"\") Income is not necessarily a good measure, on its own.  I am certainly more responsible with my spending when I have less money to spend.  (Lately, I have been feeling like my father, scrutinizing every single purchase down to the penny.)\""
+    },
+    {
+      "task_id": "1c74814752c3f9d4ed0b99c16e1ed192<::>1",
+      "domain": "fiqa",
+      "delta_ndcg5": 0.6934264036172708,
+      "ndcg5": 0.6934264036172708,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "Alternative means of salary for my employees"
+        }
+      ],
+      "queries": [
+        "Alternative means of salary for my employees"
+      ],
+      "relevant_ids": [
+        "280081-0-1578",
+        "582308-0-367"
+      ],
+      "top5": [
+        "174787-0-488",
+        "582308-0-367",
+        "280081-0-1578",
+        "312797-0-303",
+        "383088-0-608"
+      ],
+      "first_relevant_excerpt": "\n\"In the U.S., virtually all salaries are expressed as \"\"gross salaries\"\", which are before the taxes that the individual must pay on their income. The numbers shown in the links are almost certainly gross salary figures. However, the \"\"gross salary\"\" is not the entire \"\"total compensation\"\" number, which is the total value of all compensation and benefits that the employee receives for his work. Total compensation includes not only salary and bonuses, but the cost or value of any employer-paid healthcare, retirement, company car, expense account, stock options, and other valuable goods or services. That's still not the total amount of money the company has to pay to have you; there are employer-paid payroll taxes totaling 6.2% of your gross salary, plus practical costs like the cost of your computer, cubicle or office furniture, and the portion of utility costs that keep you well-lit, clean and comfortable. This complete number is called \"\"total employee cost\"\", and the general rule of thumb is that it's double your gross cash compensation (salary + bonuses). Lastly, $100k in California isn't worth as much, in real terms, as $100k in other parts of the U.S. The cost of living in C",
+      "top_ranked_excerpt": "\nHahaha 'grand speech.' Good one.  I'm saying if I, an outsider, see a company paying people less than what I think the job is worth, but somehow the company retains employees, yes, I say nothing. Because it's none of my fucking business what a company pays it's employees. If they don't like it, they can walk. If they stay, (as they must do in order for you to complain about it) then clearly the wage is worth more than the alternative.  Or maybe you think the world owes you something?"
+    },
+    {
+      "task_id": "91715ec6ec7e9a11925e58e707b6626e<::>2",
+      "domain": "govt",
+      "delta_ndcg5": -0.3334440061860239,
+      "ndcg5": 0.23719771276929622,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "How can I obtain a replacement for my lost New York boating safety certificate?"
+        },
+        {
+          "speaker": "agent",
+          "text": "You can order a replacement for your lost New York boating safety certificate online at https://www.ilostmycard.com/. However, if you lost temporary certificates, the temporary certificates cannot be replaced. Additionally, please note that NYS can only issue replacement certificates for the NY Safe Boating Course."
+        },
+        {
+          "speaker": "user",
+          "text": "do I have to have Boating safety certificates ?"
+        }
+      ],
+      "queries": [
+        "do I have to have Boating safety certificates ?"
+      ],
+      "relevant_ids": [
+        "fcbb1026145f7922-3175-5322",
+        "fcbb1026145f7922-5-1991"
+      ],
+      "top5": [
+        "fcbb1026145f7922-8034-10114",
+        "fcbb1026145f7922-9649-11623",
+        "fcbb1026145f7922-4764-6943",
+        "fcbb1026145f7922-1541-3606",
+        "fcbb1026145f7922-3175-5322"
+      ],
+      "first_relevant_excerpt": "\r\n\tBoating Frequently Asked Questions - NYS Parks, Recreation & Historic Preservation\r\n\nNo. If you are at least 18 years old, you may rent without completing a course. The livery must demonstrate how to properly use the boat before renting it. Persons under the age of 18 may only rent a motorboat if they hold a \r\n\tsafety certificate.\nI lost my safety certificate. How can I get a replacement?\r\n\tYou can order your replacement certificate online at https://www.ilostmycard.com/\nWhat if I lost my temporary certificate?\r\n\tTemporary certificates cannot be replaced.\nCan I make a copy of my Boating Safety Certificate to keep onboard my boat?\r\n\tNo, you must have the original certificate on your person or on board the boat if you are the operator.\nWhy haven't I received my safety certificate yet?\r\n\tIt takes approximately 90 days from your course completion date for your permanent certificate to arrive in the mail. Your temporary certificate is valid through those 90 days. If you are over 18 years of age, you must purchase your certificate from https://www.ilostmycard.com/ before it will be mailed to you. If you are within 7 days of your temporary certificate’s expiration date and have not yet",
+      "top_ranked_excerpt": "\r\n\tBoating Frequently Asked Questions - NYS Parks, Recreation & Historic Preservation\r\n\nYou must log back into the online course you took and complete the transaction there. Alternatively, you can bring your certificate directly to a DMV office to process.\r\n\t\r\n\tI took an online class and I've lost my boating safety certificate. Can NYS Parks issue me a replacement certificate?\r\n\tDuplicate certificates and any problems with the on-line courses will be handled by the online provider. On-line support and a phone number can be found at the course provider's website.\nI have a certificate from a Coast Guard Auxiliary boating safety course, do I still need to get a New York State Boating Safety Certificate?\r\n\tNo, the certificate from the Coast Guard Auxiliary course is a boating safety certificate recognized as acceptable by New York State.\nI have a certificate from a Power Squadron boating safety course, do I still need to get a New York State Boating Safety Certificate?\r\n\tNo, the certificate from the Power Squadron course is a boating safety certificate recognized as acceptable by New York State.\nI have a certificate from a US Powerboating safety course, do I still need to get a New Yor"
+    },
+    {
+      "task_id": "2cc753bcef23767c18aedad06c4405c4<::>4",
+      "domain": "govt",
+      "delta_ndcg5": -0.2960819109658652,
+      "ndcg5": 0.46927872602275644,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "What should I do if my garbage/recycling/organics collection is missed?"
+        },
+        {
+          "speaker": "agent",
+          "text": "If you are in City of Piedmont, you should call Republic Services at their toll-free number, (800) 320-8077 before 12 noon for a return trip on the same day. "
+        },
+        {
+          "speaker": "user",
+          "text": "do i need to pay for garbage/recycling/organics service? what if I do not have enough money?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, service rates are based upon the size of your garbage cart. According to the Piedmont Municipal Code, every owner of any premises is required to ensure that arrangements are made to properly dispose of solid waste, recyclable material, and organic waste created, produced, or accumulated on the premises. There are ways to reduce the cost of garbage collection service. For example, you may be able to switch to a smaller garbage cart to save money; or you can switch to curbside service."
+        },
+        {
+          "speaker": "user",
+          "text": "can you please clarify the service rate here?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The service rates for single-family residences in the City of Piedmont are based on the size of the garbage cart. The rates for curbside collection are as follows: $94.76 per month for a 20-gallon garbage cart, $100.41 per month for a 35-gallon garbage cart, $138.33 per month for a 65-gallon garbage cart, and $154.91 per month for a 95-gallon garbage cart. Each residential account includes unlimited recycling and organics carts. On-premises (backyard) collection rates are different and are limited to a maximum size of 35 gallons. Additional garbage carts are available for an additional cost.\nFor residents of Madison County, NY, there is no charge for residential yard waste drop-off if the items are up to 6 inches in diameter and no longer than 10 feet in length. Commercial yard waste, stumps, and oversized tree limbs are charged per ton and must go over the scales before unloading."
+        },
+        {
+          "speaker": "user",
+          "text": "recycle food scraps"
+        }
+      ],
+      "queries": [
+        "recycle food scraps"
+      ],
+      "relevant_ids": [
+        "fe8c82cdf4a51f27-4768-6684",
+        "fe8c82cdf4a51f27-6287-8334",
+        "fe8c82cdf4a51f27-7880-9767"
+      ],
+      "top5": [
+        "fe8c82cdf4a51f27-7880-9767",
+        "c5614e1a8e960d9c-11438-13642",
+        "3c0f445fcb6709f5-99574-101442",
+        "48bba2114bb2383e-4897-7329",
+        "83199e2ed7312513-1348-3429"
+      ],
+      "first_relevant_excerpt": "\r\n\tFAQs - City of Piedmont\r\n\nTo receive the discount, the account holder must fill out the application for exemption to curbside placement of carts, provide a doctor's certification that the customer is unable to move the carts to the curb or provide a copy of a valid California Disability Placard, and verify that there are no able-bodied household members that can move the carts to the curb.\n\nService Rates for Single Family Residences\n\nQ. What are the Service Rates for Single Family Residences?\n\nA. Single family residential prices are based on the size of the garbage cart. Each residential account includes unlimited recycling and organics carts. Carts used for on-premises (backyard) services are limited to a maximum size of 35 gallons. Additional garbage carts are available for an additional cost.\n\nCurbside Collection:\n\n20 Gallon Garbage Cart - $94.76 per month\n35 Gallon Garbage Cart - $100.41 per month\n65 Gallon Garbage Cart - $138.33 per month\n95 Gallon Garbage Cart - $154.91 per month\n\nResidential Rates Effective July 1, 2023 - Curbside Service\n\nOn-Premises (Backyard) Collection:\n\n20 Gallon Garbage Cart - $145 per month\n35 Gallon Garbage Cart - $150.65 per month\n\nBackyard Rates",
+      "top_ranked_excerpt": "\r\n\tFAQs - City of Piedmont\r\n\nInstead of taking up space in the landfill, your food scraps become compost - a valuable resource used by landscapers and farmers. The result is a reduction in greenhouse gas emissions and a healthier environment. To learn more, visit the http://stopfoodwaste.org website.\n\nQ. How do I recycle food scraps?\n\nA. Collect food scraps and food-soiled paper in the green kitchen pail. Empty the pail contents into the large green Organics cart for collection. DO NOT place the kitchen pail outside for collection. Refer to the service guide at the top of this page for additional information and hints on Food Scrap Recycling. You can also visit the http://stopfoodwaste.org website to learn more.\n\nQ. If I put my food scraps down the garbage disposal, do they get composted?\n\nA. No. These food scraps from household garbage disposals end up in the wastewater system and do not get composted. However, the East Bay Municipal Utility District (EBMUD) wastewater treatment plant at the base of the Bay Bridge in Oakland not only treats sewage but takes food scraps from restaurants and supermarkets that usually go to the landfill and converts them into renewable energy. The pr"
+    },
+    {
+      "task_id": "2cc753bcef23767c18aedad06c4405c4<::>5",
+      "domain": "govt",
+      "delta_ndcg5": -0.17319681505689122,
+      "ndcg5": 0.2960819109658652,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "What should I do if my garbage/recycling/organics collection is missed?"
+        },
+        {
+          "speaker": "agent",
+          "text": "If you are in City of Piedmont, you should call Republic Services at their toll-free number, (800) 320-8077 before 12 noon for a return trip on the same day. "
+        },
+        {
+          "speaker": "user",
+          "text": "do i need to pay for garbage/recycling/organics service? what if I do not have enough money?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, service rates are based upon the size of your garbage cart. According to the Piedmont Municipal Code, every owner of any premises is required to ensure that arrangements are made to properly dispose of solid waste, recyclable material, and organic waste created, produced, or accumulated on the premises. There are ways to reduce the cost of garbage collection service. For example, you may be able to switch to a smaller garbage cart to save money; or you can switch to curbside service."
+        },
+        {
+          "speaker": "user",
+          "text": "can you please clarify the service rate here?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The service rates for single-family residences in the City of Piedmont are based on the size of the garbage cart. The rates for curbside collection are as follows: $94.76 per month for a 20-gallon garbage cart, $100.41 per month for a 35-gallon garbage cart, $138.33 per month for a 65-gallon garbage cart, and $154.91 per month for a 95-gallon garbage cart. Each residential account includes unlimited recycling and organics carts. On-premises (backyard) collection rates are different and are limited to a maximum size of 35 gallons. Additional garbage carts are available for an additional cost.\nFor residents of Madison County, NY, there is no charge for residential yard waste drop-off if the items are up to 6 inches in diameter and no longer than 10 feet in length. Commercial yard waste, stumps, and oversized tree limbs are charged per ton and must go over the scales before unloading."
+        },
+        {
+          "speaker": "user",
+          "text": "recycle food scraps"
+        },
+        {
+          "speaker": "agent",
+          "text": "Properly sorting your food scraps and food soiled paper not only helps fight climate change, it's now the law. To recycle food scraps in the City of Piedmont, you should collect food scraps and food-soiled paper in the green kitchen pail and then empty the pail contents into the large green Organics cart for collection. "
+        },
+        {
+          "speaker": "user",
+          "text": "I do not want to miss my garbage collection service again...especially during the holiday time"
+        }
+      ],
+      "queries": [
+        "I do not want to miss my garbage collection service again...especially during the holiday time"
+      ],
+      "relevant_ids": [
+        "05e50be28c1a4beb-1642-3433",
+        "a10ab199847f4136-1055-3106",
+        "fe8c82cdf4a51f27-12212-14051"
+      ],
+      "top5": [
+        "fe8c82cdf4a51f27-13646-15675",
+        "fe8c82cdf4a51f27-12212-14051",
+        "fe8c82cdf4a51f27-3063-5393",
+        "fa0556b613cdc403-3951-5856",
+        "05e50be28c1a4beb-6531-8314"
+      ],
+      "first_relevant_excerpt": "Household Hazardous Waste | Madison County, NY\nFor example, a gallon of bleach that only has 1/2 gallon left would be counted as 1 full gallon of material. Please leave materials in their original containers and do not consolidate with any other materials.Do not bring empty paint cans to the collection facility. They are garbage.STEP 2: Request an appointment. To set up an HHW appointment, please fill out the reservation form and enter your preferred date/time. Miller Environmental Group, Inc. is open Monday - Friday, 8 AM to 3 PM. If possible, Monday, Thursday & Friday drop-off appointments are preferred by the HHW facility but we will work to accommodate any weekday requests. In addition, Miller Environmental Group is now offering appointments on the first Saturday of every month from 8 AM to 12 PM: January 6, February 3, March 2, April 6, May 4, June 1, July 6, August 3, September 7, October 5, November 2, December 7Appointments will be given on a first-come, first-serve basis.There is a limit of one visit per household per year.Next-day appointments will not be allowed. We require a minimum of 48 hours (2 full business days) to notify the facility and confirm the appointment. O",
+      "top_ranked_excerpt": "\r\n\tFAQs - City of Piedmont\r\n\nGarbage, recycling, and organics collection schedules are not affected by any other holidays.\n\nAdditional Service Questions\n\nQ. Who do I call about missed collection of garbage/recycling/organics service?\n\nA. Call Republic Services at their toll- free number, (800) 320-8077 before 12 noon for a return trip on the same day.\n\nQ. I need a replacement cart because mine is damaged or missing. Who do I call?\n\nA. Call Republic Services at their toll-free number, (800) 320-8077. Republic Services will also provide additional recyclables and organics carts at no extra cost.\n\nQ. Where should I place my carts for collection?\n\nA. Customers with on-premises (backyard) collection service should keep all their carts in an accessible location out of view from the street in the side or rear yard. The blue recycling cart should be kept next to the black and green carts and does not need to be taken to the curb.\n\nCustomers who have opted to have Curbside collection service should place all their carts within three feet of the curb for collection no earlier than 6:00 p.m. on the day prior to the scheduled collection day and must remove all carts from the curb no later than"
+    },
+    {
+      "task_id": "0ef145e49938dfb9b6eefe781d21dca8<::>2",
+      "domain": "govt",
+      "delta_ndcg5": 0.583818844451269,
+      "ndcg5": 0.7653606369886217,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "How do I know I am on a secured government website before sharing sensitive information?"
+        },
+        {
+          "speaker": "agent",
+          "text": "To ensure that you are on a secured government website before sharing sensitive information, look for a lock icon () or the \"https://\" prefix in the website's URL. These indicators signify that the website is using a secure connection and is less vulnerable to external threats. Additionally, official government websites typically end in \".gov\", providing another layer of assurance. However, it's always important to double-check and remain vigilant to protect your sensitive information."
+        },
+        {
+          "speaker": "user",
+          "text": "child privacy"
+        }
+      ],
+      "queries": [
+        "child privacy"
+      ],
+      "relevant_ids": [
+        "519bf5e3d232bf9a-6956-9361",
+        "7102224573bcb417-3555-5954",
+        "a2fb394ccff09475-6973-9436"
+      ],
+      "top5": [
+        "a2fb394ccff09475-6973-9436",
+        "519bf5e3d232bf9a-6956-9361",
+        "a2fb394ccff09475-8755-11188",
+        "b2c60616480320c9-12854-15195",
+        "b2c60616480320c9-14658-17069"
+      ],
+      "first_relevant_excerpt": "CDC Digital Media Channel Privacy Policy Notice | Other | CDC\nA child’s parent or guardian is required to provide consent before CDC collects, uses, or shares personal information from a child under age 13.\nWhen a CDC Web site needs to collect information about a child under 13 years old, COPPA required information and instructions will be provided by the specific Web page that collects information about the child. The Web page will specify exactly what the information will be used for, who will see it, and how long it will be kept.\nPersonal information about children under 13 years of age may be needed to respond to his/her communication to us. Personal information about your child will be destroyed immediately upon completion of its intended purpose. On rare occasions, it may be determined that a communication from a child under 13 years old should be maintained for historical purposes. Should such an occasion occur, CDC will obtain the necessary consent from the child’s parent.\nFinally, we provide many on-line tools and services in support of CDC’s mission. A child under 13 years old may inadvertently provide personal information to one of these services. If this should happen, ",
+      "top_ranked_excerpt": "Caltech/JPL Privacy Policies and Important Notices\nRequirements include posting a notice stating the information collected and its intended use; obtaining verifiable consent from a child's parent or guardian before collecting, using or disclosing personal information from a child under the age of 13; and giving the parent or guardian the ability to review the submitted information and to prevent further collection or use of the information.We collect no information about you or your child, other than that detailed in the previous section, when you visit our web site unless you choose to provide information to us. When a Caltech/JPL Web site needs to collect information about a child under 13 years old, COPPA required information and instructions will be provided by the specific Web page that collects information about the child. The Web page will specify exactly what the information will be used for, who will see it and how long it will be kept.There are several exceptions that permit collection of a child's personal information without receiving parental consent in advance:Collecting the child's name and parent's name and email address to provide the parents with notice and to see"
+    },
+    {
+      "task_id": "5b2404d71f9ff7edabddb3b1a8b329e7<::>8",
+      "domain": "govt",
+      "delta_ndcg5": 0.8772153153380493,
+      "ndcg5": 0.8772153153380493,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "\"What are the sheltered rooms designated for use?"
+        },
+        {
+          "speaker": "agent",
+          "text": "A safe room, as defined by FEMA, is designed to provide shelter from tornadoes. However, if the safe room is located below ground, it may not be suitable for protection during a weapons of mass destruction event. The Red Cross recommends safe rooms for areas prone to tornadoes. It's important not to confuse safe rooms for tornadoes with shelter-in-place rooms. An above-ground safe room with no windows can also be used as a shelter-in-place location. It's important to note that a safe room used for protection from windstorms is different from a room selected for shelter-in-place, although they serve a similar purpose. If an above-ground safe room for windstorms has no windows, it can also be an ideal location for sheltering-in-place."
+        },
+        {
+          "speaker": "user",
+          "text": "What items should I keep?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Being prepared to take care of yourself during a disaster is crucial. This means having enough food, water, and other supplies to last at least three days if stores are closed and roads are impassable due to a flood or winter storm. While local officials and relief workers will be available after a disaster, they may only be able to reach some people after a disaster. You could receive help within hours, but it may take days. It's important to note that the recommendation to have at least three days' worth of disaster supplies differs from the advice to shelter in place, which may involve using duct tape and plastic sheeting during an emergency. The Red Cross advises people to have these supplies on hand if needed."
+        },
+        {
+          "speaker": "user",
+          "text": "Is it the same for earthquakes?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Each disaster has its characteristics, but it's important to plan and prepare today for you and your family to recover from an emergency tomorrow. Here are some steps you can take: 1. Get an Emergency Supplies kit lasting up to three days per family member, and remember supplies for your pets. 2. Make a family communication plan, including shelter-in-place and evacuation procedures. 3. Stay informed by visiting Ready.gov and signing up for emergency notifications from San Mateo County (SMC) Alert. 4. Get involved by signing up for a Community Emergency Response Team (CERT) course and learning life-saving techniques in a CPR class. Remember, earthquakes can happen suddenly and without warning. Identifying potential hazards and planning can reduce the risk of severe injury or loss of life during an earthquake. If your home is damaged, check for gas leaks and avoid using toilets if you suspect sewage lines are damaged. Contact the gas company and a plumber if needed. In the same way, if water pipes are damaged, please contact the water company and avoid using tap water. You can obtain safe water by melting ice cubes. Each county prone to earthquakes has guides to help citizens before, during, and after an earthquake. Please reach out to your city hall for more information."
+        },
+        {
+          "speaker": "user",
+          "text": "Which state has more wildfires?"
+        },
+        {
+          "speaker": "agent",
+          "text": " Although I don't have the exact information about which state has more wildfires, it is known that the 2018 wildfire season in California was the deadliest and most destructive on record in the state. In the 2020 California wildfire season, record-setting wildfires burned across the state, with nearly 10,000 fires burning over 4.2 million acres by the end of the year. This accounted for more than 4% of the state's roughly 100 million acres of land, making 2020 the largest wildfire season in California's modern history. The August Complex fire, part of the 2020 wildfire year, has been described as the first \"gigafire\" due to the area burned exceeding 1 million acres. This fire spread across seven counties and was larger than the state of Rhode Island."
+        },
+        {
+          "speaker": "user",
+          "text": "What causes wildfires?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Although wildfires occur naturally from lightning, human activities cause most wildfires. Drought fuels wildfires, as happened in the Amazon, caused by the El Niño system."
+        },
+        {
+          "speaker": "user",
+          "text": "Why doesn't the government prevent people from living in areas prone to flooding?"
+        },
+        {
+          "speaker": "agent",
+          "text": "I do not have the answer to your question."
+        },
+        {
+          "speaker": "user",
+          "text": "Is flooding the most common type of disaster?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, floods are the most common disasters in the United States and can result from various sources such as rain, snow, coastal storms, and dam overflows. They can develop slowly or quickly, with flash floods occurring suddenly and without warning. Floods can cause power outages, disrupt transportation, damage buildings, and lead to landslides. Their impact can range from local to widespread, affecting entire river basins and multiple states. While some floods develop slowly over days, flash floods can emerge within minutes, carrying dangerous debris and swiftly sweeping away whatever is in their path."
+        },
+        {
+          "speaker": "user",
+          "text": "Is climate change the cause of natural disasters?"
+        }
+      ],
+      "queries": [
+        "Is climate change the cause of natural disasters?"
+      ],
+      "relevant_ids": [
+        "28f6abec5bb810ba-5134-7570",
+        "28f6abec5bb810ba-6980-9294"
+      ],
+      "top5": [
+        "28f6abec5bb810ba-6980-9294",
+        "68a9c1d17b9fbd8a-2912-5258",
+        "5306392549c81595-1282-3632",
+        "28f6abec5bb810ba-5134-7570",
+        "ba03c78139cef9df-7144-9568"
+      ],
+      "first_relevant_excerpt": "Climate Change - NYSDEC\nClimate, however, refers to regional or global average patterns of temperature, humidity, and precipitation over longer time periods such as seasons, years, decades, or centuries. Climate is influenced by the movement of heat and moisture by air and ocean currents, which can affect the temperatures, precipitation, humidity, soil moisture, surface water levels, groundwater levels, and even storm events of a particular region.Climate change refers to long-term changes in the average weather patterns that define the Earth's global, regional and local climates. Often when we think of climate change, we think of the physical effects of climate change such as heatwaves, sea level rise, and heavy rainfall, and the impacts on communities and the environment, such as floods and droughts.Some climate change is influenced by naturally occurring changes in the Earth's temperature. For at least the last million years, the Earth has experienced natural cycles of cooling and warming, taking the Earth into ice ages and warming it up again. Each of these naturally-occurring cycles has taken approximately 100,000 years to complete.However, today's climate is changing much mor",
+      "top_ranked_excerpt": "Climate Change - NYSDEC\nWhen the Earth reflects the same amount of energy as it absorbs, the balance keeps the planet's average temperature fairly stable. This is called the greenhouse effect, and is essential for sustaining life on Earth. The revolution of the Earth around the sun and the tilt of the Earth on its axis create variation in the intensity of solar radiation received by different sections of the planet and drive naturally occurring cycles of planetary cooling and warming. This variation over time is what sends the Earth into ice ages and then into shorter warming periods between these ice ages. However, these natural climate cycles can be disrupted by conditions that cause an excessive amount of solar radiation to get trapped in the Earth's atmosphere and throw off the natural balance.Greenhouse gases (GHGs) are heat-trapping gases such as carbon dioxide (CO2), methane (CH4), and nitrous oxide (N20), that are naturally present in the Earth's atmosphere in small amounts and help form the atmospheric blanket at the ideal thickness. CO2 is vital for plants to carry out photosynthesis and produce oxygen for humans and animals to breathe. When excess GHGs are generated by h"
+    },
+    {
+      "task_id": "2cc753bcef23767c18aedad06c4405c4<::>9",
+      "domain": "govt",
+      "delta_ndcg5": 1.0,
+      "ndcg5": 1.0,
+      "diagnosis": "relevant_in_top5",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "What should I do if my garbage/recycling/organics collection is missed?"
+        },
+        {
+          "speaker": "agent",
+          "text": "If you are in City of Piedmont, you should call Republic Services at their toll-free number, (800) 320-8077 before 12 noon for a return trip on the same day. "
+        },
+        {
+          "speaker": "user",
+          "text": "do i need to pay for garbage/recycling/organics service? what if I do not have enough money?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, service rates are based upon the size of your garbage cart. According to the Piedmont Municipal Code, every owner of any premises is required to ensure that arrangements are made to properly dispose of solid waste, recyclable material, and organic waste created, produced, or accumulated on the premises. There are ways to reduce the cost of garbage collection service. For example, you may be able to switch to a smaller garbage cart to save money; or you can switch to curbside service."
+        },
+        {
+          "speaker": "user",
+          "text": "can you please clarify the service rate here?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The service rates for single-family residences in the City of Piedmont are based on the size of the garbage cart. The rates for curbside collection are as follows: $94.76 per month for a 20-gallon garbage cart, $100.41 per month for a 35-gallon garbage cart, $138.33 per month for a 65-gallon garbage cart, and $154.91 per month for a 95-gallon garbage cart. Each residential account includes unlimited recycling and organics carts. On-premises (backyard) collection rates are different and are limited to a maximum size of 35 gallons. Additional garbage carts are available for an additional cost.\nFor residents of Madison County, NY, there is no charge for residential yard waste drop-off if the items are up to 6 inches in diameter and no longer than 10 feet in length. Commercial yard waste, stumps, and oversized tree limbs are charged per ton and must go over the scales before unloading."
+        },
+        {
+          "speaker": "user",
+          "text": "recycle food scraps"
+        },
+        {
+          "speaker": "agent",
+          "text": "Properly sorting your food scraps and food soiled paper not only helps fight climate change, it's now the law. To recycle food scraps in the City of Piedmont, you should collect food scraps and food-soiled paper in the green kitchen pail and then empty the pail contents into the large green Organics cart for collection. "
+        },
+        {
+          "speaker": "user",
+          "text": "I do not want to miss my garbage collection service again...especially during the holiday time"
+        },
+        {
+          "speaker": "agent",
+          "text": "Service hours are Monday - Friday from 7:00 a.m. to 3:00 p.m. Regarding your concern about not missing the garbage collection service during the holiday season, there is no garbage, organics, or recycling collection on New Year's Day, Independence Day, Labor Day, Thanksgiving Day, and Christmas Day. During weeks when these holidays fall on a weekday, pickup is one day later for the rest of the week, including Saturday. LOJO Technology will also offer quarterly Saturday collection dates for those who cannot make it during the week. 2024 Saturday dates from 9 AM to 1 PM for electronic recycling. To set up an HHW appointment for Hazardous waste, please fill out the reservation form and enter your preferred date/time. Miller Environmental Group, Inc. is open Monday - Friday, 8 AM to 3 PM. "
+        },
+        {
+          "speaker": "user",
+          "text": "what is electronic waste and hazardous waste here?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Electronic waste (e-waste) considers items such as TVs, computer accessories, cables, small accessories, inkjet printers/scanners/fax machines, laser printers, desktop copiers, stereos, audio/video equipment, video games, laptops, cellular/cordless phones and answering machines, power supplies. Hazardous waste, on the other hand, refers to any household material that is toxic or corrosive, or can catch fire, react or explode under certain conditions. Examples include bleaches, cleaning solvents, pesticides, pool chemicals and more. In Madison County, NY, there is a free household hazardous waste program for its residents where they can bring their waste to Miller Environmental Group in Syracuse, NY. Appointments are required and there is a limit of 1 visit per household per year."
+        },
+        {
+          "speaker": "user",
+          "text": "how do I recycle paint?"
+        },
+        {
+          "speaker": "agent",
+          "text": "To recycle paint in the City of Piedmont, you should take latex and oil-based paint to an Alameda County Household Hazardous Waste Facility. You can call (800) 606-6606 or visit http://www.StopWaste.org/recycling/residents/household-hazardous-waste/paints."
+        },
+        {
+          "speaker": "user",
+          "text": "I am allergic to latex..."
+        },
+        {
+          "speaker": "agent",
+          "text": "If you are allergic to latex, you should avoid contact with natural rubber latex products. If you have to wear gloves in your work, ask your employer for nonlatex gloves. Avoid areas where you might inhale the powder from latex gloves worn by other workers. Wear a personal medical emergency ID bracelet. If prescribed by your physician, carry an emergency epinephrine kit in case you are accidentally exposed to latex and go into anaphylactic shock. Learn how to use it and make sure family members, friends and fellow employees know how to use it. If you use latex-based products on the job, alert your employer about your allergy. Before dental and medical procedures or examinations, alert health care providers about your allergy. Ask to be scheduled as the first patient in the morning to minimize your exposure to airborne latex particles. Participate in educational and training programs regarding latex allergy. If the allergy sufferer is a child, alert school and/or day care providers. Work with your allergist, local hospital and medical facilities to find latex-safe environments where you can go for treatment. Contact your local emergency responders (police, fire and ambulance service) to inform them of your condition so a plan of care can be developed before there is an actual emergency. Health care facilities are beginning to create latex-safe treatment areas and surgical suites to accommodate people who are allergic to latex. Check with your local hospital."
+        },
+        {
+          "speaker": "user",
+          "text": "if I plan to remodel my house, do I need to pay for the debris? can I move debris myself out from my house?"
+        }
+      ],
+      "queries": [
+        "if I plan to remodel my house, do I need to pay for the debris? can I move debris myself out from my house?"
+      ],
+      "relevant_ids": [
+        "48bba2114bb2383e-6680-8913"
+      ],
+      "top5": [
+        "48bba2114bb2383e-6680-8913",
+        "48bba2114bb2383e-8282-10276",
+        "0ef70cba13354394-0-2185",
+        "f33f1bc7ee49c489-11619-13801",
+        "4d3eba5aeb31c32c-6093-7970"
+      ],
+      "first_relevant_excerpt": "\r\n\tOrdinances and Regulations - City of Piedmont\r\n\nProjects required by the California Green Building Standards (all newly constructed residential buildings and projects increasing the building's conditioned area, volume, or size) having a building permit valuation greater than or equal to $50,000 are required to divert at least 65% of the debris generated by the project from going to a landfill. This includes all construction, demolition and/or renovation projects within the City. Although not required, the City encourages projects with a valuation of less than $50,000 to recycle at least 65% of the debris generated.\n Q: Are there any additional City fees associated with these requirements? \n A: No. There are no additional City fees associated with the requirement to recycle C&D debris. \n Q: Am I required to use Republic Services to haul recyclable and non-recyclable debris? \n A: Yes. Republic Services has an exclusive franchise for the removal of solid waste and recyclable material from properties within the City limits.\n Q: May I self-haul the debris? \n A: Contractors, or any other paid hauler other than Republic Services, cannot remove the debris for the homeowner. Only home-ow",
+      "top_ranked_excerpt": "\r\n\tOrdinances and Regulations - City of Piedmont\r\n\nProjects required by the California Green Building Standards (all newly constructed residential buildings and projects increasing the building's conditioned area, volume, or size) having a building permit valuation greater than or equal to $50,000 are required to divert at least 65% of the debris generated by the project from going to a landfill. This includes all construction, demolition and/or renovation projects within the City. Although not required, the City encourages projects with a valuation of less than $50,000 to recycle at least 65% of the debris generated.\n Q: Are there any additional City fees associated with these requirements? \n A: No. There are no additional City fees associated with the requirement to recycle C&D debris. \n Q: Am I required to use Republic Services to haul recyclable and non-recyclable debris? \n A: Yes. Republic Services has an exclusive franchise for the removal of solid waste and recyclable material from properties within the City limits.\n Q: May I self-haul the debris? \n A: Contractors, or any other paid hauler other than Republic Services, cannot remove the debris for the homeowner. Only home-ow"
+    }
+  ]
+}

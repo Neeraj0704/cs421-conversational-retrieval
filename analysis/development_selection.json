@@ -1,0 +1,14 @@
+{
+  "selection_rule": "Maximum validation mean-over-scored nDCG@5 among seven fixed core ablations; ties use listed order",
+  "eligible_runs": [
+    "E00_bm25_latest",
+    "E01_bm25_history",
+    "R00_bm25_latest_rerank",
+    "E02_bm25_rewrite",
+    "B02_bm25_fusion",
+    "B03_bm25_rerank",
+    "B04_bm25_blend"
+  ],
+  "selected": "R00_bm25_latest_rerank",
+  "test_scores_used": false
+}

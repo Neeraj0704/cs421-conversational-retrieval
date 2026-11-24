@@ -1,0 +1,96 @@
+{
+  "dataset": "mtrag",
+  "submitted": 174,
+  "scored": 161,
+  "unscored": 13,
+  "domains": {
+    "govt": {
+      "submitted": 46,
+      "scored": 44,
+      "metrics": {
+        "recall_5": 0.49090909090909096,
+        "recall_10": 0.5727272727272728,
+        "recall_50": 0.5727272727272728,
+        "recall_100": 0.5727272727272728,
+        "ndcg_cut_1": 0.4772727272727273,
+        "ndcg_cut_3": 0.4101251448924298,
+        "ndcg_cut_5": 0.4519426130363643,
+        "ndcg_cut_10": 0.48987222931241325
+      }
+    },
+    "fiqa": {
+      "submitted": 42,
+      "scored": 34,
+      "metrics": {
+        "recall_5": 0.16911764705882354,
+        "recall_10": 0.2279411764705882,
+        "recall_50": 0.2279411764705882,
+        "recall_100": 0.2279411764705882,
+        "ndcg_cut_1": 0.23529411764705882,
+        "ndcg_cut_3": 0.169941147951232,
+        "ndcg_cut_5": 0.17972236591491314,
+        "ndcg_cut_10": 0.20718623352086654
+      }
+    },
+    "clapnq": {
+      "submitted": 47,
+      "scored": 45,
+      "metrics": {
+        "recall_5": 0.4166666666666666,
+        "recall_10": 0.5518518518518518,
+        "recall_50": 0.5518518518518518,
+        "recall_100": 0.5518518518518518,
+        "ndcg_cut_1": 0.4,
+        "ndcg_cut_3": 0.3959113595490726,
+        "ndcg_cut_5": 0.4005866886388316,
+        "ndcg_cut_10": 0.4527273227734348
+      }
+    },
+    "cloud": {
+      "submitted": 39,
+      "scored": 38,
+      "metrics": {
+        "recall_5": 0.18157894736842103,
+        "recall_10": 0.27850877192982454,
+        "recall_50": 0.27850877192982454,
+        "recall_100": 0.27850877192982454,
+        "ndcg_cut_1": 0.18421052631578946,
+        "ndcg_cut_3": 0.14988350293562297,
+        "ndcg_cut_5": 0.17096840970155786,
+        "ndcg_cut_10": 0.21892544251036933
+      }
+    }
+  },
+  "mean_over_scored_queries": {
+    "recall_5": 0.32919254658385094,
+    "recall_10": 0.42463768115942035,
+    "recall_50": 0.42463768115942035,
+    "recall_100": 0.42463768115942035,
+    "ndcg_cut_1": 0.33540372670807456,
+    "ndcg_cut_3": 0.29400676830354494,
+    "ndcg_cut_5": 0.3137840743609546,
+    "ndcg_cut_10": 0.3558422755879146
+  },
+  "official_style_submitted_count_weighted": {
+    "recall_5": 0.323850632183908,
+    "recall_10": 0.4179189655172414,
+    "recall_50": 0.4179189655172414,
+    "recall_100": 0.4179189655172414,
+    "ndcg_cut_1": 0.3323033908045977,
+    "ndcg_cut_3": 0.2899801724137931,
+    "ndcg_cut_5": 0.30938528735632187,
+    "ndcg_cut_10": 0.35087689655172416
+  },
+  "historical_leaderboard_equivalence": "unverified",
+  "candidate_recall": {
+    "recall_50": 0.5530020703933747,
+    "recall_100": 0.6271221532091097
+  },
+  "runtime": {
+    "total_seconds": 11.176059124991298,
+    "median_query_seconds": 0.0025671664625406265,
+    "p95_query_seconds": 0.008511297358199953,
+    "rewrite_generation_seconds": "excluded; cached, recorded separately",
+    "includes_first_query_warmup": true
+  }
+}

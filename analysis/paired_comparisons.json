@@ -1,4 +1,34 @@
 {
+  "B02_bm25_fusion": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": 0.02229218757680149,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      -0.016561273937197463,
+      0.06261096364900133
+    ]
+  },
+  "B03_bm25_rerank": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": 0.12147752422258759,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      0.06366883960012099,
+      0.1863384179510653
+    ]
+  },
+  "B04_bm25_blend": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": 0.0888356662212553,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      0.037219445900096314,
+      0.14254361081873124
+    ]
+  },
   "E01_bm25_history": {
     "metric": "ndcg_cut_5",
     "delta_b_minus_a": -0.04077919710139322,
@@ -7,6 +37,26 @@
     "ci95": [
       -0.09086704771517716,
       0.009699214389858678
+    ]
+  },
+  "E02_bm25_rewrite": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": -0.013591875574508708,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      -0.05857261726365226,
+      0.03049451576619275
+    ]
+  },
+  "R00_bm25_latest_rerank": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": 0.1648496948668879,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      0.10684660160830181,
+      0.23225712387010092
     ]
   }
 }

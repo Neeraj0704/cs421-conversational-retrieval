@@ -1,0 +1,41 @@
+{
+  "selection_rule": "Prespecified baseline and validation-selected candidate comparisons",
+  "development_results": {
+    "E00_bm25_latest": {
+      "ndcg_at_5": 0.22494840813969935,
+      "config_sha256": "ddc2d417e6af2558007472f7519bcc650c7770a144b93368dc9280cecfaa8613"
+    },
+    "B02_bm25_fusion": {
+      "ndcg_at_5": 0.2472405957165008,
+      "config_sha256": "13727cdf24444bad27a10b25f84bfe3ab424ed939877f7bd1d62691b85306a5b"
+    },
+    "R00_bm25_latest_rerank": {
+      "ndcg_at_5": 0.3897981030065873,
+      "config_sha256": "35ec745343d3dea3e831902c24b5114b6cbdafd41dde012c958fa0f0ff474903"
+    }
+  },
+  "final_configs": {
+    "FINAL_E00_bm25_latest": "1553950c1d296d2ba5946e262c6e36970dc9917ee7294deeb1b9ea2d33418967",
+    "FINAL_B02_bm25_fusion": "4630a86464ea21d02e4722dc7911744f199be5ce2448bf1862b5edc8edb9ba0b",
+    "FINAL_R00_bm25_latest_rerank": "be2e4d1356a15587fd834efc02f568620bd7c141f33d0fa18ccb832918d7072a"
+  },
+  "source_sha256": {
+    "src/convrag/__init__.py": "90d531fdb6b8c4eb9da50d1b22dcb2fc554363d659d159e8a33d3808e6da7d12",
+    "src/convrag/cli.py": "17973ddb180403e3319a3a1f23455f0bc5de61bd14661939c176469311e48d64",
+    "src/convrag/data.py": "454b4fce24ec199e891d8d585bd3b80126bc0ff6573fd937d4e6723ee72387c3",
+    "src/convrag/evaluation.py": "67f703a81ee0a3193b607bad7243dccd0285ee1e208d0273fe1f30c5dc66ad10",
+    "src/convrag/io.py": "361c7d3a274c6f79c608450bc1137d1eb2e7d8d71978f79e9911724170271ca9",
+    "src/convrag/neural.py": "a0b352afc8ff3844db5d2f54850bd9a2539a16a73e1b6ebf75ea802276af670f",
+    "src/convrag/queries.py": "ff3f615da659dbfa460b326d8d525e083c590e2d313d0e604e7ff1b013f1f40a",
+    "src/convrag/report.py": "c67fbac9a78da0dc22e8259ea7c8e6da86b6bab27266d848a70b638c2c31a2e2",
+    "src/convrag/retrieval.py": "deb7a2c36bb2928ff4caef3ce9762aa99a9c01b923220fb02cb2f5dce01d17ac"
+  },
+  "git_commit": "d590835c2733de5f3532d017fd964be52c3c2af9",
+  "model_revisions": {
+    "Qwen/Qwen2.5-0.5B-Instruct": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "BAAI/bge-small-en-v1.5": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "naver/splade-cocondenser-ensembledistil": "49cf4c7b0db5b870a401ddf5e2669993ef3699c7",
+    "cross-encoder/ms-marco-MiniLM-L6-v2": "233902d25c440f23af6f7d6e94d2946bac0bee0a"
+  },
+  "final_qrels_used_for_selection": false
+}

@@ -13,8 +13,8 @@ Adapt its duration after checking the final course instructions.
    Distinguish implemented neural index backends from completed full-corpus experiments.
 6. Open `src/convrag/evaluation.py`. Explain nDCG@5, recall, scored coverage and two aggregates.
 7. Run `python -m pytest -q` and `python scripts/official_parity.py`.
-8. Show `runs/E00_bm25_latest/metrics.json` and `report/validation_results.png`.
-   State the best completed validation result: 0.2249 nDCG@5.
+8. Show `runs/R00_bm25_latest_rerank/metrics.json` and `report/validation_results.png`.
+   State the best completed validation result: 0.3898 nDCG@5.
    Explain negative results and uncertainty rather than presenting only the best row.
 9. Show `analysis/frozen_selection.json` if present, then the final result table if scored.
    There are currently 0 completed final runs; do not imply historical leaderboard equivalence.

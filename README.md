@@ -8,6 +8,18 @@ from its assigned collection. This project evaluates retrieval; it does not gene
 
 Python 3.11 or 3.12 is required. No paid API is required.
 
+To run the full CPU-feasible core and freeze a final comparison after development:
+
+```sh
+python scripts/run_core.py --include-final
+```
+
+This covers seven controlled ablations, selects by validation nDCG@5, preserves a simple
+baseline and fusion comparison, evaluates only the frozen final configurations, and generates
+the report. It skips verified completed runs with matching configs. Large neural indexes
+remain separate resource-gated extensions. Model generation and reranking can take tens of
+minutes on CPU; an existing full neural corpus index is not required for the core.
+
 ```sh
 uv venv --python 3.11 .venv
 uv pip install --python .venv/bin/python -e '.[neural,report,test]'
