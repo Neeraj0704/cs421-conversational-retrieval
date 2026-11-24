@@ -1,0 +1,10 @@
+{
+  "python": "3.11.14",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "mps_built": true,
+  "mps_available": false,
+  "gpu_computation_passed": false,
+  "native_metal_device_visible": false,
+  "torch_version": "2.15.0",
+  "next_step": "GPU access is not confirmed in this process. Check host/session access before indexing; no CPU indexing was started."
+}

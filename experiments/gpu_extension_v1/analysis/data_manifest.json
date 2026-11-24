@@ -1,0 +1,46 @@
+{
+  "repository": "https://github.com/IBM/mt-rag-benchmark.git",
+  "commit": "e0970de1b1207c2a9506adf238e6e1a22037e38a",
+  "datasets": {
+    "mtrag": {
+      "tasks": 842,
+      "conversations": 110
+    },
+    "mtragun": {
+      "tasks": 507,
+      "conversations": 507,
+      "qrels_inspected": false
+    }
+  },
+  "domains": {
+    "clapnq": {
+      "passages": 183408,
+      "judged_development_queries": 208,
+      "archive_sha256": "3f4bd79341b176070a83b6281bf380d7d6958270c137913f7377121b85a0747e",
+      "missing_development_passage_ids": 0
+    },
+    "cloud": {
+      "passages": 72442,
+      "judged_development_queries": 188,
+      "archive_sha256": "a0c5427013c65556aeddfdc246dd6068f3a7fad08ce6ae7adddaa9e87aae246d",
+      "missing_development_passage_ids": 0
+    },
+    "fiqa": {
+      "passages": 61022,
+      "judged_development_queries": 180,
+      "archive_sha256": "59f7cf5b043abe007fdb6521eb281bf055524de4376466e9cb4808466e761ee9",
+      "missing_development_passage_ids": 0
+    },
+    "govt": {
+      "passages": 49607,
+      "judged_development_queries": 201,
+      "archive_sha256": "09adcc5a1a8d11e362c66d7dbf0ef2ea338df4327d655102bf91ea8e258399f6",
+      "missing_development_passage_ids": 0
+    }
+  },
+  "split": {
+    "train": 88,
+    "validation": 22
+  },
+  "total_passages": 366479
+}

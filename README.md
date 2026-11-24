@@ -53,6 +53,21 @@ or `--standalone-query "your resolved question"`. This interactive command retur
 benchmark experiments use the separately cached automatic rewriting pipeline. Inspect a genuine
 saved example with `python scripts/demo.py --run R00_bm25_latest_rerank` after running experiments.
 
+## GPU workflow on this Mac
+
+Normal macOS Terminal has confirmed working MPS access and CPU/GPU vector agreement.
+The agent's separate tool process still cannot see Metal. Start the prepared full study
+from the working Terminal with:
+
+```sh
+bash "/Users/neerajvp/Documents/CS421 NLP/NLP/implementation/scripts/start_gpu_study.command"
+```
+
+It builds dense and SPLADE indexes and runs twelve fixed **validation-only** experiments
+in `experiments/gpu_extension_v1/`, preserving the original CPU study and final-test results.
+Sample estimates suggest roughly 3–4 hours including indexing and experiments. Progress is
+printed and saved; completed stages can be reused. See [GPU_ACCESS.md](GPU_ACCESS.md).
+
 ## Optional neural corpus indexes
 
 The current completed core uses BM25, rewriting, fusion and a compact cross-encoder.

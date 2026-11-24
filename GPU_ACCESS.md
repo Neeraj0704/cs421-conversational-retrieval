@@ -4,6 +4,35 @@ The installed PyTorch build includes MPS. The current restricted execution sessi
 reports no native Metal device and `mps_available: false`. A successful matrix
 multiplication on `device='mps'` is required before any GPU benchmark.
 
+## Confirmed on this Mac
+
+The user's normal Terminal passed the GPU computation and both model parity checks.
+The saved run is `analysis/gpu/20261124T042807Z/`. At batch size 16, measured sample
+throughput was about 39.4 SPLADE passages/s and 175.8 dense passages/s. Estimated
+full indexing is 2.6 hours and 35 minutes, before experiment and file-processing time.
+The agent's separate execution process still reports no native Metal device, despite
+the UI setting reported by the user. No further permission changes are requested.
+
+## Start the full GPU development study
+
+Run this yourself in the same normal macOS Terminal that passed the tests:
+
+```sh
+bash "/Users/neerajvp/Documents/CS421 NLP/NLP/implementation/scripts/start_gpu_study.command"
+```
+
+It builds the dense index first and runs its validation experiments, then builds
+SPLADE and runs the remaining comparisons. There are twelve fixed configurations,
+including learned sparse retrieval, dense retrieval, hybrid fusion and reranking.
+It keeps the Mac awake while running; keep the Mac plugged in with the lid open.
+Allow roughly 3–4 hours based on the sample, with actual time dependent on full data.
+
+All new configurations, status and results live in `experiments/gpu_extension_v1/`.
+The original CPU results and final-test freeze remain intact. This workflow reads
+development relevance judgments only; it does not run another final-test evaluation.
+You can rerun the same command to reuse completed indexes and validated runs.
+`analysis/status.json` in that study folder records the active stage and log location.
+
 ## Confirm access
 
 The desktop app has a permissions control beneath the message composer. Where the

@@ -1,0 +1,65 @@
+{
+  "study": "gpu_extension_v1",
+  "dataset": "mtrag",
+  "split": "validation",
+  "original_core_source_sha256": {
+    "src/convrag/__init__.py": "90d531fdb6b8c4eb9da50d1b22dcb2fc554363d659d159e8a33d3808e6da7d12",
+    "src/convrag/cli.py": "17973ddb180403e3319a3a1f23455f0bc5de61bd14661939c176469311e48d64",
+    "src/convrag/data.py": "454b4fce24ec199e891d8d585bd3b80126bc0ff6573fd937d4e6723ee72387c3",
+    "src/convrag/evaluation.py": "67f703a81ee0a3193b607bad7243dccd0285ee1e208d0273fe1f30c5dc66ad10",
+    "src/convrag/io.py": "361c7d3a274c6f79c608450bc1137d1eb2e7d8d71978f79e9911724170271ca9",
+    "src/convrag/neural.py": "a0b352afc8ff3844db5d2f54850bd9a2539a16a73e1b6ebf75ea802276af670f",
+    "src/convrag/queries.py": "ff3f615da659dbfa460b326d8d525e083c590e2d313d0e604e7ff1b013f1f40a",
+    "src/convrag/report.py": "c67fbac9a78da0dc22e8259ea7c8e6da86b6bab27266d848a70b638c2c31a2e2",
+    "src/convrag/retrieval.py": "deb7a2c36bb2928ff4caef3ce9762aa99a9c01b923220fb02cb2f5dce01d17ac"
+  },
+  "model_inventory": [
+    {
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "license": "apache-2.0",
+      "gated": false
+    },
+    {
+      "model": "cross-encoder/ms-marco-MiniLM-L6-v2",
+      "revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+      "license": "apache-2.0",
+      "gated": false
+    },
+    {
+      "model": "naver/splade-cocondenser-ensembledistil",
+      "revision": "49cf4c7b0db5b870a401ddf5e2669993ef3699c7",
+      "license": "cc-by-nc-sa-4.0",
+      "gated": false
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "license": "mit",
+      "gated": false
+    }
+  ],
+  "config_sha256": {
+    "D00_dense_latest": "1d043d1872ac9b178331092495fc197411f7017a9e4f3972c699f330e686faeb",
+    "D01_dense_fusion": "94d1b662bb6a005da53d8fed21c1b7ab03c047e0aaea82c8de85adafa59ab4e0",
+    "E03_splade_latest": "1b0461896fa812917a9f80ef2f8dd6a19288ded8d9b267ad024527169a868253",
+    "E04_splade_rewrite": "e46ba14f5b3bc5c18aa171b39e75ff8dde0f6b6a13f0c402f9be65817d3e8399",
+    "E05_splade_fusion": "7846269095e7b31efb6f41d4d5b0c298e9328ca839fee808511fcdbf889744a8",
+    "E06_splade_rerank": "0e431834db85f3c2ce36362f16cf16528d5e4130926761ea2117743892771d77",
+    "E07_splade_blend": "e15b223af2e3917652281a05db50313ee83f524dda688f358e3eb6829066f80d",
+    "E08_hybrid_fusion": "fb347c71415b9983e2e852a4f3d7c3936e8848416e4bf2b17996c5df8a759c11",
+    "E10_keyword_fusion": "c53cd99ef3cbb574a6ad305b016103823e81029122c20eff538a2401ce1ecd2c",
+    "G01_splade_latest_rerank": "fc11eaadeca73c84c78e150a87e4f8a5418b4f0ca364a6906b188ec8b0e46974",
+    "G02_dense_latest_rerank": "02da5d8bf00d4272689651784a95e1cf59dee1acb286e83fb632003345d20674",
+    "G03_hybrid_latest_rerank": "32da66b2890dc5dfb09672cb8f1f4a01f9dccd583ae4d6de6dc368c7ae469eab"
+  },
+  "index_settings": {
+    "batch_size": 16,
+    "max_length": 256,
+    "splade_document_terms": 128
+  },
+  "selection_rule": "Highest validation mean-over-scored nDCG@5 among these twelve fixed configurations",
+  "original_cpu_test_scores_already_known": true,
+  "final_test_evaluation_enabled": false,
+  "scope": "Separate development extension; original CPU final results are preserved"
+}

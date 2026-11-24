@@ -1,0 +1,34 @@
+{
+  "backend": "splade",
+  "model": "naver/splade-cocondenser-ensembledistil",
+  "revision": "49cf4c7b0db5b870a401ddf5e2669993ef3699c7",
+  "device": "mps",
+  "max_length": 256,
+  "fallback_enabled": false,
+  "parity": {
+    "max_absolute_error": 1.0479241609573364e-05,
+    "minimum_cosine_similarity": 1.0,
+    "passed": true
+  },
+  "results": [
+    {
+      "batch_size": 8,
+      "status": "passed",
+      "sample_passages": 128,
+      "seconds": 3.5293933749198914,
+      "passages_per_second": 36.26685563291887,
+      "estimated_full_index_hours": 2.806963009217159,
+      "current_allocated_bytes": 438673664
+    },
+    {
+      "batch_size": 16,
+      "status": "passed",
+      "sample_passages": 128,
+      "seconds": 3.2468439578078687,
+      "passages_per_second": 39.42289856344688,
+      "estimated_full_index_hours": 2.5822485390917316,
+      "current_allocated_bytes": 438673664
+    }
+  ],
+  "scope": "Feasibility only; no qrels, no test scores, no full index"
+}

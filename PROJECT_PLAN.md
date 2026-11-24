@@ -487,3 +487,17 @@ The source/configuration hashes in the freeze manifest are authoritative; its Gi
 ## Delivery verification
 
 All ten saved runs passed independent metric/coverage checks and the 17-test suite. The five-page PDF tables were inspected. The 179-second automated narrated review video decoded without errors and its results frame was checked. A source ZIP was validated for CRC integrity and contains code, exact query snapshots, report and video while excluding corpus, model, index and environment files. Course-format review and any required student-recorded presentation remain pending the final brief.
+
+## GPU extension checkpoint
+
+The user's normal macOS Terminal passed actual MPS computation and numerical agreement
+checks for SPLADE and BGE-small. Saved evidence: `analysis/gpu/20261124T042807Z/`.
+Batch-16 sample estimates are approximately 2.6 hours for sparse indexing and 35 minutes
+for dense indexing; these remain estimates rather than completed full-index measurements.
+The agent's tool process still cannot see Metal, regardless of the reported UI permission mode.
+
+A separate, resumable twelve-configuration development study is prepared under
+`experiments/gpu_extension_v1/`. Its launcher is `scripts/start_gpu_study.command`.
+It refuses CPU fallback, preserves original CPU/test artifacts and performs no new final-test
+evaluation. Twenty-two automated tests pass, including isolation, resume and runtime-restore checks.
+Full GPU indexing has not been started by the agent; it requires launch from the working Terminal.

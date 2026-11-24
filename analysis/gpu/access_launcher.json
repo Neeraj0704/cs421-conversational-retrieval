@@ -1,0 +1,12 @@
+{
+  "python": "3.11.14",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "mps_built": true,
+  "mps_available": true,
+  "gpu_computation_passed": true,
+  "native_metal_device_visible": true,
+  "torch_version": "2.15.0",
+  "computation_device": "mps:0",
+  "check_seconds": 0.7276947502978146,
+  "next_step": "Run the MPS-only model benchmark"
+}

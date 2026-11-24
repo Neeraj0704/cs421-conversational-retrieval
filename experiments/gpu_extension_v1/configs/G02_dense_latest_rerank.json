@@ -1,0 +1,14 @@
+{
+  "id": "G02_dense_latest_rerank",
+  "dataset": "mtrag",
+  "split": "validation",
+  "backends": [
+    "dense"
+  ],
+  "query_mode": "latest",
+  "retrieve_k": 100,
+  "pool_size": 100,
+  "rrf_k": 60,
+  "reranker": "cross-encoder/ms-marco-MiniLM-L6-v2",
+  "retrieval_rank_weight": 0
+}

@@ -18,5 +18,15 @@ runs/*/inputs.jsonl
 *.zip
 walkthrough/build/
 reproductions/
+experiments/*/src/
+experiments/*/data/
+experiments/*/indexes
+experiments/*/splits
+experiments/*/cache/
+experiments/*/logs/
+experiments/*/.runner.lock
+experiments/*/runs/*/candidates.jsonl
+experiments/*/runs/*/traces.jsonl
+experiments/*/runs/*/inputs.jsonl
 !walkthrough/AUTOMATED_WALKTHROUGH.mp4
 

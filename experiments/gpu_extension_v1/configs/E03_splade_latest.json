@@ -1,0 +1,12 @@
+{
+  "id": "E03_splade_latest",
+  "dataset": "mtrag",
+  "split": "validation",
+  "retrieve_k": 100,
+  "pool_size": 100,
+  "rrf_k": 60,
+  "backends": [
+    "splade"
+  ],
+  "query_mode": "latest"
+}

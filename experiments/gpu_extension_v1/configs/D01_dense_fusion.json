@@ -1,0 +1,13 @@
+{
+  "id": "D01_dense_fusion",
+  "dataset": "mtrag",
+  "split": "validation",
+  "retrieve_k": 100,
+  "pool_size": 100,
+  "rrf_k": 60,
+  "backends": [
+    "dense"
+  ],
+  "query_mode": "fusion",
+  "rewrites": "cache/rewrites/mtrag.jsonl"
+}
