@@ -1,0 +1,104 @@
+{
+  "status": "passed",
+  "completed_validation_configurations": 12,
+  "runs": {
+    "D00_dense_latest": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "ndcg_at_5": 0.3850268089262613,
+      "predictions_sha256": "191d660eaa2ba3845c1864210fcbebd374367a584a1d5e031e8f873ab1a89fe2"
+    },
+    "D01_dense_fusion": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "ndcg_at_5": 0.39658630920297705,
+      "predictions_sha256": "64667b07e90e6ac2512443c48e098e1686878c480108808af0c1b43adc14ca80"
+    },
+    "E03_splade_latest": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "ndcg_at_5": 0.3989580919821281,
+      "predictions_sha256": "0524ae1dec2141c64b20e2d706446f94b37121df8cdd1020eb23d22fbb68bc90"
+    },
+    "E04_splade_rewrite": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "ndcg_at_5": 0.3610624818943216,
+      "predictions_sha256": "72f1e33bd854b5eb10121311d74c296ba93cfa0ca9ecbc15af9f6cd0a31402a3"
+    },
+    "E05_splade_fusion": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "ndcg_at_5": 0.4106948759312746,
+      "predictions_sha256": "6aa76797c0ca313daaeac27c3235856a5cb5328ea9cbafb48ecdde229f3dac79"
+    },
+    "E06_splade_rerank": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "ndcg_at_5": 0.37947239763425505,
+      "predictions_sha256": "e2238fb9754ba63aaf3395d86c2d3a773ac7eeb8caa4e011e962d095317641c4"
+    },
+    "E07_splade_blend": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "ndcg_at_5": 0.41206409615012873,
+      "predictions_sha256": "69b61fa28efba25ee8cac60a84e5328ee87d6e5c610b32f122864a048a04c2f5"
+    },
+    "E08_hybrid_fusion": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "ndcg_at_5": 0.44787850270778695,
+      "predictions_sha256": "08fa9934df0dfca18e182bef26fd193ed2b0d177f4910d14fdd5fc2d2434a00a"
+    },
+    "E10_keyword_fusion": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "ndcg_at_5": 0.39086875704637436,
+      "predictions_sha256": "7efb91d64574ad2aecc392d867f3abe8ecdcf2c427244e6e33673090162d1d14"
+    },
+    "G01_splade_latest_rerank": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "ndcg_at_5": 0.4281160017549982,
+      "predictions_sha256": "7b2612af5888a1a8f8862d7b83a99d21068f24a02dc473f41cbad80a3f808d2e"
+    },
+    "G02_dense_latest_rerank": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "ndcg_at_5": 0.43662571773179887,
+      "predictions_sha256": "f79d213ff101e23a21b6f98b754b0af058fc794ec9833f7f588873c1a0cba932"
+    },
+    "G03_hybrid_latest_rerank": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "ndcg_at_5": 0.4290540118061026,
+      "predictions_sha256": "bcbc3aaaa02934cc23eab894f38e98d91536054591a55bd5e33ba9930a40027b"
+    }
+  },
+  "best_validation_configuration": "E08_hybrid_fusion",
+  "best_vs_original_cpu_validation": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": 0.05808039970119962,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      0.013844793059425299,
+      0.10328548635809812
+    ]
+  },
+  "full_index_passages_per_backend": 366479,
+  "original_and_extension_frozen_source_match": true,
+  "new_final_test_evaluation_performed": false
+}

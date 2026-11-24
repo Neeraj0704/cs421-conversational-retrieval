@@ -150,8 +150,8 @@ Tasks with no judgments are not automatically retrieval failures. A required jud
 **Tasks**
 
 - [x] Time sparse encoding on a sample and estimate full indexing work.
-- [ ] Build one learned sparse index if it passes the feasibility gate.
-- [ ] Run sparse retrieval with latest question and with rewrite separately.
+- [x] Build one learned sparse index if it passes the feasibility gate.
+- [x] Run sparse retrieval with latest question and with rewrite separately.
 - [x] Fuse original and rewrite rankings.
 - [x] Rerank a fixed candidate pool with the selected compact model.
 - [x] Compare pure reranking with a blend of retrieval and reranker ranks.
@@ -172,7 +172,7 @@ If learned sparse indexing cannot fit the schedule, complete the same query/fusi
 **Tasks**
 
 - [x] Choose one experiment based on current error analysis and remaining time.
-- [ ] Hold the final reranking pool and model fixed.
+- [x] Hold the final reranking pool and model fixed.
 - [ ] Measure unique relevant candidates contributed by the new branch.
 - [ ] Record quality, indexing cost, query time, and memory.
 - [x] Keep or reject the component using the rules below.
@@ -224,14 +224,14 @@ Seven core BM25, rewriting, fusion and reranking comparisons are complete. Learn
 | E00 | BM25, latest question | Starting point | Required | Complete: validation nDCG@5 0.22495 |
 | E01 | Same BM25, prior user questions + latest | E00: raw history | Required | Complete: validation nDCG@5 0.18417 |
 | E02 | Same BM25, conservative rewrite | E00/E01: rewriting | Required if rewriter feasible | Complete: validation nDCG@5 0.21136 |
-| E03 | Sparse, latest question | E00: stronger retriever | Core target | Deferred full-index experiment after CPU feasibility gate |
-| E04 | Same sparse, conservative rewrite | E03: rewrite effect | Core target | Deferred full-index experiment after CPU feasibility gate |
-| E05 | Same sparse, original+rewrite searches, flat RRF | E04: preserve original wording | Core target | Deferred full-index experiment after CPU feasibility gate |
-| E06 | E05 candidates, pure cross-encoder ordering | E05: reranking | Core target | Deferred full-index experiment after CPU feasibility gate |
-| E07 | Exact same E06 candidates/scores, retrieval-rank + reranker-rank fusion | E06: preserve retrieval signal | Core target | Deferred full-index experiment after CPU feasibility gate |
-| E08 | Best fixed query views, sparse+dense, same final pool/reranker | Best sparse-only: dense complementarity | Stretch | Deferred full-index experiment after CPU feasibility gate |
+| E03 | Sparse, latest question | E00: stronger retriever | Core target | Complete: GPU validation nDCG@5 0.3990 |
+| E04 | Same sparse, conservative rewrite | E03: rewrite effect | Core target | Complete: GPU validation nDCG@5 0.3611 |
+| E05 | Same sparse, original+rewrite searches, flat RRF | E04: preserve original wording | Core target | Complete: GPU validation nDCG@5 0.4107 |
+| E06 | E05 candidates, pure cross-encoder ordering | E05: reranking | Core target | Complete: GPU validation nDCG@5 0.3795 |
+| E07 | Exact same E06 candidates/scores, retrieval-rank + reranker-rank fusion | E06: preserve retrieval signal | Core target | Complete: GPU validation nDCG@5 0.4121 |
+| E08 | Best fixed query views, sparse+dense, same final pool/reranker | Best sparse-only: dense complementarity | Stretch | Complete: GPU validation nDCG@5 0.4479 |
 | E09 | Same views, sparse+ColBERT, same final pool/reranker | Best sparse-only and E08: late interaction | Stretch | Deferred full-index experiment after CPU feasibility gate |
-| E10 | Add one keyword-focused view to best feasible system | Two versus three views | Stretch | Planned |
+| E10 | Add one keyword-focused view to best feasible system | Two versus three views | Stretch | Complete: GPU validation nDCG@5 0.3909 |
 | E11 | Same system, selected history instead of full prefix | History filtering | Stretch | Planned |
 | E12 | More views with flat versus nested RRF | Fusion structure at identical views and budget | Later | Planned |
 | E13 | Distinct sparse/dense rewrites versus generic views | Retriever-specific query formulation | Later | Planned |
@@ -505,3 +505,22 @@ Full GPU indexing has not been started by the agent; it requires launch from the
 ## GPU dense checkpoint
 
 The Terminal-run study completed the full 366,479-passage dense index on MPS in approximately 36 minutes. Three validation runs passed independent metric, format and ID/coverage checks: dense latest 0.3850, dense fusion 0.3966, dense latest + reranker 0.4366 nDCG@5. The earlier CPU validation reference is 0.3898. The best dense paired improvement is +0.0468, with a 95% conversation-bootstrap interval of [+0.0057, +0.0939]. SPLADE indexing is running. These are development results; no additional final-test evaluation has been performed.
+
+## GPU study completion — November 24, 2026
+
+The Terminal-run GPU study finished at 2:02 AM Chicago time, after about 3 hours 19 minutes.
+Dense indexing took approximately 36 minutes; SPLADE indexing took 2 hours 36 minutes.
+Both indexes cover all 366,479 original passages. All twelve validation runs passed an
+independent recalculation of metrics and checks for task coverage, original IDs, format,
+configuration hashes and unchanged source.
+
+The best observed validation configuration is E08: SPLADE + dense original/rewrite fusion,
+nDCG@5 0.4479, compared with the original CPU validation reference 0.3898. The paired delta
+is +0.0581, with a 95% conversation-bootstrap interval [+0.0138, +0.1033]. Selection across
+twelve validation configurations still introduces selection optimism. This is a development
+result; the new GPU-selected configuration has not been evaluated on the final set.
+
+Evidence: `experiments/gpu_extension_v1/GPU_EXTENSION_RESULTS.md` and
+`experiments/gpu_extension_v1/analysis/full_study_verification.json`. The original CPU
+final-test results and report are preserved. A separate GPU configuration freeze and
+clearly labelled final evaluation are the next evaluation step.

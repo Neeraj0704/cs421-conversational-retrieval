@@ -1,0 +1,88 @@
+{
+  "config": {
+    "id": "E06_splade_rerank",
+    "dataset": "mtrag",
+    "split": "validation",
+    "retrieve_k": 100,
+    "pool_size": 100,
+    "rrf_k": 60,
+    "backends": [
+      "splade"
+    ],
+    "query_mode": "fusion",
+    "reranker": "cross-encoder/ms-marco-MiniLM-L6-v2",
+    "retrieval_rank_weight": 0,
+    "rewrites": "cache/rewrites/mtrag.jsonl"
+  },
+  "config_sha256": "0e431834db85f3c2ce36362f16cf16528d5e4130926761ea2117743892771d77",
+  "upstream_commit": "e0970de1b1207c2a9506adf238e6e1a22037e38a",
+  "source_sha256": {
+    "src/convrag/__init__.py": "90d531fdb6b8c4eb9da50d1b22dcb2fc554363d659d159e8a33d3808e6da7d12",
+    "src/convrag/cli.py": "17973ddb180403e3319a3a1f23455f0bc5de61bd14661939c176469311e48d64",
+    "src/convrag/data.py": "454b4fce24ec199e891d8d585bd3b80126bc0ff6573fd937d4e6723ee72387c3",
+    "src/convrag/evaluation.py": "67f703a81ee0a3193b607bad7243dccd0285ee1e208d0273fe1f30c5dc66ad10",
+    "src/convrag/io.py": "361c7d3a274c6f79c608450bc1137d1eb2e7d8d71978f79e9911724170271ca9",
+    "src/convrag/neural.py": "a0b352afc8ff3844db5d2f54850bd9a2539a16a73e1b6ebf75ea802276af670f",
+    "src/convrag/queries.py": "ff3f615da659dbfa460b326d8d525e083c590e2d313d0e604e7ff1b013f1f40a",
+    "src/convrag/report.py": "c67fbac9a78da0dc22e8259ea7c8e6da86b6bab27266d848a70b638c2c31a2e2",
+    "src/convrag/retrieval.py": "deb7a2c36bb2928ff4caef3ce9762aa99a9c01b923220fb02cb2f5dce01d17ac"
+  },
+  "input_sha256": "a880a1ad67fbba4bc51018078834a96d245be8a57085bbb658490ca027c76d64",
+  "split_sha256": "c28b1ecba781a568154fa569c352de29ab8555dca60a35e35b303cb1a7c69893",
+  "rewrite_sha256": "2663fa53a0df1e5372f1f3d3c02dd38a6fc82192c1d7b4280afdb92cc4fc5811",
+  "indexes": {
+    "splade": {
+      "govt": {
+        "backend": "splade",
+        "model": "naver/splade-cocondenser-ensembledistil",
+        "revision": "49cf4c7b0db5b870a401ddf5e2669993ef3699c7",
+        "documents": 49607,
+        "max_length": 256,
+        "batch_size": 16,
+        "document_top_terms": 128,
+        "seconds": 1311.1235052500851,
+        "limited_corpus": false,
+        "device": "mps"
+      },
+      "fiqa": {
+        "backend": "splade",
+        "model": "naver/splade-cocondenser-ensembledistil",
+        "revision": "49cf4c7b0db5b870a401ddf5e2669993ef3699c7",
+        "documents": 61022,
+        "max_length": 256,
+        "batch_size": 16,
+        "document_top_terms": 128,
+        "seconds": 1599.5199471251108,
+        "limited_corpus": false,
+        "device": "mps"
+      },
+      "clapnq": {
+        "backend": "splade",
+        "model": "naver/splade-cocondenser-ensembledistil",
+        "revision": "49cf4c7b0db5b870a401ddf5e2669993ef3699c7",
+        "documents": 183408,
+        "max_length": 256,
+        "batch_size": 16,
+        "document_top_terms": 128,
+        "seconds": 4502.699682333041,
+        "limited_corpus": false,
+        "device": "mps"
+      },
+      "cloud": {
+        "backend": "splade",
+        "model": "naver/splade-cocondenser-ensembledistil",
+        "revision": "49cf4c7b0db5b870a401ddf5e2669993ef3699c7",
+        "documents": 72442,
+        "max_length": 256,
+        "batch_size": 16,
+        "document_top_terms": 128,
+        "seconds": 1910.7642843332142,
+        "limited_corpus": false,
+        "device": "mps"
+      }
+    }
+  },
+  "reranker_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+  "python": "3.11.14",
+  "platform": "Darwin arm64"
+}

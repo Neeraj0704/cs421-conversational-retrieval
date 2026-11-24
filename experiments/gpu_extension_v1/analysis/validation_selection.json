@@ -1,7 +1,7 @@
 {
-  "selected": "G02_dense_latest_rerank",
-  "score": 0.43662571773179887,
+  "selected": "E08_hybrid_fusion",
+  "score": 0.44787850270778695,
   "selection_uses": "MTRAG validation only",
-  "completed_configurations": 3,
+  "completed_configurations": 12,
   "final_test_evaluated_in_this_extension": false
 }

@@ -71,7 +71,7 @@ printed and saved; completed stages can be reused. See [GPU_ACCESS.md](GPU_ACCES
 ## Optional neural corpus indexes
 
 The current completed core uses BM25, rewriting, fusion and a compact cross-encoder.
-The GPU extension has completed the full BGE-small dense index and three validation experiments; see [GPU development results](experiments/gpu_extension_v1/GPU_EXTENSION_RESULTS.md). SPLADE full indexing is currently running.
+The GPU extension has completed the full BGE-small dense index and three validation experiments; see [GPU development results](experiments/gpu_extension_v1/GPU_EXTENSION_RESULTS.md). Both full indexes and all twelve GPU validation runs are now complete; the highest observed GPU validation nDCG@5 is 0.4479. This is separate from the earlier CPU final-test result.
 Sample CPU timings estimated approximately 10.8 and 3.2 indexing hours respectively. Run these
 as a separate development study if accelerator resources or extra time are available:
 

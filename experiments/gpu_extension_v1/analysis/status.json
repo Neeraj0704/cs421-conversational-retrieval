@@ -2,7 +2,7 @@
   "study": "gpu_extension_v1",
   "started_utc": "2026-11-24T04:43:33.291634+00:00",
   "pid": 46064,
-  "state": "running",
+  "state": "completed",
   "completed_stages": [
     {
       "name": "index_dense",
@@ -23,9 +23,60 @@
       "name": "G02_dense_latest_rerank",
       "seconds_this_invocation": 80.77896574977785,
       "finished_utc": "2026-11-24T05:21:03.425046+00:00"
+    },
+    {
+      "name": "index_splade",
+      "seconds_this_invocation": 9332.726787208114,
+      "finished_utc": "2026-11-24T07:56:36.268194+00:00"
+    },
+    {
+      "name": "E03_splade_latest",
+      "seconds_this_invocation": 15.649360208772123,
+      "finished_utc": "2026-11-24T07:56:54.817884+00:00"
+    },
+    {
+      "name": "E04_splade_rewrite",
+      "seconds_this_invocation": 11.817947000265121,
+      "finished_utc": "2026-11-24T07:57:06.648726+00:00"
+    },
+    {
+      "name": "E05_splade_fusion",
+      "seconds_this_invocation": 16.049739874899387,
+      "finished_utc": "2026-11-24T07:57:22.685650+00:00"
+    },
+    {
+      "name": "E06_splade_rerank",
+      "seconds_this_invocation": 89.32548345904797,
+      "finished_utc": "2026-11-24T07:58:51.993483+00:00"
+    },
+    {
+      "name": "E07_splade_blend",
+      "seconds_this_invocation": 19.600049375090748,
+      "finished_utc": "2026-11-24T07:59:11.618185+00:00"
+    },
+    {
+      "name": "E08_hybrid_fusion",
+      "seconds_this_invocation": 21.138753459323198,
+      "finished_utc": "2026-11-24T07:59:32.764778+00:00"
+    },
+    {
+      "name": "E10_keyword_fusion",
+      "seconds_this_invocation": 21.158151582814753,
+      "finished_utc": "2026-11-24T07:59:53.930602+00:00"
+    },
+    {
+      "name": "G01_splade_latest_rerank",
+      "seconds_this_invocation": 78.6274936250411,
+      "finished_utc": "2026-11-24T08:01:12.569518+00:00"
+    },
+    {
+      "name": "G03_hybrid_latest_rerank",
+      "seconds_this_invocation": 88.07170849991962,
+      "finished_utc": "2026-11-24T08:02:40.656731+00:00"
     }
   ],
-  "current_stage": "index_splade",
-  "updated_utc": "2026-11-24T05:21:03.430044+00:00",
-  "current_log": "/Users/neerajvp/Documents/CS421 NLP/NLP/implementation/experiments/gpu_extension_v1/logs/index_splade.log"
+  "current_stage": null,
+  "updated_utc": "2026-11-24T08:01:12.583812+00:00",
+  "current_log": "/Users/neerajvp/Documents/CS421 NLP/NLP/implementation/experiments/gpu_extension_v1/logs/G03_hybrid_latest_rerank.log",
+  "finished_utc": "2026-11-24T08:02:40.672216+00:00"
 }

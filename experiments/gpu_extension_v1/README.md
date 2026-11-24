@@ -1,6 +1,6 @@
 # GPU development extension
 
-Status: running from the user’s GPU-enabled Terminal. Dense indexing is complete; three dense validation experiments passed independent verification. SPLADE indexing is in progress.
+Status: completed successfully at 2:02 AM Chicago time on November 24, 2026. Both full indexes and all twelve validation configurations passed independent verification.
 
 Launch from normal macOS Terminal:
 
@@ -19,3 +19,5 @@ bash "/Users/neerajvp/Documents/CS421 NLP/NLP/implementation/scripts/start_gpu_s
 
 The copied source, shared corpus/model/index paths and query cache are local runtime
 files excluded from Git. Recreate them with `python scripts/run_gpu_study.py --prepare-only`.
+
+Best observed validation result: SPLADE + dense fusion, nDCG@5 0.4479 (original CPU validation reference 0.3898). No new final-test evaluation has been performed. See `analysis/full_study_verification.json`.

@@ -19,6 +19,86 @@
       0.055346622210484135
     ]
   },
+  "E03_splade_latest": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": 0.00915998897554084,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      -0.04136346933600921,
+      0.055690121919027086
+    ]
+  },
+  "E04_splade_rewrite": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": -0.028735621112265682,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      -0.08219756730588017,
+      0.02082326943970455
+    ]
+  },
+  "E05_splade_fusion": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": 0.02089677292468727,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      -0.027806515167436915,
+      0.07096246168424802
+    ]
+  },
+  "E06_splade_rerank": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": -0.010325705372332265,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      -0.053358157282846284,
+      0.03211444462909085
+    ]
+  },
+  "E07_splade_blend": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": 0.022265993143541475,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      -0.025897009832515642,
+      0.06689451196719981
+    ]
+  },
+  "E08_hybrid_fusion": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": 0.05808039970119962,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      0.013844793059425299,
+      0.10328548635809812
+    ]
+  },
+  "E10_keyword_fusion": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": 0.00107065403978709,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      -0.05479424085922044,
+      0.05407580824273512
+    ]
+  },
+  "G01_splade_latest_rerank": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": 0.038317898748410864,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      0.000778567534405684,
+      0.07969372570103128
+    ]
+  },
   "G02_dense_latest_rerank": {
     "metric": "ndcg_cut_5",
     "delta_b_minus_a": 0.046827614725211616,
@@ -27,6 +107,16 @@
     "ci95": [
       0.005740385646867401,
       0.0938997676057402
+    ]
+  },
+  "G03_hybrid_latest_rerank": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": 0.03925590879951526,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      0.0027658203159325596,
+      0.08013254086652075
     ]
   }
 }

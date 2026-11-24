@@ -1,0 +1,90 @@
+{
+  "clapnq": {
+    "status": "passed",
+    "documents": 183408,
+    "shape": [
+      183408,
+      30522
+    ],
+    "ids_sha256": "dc89932ac6a2b9ffeca98c7b281a7dae8286a88910cc287442ad4b4686bf1678",
+    "zero_vector_count_or_sample_count": 0,
+    "metadata": {
+      "backend": "splade",
+      "model": "naver/splade-cocondenser-ensembledistil",
+      "revision": "49cf4c7b0db5b870a401ddf5e2669993ef3699c7",
+      "documents": 183408,
+      "max_length": 256,
+      "batch_size": 16,
+      "document_top_terms": 128,
+      "seconds": 4502.699682333041,
+      "limited_corpus": false,
+      "device": "mps"
+    }
+  },
+  "cloud": {
+    "status": "passed",
+    "documents": 72442,
+    "shape": [
+      72442,
+      30522
+    ],
+    "ids_sha256": "4392ddf0117cd23c5cb693b777f7eee82bd6e2a391a55b04dd1e64b07ac4ef63",
+    "zero_vector_count_or_sample_count": 0,
+    "metadata": {
+      "backend": "splade",
+      "model": "naver/splade-cocondenser-ensembledistil",
+      "revision": "49cf4c7b0db5b870a401ddf5e2669993ef3699c7",
+      "documents": 72442,
+      "max_length": 256,
+      "batch_size": 16,
+      "document_top_terms": 128,
+      "seconds": 1910.7642843332142,
+      "limited_corpus": false,
+      "device": "mps"
+    }
+  },
+  "fiqa": {
+    "status": "passed",
+    "documents": 61022,
+    "shape": [
+      61022,
+      30522
+    ],
+    "ids_sha256": "2435d7c174eadb720469b7bff079fb40d3ae44f9d738a06d5dd4b4df9b070159",
+    "zero_vector_count_or_sample_count": 0,
+    "metadata": {
+      "backend": "splade",
+      "model": "naver/splade-cocondenser-ensembledistil",
+      "revision": "49cf4c7b0db5b870a401ddf5e2669993ef3699c7",
+      "documents": 61022,
+      "max_length": 256,
+      "batch_size": 16,
+      "document_top_terms": 128,
+      "seconds": 1599.5199471251108,
+      "limited_corpus": false,
+      "device": "mps"
+    }
+  },
+  "govt": {
+    "status": "passed",
+    "documents": 49607,
+    "shape": [
+      49607,
+      30522
+    ],
+    "ids_sha256": "2ec8c7b6da46947a31dca3c4f5a7922cba788fe5adb18dc69e20e27e5c88e78b",
+    "zero_vector_count_or_sample_count": 0,
+    "metadata": {
+      "backend": "splade",
+      "model": "naver/splade-cocondenser-ensembledistil",
+      "revision": "49cf4c7b0db5b870a401ddf5e2669993ef3699c7",
+      "documents": 49607,
+      "max_length": 256,
+      "batch_size": 16,
+      "document_top_terms": 128,
+      "seconds": 1311.1235052500851,
+      "limited_corpus": false,
+      "device": "mps"
+    }
+  }
+}
