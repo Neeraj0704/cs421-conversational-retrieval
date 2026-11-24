@@ -1,6 +1,6 @@
 # GPU development extension
 
-Status: prepared; full indexing has not been started by the agent.
+Status: running from the user’s GPU-enabled Terminal. Dense indexing is complete; three dense validation experiments passed independent verification. SPLADE indexing is in progress.
 
 Launch from normal macOS Terminal:
 

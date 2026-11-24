@@ -1,0 +1,90 @@
+{
+  "clapnq": {
+    "status": "passed",
+    "documents": 183408,
+    "shape": [
+      183408,
+      384
+    ],
+    "ids_sha256": "dc89932ac6a2b9ffeca98c7b281a7dae8286a88910cc287442ad4b4686bf1678",
+    "zero_vector_count_or_sample_count": 0,
+    "metadata": {
+      "backend": "dense",
+      "model": "BAAI/bge-small-en-v1.5",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "documents": 183408,
+      "max_length": 256,
+      "batch_size": 16,
+      "document_top_terms": null,
+      "seconds": 1016.2051689159125,
+      "limited_corpus": false,
+      "device": "mps"
+    }
+  },
+  "cloud": {
+    "status": "passed",
+    "documents": 72442,
+    "shape": [
+      72442,
+      384
+    ],
+    "ids_sha256": "4392ddf0117cd23c5cb693b777f7eee82bd6e2a391a55b04dd1e64b07ac4ef63",
+    "zero_vector_count_or_sample_count": 0,
+    "metadata": {
+      "backend": "dense",
+      "model": "BAAI/bge-small-en-v1.5",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "documents": 72442,
+      "max_length": 256,
+      "batch_size": 16,
+      "document_top_terms": null,
+      "seconds": 441.4588414155878,
+      "limited_corpus": false,
+      "device": "mps"
+    }
+  },
+  "fiqa": {
+    "status": "passed",
+    "documents": 61022,
+    "shape": [
+      61022,
+      384
+    ],
+    "ids_sha256": "2435d7c174eadb720469b7bff079fb40d3ae44f9d738a06d5dd4b4df9b070159",
+    "zero_vector_count_or_sample_count": 0,
+    "metadata": {
+      "backend": "dense",
+      "model": "BAAI/bge-small-en-v1.5",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "documents": 61022,
+      "max_length": 256,
+      "batch_size": 16,
+      "document_top_terms": null,
+      "seconds": 379.44352791598067,
+      "limited_corpus": false,
+      "device": "mps"
+    }
+  },
+  "govt": {
+    "status": "passed",
+    "documents": 49607,
+    "shape": [
+      49607,
+      384
+    ],
+    "ids_sha256": "2ec8c7b6da46947a31dca3c4f5a7922cba788fe5adb18dc69e20e27e5c88e78b",
+    "zero_vector_count_or_sample_count": 0,
+    "metadata": {
+      "backend": "dense",
+      "model": "BAAI/bge-small-en-v1.5",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "documents": 49607,
+      "max_length": 256,
+      "batch_size": 16,
+      "document_top_terms": null,
+      "seconds": 303.5299217076972,
+      "limited_corpus": false,
+      "device": "mps"
+    }
+  }
+}

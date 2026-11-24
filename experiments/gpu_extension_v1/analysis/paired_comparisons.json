@@ -1,0 +1,32 @@
+{
+  "D00_dense_latest": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": -0.0047712940803260225,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      -0.06716843734096604,
+      0.052397870560131954
+    ]
+  },
+  "D01_dense_fusion": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": 0.0067882061963897445,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      -0.0421951479364571,
+      0.055346622210484135
+    ]
+  },
+  "G02_dense_latest_rerank": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": 0.046827614725211616,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      0.005740385646867401,
+      0.0938997676057402
+    ]
+  }
+}

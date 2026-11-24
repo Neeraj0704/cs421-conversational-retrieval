@@ -501,3 +501,7 @@ A separate, resumable twelve-configuration development study is prepared under
 It refuses CPU fallback, preserves original CPU/test artifacts and performs no new final-test
 evaluation. Twenty-two automated tests pass, including isolation, resume and runtime-restore checks.
 Full GPU indexing has not been started by the agent; it requires launch from the working Terminal.
+
+## GPU dense checkpoint
+
+The Terminal-run study completed the full 366,479-passage dense index on MPS in approximately 36 minutes. Three validation runs passed independent metric, format and ID/coverage checks: dense latest 0.3850, dense fusion 0.3966, dense latest + reranker 0.4366 nDCG@5. The earlier CPU validation reference is 0.3898. The best dense paired improvement is +0.0468, with a 95% conversation-bootstrap interval of [+0.0057, +0.0939]. SPLADE indexing is running. These are development results; no additional final-test evaluation has been performed.

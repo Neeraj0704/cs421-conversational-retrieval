@@ -1,0 +1,31 @@
+{
+  "study": "gpu_extension_v1",
+  "started_utc": "2026-11-24T04:43:33.291634+00:00",
+  "pid": 46064,
+  "state": "running",
+  "completed_stages": [
+    {
+      "name": "index_dense",
+      "seconds_this_invocation": 2148.050434459001,
+      "finished_utc": "2026-11-24T05:19:21.388858+00:00"
+    },
+    {
+      "name": "D00_dense_latest",
+      "seconds_this_invocation": 9.333572375122458,
+      "finished_utc": "2026-11-24T05:19:33.688200+00:00"
+    },
+    {
+      "name": "D01_dense_fusion",
+      "seconds_this_invocation": 8.94850766658783,
+      "finished_utc": "2026-11-24T05:19:42.642838+00:00"
+    },
+    {
+      "name": "G02_dense_latest_rerank",
+      "seconds_this_invocation": 80.77896574977785,
+      "finished_utc": "2026-11-24T05:21:03.425046+00:00"
+    }
+  ],
+  "current_stage": "index_splade",
+  "updated_utc": "2026-11-24T05:21:03.430044+00:00",
+  "current_log": "/Users/neerajvp/Documents/CS421 NLP/NLP/implementation/experiments/gpu_extension_v1/logs/index_splade.log"
+}

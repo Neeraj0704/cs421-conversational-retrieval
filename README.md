@@ -71,7 +71,7 @@ printed and saved; completed stages can be reused. See [GPU_ACCESS.md](GPU_ACCES
 ## Optional neural corpus indexes
 
 The current completed core uses BM25, rewriting, fusion and a compact cross-encoder.
-SPLADE and BGE-small are implemented and smoke-tested; their full-corpus quality is not reported.
+The GPU extension has completed the full BGE-small dense index and three validation experiments; see [GPU development results](experiments/gpu_extension_v1/GPU_EXTENSION_RESULTS.md). SPLADE full indexing is currently running.
 Sample CPU timings estimated approximately 10.8 and 3.2 indexing hours respectively. Run these
 as a separate development study if accelerator resources or extra time are available:
 

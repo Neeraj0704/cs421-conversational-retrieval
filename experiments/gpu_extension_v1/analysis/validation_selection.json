@@ -1,0 +1,7 @@
+{
+  "selected": "G02_dense_latest_rerank",
+  "score": 0.43662571773179887,
+  "selection_uses": "MTRAG validation only",
+  "completed_configurations": 3,
+  "final_test_evaluated_in_this_extension": false
+}

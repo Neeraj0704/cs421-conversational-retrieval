@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "dataset": "mtrag validation",
+  "runs": {
+    "D00_dense_latest": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "ndcg_at_5": 0.3850268089262613,
+      "prediction_sha256": "191d660eaa2ba3845c1864210fcbebd374367a584a1d5e031e8f873ab1a89fe2"
+    },
+    "D01_dense_fusion": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "ndcg_at_5": 0.39658630920297705,
+      "prediction_sha256": "64667b07e90e6ac2512443c48e098e1686878c480108808af0c1b43adc14ca80"
+    },
+    "G02_dense_latest_rerank": {
+      "status": "passed",
+      "submitted": 174,
+      "scored": 161,
+      "ndcg_at_5": 0.43662571773179887,
+      "prediction_sha256": "f79d213ff101e23a21b6f98b754b0af058fc794ec9833f7f588873c1a0cba932"
+    }
+  },
+  "scope": "Independent metric recalculation, original corpus IDs, task coverage and format logs",
+  "best_dense_vs_original_baseline": {
+    "metric": "ndcg_cut_5",
+    "delta_b_minus_a": 0.046827614725211616,
+    "cluster_unit": "conversation_id",
+    "bootstrap_samples": 3000,
+    "ci95": [
+      0.005740385646867401,
+      0.0938997676057402
+    ]
+  },
+  "final_test_evaluation_performed": false
+}
