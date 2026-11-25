@@ -1,0 +1,157 @@
+{
+  "status": "passed",
+  "scope": "Independent binary nDCG@5 and Recall@5/10 recalculation for all 25 saved runs, including both aggregates and query coverage",
+  "runs_checked": 25,
+  "runs": {
+    "runs/B02_bm25_fusion": {
+      "submitted": 174,
+      "scored": 161,
+      "mean_ndcg5": 0.2472405957165008,
+      "independent_binary_metric_check": "passed"
+    },
+    "runs/B03_bm25_rerank": {
+      "submitted": 174,
+      "scored": 161,
+      "mean_ndcg5": 0.346425932362287,
+      "independent_binary_metric_check": "passed"
+    },
+    "runs/B04_bm25_blend": {
+      "submitted": 174,
+      "scored": 161,
+      "mean_ndcg5": 0.3137840743609546,
+      "independent_binary_metric_check": "passed"
+    },
+    "runs/E00_bm25_latest": {
+      "submitted": 174,
+      "scored": 161,
+      "mean_ndcg5": 0.22494840813969935,
+      "independent_binary_metric_check": "passed"
+    },
+    "runs/E01_bm25_history": {
+      "submitted": 174,
+      "scored": 161,
+      "mean_ndcg5": 0.18416921103830614,
+      "independent_binary_metric_check": "passed"
+    },
+    "runs/E02_bm25_rewrite": {
+      "submitted": 174,
+      "scored": 161,
+      "mean_ndcg5": 0.21135653256519066,
+      "independent_binary_metric_check": "passed"
+    },
+    "runs/FINAL_B02_bm25_fusion": {
+      "submitted": 507,
+      "scored": 332,
+      "mean_ndcg5": 0.3306339108398772,
+      "independent_binary_metric_check": "passed"
+    },
+    "runs/FINAL_E00_bm25_latest": {
+      "submitted": 507,
+      "scored": 332,
+      "mean_ndcg5": 0.2896072333805901,
+      "independent_binary_metric_check": "passed"
+    },
+    "runs/FINAL_R00_bm25_latest_rerank": {
+      "submitted": 507,
+      "scored": 332,
+      "mean_ndcg5": 0.41608028353627585,
+      "independent_binary_metric_check": "passed"
+    },
+    "runs/R00_bm25_latest_rerank": {
+      "submitted": 174,
+      "scored": 161,
+      "mean_ndcg5": 0.3897981030065873,
+      "independent_binary_metric_check": "passed"
+    },
+    "experiments/gpu_extension_v1/runs/D00_dense_latest": {
+      "submitted": 174,
+      "scored": 161,
+      "mean_ndcg5": 0.3850268089262613,
+      "independent_binary_metric_check": "passed"
+    },
+    "experiments/gpu_extension_v1/runs/D01_dense_fusion": {
+      "submitted": 174,
+      "scored": 161,
+      "mean_ndcg5": 0.39658630920297705,
+      "independent_binary_metric_check": "passed"
+    },
+    "experiments/gpu_extension_v1/runs/E03_splade_latest": {
+      "submitted": 174,
+      "scored": 161,
+      "mean_ndcg5": 0.3989580919821281,
+      "independent_binary_metric_check": "passed"
+    },
+    "experiments/gpu_extension_v1/runs/E04_splade_rewrite": {
+      "submitted": 174,
+      "scored": 161,
+      "mean_ndcg5": 0.3610624818943216,
+      "independent_binary_metric_check": "passed"
+    },
+    "experiments/gpu_extension_v1/runs/E05_splade_fusion": {
+      "submitted": 174,
+      "scored": 161,
+      "mean_ndcg5": 0.4106948759312746,
+      "independent_binary_metric_check": "passed"
+    },
+    "experiments/gpu_extension_v1/runs/E06_splade_rerank": {
+      "submitted": 174,
+      "scored": 161,
+      "mean_ndcg5": 0.37947239763425505,
+      "independent_binary_metric_check": "passed"
+    },
+    "experiments/gpu_extension_v1/runs/E07_splade_blend": {
+      "submitted": 174,
+      "scored": 161,
+      "mean_ndcg5": 0.41206409615012873,
+      "independent_binary_metric_check": "passed"
+    },
+    "experiments/gpu_extension_v1/runs/E08_hybrid_fusion": {
+      "submitted": 174,
+      "scored": 161,
+      "mean_ndcg5": 0.44787850270778695,
+      "independent_binary_metric_check": "passed"
+    },
+    "experiments/gpu_extension_v1/runs/E10_keyword_fusion": {
+      "submitted": 174,
+      "scored": 161,
+      "mean_ndcg5": 0.39086875704637436,
+      "independent_binary_metric_check": "passed"
+    },
+    "experiments/gpu_extension_v1/runs/FINAL_E08_hybrid_fusion": {
+      "submitted": 507,
+      "scored": 332,
+      "mean_ndcg5": 0.4334106195382006,
+      "independent_binary_metric_check": "passed"
+    },
+    "experiments/gpu_extension_v1/runs/FINAL_G01_splade_latest_rerank": {
+      "submitted": 507,
+      "scored": 332,
+      "mean_ndcg5": 0.4199187212706556,
+      "independent_binary_metric_check": "passed"
+    },
+    "experiments/gpu_extension_v1/runs/FINAL_G02_dense_latest_rerank": {
+      "submitted": 507,
+      "scored": 332,
+      "mean_ndcg5": 0.4040493991968476,
+      "independent_binary_metric_check": "passed"
+    },
+    "experiments/gpu_extension_v1/runs/G01_splade_latest_rerank": {
+      "submitted": 174,
+      "scored": 161,
+      "mean_ndcg5": 0.4281160017549982,
+      "independent_binary_metric_check": "passed"
+    },
+    "experiments/gpu_extension_v1/runs/G02_dense_latest_rerank": {
+      "submitted": 174,
+      "scored": 161,
+      "mean_ndcg5": 0.43662571773179887,
+      "independent_binary_metric_check": "passed"
+    },
+    "experiments/gpu_extension_v1/runs/G03_hybrid_latest_rerank": {
+      "submitted": 174,
+      "scored": 161,
+      "mean_ndcg5": 0.4290540118061026,
+      "independent_binary_metric_check": "passed"
+    }
+  }
+}

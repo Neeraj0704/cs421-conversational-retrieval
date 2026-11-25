@@ -571,3 +571,14 @@ The user supplied a six-page maximum excluding references. Condensed the report 
 changing scores: the final PDF has exactly six main pages and a separate references page 7.
 The Word version uses the same six content sections and six explicit page breaks. Native Word
 pagination has not been independently checked. The superseded nine-page report is archived.
+
+## Full instructions audit — November 25, 2026
+
+Read the complete Report and Code Walkthrough assignment. Confirmed six main pages excluding
+references, minimum 11 pt, US Letter, and noon CST deadline. Strengthened the metric algorithm,
+explained proposal changes, added a dedicated generative-AI subsection, and included both local
+hybrid aggregates directly alongside published results. All 25 saved runs independently reproduced
+for binary nDCG@5 and Recall@5/10; all 19 validation scores and 24 final-table values match.
+PDF has six main pages plus references page 7, with every rendered text size at least 11 pt.
+Walkthrough remains a separately graded deliverable: five-minute maximum, own code, representations,
+at least two assumptions, clear narration and an accessible shareable link. Nothing uploaded to Canvas.

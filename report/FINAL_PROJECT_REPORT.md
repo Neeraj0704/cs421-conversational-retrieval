@@ -8,9 +8,9 @@ November 25 2026
 
 ## 1 Task metric and data
 
-I built a passage retrieval system for SemEval 2026 Task 8, MTRAGEval Subtask A [1]. Given a conversation ending in a user question, it returns ten ranked original passages from the assigned collection. A follow-up such as “What about its cost?” requires resolving what “it” refers to. The project tests whether conversation history, query rewriting, complementary retrievers and reranking improve that search. It uses pretrained models and does not generate answers or train new model weights.
+I built a passage retrieval system for SemEval 2026 Task 8, MTRAGEval Subtask A [1]. Given a conversation ending in a user question, it returns ten ranked original passages from the assigned collection. A follow-up such as “What about its cost?” requires resolving what “it” refers to. The project tests whether conversation history, query rewriting, complementary retrievers and reranking improve that search. It uses pretrained models and does not generate answers or train new model weights. Compared with the proposal's BM25 and dense hybrid, I added SPLADE as a stronger vocabulary-based comparison. Small timing tests initially favoured a CPU fallback; successful MPS checks then made full neural indexing practical.
 
-The official ranking metric is normalized discounted cumulative gain at five, or nDCG@5. It rewards relevant passages in the first five positions, giving more credit to earlier results, and divides by the score of an ideal ranking. Higher is better; 1 is ideal. With one relevant passage, placing it first gives 1 and placing it fifth gives about 0.387. It is a ranking score, not answer accuracy. Recall@10 measures the fraction of relevant passages recovered in the returned ten; candidate Recall@100 measures coverage before final selection.
+The official ranking metric is normalized discounted cumulative gain at five, nDCG@5. These relevance files are binary: a listed relevant passage has relevance 1; an unjudged result contributes 0. For ranks i from 1 to 5, DCG@5 sums relevance divided by log base 2 of (i + 1). IDCG@5 uses the same calculation with all relevant passages first, up to five. Divide DCG by IDCG, then average judged questions; inputs without judgments are excluded. Higher is better and 1 is ideal. With one relevant passage, rank 1 scores 1 and rank 5 about 0.387. Recall@10 counts relevant passages in the returned ten divided by the total relevant passages for that question, then averages questions. Candidate Recall@100 applies the same calculation before selecting the final ten.
 
 I used IBM's official passage-level archives at commit e0970de1b1207c2a9506adf238e6e1a22037e38a [2]: CLAPNQ 183408 passages, Cloud 72442, FiQA 61022 and Government 49607, totalling 366479. Each task searches its assigned collection. Counts were checked against the archives. Passage boundaries, collection assignments and offset-bearing IDs were preserved, with no added documents or custom rechunking.
 
@@ -74,13 +74,13 @@ I completed seven CPU-stage comparisons and twelve additional configurations usi
 
 Raw history and rewrite-only search underperformed the latest-question baselines. Preserving both query views helped BM25 and SPLADE. Reranking helped BM25, but reduced SPLADE fusion from 0.4107 to 0.3795 on identical candidates; rank blending recovered the loss. The keyword view did not help.
 
-E08 was selected by validation before its final run, alongside G01 and G02 as family comparators. Against R00, it improved 61 questions, tied on 62 and worsened 38. Its candidate Recall@100 of 0.7917 was almost identical to E05's 0.7925, while nDCG@5 improved. Better ordering, not simply greater candidate coverage, contributed on this split. E08 uses more search calls than single-query methods, though the final pool remains 100. G03 and E08 differ in both queries and reranking, so they do not isolate a reranking effect on E08.
+E08 was selected by validation before its final run, alongside G01 and G02 as family comparators. Against R00, it improved 61 questions, tied on 62 and worsened 38. Its candidate Recall@100 of 0.7917 was almost identical to E05's 0.7925, while nDCG@5 improved. The nDCG gain was not accompanied by higher average candidate recall; this suggests that candidate composition and ordering also mattered. E08 uses more search calls than single-query methods, though the final pool remains 100. G03 and E08 differ in both queries and reranking, so they do not isolate a reranking effect on E08.
 
 <!-- pagebreak -->
 
 ## 4 Final results and published comparisons
 
-Table 2 reports all six frozen final comparisons on the same 332 judged tasks, with outputs for all 507 inputs. The first three are the earlier CPU evaluations; the final three are the GPU follow-up. Main scores average judged questions equally. The separate upstream-style aggregate rounds domain scores to five decimals and weights them by submitted domain counts. Both are shown to avoid mixing aggregates.
+All six frozen configurations were scored on the same 332 judged tasks, with predictions for 507 inputs. Table 2 separates earlier CPU runs from the final three GPU follow-up runs. Mean scores weight judged questions equally. The upstream-style aggregate rounds domain scores to five decimals and weights them by submitted domain counts.
 
 | System | Mean nDCG at 5 | Weighted nDCG at 5 | Recall at 10 | Candidate recall at 100 |
 |---|---:|---:|---:|---:|
@@ -91,20 +91,22 @@ Table 2 reports all six frozen final comparisons on the same 332 judged tasks, w
 | Dense latest reranked | 0.4040 | 0.4082 | 0.5309 | 0.6810 |
 | Selected hybrid fusion | 0.4334 | 0.4379 | 0.6211 | 0.8610 |
 
-The hybrid's nDCG gain over plain BM25 is 0.1438, with a 95 percent paired conversation-bootstrap interval of 0.1017 to 0.1879. Against the stronger BM25 reranker, the gain is 0.0173 with interval -0.0178 to 0.0525. That interval includes zero, so the smaller gain is not statistically resolved. Resampling uses 3000 whole-conversation samples and seed 42; intervals are exploratory and do not correct for multiple comparisons.
+The hybrid gains 0.1438 nDCG over plain BM25, with a 95 percent paired-bootstrap interval of 0.1017 to 0.1879. Against BM25 with reranking, the gain is 0.0173 with interval -0.0178 to 0.0525. That smaller gain is not statistically resolved. Bootstrap uses 3000 whole-conversation resamples, seed 42, without correction for multiple comparisons.
 
-### Published final task scores
+### Published results and this project
 
-Table 3 reproduces selected rows from Table 4 of the organizers' overview [1], not its earlier MTRAG development baselines. My local BM25 implementation is a separate baseline.
+Table 3 places my hybrid beside selected final-task scores from the overview [1, Table 4]. Published rows are contextual references; the local rows use my two aggregates. My BM25 implementation is a separate baseline.
 
-| Published system | nDCG at 5 | Recall at 5 |
+| System and score source | nDCG at 5 | Recall at 5 |
 |---|---:|---:|
 | BM25 baseline | 0.354 | 0.388 |
 | BGE base 1.5 baseline | 0.390 | 0.425 |
 | ELSER strongest baseline | 0.480 | 0.521 |
 | AILS NTUA winning team | 0.578 | 0.622 |
+| This project hybrid mean | 0.4334 | 0.4756 |
+| This project hybrid weighted | 0.4379 | 0.4816 |
 
-My hybrid's mean Recall@5 is 0.4756; its weighted value is 0.4816. Both local nDCG aggregates are numerically below the published ELSER and winning scores. I do not claim a leaderboard rank. Task scope and judged counts agree, but exact historical qrels identity, aggregation and baseline query construction have not been reproduced end to end. Format checking and metric parity support local correctness, not complete historical equivalence. The GPU follow-up also reuses a previously inspected public final set. These conditions limit direct comparison.
+Both local nDCG aggregates are below the published ELSER and winning scores; no leaderboard rank is claimed. Task scope and judged counts agree, but historical qrels identity, aggregation and baseline query construction have not been matched end to end. Local metric parity does not establish historical equivalence. Reusing the public final set for the GPU follow-up further limits comparison.
 
 <!-- pagebreak -->
 
@@ -138,11 +140,15 @@ The organizers describe general or fictitious questions and anonymized annotator
 
 Incomplete judgments can penalize useful unlabelled passages. The overview also notes possible preference for sparse methods because sparse retrieval contributed to benchmark creation [1]. Performance is uneven: hybrid final nDCG@5 is 0.3086 in FiQA, 0.4608 in Cloud, 0.4885 in CLAPNQ and 0.4364 in Government. One overall score does not establish equal reliability across domains.
 
-The main limits are the small validation set, selection among multiple configurations and reuse of a public final set for the GPU follow-up. Token truncation, sparse pruning and the candidate budget can discard evidence. Models were not adapted to these domains. E08 was not tested with a reranker, so these results do not prove that reranking would hurt that exact configuration. Next work should test more reliable rewriting, unsupported-context detection and matched search-call budgets, with genuinely untouched evaluation data where available.
+The main limits are the small validation set, selection among multiple configurations and reuse of a public final set for the GPU follow-up. Token truncation, sparse pruning and the candidate budget can discard evidence. Models were not adapted to these domains. E08 was not tested with a reranker, so these results do not prove that reranking would hurt that exact configuration. With another month, I would test more reliable rewriting, unsupported-context detection and matched search-call budgets, with genuinely untouched evaluation data where available.
 
 Both neural indexes cover all 366479 passages. Dense indexing took about 36 minutes and SPLADE 156 minutes using MPS. The hybrid's final run recorded 44.0 seconds for 507 tasks, excluding index construction and cached rewrite generation; this is not end-to-end latency. Vector search runs on CPU. All runs passed format and metric checks; 26 automated tests pass. A separate Python environment reproduced BM25 exactly. Configurations, model revisions, query snapshots and frozen source hashes support reproduction [7].
 
-The strongest validated configuration combines sparse and dense search while preserving the original question. It improves clearly over my plain BM25 baseline; its smaller gain over the stronger reranker remains uncertain. The examples explain why additional context and models require testing. AI assistance supported implementation, verification and writing; the author remains responsible for understanding and reviewing the submitted work.
+The strongest validated configuration combines sparse and dense search while preserving the original question. It improves clearly over my plain BM25 baseline; its smaller gain over the stronger reranker remains uncertain. The examples explain why additional context and models require testing.
+
+### Use of generative AI
+
+ChatGPT and Codex assisted with implementation, debugging, evaluation checks, and drafting and formatting this report. Scores were computed by the saved evaluation scripts. This assistance does not replace my responsibility to understand and review the submitted work.
 
 <!-- pagebreak -->
 

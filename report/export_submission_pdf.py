@@ -21,14 +21,14 @@ def main():
     styles.add(ParagraphStyle('ReportTitle',fontName=bold,fontSize=21,leading=24,spaceAfter=10,keepWithNext=True))
     styles.add(ParagraphStyle('ReportH1',fontName=bold,fontSize=14,leading=17,spaceBefore=12,spaceAfter=7,keepWithNext=True))
     styles.add(ParagraphStyle('ReportH2',fontName=bold,fontSize=11.5,leading=14,spaceBefore=9,spaceAfter=6,keepWithNext=True))
-    styles.add(ParagraphStyle('ReportMeta',fontName=regular,fontSize=10,leading=12,spaceAfter=2))
+    styles.add(ParagraphStyle('ReportMeta',fontName=regular,fontSize=11,leading=13,spaceAfter=2))
     styles.add(ParagraphStyle('ReportCaption',fontName=bold,fontSize=11,leading=13,spaceBefore=5,spaceAfter=5,keepWithNext=False))
     styles.add(ParagraphStyle('ReportCell',fontName=regular,fontSize=11,leading=13.5))
     styles.add(ParagraphStyle('ReportCellCentre',parent=styles['ReportCell'],alignment=1))
     styles.add(ParagraphStyle('ReportCellHead',parent=styles['ReportCell'],fontName=bold))
     styles.add(ParagraphStyle('ReportRef',fontName=regular,fontSize=11,leading=14,spaceAfter=8,splitLongWords=True))
     lines=(ROOT/'report/FINAL_PROJECT_REPORT.md').read_text().splitlines();story=[];i=0;tn=0
-    captions={1:'Table 1  All validation comparisons',2:'Table 2  Local final comparisons on 332 judged tasks',3:'Table 3  Published final task scores from the overview'}
+    captions={1:'Table 1  All validation comparisons',2:'Table 2  Local final comparisons on 332 judged tasks',3:'Table 3  Published scores and local hybrid results'}
     widths={1:[43,381,76],2:[177,80.75,80.75,80.75,80.75],3:[320,90,90]}
     while i<len(lines):
         line=lines[i].strip()
@@ -56,7 +56,7 @@ def main():
         style='ReportRef' if text.startswith('[') else 'ReportMeta' if text in ['Neeraj Vijayakumar Pattanashetti','CS 421 Natural Language Processing','November 25 2026'] else 'ReportBody'
         story.append(Paragraph(escape(text),styles[style]))
     def decorate(canvas,doc):
-        canvas.setFillColor(colors.black);canvas.setFont(regular,8)
+        canvas.setFillColor(colors.black);canvas.setFont(regular,11)
         if doc.page>1:canvas.drawString(56,766,'CS 421   Conversational passage retrieval')
         canvas.drawRightString(556,25,f'CS 421  |  {doc.page}')
     target=ROOT/'report/FINAL_PROJECT_REPORT.pdf'

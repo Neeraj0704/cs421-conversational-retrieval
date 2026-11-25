@@ -37,12 +37,12 @@
       "bytes": 199088
     },
     "report/FINAL_PROJECT_REPORT.md": {
-      "sha256": "7c6d0b5b2d22881dc51046b55e6e6e084e59dc8664be4d9a3b4280d6f3c67e1e",
-      "bytes": 16646
+      "sha256": "a5b39a36532ace0d023bc58b13360ecad54bb898167943a42e068e3ccc8501b6",
+      "bytes": 17146
     },
     "report/FINAL_PROJECT_REPORT.pdf": {
-      "sha256": "76478752befc3c3aaa8bc11b0d2146fc18a2f041b3f76709b279571189764298",
-      "bytes": 80386
+      "sha256": "47675a67a32d90dbdaed4c59a3153da4c23ff4de56cc340fd7f69b3e25202d4a",
+      "bytes": 80732
     },
     "experiments/gpu_extension_v1/GPU_FINAL_RESULTS.md": {
       "sha256": "7023c5208e04560631702953519bdb6f067390aadd6ac1264cf9c9da4ea64de6",
@@ -57,16 +57,20 @@
       "bytes": 204
     },
     "report/FINAL_PROJECT_REPORT.docx": {
-      "sha256": "f9f6ff118e7868617604544d1d1f1cabd7f8f20ed9c9aacb13724cf7fd416448",
-      "bytes": 47326
+      "sha256": "6feca712514888e979ce53328eaafd7af6de7d04f8221962e64e5e91444609a7",
+      "bytes": 47572
     },
     "analysis/report_case_studies.json": {
       "sha256": "e1539aa31f2e012f72fc25b4118359015d8739967095b47a6fea58fff649cd69",
       "bytes": 49876
     },
     "analysis/report_rubric_review.json": {
-      "sha256": "cbaab0816357fdbe98e64f79ed6564fa7d6500bd7a727cc74cce6d07a49f7590",
-      "bytes": 844
+      "sha256": "0fe1f68325e8109a0304fadc220447fbfa1393f98ebaef3bb8eb4302b855ee19",
+      "bytes": 1591
+    },
+    "analysis/report_result_audit.json": {
+      "sha256": "c5a62dfa78d68f57ec9f177ac7f1e58c2838ee58e7d6d9b49de05f6150e9d9b5",
+      "bytes": 5058
     }
   },
   "course_format_review": "pending final brief",
@@ -79,6 +83,9 @@
     "main_pages": 6,
     "references_pages": 1,
     "pdf_total": 7,
-    "verified": true
-  }
+    "verified": true,
+    "minimum_text_pt": 11,
+    "paper": "US Letter"
+  },
+  "written_requirements_source": "report_and_walkthrough (1).pdf supplied November 25, 2026"
 }

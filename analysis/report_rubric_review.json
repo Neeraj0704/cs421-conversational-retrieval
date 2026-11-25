@@ -1,29 +1,30 @@
 {
-  "status": "passed_content_and_pdf_checks",
+  "status": "passed_written_report_audit",
   "pdf_pages": 7,
   "main_report_pages": 6,
   "references_pages": [
     7
   ],
-  "references_on_separate_page": true,
-  "word_explicit_page_breaks": 6,
-  "word_tables": 3,
-  "all_recorded_ndcg_values_match": true,
-  "rubric_sections_present": [
-    "task_and_metric",
-    "data_and_differences",
-    "reimplementation_and_models",
-    "libraries",
-    "motivation",
-    "official_scores",
-    "published_comparison",
-    "comparability",
-    "examples",
-    "behaviour_analysis",
-    "ethics",
-    "limitations_and_next_steps"
-  ],
-  "word_layout_note": "Same six content sections and separate references page with explicit breaks; full native Word pagination not independently rendered in this session.",
-  "pdf_visual_review": "Seven page images inspected",
-  "course_grade_guaranteed": false
+  "all_text_at_least_11pt": true,
+  "letter_size": true,
+  "independent_metric_runs_checked": 25,
+  "validation_rows_checked": 19,
+  "final_metric_fields_checked": 24,
+  "requirements": {
+    "page_limit": "6 main pages plus separate references page 7",
+    "paper_size": "Letter 612 by 792 points",
+    "minimum_text_size": "11 pt including tables references metadata header and footer",
+    "task_metric": "Binary DCG discount ideal denominator and mean specified",
+    "plan_changes": "Proposal extension and MPS feasibility reason explained",
+    "data": "Counts original IDs local split judged and unjudged counts stated",
+    "approach": "Model identifiers parameters libraries and motivation stated",
+    "results": "19 validation rows and all 24 final table fields match saved metrics",
+    "published_context": "Official baselines winner and both local hybrid aggregates appear together",
+    "analysis": "Four audited validation cases and qualified interpretations",
+    "ethics_limits": "Privacy provenance bias licenses limitations and month-long next steps",
+    "generative_ai": "Separate subsection naming tools and uses"
+  },
+  "word_layout_note": "Same source and six explicit page breaks; use PDF for verified pagination",
+  "separate_walkthrough_requirements": "At most five minutes; own code; features; at least two assumptions; clear narration; shareable link with access; noon CST November 25 deadline",
+  "course_submission_performed": false
 }

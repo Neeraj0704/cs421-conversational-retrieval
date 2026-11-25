@@ -50,10 +50,10 @@ def main():
     sec.different_first_page_header_footer=True
     header=sec.header.paragraphs[0];header.text='CS 421   Conversational passage retrieval'
     header.style='Normal'
-    for r in header.runs:r.font.size=Pt(8);r.font.color.rgb=RGBColor(0,0,0)
+    for r in header.runs:r.font.size=Pt(11);r.font.color.rgb=RGBColor(0,0,0)
     for footer in [sec.footer,sec.first_page_footer]:
         p=footer.paragraphs[0];p.alignment=WD_ALIGN_PARAGRAPH.RIGHT
-        r=p.add_run('CS 421  |  ');r.font.size=Pt(8)
+        r=p.add_run('CS 421  |  ');r.font.size=Pt(11)
         r=p.add_run();f=OxmlElement('w:fldSimple');f.set(qn('w:instr'),'PAGE');r._r.addnext(f)
     doc.core_properties.title='Improving conversational passage retrieval'
     doc.core_properties.author='Neeraj Vijayakumar Pattanashetti'
@@ -74,7 +74,7 @@ def main():
                 block.append(lines[i].strip());i+=1
             rows=[[x.strip() for x in s.strip('|').split('|')] for s in [block[0],*block[2:]]]
             tables+=1
-            captions={1:'Table 1  All validation comparisons',2:'Table 2  Local final comparisons on 332 judged tasks',3:'Table 3  Published final task scores from the overview'}
+            captions={1:'Table 1  All validation comparisons',2:'Table 2  Local final comparisons on 332 judged tasks',3:'Table 3  Published scores and local hybrid results'}
             cap=doc.add_paragraph(captions[tables]);cap.paragraph_format.keep_with_next=True
             for r in cap.runs:r.font.size=Pt(11);r.font.bold=True
             n=len(rows[0]);widths={1:[.60,5.29,1.05],2:[2.46,1.12,1.12,1.12,1.12],3:[4.44,1.25,1.25]}[tables]
@@ -115,7 +115,7 @@ def main():
             for r in p.runs:r.font.size=Pt(11)
         elif line in ['Neeraj Vijayakumar Pattanashetti','CS 421 Natural Language Processing','November 25 2026']:
             p.paragraph_format.space_after=Pt(2)
-            for r in p.runs:r.font.size=Pt(10)
+            for r in p.runs:r.font.size=Pt(11)
     target=ROOT/'report/FINAL_PROJECT_REPORT.docx';doc.save(target)
     print(target)
 
