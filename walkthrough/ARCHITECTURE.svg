@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1920" height="1080" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1920" height="1080"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-1080)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1920" height="1080" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,98%); fill-rule: evenodd;"/>
+			<text x="70" y="989" style="font-family: ArialBold; font-size: 49px;fill: rgb(9%,17%,26%); stroke:none;" transform="translate(0,1978) scale(1,-1)">Final retrieval architecture</text>
+			<text x="70" y="938" style="font-family: Arial; font-size: 29px;fill: rgb(26%,33%,41%); stroke:none;" transform="translate(0,1876) scale(1,-1)">Selected E08 system   |   SemEval 2026 Task 8 Subtask A</text>
+			<rect x="70" y="445" width="290" height="190" rx="16" ry="16" style="stroke: rgb(65%,71%,78%); stroke-linecap: butt; stroke-width: 2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="92" y="595" style="font-family: ArialBold; font-size: 30px;fill: rgb(9%,17%,26%); stroke:none;" transform="translate(0,1190) scale(1,-1)">Input</text>
+			<text x="92" y="552" style="font-family: Arial; font-size: 25px;fill: rgb(26%,33%,41%); stroke:none;" transform="translate(0,1104) scale(1,-1)">Latest user question</text>
+			<text x="92" y="517" style="font-family: Arial; font-size: 25px;fill: rgb(26%,33%,41%); stroke:none;" transform="translate(0,1034) scale(1,-1)">Earlier conversation</text>
+			<text x="92" y="482" style="font-family: Arial; font-size: 25px;fill: rgb(26%,33%,41%); stroke:none;" transform="translate(0,964) scale(1,-1)">Assigned collection</text>
+			<rect x="440" y="415" width="420" height="250" rx="16" ry="16" style="stroke: rgb(65%,71%,78%); stroke-linecap: butt; stroke-width: 2; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="462" y="625" style="font-family: ArialBold; font-size: 30px;fill: rgb(9%,17%,26%); stroke:none;" transform="translate(0,1250) scale(1,-1)">Prepare two queries</text>
+			<text x="462" y="582" style="font-family: Arial; font-size: 25px;fill: rgb(26%,33%,41%); stroke:none;" transform="translate(0,1164) scale(1,-1)">Original latest question</text>
+			<text x="462" y="547" style="font-family: Arial; font-size: 25px;fill: rgb(26%,33%,41%); stroke:none;" transform="translate(0,1094) scale(1,-1)">Standalone rewrite</text>
+			<text x="462" y="512" style="font-family: Arial; font-size: 25px;fill: rgb(26%,33%,41%); stroke:none;" transform="translate(0,1024) scale(1,-1)">Qwen2.5-0.5B-Instruct</text>
+			<rect x="1000" y="650" width="330" height="175" rx="16" ry="16" style="stroke: rgb(65%,71%,78%); stroke-linecap: butt; stroke-width: 2; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="1022" y="785" style="font-family: ArialBold; font-size: 30px;fill: rgb(9%,17%,26%); stroke:none;" transform="translate(0,1570) scale(1,-1)">SPLADE search</text>
+			<text x="1022" y="742" style="font-family: Arial; font-size: 25px;fill: rgb(26%,33%,41%); stroke:none;" transform="translate(0,1484) scale(1,-1)">Learned term weights</text>
+			<text x="1022" y="707" style="font-family: Arial; font-size: 25px;fill: rgb(26%,33%,41%); stroke:none;" transform="translate(0,1414) scale(1,-1)">Both query views</text>
+			<rect x="1000" y="285" width="330" height="175" rx="16" ry="16" style="stroke: rgb(65%,71%,78%); stroke-linecap: butt; stroke-width: 2; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="1022" y="420" style="font-family: ArialBold; font-size: 30px;fill: rgb(9%,17%,26%); stroke:none;" transform="translate(0,840) scale(1,-1)">Dense search</text>
+			<text x="1022" y="377" style="font-family: Arial; font-size: 25px;fill: rgb(26%,33%,41%); stroke:none;" transform="translate(0,754) scale(1,-1)">BGE meaning vectors</text>
+			<text x="1022" y="342" style="font-family: Arial; font-size: 25px;fill: rgb(26%,33%,41%); stroke:none;" transform="translate(0,684) scale(1,-1)">Both query views</text>
+			<rect x="1450" y="465" width="400" height="195" rx="16" ry="16" style="stroke: rgb(65%,71%,78%); stroke-linecap: butt; stroke-width: 2; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="1472" y="620" style="font-family: ArialBold; font-size: 30px;fill: rgb(9%,17%,26%); stroke:none;" transform="translate(0,1240) scale(1,-1)">Combine rankings</text>
+			<text x="1472" y="577" style="font-family: Arial; font-size: 25px;fill: rgb(26%,33%,41%); stroke:none;" transform="translate(0,1154) scale(1,-1)">Reciprocal rank fusion</text>
+			<text x="1472" y="542" style="font-family: Arial; font-size: 25px;fill: rgb(26%,33%,41%); stroke:none;" transform="translate(0,1084) scale(1,-1)">Up to 4 ranked lists</text>
+			<text x="1472" y="507" style="font-family: Arial; font-size: 25px;fill: rgb(26%,33%,41%); stroke:none;" transform="translate(0,1014) scale(1,-1)">Keep 100 candidates</text>
+			<rect x="1450" y="170" width="400" height="155" rx="16" ry="16" style="stroke: rgb(65%,71%,78%); stroke-linecap: butt; stroke-width: 2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="1472" y="285" style="font-family: ArialBold; font-size: 30px;fill: rgb(9%,17%,26%); stroke:none;" transform="translate(0,570) scale(1,-1)">Return 10 passages</text>
+			<text x="1472" y="242" style="font-family: Arial; font-size: 25px;fill: rgb(26%,33%,41%); stroke:none;" transform="translate(0,484) scale(1,-1)">Ranked original passage IDs</text>
+			<path d="M 360,540 L 440,540 Z" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 4;"/>
+			<polygon points="440 540, 424 532, 424 548" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 1; fill: rgb(34%,45%,56%); fill-rule: evenodd;"/>
+			<path d="M 860,540 L 925,540 Z" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 4;"/>
+			<path d="M 925,540 L 925,737 Z" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 4;"/>
+			<path d="M 925,737 L 1000,737 Z" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 4;"/>
+			<polygon points="1000 737, 984 729, 984 745" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 1; fill: rgb(34%,45%,56%); fill-rule: evenodd;"/>
+			<path d="M 860,540 L 925,540 Z" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 4;"/>
+			<path d="M 925,540 L 925,372 Z" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 4;"/>
+			<path d="M 925,372 L 1000,372 Z" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 4;"/>
+			<polygon points="1000 372, 984 364, 984 380" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 1; fill: rgb(34%,45%,56%); fill-rule: evenodd;"/>
+			<path d="M 1330,737 L 1390,737 Z" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 4;"/>
+			<path d="M 1390,737 L 1390,563 Z" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 4;"/>
+			<path d="M 1390,563 L 1450,563 Z" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 4;"/>
+			<polygon points="1450 563, 1434 555, 1434 571" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 1; fill: rgb(34%,45%,56%); fill-rule: evenodd;"/>
+			<path d="M 1330,372 L 1390,372 Z" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 4;"/>
+			<path d="M 1390,372 L 1390,563 Z" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 4;"/>
+			<path d="M 1390,563 L 1450,563 Z" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 4;"/>
+			<polygon points="1450 563, 1434 555, 1434 571" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 1; fill: rgb(34%,45%,56%); fill-rule: evenodd;"/>
+			<path d="M 1650,465 L 1650,325 Z" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 4;"/>
+			<polygon points="1650 325, 1642 341, 1658 341" style="stroke: rgb(34%,45%,56%); stroke-linecap: butt; stroke-width: 1; fill: rgb(34%,45%,56%); fill-rule: evenodd;"/>
+			<text x="70" y="91" style="font-family: Arial; font-size: 25px;fill: rgb(26%,33%,41%); stroke:none;" transform="translate(0,182) scale(1,-1)">Each query view searches only the assigned collection; each search returns up to 100 candidates.</text>
+			<text x="70" y="48" style="font-family: Arial; font-size: 25px;fill: rgb(26%,33%,41%); stroke:none;" transform="translate(0,96) scale(1,-1)">The selected system retrieves passages. BM25 and rerankers were tested as separate comparisons.</text>
+		</g>
+	</g>
+</svg>

@@ -2,6 +2,9 @@
 
 For exact spoken narration and navigation cues, use [RECORDING_SCRIPT.md](RECORDING_SCRIPT.md).
 
+The architecture diagram is available as [PNG](ARCHITECTURE.png), [PDF](ARCHITECTURE.pdf),
+and [SVG](ARCHITECTURE.svg). Show it during the opening 15 to 20 seconds, then switch to code.
+
 Record your own explanation of the implemented system in VS Code. Aim for 4 minutes
 45 seconds; the assignment maximum is five minutes. A camera is not required.
 The existing synthetic-voice video is a rehearsal aid, not a recording of your explanation.
