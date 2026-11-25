@@ -130,7 +130,7 @@ are intentionally regenerated, rather than committed. `PROJECT_PLAN.md` is the u
 - [Revised report source](report/FINAL_PROJECT_REPORT.md), [PDF](report/FINAL_PROJECT_REPORT.pdf), and [editable Word document](report/FINAL_PROJECT_REPORT.docx).
 - The report has six main pages plus one references page and addresses the supplied written-report rubric, with four concrete cases, published scores, ethics and evaluation limits. Its previous version is preserved in `report/archive/`.
 - Preserved [CPU-stage report](report/PROJECT_REPORT.md) and [PDF](report/PROJECT_REPORT.pdf).
-- [Walkthrough script](walkthrough/WALKTHROUGH.md), [automated narrated review video](walkthrough/AUTOMATED_WALKTHROUGH.mp4), and [transcript](walkthrough/NARRATION.md).
+- [Full spoken recording script](walkthrough/RECORDING_SCRIPT.md), [recording guide](walkthrough/WALKTHROUGH.md), [automated narrated review video](walkthrough/AUTOMATED_WALKTHROUGH.mp4), and [transcript](walkthrough/NARRATION.md).
 - `analysis/verification.json` records independent metric/coverage checks once all final runs finish.
 - `analysis/clean_environment_reproduction.json` records the exact BM25 match in a separate Python environment.
 

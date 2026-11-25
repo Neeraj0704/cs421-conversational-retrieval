@@ -1,0 +1,16 @@
+{
+  "source": "Saved validation output from E08_hybrid_fusion; not a new live search",
+  "collection": "cloud",
+  "latest_question": "what are worker nodes?",
+  "query_views": [
+    "what are worker nodes?",
+    "What are worker nodes?"
+  ],
+  "first_result": {
+    "rank": 1,
+    "document_id": "ibmcld_10510-17837-19983",
+    "passage_excerpt": "Worker nodes carry the deployments and services that make up your app. When you host workloads in the public cloud, you want to ensure that your app is protected from being accessed, changed, or monitored by an unauthorized user or software."
+  },
+  "example_ndcg_at_5": 1.0,
+  "note": "This example score is separate from the final benchmark average."
+}

@@ -1,5 +1,7 @@
 # Student code walkthrough recording guide
 
+For exact spoken narration and navigation cues, use [RECORDING_SCRIPT.md](RECORDING_SCRIPT.md).
+
 Record your own explanation of the implemented system in VS Code. Aim for 4 minutes
 45 seconds; the assignment maximum is five minutes. A camera is not required.
 The existing synthetic-voice video is a rehearsal aid, not a recording of your explanation.
