@@ -23,13 +23,13 @@ BM25 and rerankers were comparison experiments. All full neural indexes are comp
 
 | Time | What to show | Explain in your own words |
 |---|---|---|
-| 0:00 to 0:25 | Optional diagram, then selected configuration | Given the conversation and assigned collection, return ten existing passages. Original and rewritten questions feed sparse and dense search; rankings are fused. |
-| 0:25 to 1:05 | `experiments/gpu_extension_v1/configs/FINAL_E08_hybrid_fusion.json`; `src/convrag/cli.py`, lines 48 to 78 | The configuration selects both retrievers and query fusion. Trace query views through search calls, RRF, the 100-candidate pool and final ten IDs. This selected configuration has no reranker. |
-| 1:05 to 1:45 | `src/convrag/queries.py`, prompt and `query_views` | The small model resolves follow-up references. The original query is retained because a rewrite can lose terms or invent context. Saved rewrites make comparisons repeatable. |
-| 1:45 to 2:55 | `src/convrag/neural.py`, `Encoder.encode` and `NeuralIndex.search`; `src/convrag/retrieval.py`, `rrf` | Explain representations: SPLADE weighted vocabulary terms versus BGE's normalized 384-number vectors. Show sparse/dense similarity search and how reciprocal ranks combine signals on different score scales. |
-| 2:55 to 3:40 | `src/convrag/data.py`, `COLLECTIONS` and `tasks`; `src/convrag/queries.py`, `latest`; `Encoder.encode` truncation | Explicitly identify at least two assumptions and point to their code. Suggested assumptions appear below. |
-| 3:40 to 4:25 | One saved query/output; `experiments/gpu_extension_v1/runs/FINAL_E08_hybrid_fusion/metrics.json` | Show an actual retrieved passage and explain the measured result: 0.4334 mean nDCG@5, 0.4379 under the separate weighted aggregate, and Recall@10 0.6211. Predictions cover 507 inputs; 332 are judged. |
-| 4:25 to 4:45 | Code or result view | End with a tradeoff: rewrites can invent context, and truncation/pruning can discard useful evidence. Mention that the small gain over BM25 plus reranking remains uncertain. |
+| 0:00 to 0:40 | `walkthrough/ARCHITECTURE.png` | Trace input, two query views, sparse and dense searches, fusion and ten passage IDs. |
+| 0:40 to 1:15 | Selected configuration; `src/convrag/data.py:45` | Identify both retrievers, explain the input whitelist and state the assigned-collection assumption. |
+| 1:15 to 1:55 | `src/convrag/queries.py:4` and `:33` | Explain the rewrite prompt, final-user-turn assumption and retention of the original query. |
+| 1:55 to 2:50 | `src/convrag/neural.py:51` and `:118` | Explain sparse/dense representations, truncation and document pruning, then similarity search. |
+| 2:50 to 3:40 | `src/convrag/retrieval.py:11`; `src/convrag/cli.py:58` | Explain RRF, the nested searches, the 100-candidate pool and final ten original IDs. |
+| 3:40 to 4:05 | `walkthrough/RECORDING_EXAMPLE.json` | Show the saved validation question and passage, clearly identifying this as saved output. |
+| 4:05 to 4:45 | Final `metrics.json:64` | Explain 0.4334 mean nDCG@5, the validation comparisons, uncertainty over the stronger baseline and rewrite limitations. |
 
 ## Assumptions to state explicitly
 

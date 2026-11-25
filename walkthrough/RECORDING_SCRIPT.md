@@ -1,135 +1,150 @@
-# Full student recording script
+# Full recording script: architecture and exact code pointers
 
-Target: approximately 4 minutes 40 seconds, including navigation. Maximum: five minutes.
-Read only the quoted speech. File names, times and actions are directions, not narration.
-Use your own voice and pause briefly between sections. Timings are rehearsal targets;
-check an actual timed practice before recording the submission.
+Target: about 4 minutes 45 seconds; maximum five minutes.
+Read only the blockquoted speech. Directions and code locations are not narration.
+Timings are rehearsal targets. Use your own voice and check one timed practice.
 
-## Set up before recording
+## Before recording
 
-1. In VS Code, choose File > Open Folder and open:
-   `/Users/neerajvp/Documents/CS421 NLP/NLP/implementation`.
-2. Increase the editor font to about 18 to 20 points. Option+Z toggles word wrap.
-   Command+B hides the Explorer sidebar when you need more room.
-3. To jump to code, press Command+P, paste the exact path and line shown below, then Return.
-   The number after the colon is a line number; it is not part of the filename.
-4. Open each destination once before recording so navigation is familiar. Keep the script
-   on a second device or printed beside you. Record the VS Code window with microphone audio.
-5. No indexing, model download or benchmark rerun is needed during the recording.
-   The example file is already prepared from a genuine saved validation run.
+Open /Users/neerajvp/Documents/CS421 NLP/NLP/implementation in VS Code.
+Set the font to 18–20 points and enable line numbers. Option+Z enables word wrap;
+Command+B hides the sidebar. Open the diagram in an image tab and fit it to the window.
+Use Command+P, paste each path:line destination below, and press Return.
+Practice the jumps first. Move the pointer slowly to each named expression as you speak.
+Briefly select a few words if useful; do not edit the code.
+Record the editor window with microphone audio. A camera is not required.
 
-Optional terminal preparation, before recording:
+## 0:00–0:40 — Architecture
 
-```sh
-cd "/Users/neerajvp/Documents/CS421 NLP/NLP/implementation"
-../.venv/bin/python -m json.tool walkthrough/RECORDING_EXAMPLE.json
-```
+Show: walkthrough/ARCHITECTURE.png
 
-This only displays saved output; it does not perform inference. The narrated route below
-opens the JSON in the editor, so using the terminal is optional.
+Point in order: Input → Prepare two queries → SPLADE search → Dense search →
+Combine rankings → Return 10 passages. At “both versions,” point to the search branches.
 
-## 0:00 to 0:30 — Task and selected configuration
-
-Open with Command+P:
-`experiments/gpu_extension_v1/configs/FINAL_E08_hybrid_fusion.json`
-
-Keep the complete short configuration visible. Point to `backends`, `query_mode`,
-`pool_size` and `retrieve_k` as you explain the components.
-
-> Hi, I'm Neeraj. My project finds relevant passages for questions in a conversation. It takes the conversation so far and returns ten passages for the latest question.
+> Hi, I'm Neeraj. This project finds relevant passages for questions in a conversation.
 >
-> This configuration shows the selected system. It searches with both SPLADE and a dense retriever, using the original question and a rewrite. It combines their rankings before returning ten results. This version doesn't use a reranker.
-
-## 0:30 to 1:05 — Inputs and first assumption
-
-Command+P: `src/convrag/data.py:45`
-
-Show `tasks`, especially the collection check and the dictionary created at lines 50 to 57.
-Move the pointer over `Collection`, `domain` and the speaker/text input fields.
-
-> Before searching, I prepare the input here. I keep the conversation and its assigned collection, while leaving out gold answers and relevance labels. Those labels are used later for evaluation.
+> Here's the overall flow. We take the latest question and earlier conversation. We keep the original question and use Qwen to make a standalone rewrite. Both versions go through two searches: SPLADE uses learned word weights, while BGE uses meaning vectors.
 >
-> The first assumption is that the correct collection is already provided. A Cloud question searches Cloud passages. The system isn't choosing a collection or searching all four at once.
+> We combine their rankings and return ten passage IDs. We aren't generating an answer. Let me show how this connects to the code.
 
-## 1:05 to 1:45 — Rewriting and second assumption
+## 0:40–1:15 — Configuration, input and first assumption
 
-Command+P: `src/convrag/queries.py:4`
+Open: experiments/gpu_extension_v1/configs/FINAL_E08_hybrid_fusion.json:5
 
-Show the prompt and `latest` check. At “I also keep,” jump with Command+P to
-`src/convrag/queries.py:33`; show the `fusion` branch returning original and rewrite.
+Point to: lines 8–12, backends containing splade and dense, then query_mode: fusion.
+There is no reranker entry in this selected configuration.
 
-> With the input ready, the next issue is understanding follow-up questions. I use a small Qwen model to rewrite the latest question so it makes sense on its own. This prompt asks it to resolve references without adding facts.
+> This configuration selects the two retrievers and original-plus-rewrite fusion. There's no reranker in this selected version.
+
+Then open: src/convrag/data.py:45
+
+Point to: collection lookup/check, lines 50–52; then the field whitelist at lines 53–57,
+especially Collection, domain and input.
+
+> Here, I keep the conversation and assigned collection, excluding gold answers and relevance labels from retrieval inputs.
 >
-> A second assumption is that the supplied conversation ends with a user question. This check enforces that.
+> My first assumption is that the correct collection is provided. A Cloud question searches Cloud passages; the system doesn't choose the collection itself.
+
+## 1:15–1:55 — Rewriting and second assumption
+
+Open: src/convrag/queries.py:4
+
+Point to: prompt lines 4–9, especially “Do not answer ... or introduce facts.”
+Then point to the final-speaker check at lines 12–14 when naming the assumption.
+
+> Next, this prompt asks Qwen to resolve references and make the question understandable on its own, without adding facts.
 >
-> I also keep the original wording here, because a rewrite can misunderstand the conversation. Both query versions go into retrieval.
+> My second assumption is that the conversation ends with the current user question. This check enforces that.
 
-## 1:45 to 2:40 — Representations and search
+Then open: src/convrag/queries.py:33
 
-Command+P: `src/convrag/neural.py:51`
+Point to: original=latest(task), line 34; stored rewrite, line 38; fusion branch, line 40.
+Trace [original,rewrite]. dict.fromkeys removes identical query strings.
 
-Show `Encoder.encode`. Point first to the SPLADE branch, then to the normalized dense
-vector on line 68. Point to truncation on line 54 when discussing the token limit.
-At “The search method,” jump to `src/convrag/neural.py:118` and show similarity scores.
+> Here, the fusion branch keeps both the original and the rewrite, removing exact duplicates. Keeping the original gives us another search path if the rewrite misunderstands something. The model-generated rewrites are saved before retrieval, so comparisons use the same wording.
 
-> Those queries are converted into numerical representations in this encoder.
+## 1:55–2:50 — Representations and search
+
+Open: src/convrag/neural.py:51
+
+Point to these expressions as you describe them:
+
+- SPLADE: lines 57–59, log1p(relu(...)) and values.max(dim=1).
+- Dense: line 68, outputs.last_hidden_state[:,0] and normalize(...).
+- Truncation: line 54, truncation=True and max_length=self.max_length; the default 256 is at line 40.
+- Document pruning: lines 61–64, if not query and topk(...,k=128). This pruning applies to documents.
+
+> These queries become numerical representations here. SPLADE creates weights for vocabulary terms, including learned expansions. BGE creates a normalized vector of 384 numbers that represents meaning. They provide complementary matching signals.
 >
-> SPLADE produces weighted vocabulary terms. That retains useful word-level matching while allowing learned expansion. BGE represents meaning as a normalized vector of 384 numbers. The idea is that the two searches can find useful passages that the other misses.
+> There's also a resource assumption: reading the first 256 tokens and retaining 128 SPLADE document terms preserves enough useful information. This keeps local indexing practical, but can lose details.
+
+Then open: src/convrag/neural.py:118
+
+Point to: query encoding, line 119; matrix multiplication, line 120; candidate selection and
+return, lines 121–122. The stored passage matrix is loaded at line 117.
+
+> This search function compares the query with stored passage representations. The matrix multiplication produces similarity scores, and the strongest candidates are returned. Each search retrieves up to a hundred passages from the assigned collection.
+
+## 2:50–3:40 — Ranking fusion and final output
+
+Open: src/convrag/retrieval.py:11
+
+Point to: k=60 on line 11; w/(k+rank) on line 19; descending sort on line 20.
+Do not scroll into the BM25 class, which belongs to comparison experiments.
+
+> We combine the lists using reciprocal rank fusion. This expression gives more credit to passages near the top of each list. It uses ranking positions, so we don't directly mix incompatible model scores.
+
+Then open: src/convrag/cli.py:58
+
+Point in sequence:
+
+1. Line 58, views=query_views(...): original and rewritten queries.
+2. Lines 60–61, nested loops: each retriever searches each query view.
+3. Lines 62–63, rrf(...) and pool_size: fusion and the 100-candidate pool.
+4. Scroll to lines 74–77, top=ranked[:10] and document_id: final ten original IDs.
+
+> Here's the full loop: make the query views, search each index with each view, combine up to four lists, and keep a hundred candidates. Finally, these lines take the first ten and write their original passage IDs into the prediction.
 >
-> For local resources, the encoder reads at most 256 tokens, and SPLADE documents keep 128 terms. That's another assumption: the retained content carries enough useful information. Longer passages can lose details.
+> The reranker branch is skipped for our selected configuration.
+
+## 3:40–4:05 — Saved example
+
+Open: walkthrough/RECORDING_EXAMPLE.json:1
+
+Point to: saved-output label, line 2; question, line 4; query views, lines 6–7;
+passage excerpt, line 12. Enable word wrap so its first sentence is readable.
+
+> Here's a saved validation example: “What are worker nodes?” The first passage explains that worker nodes carry an application's deployments and services.
 >
-> The search method compares a query representation with the stored passage representations and returns the strongest candidates.
+> The rewrite only changes capitalization here, so this isn't an example of resolving a reference. I'm showing an existing result, not running a new search.
 
-## 2:40 to 3:30 — Fusion and the full prediction path
+## 4:05–4:45 — Results and closing
 
-Command+P: `src/convrag/retrieval.py:11`
+Open: experiments/gpu_extension_v1/runs/FINAL_E08_hybrid_fusion/metrics.json:64
 
-Show the short `rrf` function. At “Back in,” jump to `src/convrag/cli.py:58`.
-Point to the nested searches, fusion and pool limit at lines 58 to 63; then scroll to
-`top=ranked[:10]` and the prediction dictionary at lines 74 to 77.
+Point to: mean_over_scored_queries, line 64; then ndcg_cut_5, line 71.
+Use this mean, not the separate weighted aggregate on line 81.
 
-> Once I have the rankings, I combine them with reciprocal rank fusion. It rewards passages that rank highly across searches. Using positions avoids directly mixing model scores that have different scales.
+> On the final judged questions, the mean nDCG at five was point four three three four. It measures how well relevant passages rank near the top, rather than answer accuracy.
 >
-> Back in the main loop, you can follow the whole prediction path: create the query views, search each index, combine the lists, keep a hundred candidates, and return the first ten original passage IDs.
+> We compared nineteen configurations on validation data. The hybrid clearly improved over plain BM25, while its smaller gain over BM25 with reranking remained uncertain.
 >
-> This configuration was selected using validation results. Reranking was tested separately, but isn't part of this selected path.
+> The main limitation is that rewrites can invent context. Improving their reliability would be my next step. Thank you.
 
-## 3:30 to 4:00 — One actual saved example
+## Rehearsal and submission notes
 
-Command+P: `walkthrough/RECORDING_EXAMPLE.json`
-
-Show the question, two query views and the first passage excerpt. Point to the explanatory
-sentence in the passage. Keep the source label visible so this is clearly a saved example.
-
-> Here's an actual saved validation example: “What are worker nodes?” The first retrieved passage explains that worker nodes carry the deployments and services of an application.
->
-> The rewrite only changes capitalization here, so I wouldn't credit the improvement to resolving a reference. This file displays an existing result; I'm not rerunning the full benchmark during the recording.
-
-## 4:00 to 4:40 — Results and an honest closing
-
-Command+P:
-`experiments/gpu_extension_v1/runs/FINAL_E08_hybrid_fusion/metrics.json:64`
-
-Show `mean_over_scored_queries`; point to `ndcg_cut_5` on line 71. If space permits,
-show the separate weighted aggregate below it, but do not read every number aloud.
-
-> Across the final judged questions, the selected system scored point four three three four on nDCG at five. That measures ranking quality; it isn't a percentage of correct answers.
->
-> I evaluated nineteen validation configurations. The hybrid improved clearly over my plain BM25 baseline, while its smaller gain over BM25 with reranking remained uncertain.
->
-> The main tradeoff is that extra context can help, but rewrites can also invent details. More reliable rewriting would be my next step. Thank you.
-
-## Rehearsal and submission check
-
-- Speak at a comfortable pace. This is about 513 spoken words, plus short navigation pauses.
-  If a practice exceeds five minutes, first omit the optional final sentence about reranking
-  in the fusion section and shorten the example commentary; keep both named assumptions
-  and the sparse/dense representation explanation.
-- Distinguish representations, search, fusion and final output. The selected path is not
-  BM25 plus a reranker, and it does not generate an answer.
-- The worker-node example is from validation; 0.4334 is the separate final benchmark mean.
-  The final dataset has 507 inputs and 332 judged questions. Historical leaderboard
-  equivalence remains unverified; do not claim an official competition rank.
-- Watch the finished video at normal size, checking code legibility, audio and duration.
-  Submit an accessible shareable link in the separate Canvas assignment. The brief gives
-  a noon CST deadline on November 25, 2026, and says late cards do not apply to the video.
+- Finish around 4:45 to leave room before the five-minute maximum. If a practice runs long,
+  shorten the example and closing comparison. Keep the architecture, representations,
+  two named assumptions and final-output code.
+- The prompt lives in queries.py; actual Qwen generation lives in neural.py. Backup locations:
+  model loading, lines 154–160; greedy generation, lines 161–166; prompt-builder call, line 176;
+  saved rewrite output, lines 179–184. These are not extra stops in the timed route.
+- No live command is required by the walkthrough brief. This route shows a saved example.
+  To display it in Terminal instead, run from implementation:
+  ../.venv/bin/python -m json.tool walkthrough/RECORDING_EXAMPLE.json
+  That command only displays the saved file; it is not live inference.
+- The example is from validation; 0.4334 is the separate final benchmark mean over 332 judged
+  questions out of 507 inputs. Historical leaderboard equivalence is unverified. The GPU
+  extension used a previously inspected public final set; do not call it a fresh unseen holdout.
+- Watch the finished recording at normal size to check readability, audio and duration.
+  Submit a shareable link with working access in the separate Canvas walkthrough assignment.
