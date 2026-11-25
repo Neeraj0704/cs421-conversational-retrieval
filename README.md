@@ -127,7 +127,8 @@ are intentionally regenerated, rather than committed. `PROJECT_PLAN.md` is the u
 ## Deliverables and checks
 
 - [Recorded results](RESULTS.md) and [updated milestone tracker](PROJECT_PLAN.md).
-- [Combined report source](report/FINAL_PROJECT_REPORT.md) and [PDF](report/FINAL_PROJECT_REPORT.pdf).
+- [Revised report source](report/FINAL_PROJECT_REPORT.md), [PDF](report/FINAL_PROJECT_REPORT.pdf), and [editable Word document](report/FINAL_PROJECT_REPORT.docx).
+- The report addresses the supplied written-report rubric, with four concrete cases, published scores, ethics and evaluation limits. Its previous version is preserved in `report/archive/`.
 - Preserved [CPU-stage report](report/PROJECT_REPORT.md) and [PDF](report/PROJECT_REPORT.pdf).
 - [Walkthrough script](walkthrough/WALKTHROUGH.md), [automated narrated review video](walkthrough/AUTOMATED_WALKTHROUGH.mp4), and [transcript](walkthrough/NARRATION.md).
 - `analysis/verification.json` records independent metric/coverage checks once all final runs finish.

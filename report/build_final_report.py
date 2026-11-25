@@ -136,7 +136,7 @@ Qwen rewriter: https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct
 
 Cormack, Clarke and Buettcher (2009), Reciprocal Rank Fusion: https://doi.org/10.1145/1571941.1572114
 '''
-    target=ROOT/'report/FINAL_PROJECT_REPORT.md'
+    target=ROOT/'report/archive/CPU_GPU_REPORT_20261124.md'
     target.write_text(text)
     export_pdf(target,target.with_suffix('.pdf'))
     results='''# Recorded results\n\nPrimary: **E08 hybrid fusion** (SPLADE + dense, original + rewritten query; no cross-encoder).\nSelected by validation nDCG@5 before the GPU final runs.\n\n## CPU-stage validation\n\n'''+table(records(ROOT,False))+'''\n\n## GPU-stage validation\n\n'''+table(records(GPU,False))+'''\n\nAll validation rows: 161 judged / 174 inputs, 22 held-out conversations.\n\n## Earlier frozen CPU final comparisons\n\n'''+table(records(ROOT,True),True)+'''\n\n## Frozen GPU final follow-up\n\n'''+table(records(GPU,True),True)+f'''\n\nAll final rows: 332 judged / 507 inputs. Direct means and submitted-domain-weighted scores are different aggregates.\nPrimary versus earlier CPU reranker: delta {delta:+.4f}, 95% conversation-bootstrap interval [{low:+.4f}, {high:+.4f}]. {conclusion}\n\nThe final set was already used for CPU evaluation. GPU scores are disclosed follow-up results, not a fresh unseen holdout. Historical leaderboard equivalence remains unverified.\n\nSee [combined report](report/FINAL_PROJECT_REPORT.md), [GPU final verification](experiments/gpu_extension_v1/analysis/final_followup_verification.json), and the preserved [CPU-stage report](report/PROJECT_REPORT.md).\n'''

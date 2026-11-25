@@ -553,3 +553,14 @@ a fresh unseen holdout. Historical leaderboard equivalence remains unverified.
 The combined report is report/FINAL_PROJECT_REPORT.md and .pdf; the earlier CPU report remains
 intact. RESULTS.md, the plain-language guide and automated review walkthrough reflect both stages.
 Final course formatting, any required student presentation and course upload remain pending.
+
+## Written report revision — November 25, 2026
+
+Revised FINAL_PROJECT_REPORT.md and PDF against the provided written-report rubric and added
+FINAL_PROJECT_REPORT.docx. Added an explicit nDCG explanation, software and data differences,
+Table 4 published baseline and winner comparisons, four audited validation examples, task-specific
+ethics and next steps. Replaced drafting notes with individual-project prose and cleaner typography.
+The previous combined report is archived. Scores and frozen retrieval source are unchanged.
+The Word document opens in Microsoft Word; full Word-to-PDF visual verification was unavailable.
+The separately typeset PDF was inspected page by page. Neither course upload nor a new experiment
+was performed. The complete final brief and any additional page-limit requirements remain unknown.

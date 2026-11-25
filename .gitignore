@@ -30,3 +30,6 @@ experiments/*/runs/*/traces.jsonl
 experiments/*/runs/*/inputs.jsonl
 !walkthrough/AUTOMATED_WALKTHROUGH.mp4
 
+
+# Temporary Microsoft Office owner files
+~$*

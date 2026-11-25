@@ -1,0 +1,461 @@
+{
+  "scope": "Four purposively selected validation examples; not a representative sample",
+  "examples": [
+    {
+      "task_id": "a2698b2973ea7db1ee5adb5e70ec02e4<::>7",
+      "domain": "clapnq",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "where does water go after it enters a storm drain"
+        },
+        {
+          "speaker": "agent",
+          "text": "The water that enters a storm drain like some of the heavier sediment and small objects may settle in a catchbasin , or sump , which lies immediately below the outlet , where water from the top of the catchbasin reservoir overflows into the sewer proper . Most drains have a single large exit at their point of discharge ( often covered by a grating ) into a canal , river , lake , reservoir , sea or ocean . Storm drains may discharge into man - made excavations known as recharge basins or retention ponds ."
+        },
+        {
+          "speaker": "user",
+          "text": "What is a catchbasin and how they are designed?"
+        },
+        {
+          "speaker": "agent",
+          "text": "A catchbasin is a component in a storm drain system that serves as a first-line pretreatment for other treatment practices. It functions similarly to the trap in household wastewater plumbing by capturing large sediments and street litter from urban runoff before it enters the storm drainage pipes. It is designed with a single large exit at its point of discharge, often covered by a grating, and lies immediately below the outlet of the storm drain. Water from the top of the catchbasin reservoir overflows into the sewer proper, and most catchbasins are connected to a piping system that leads to a canal, river, lake, reservoir, sea, or ocean.  Unlike the plumbing trap , the catchbasin does not necessarily prevent sewer gases such as hydrogen sulfide and methane from escaping. Its performance at removing sediment and other pollutants depends on the design of the catchbasin ( for example , the size of the sump ) , and on routine maintenance to retain the storage available in the sump to capture sediment . Some  catch basins are also commonly designed with a sump area below the outlet pipe level which is a reservoir for water and debris to help prevent the pipe from clogging "
+        },
+        {
+          "speaker": "user",
+          "text": "Does the basin really capture the litter  and debris from the water from the streets, roads, roofs?"
+        },
+        {
+          "speaker": "agent",
+          "text": "As I mentioned before the are commonly designed to capture large sediments and street litter from urban runoff before it enters the storm drainage pipes. However its  functionality is questionable , as these catch basins are most commonly not cleaned annually as is needed to make them perform as designed . The trapping of debris serves no purpose because once filled they operate as if no basins were present , but continue to allow a shallow area of water retention for the breeding of mosquito since it is cool , dark , and retains stagnant water for long periods of time . Combined with standard grates which have holes large enough for mosquitoes to enter and leave the basin , this is a major problem in mosquito control .  . Moreover , even if cleaned and maintained , the water reservoir remains filled , accommodating the breeding of mosquitoes ."
+        },
+        {
+          "speaker": "user",
+          "text": "Could be the water that enters a storm drain recycled and be used in the house chores like cleaning, gardening , etc?"
+        },
+        {
+          "speaker": "agent",
+          "text": "The water from urban runoff is very dirty. It tends to pick up gasoline , motor oil , heavy metals , trash and other pollutants from roadways and parking lots , as well as fertilizers and pesticides from lawns  and may become contaminated while running down the road or other impervious surface , before entering the drain and could not be used in house chores. However,  Many local governments conduct public awareness campaigns about this including sustainable urban drainage systems or low impact development or green infrastructure practices   into municipal plans , helping lest waste be dumped into the storm drain system . In the city of Cleveland , Ohio , for example , all new catch basins installed have inscriptions on them not to dump any waste , and usually include a fish imprint as well . "
+        },
+        {
+          "speaker": "user",
+          "text": "And about on the level of the Federal government, do  they have guidelines or even a law to how to build more sustainable storm drain so the water could be recycled ?"
+        },
+        {
+          "speaker": "agent",
+          "text": "At the federal level in the United States,  we have the National Environmental Policy Act ( NEPA ) and the Environmental Protection Agency ( EPA )created and signed during President Nixon term. That legislation was concerned primarily first - generation pollutants in the air , surface water , groundwater , and solid waste disposal . Later solid waste contaminants from agriculture , industry , mining , municipalities , and others were put under control .EPA have spent more than than $8.7 million on environmental education annually to increase public knowledge and awareness about the current environmental issues and the consequences . They aim to promote the popularization of the necessary skills and knowledge for the public to make decisions and participate in activities that lead to the resolution of environmental challenges . Virtually all of the executive branch 's departments have some area of environmental authority .The Environmental Protection Agency ( EPA ) issued stormwater regulations for  cities , suburban communities and towns with over 10,000 population requiring them  to obtain discharge permits for their storm sewer systems , under the Clean Water Act . The permits require local governments to operate stormwater management programs , covering both construction of new buildings and facilities , and maintenance of their existing municipal drainage networks . Many municipalities have revised their local ordinances covering management of runoff . State government facilities , such as roads and highways , are also subject to the stormwater management regulations . Many local municipalities have placed ordinances for both commercial and residential stormwater management practices to be designed , implemented , and approved before an occupancy permit is released .New developments might be required to construct their own storm drain processing capacity for returning the runoff to the water table and bioswales may be required in sensitive ecological areas to protect the watershed "
+        },
+        {
+          "speaker": "user",
+          "text": "How does the storm drain work in the other parts of the world."
+        },
+        {
+          "speaker": "agent",
+          "text": "I do not have much information about how storm drain works around the world, but an international subculture has grown up around the exploration of stormwater drains . Societies such as the Cave Clan regularly explore the drains underneath cities . This is commonly known as `` urban exploration '' , but is also known as draining when in specific relation to storm drains . Storm drain , storm sewer ( U.S. and Canada ) , surface water drain / sewer ( United Kingdom ) , or stormwater drain ( Australia and New Zealand ) is usually designed to drain excess rain and ground water from impervious surfaces such as paved streets , car parks , parking lots , footpaths , sidewalks , and roofs. In UK, there are here are two main types of stormwater drain : the highway drain or road gully in the UK inlets."
+        },
+        {
+          "speaker": "user",
+          "text": "Do you have any information about how the ancient civilization deal with the stormwater?"
+        }
+      ],
+      "relevance": {
+        "834226571_18029-18605-0-576": 1,
+        "804150900_3742-4703-0-961": 1
+      },
+      "runs": {
+        "E00_bm25_latest": {
+          "ndcg5": 0.6131471927654584,
+          "queries": [
+            "Do you have any information about how the ancient civilization deal with the stormwater?"
+          ],
+          "top5": [
+            {
+              "document_id": "834226571_18029-18605-0-576",
+              "score": 10.0
+            },
+            {
+              "document_id": "800631154_8583-9308-0-725",
+              "score": 9.0
+            },
+            {
+              "document_id": "821374809_7621-8775-0-1154",
+              "score": 8.0
+            },
+            {
+              "document_id": "807070004_60618-61200-0-582",
+              "score": 7.0
+            },
+            {
+              "document_id": "802388356_36902-37249-0-347",
+              "score": 6.0
+            }
+          ],
+          "relevant_candidate_ranks": {
+            "834226571_18029-18605-0-576": 1,
+            "804150900_3742-4703-0-961": null
+          }
+        },
+        "E01_bm25_history": {
+          "ndcg5": 0.0,
+          "queries": [
+            "where does water go after it enters a storm drain What is a catchbasin and how they are designed? Does the basin really capture the litter  and debris from the water from the streets, roads, roofs? Could be the water that enters a storm drain recycled and be used in the house chores like cleaning, gardening , etc? And about on the level of the Federal government, do  they have guidelines or even a law to how to build more sustainable storm drain so the water could be recycled ? How does the storm drain work in the other parts of the world. Do you have any information about how the ancient civilization deal with the stormwater?"
+          ],
+          "top5": [
+            {
+              "document_id": "834226571_364-764-0-400",
+              "score": 10.0
+            },
+            {
+              "document_id": "834226571_6342-6558-0-216",
+              "score": 9.0
+            },
+            {
+              "document_id": "834226571_765-1254-0-489",
+              "score": 8.0
+            },
+            {
+              "document_id": "834226571_13168-13671-0-503",
+              "score": 7.0
+            },
+            {
+              "document_id": "834226571_5082-5403-0-321",
+              "score": 6.0
+            }
+          ],
+          "relevant_candidate_ranks": {
+            "834226571_18029-18605-0-576": 8,
+            "804150900_3742-4703-0-961": null
+          }
+        }
+      },
+      "passages": {
+        "804150900_3742-4703-0-961": "Ancient Egypt\nThe success of ancient Egyptian civilization came partly from its ability to adapt to the conditions of the Nile River valley for agriculture . The predictable flooding and controlled irrigation of the fertile valley produced surplus crops , which supported a more dense population , and social development and culture . With resources to spare , the administration sponsored mineral exploitation of the valley and surrounding desert regions , the early development of an independent writing system , the organization of collective construction and agricultural projects , trade with surrounding regions , and a military intended to defeat foreign enemies and assert Egyptian dominance . Motivating and organizing these activities was a bureaucracy of elite scribes , religious leaders , and administrators under the control of a pharaoh , who ensured the cooperation and unity of the Egyptian people in the context of an elaborate system of religious beliefs .",
+        "834226571_364-764-0-400": "Storm drain\nA storm drain , storm sewer ( U.S. and Canada ) , surface water drain / sewer ( United Kingdom ) , or stormwater drain ( Australia and New Zealand ) is designed to drain excess rain and ground water from impervious surfaces such as paved streets , car parks , parking lots , footpaths , sidewalks , and roofs . Storm drains vary in design from small residential dry wells to large municipal systems .",
+        "834226571_6342-6558-0-216": "Storm drain\nCatchbasins act as a first - line pretreatment for other treatment practices , such as retention basins , by capturing large sediments and street litter from urban runoff before it enters the storm drainage pipes . A",
+        "834226571_18029-18605-0-576": "Storm drain\nArchaeological studies have revealed use of rather sophisticated stormwater runoff systems in ancient cultures . For example , in Minoan Crete approximately 4000 years before present , cities such as Phaistos were designed to have storm drains and channels to collect precipitation runoff . At Cretan Knossos , storm drains include stone - lined structures large enough for a person to crawl through . Other examples of early civilizations with elements of stormwater drain systems include early people of Mainland Orkney such as Gurness and the Brough of Birsay in Scotland .",
+        "800631154_8583-9308-0-725": "Neuroanatomy of memory\nWhen considering the frontal lobes in regards to memory , we see that it is very important in the coordination of information . Therefore , the frontal lobes are important in working memory . For example , when you are thinking about how to get to a mall you have never been to before , you combine various bits of knowledge you already have : the layout of the city the mall is in , information from a map , knowledge of traffic patterns in that area and conversations with your friends about the location of the mall . By actively using all of this information , you can determine the best route for you to take . This action involves the controlled use of information in working memory , coordinated by the frontal lobes ."
+      }
+    },
+    {
+      "task_id": "b2805ee4c478194c234e2384ffb0a6bf<::>7",
+      "domain": "clapnq",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "where was the cotton gin invented and where is it used today"
+        },
+        {
+          "speaker": "agent",
+          "text": "According to the worm gear roller gin, it was invented in the Indian subcontinent, specifically during the early Delhi Sultanate era of the 13th-14th centuries. It came into use in the Mughal Empire around the 16th century and is still used in the Indian subcontinent today. However, it's important to note that there were different types of cotton gins, including a handheld roller gin used in India since at least 500 CE, and a single-roller cotton gin found in the Ajanta caves of India and used until innovations were made in the form of foot-powered gins. The modern mechanical cotton gin was created by American inventor Eli Whitney in 1793 and patented in 1794, but I have no information as to its current usage. The early history of the cotton gin is ambiguous , because archeologists likely mistook the cotton gin 's parts for other tools ."
+        },
+        {
+          "speaker": "user",
+          "text": "Did the need for cotton workers increase?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, the demand for cotton workers did increase after the invention of the modern mechanical cotton gin by Eli Whitney in 1793. This invention revolutionized the cotton industry in the United States, leading to a rapid increase in the demand for cotton workers. This increased demand for labor has been identified as a contributing factor to the growth of slavery in the American South.  The number of slaves rose in concert with the increase in cotton production , increasing from around 700,000 in 1790 to around 3.2 million in 1850."
+        },
+        {
+          "speaker": "user",
+          "text": "By how much did the cotton gin increase production?"
+        },
+        {
+          "speaker": "agent",
+          "text": "I have no specific numbers regarding the increase in cotton production due to the cotton gin. However, the cotton gin revolutionized the cotton industry in the United States, significantly increasing productivity. The modern automated cotton gins offer far higher productivity than their hand-powered forebears. Cotton production expanded from 750,000 bales in 1830 to 2.85 million bales in 1850."
+        },
+        {
+          "speaker": "user",
+          "text": "Was the invention of the cotton gin indirectly a cause of the American Civil War?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, the invention of the cotton gin has been identified as an inadvertent contributing factor to the outbreak of the American Civil War. The increased demand for cotton workers, primarily filled by slaves, in the American South after the invention of the cotton gin led to the growth of slavery and tensions between the North and South over the issue of slavery. These tensions were one of the main causes of the American Civil War.  Because of its inadvertent effect on American slavery , and on its ensuring that the South 's economy developed in the direction of plantation - based agriculture , the invention of the cotton gin is frequently cited as one of the indirect causes of the American Civil War ."
+        },
+        {
+          "speaker": "user",
+          "text": "Was Britain relying on Southern cotton?"
+        },
+        {
+          "speaker": "agent",
+          "text": "Yes, Britain was heavily reliant on cotton from the American South. The increased productivity brought about by the cotton gin led to a surge in cotton production, and a significant portion of this cotton was sent to Britain, which used it to fuel its burgeoning textile industry. By 1860 , black slave labor from the American South was providing two - thirds of the world 's supply of cotton , and up to 80 % of the crucial British market."
+        },
+        {
+          "speaker": "user",
+          "text": "Modern cotton gins."
+        },
+        {
+          "speaker": "agent",
+          "text": "Modern cotton gins have evolved from the early mechanical cotton gins. They use multiple powered cleaning cylinders and saws to automate the process and offer far higher productivity than their hand-powered forebears. These modern gins are used worldwide, including in the United States and the Indian subcontinent, to efficiently process large quantities of cotton fiber. The cotton enters a dryer , which removes excess moisture. The cylinder cleaner uses six or seven rotating , spiked cylinders to break up large clumps of cotton . Finer foreign material , such as soil and leaves , passes through rods or screens for removal . The stick machine uses centrifugal force to remove larger foreign matter , such as sticks and burrs , while the cotton is held by rapidly rotating saw cylinders ."
+        },
+        {
+          "speaker": "user",
+          "text": "The end of use of slave labor."
+        }
+      ],
+      "relevance": {
+        "805474955_697-1691-0-994": 1,
+        "843670088_41538-42214-0-676": 1
+      },
+      "runs": {
+        "E00_bm25_latest": {
+          "ndcg5": 0.0,
+          "queries": [
+            "The end of use of slave labor."
+          ],
+          "top5": [
+            {
+              "document_id": "810572008_17265-18092-0-827",
+              "score": 10.0
+            },
+            {
+              "document_id": "853000512_114677-115536-0-859",
+              "score": 9.0
+            },
+            {
+              "document_id": "808792918_13157-13590-0-433",
+              "score": 8.0
+            },
+            {
+              "document_id": "853000512_112094-113092-0-998",
+              "score": 7.0
+            },
+            {
+              "document_id": "849496274_18860-19526-0-666",
+              "score": 6.0
+            }
+          ],
+          "relevant_candidate_ranks": {
+            "805474955_697-1691-0-994": null,
+            "843670088_41538-42214-0-676": 74
+          }
+        },
+        "E01_bm25_history": {
+          "ndcg5": 0.6131471927654584,
+          "queries": [
+            "where was the cotton gin invented and where is it used today Did the need for cotton workers increase? By how much did the cotton gin increase production? Was the invention of the cotton gin indirectly a cause of the American Civil War? Was Britain relying on Southern cotton? Modern cotton gins. The end of use of slave labor."
+          ],
+          "top5": [
+            {
+              "document_id": "805474955_697-1691-0-994",
+              "score": 10.0
+            },
+            {
+              "document_id": "805474955_10307-11336-0-1029",
+              "score": 9.0
+            },
+            {
+              "document_id": "805474955_11384-11748-0-364",
+              "score": 8.0
+            },
+            {
+              "document_id": "805474955_2511-2926-0-415",
+              "score": 7.0
+            },
+            {
+              "document_id": "805474955_6417-7243-0-826",
+              "score": 6.0
+            }
+          ],
+          "relevant_candidate_ranks": {
+            "805474955_697-1691-0-994": 1,
+            "843670088_41538-42214-0-676": null
+          }
+        }
+      },
+      "passages": {
+        "810572008_17265-18092-0-827": "Columbian Exchange\nThe use of slave labor was not restricted to sugarcane plantations . Rather , slave labor was used for coffee , tobacco and even grains such as rice . In these systems , the enslaved people had little power , however , they did have some influence on farming methods . For example , in rice production there is some evidence that slaves from Africa utilized traditional methods to grow rice . Furthermore , enslaved Africans were responsible for growing their own food . In these cases , the enslaved people preferred rice that was part of their culture as opposed to the European preference for Carolina rice . However , in a system of power and control the slaves were eventually banned from using their preferred rice Therefore , the system of slavery transmitted not only the people but also their cultures to new regions .",
+        "843670088_41538-42214-0-676": "Atlantic Ocean\nIn the American colonies depredation , disease , and slavery quickly reduced the indigenous American population to the extent that the Atlantic slave trade had to be introduced to replace them -- a trade that became norm and an integral part of the colonization . Between the 15th century and 1888 , when Brazil became the last part of America to end slave trade , an estimated ten million Africans were exported as slaves , most of them destined for agricultural labour . The slave trade was officially abolished in the British Empire and the United States in 1808 , and slavery itself was abolished in the British Empire in 1838 and in the U.S. in 1865 after the Civil War .",
+        "805474955_10307-11336-0-1029": "Cotton gin\nThe invention of the cotton gin caused massive growth in the production of cotton in the United States , concentrated mostly in the South . Cotton production expanded from 750,000 bales in 1830 to 2.85 million bales in 1850 . As a result , the region became even more dependent on plantations and slavery , with plantation agriculture becoming the largest sector of its economy . While it took a single slave about ten hours to separate a single pound of fiber from the seeds , a team of two or three slaves using a cotton gin could produce around fifty pounds of cotton in just one day . The number of slaves rose in concert with the increase in cotton production , increasing from around 700,000 in 1790 to around 3.2 million in 1850 . By 1860 , black slave labor from the American South was providing two - thirds of the world 's supply of cotton , and up to 80 % of the crucial British market . The cotton gin thus `` transformed cotton as a crop and the American South into the globe 's first agricultural powerhouse '' . An",
+        "805474955_697-1691-0-994": "Cotton gin\nHandheld roller gins had been used in India and then other countries since at earliest 500 CE . The Indian worm - gear roller gin , invented some time around the sixteenth century , has , according to Lakwete , remained virtually unchanged up to the present time . A modern mechanical cotton gin was created by American inventor Eli Whitney in 1793 and patented in 1794 . Whitney 's gin used a combination of a wire screen and small wire hooks to pull the cotton through , while brushes continuously removed the loose cotton lint to prevent jams . It revolutionized the cotton industry in the United States , but also led to the growth of slavery in the American South as the demand for cotton workers rapidly increased . The invention has thus been identified as an inadvertent contributing factor to the outbreak of the American Civil War . Modern automated cotton gins use multiple powered cleaning cylinders and saws , and offer far higher productivity than their hand - powered forebears .",
+        "853000512_114677-115536-0-859": "Confederate States of America\nSlave labor was applied in industry in a limited way in the Upper South and in a few port cities . One reason for the regional lag in industrial development was top - heavy income distribution . Mass production requires mass markets , and slaves living in small cabins , using self - made tools and outfitted with one suit of work clothes each year of inferior fabric , did not generate consumer demand to sustain local manufactures of any description in the same way a mechanized family farm of free labor did in the North . The Southern economy was `` pre-capitalist '' in that slaves were put to work in the largest revenue - producing enterprises , not free labor market . That labor system as practiced in the American South encompassed paternalism , whether abusive or indulgent , and that meant labor management considerations apart from productivity ."
+      }
+    },
+    {
+      "task_id": "747a810abfd6da4a9c37cdb74feec95e<::>2",
+      "domain": "cloud",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "How do I build my client application using dialogue nodes?"
+        },
+        {
+          "speaker": "agent",
+          "text": "To build your client application using dialog nodes, you need to follow these steps: create a simple conversation with two intents; the dialog uses intents to identify the purpose of the user's input regardless of the precise wording used, and then responds in the way you specify. The client application sends a message containing user input and the user input triggers a dialog node."
+        },
+        {
+          "speaker": "user",
+          "text": "what are worker nodes?"
+        }
+      ],
+      "relevance": {
+        "ibmcld_10510-17837-19983": 1,
+        "ibmcld_06079-10297-12436": 1,
+        "ibmcld_06063-18145-20200": 1
+      },
+      "runs": {
+        "R00_bm25_latest_rerank": {
+          "ndcg5": 0.0,
+          "queries": [
+            "what are worker nodes?"
+          ],
+          "top5": [
+            {
+              "document_id": "ibmcld_06010-7-1853",
+              "score": 10.0
+            },
+            {
+              "document_id": "ibmcld_10444-7-1856",
+              "score": 9.0
+            },
+            {
+              "document_id": "ibmcld_05693-0-832",
+              "score": 8.0
+            },
+            {
+              "document_id": "ibmcld_10145-0-822",
+              "score": 7.0
+            },
+            {
+              "document_id": "ibmcld_10444-3882-5785",
+              "score": 6.0
+            }
+          ],
+          "relevant_candidate_ranks": {
+            "ibmcld_10510-17837-19983": null,
+            "ibmcld_06079-10297-12436": null,
+            "ibmcld_06063-18145-20200": null
+          }
+        },
+        "E08_hybrid_fusion": {
+          "ndcg5": 1.0,
+          "queries": [
+            "what are worker nodes?",
+            "What are worker nodes?"
+          ],
+          "top5": [
+            {
+              "document_id": "ibmcld_10510-17837-19983",
+              "score": 10.0
+            },
+            {
+              "document_id": "ibmcld_06079-10297-12436",
+              "score": 9.0
+            },
+            {
+              "document_id": "ibmcld_06063-18145-20200",
+              "score": 8.0
+            },
+            {
+              "document_id": "ibmcld_06079-4312-6353",
+              "score": 7.0
+            },
+            {
+              "document_id": "ibmcld_06010-7-1853",
+              "score": 6.0
+            }
+          ],
+          "relevant_candidate_ranks": {
+            "ibmcld_10510-17837-19983": 1,
+            "ibmcld_06079-10297-12436": 2,
+            "ibmcld_06063-18145-20200": 3
+          }
+        }
+      },
+      "passages": {
+        "ibmcld_06063-18145-20200": "\n* VPC clusters: Worker nodes are provisioned in to an IBM Cloud account that is owned by IBM to enable monitoring of malicious activities and apply security updates. You can't access your worker nodes by using the VPC dashboard. However, you can manage your worker nodes by using the IBM Cloud Kubernetes Service console, CLI, or API. The virtual machines that make up your worker nodes are dedicated to you and you are responsible to request timely updates so that your worker node OS and IBM Cloud Kubernetes Service components apply the latest security updates and patches.\n\n\n\nFor more information, see [Your responsibilities by using IBM Cloud Kubernetes Service](https://cloud.ibm.com/docs/containers?topic=containers-responsibilities_iks).\n\nUse the ibmcloud ks worker update[command](https://cloud.ibm.com/docs/containers?topic=containers-kubernetes-service-clics_worker_update) regularly (such as monthly) to deploy updates and security patches to the operating system and to update the Kubernetes version that your worker nodes run. When updates are available, you are notified when you view information about the master and worker nodes in the IBM Cloud console or CLI, such as with the ibmcloud ks clusters ls or ibmcloud ks workers ls --cluster <cluster_name> commands. Worker node updates are provided by IBM as a full worker node image that includes the latest security patches. To apply the updates, the worker node must be reimaged and reloaded with the new image. Keys for the root user are automatically rotated when the worker node is reloaded.\n\n\n\n\n\n How does my worker node setup look? \n\nThe following image shows the components that are set up for every worker node to protect your worker node from malicious attacks.\n\nThe image does not include components that ensure secure end-to-end communication to and from the worker node. For more information, see [network security](https://cloud.ibm.com/docs/containers?topic=containers-securitynetwork).\n\nZoom\n\n![Worker node setup in IBM Cloud Kubernetes Service excluding network security.]",
+        "ibmcld_10510-17837-19983": "\nWorker nodes carry the deployments and services that make up your app. When you host workloads in the public cloud, you want to ensure that your app is protected from being accessed, changed, or monitored by an unauthorized user or software.\n\n\n\n Who owns the worker node and am I responsible to secure it? \n\nThe ownership of a worker node depends on the type of cluster that you create and the infrastructure provider that you choose.\n\n\n\n* Classic clusters: Worker nodes are provisioned in to your IBM Cloud account. The worker nodes are dedicated to you and you are responsible to request timely updates to the worker nodes to ensure that the worker node OS and IBM Cloud Kubernetes Service components apply the latest security updates and patches.\n* VPC clusters: Worker nodes are provisioned in to an IBM Cloud account that is owned by IBM to enable monitoring of malicious activities and apply security updates. You can't access your worker nodes by using the VPC dashboard. However, you can manage your worker nodes by using the IBM Cloud Kubernetes Service console, CLI, or API. The virtual machines that make up your worker nodes are dedicated to you and you are responsible to request timely updates so that your worker node OS and IBM Cloud Kubernetes Service components apply the latest security updates and patches.\n\n\n\nFor more information, see [Your responsibilities by using Red Hat OpenShift on IBM Cloud](https://cloud.ibm.com/docs/openshift?topic=openshift-responsibilities_iks).\n\nUse the ibmcloud oc worker update[command](https://cloud.ibm.com/docs/openshift?topic=openshift-kubernetes-service-clics_worker_update) regularly (such as monthly) to deploy updates and security patches to the operating system and to update the Red Hat OpenShift version that your worker nodes run. When updates are available, you are notified when you view information about the master and worker nodes in the IBM Cloud console or CLI, such as with the ibmcloud oc clusters ls or ibmcloud oc workers ls --cluster <cluster_name> commands. Worker node updates are provided by IBM as a full worker node image that includes the latest security patches.",
+        "ibmcld_06010-7-1853": "\nPlanning your worker node setup \n\nIBM Cloud® Kubernetes Service provides different worker node flavors and isolation levels so that you can choose the flavor and isolation that best meet the requirements of the workloads that you want to run in the cloud.\n\nA worker node flavor describes the compute resources, such as CPU, memory, and disk capacity that you get when you provision your worker node. Worker nodes of the same flavor are grouped in worker node pools. The total number of worker nodes in a cluster determine the compute capacity that is available to your apps in the cluster.\n\nWant to save on your classic worker node costs? [Create a reservation](https://cloud.ibm.com/docs/containers?topic=containers-reservations) to lock in a discount over 1 or 3 year terms! Then, create your worker pool by using the reserved instances. Note that autoscaling can't be enable on worker pools that use reservations.\n\nTrying to plan how many worker nodes your need in your cluster? Check out [Sizing your Kubernetes cluster to support your workload](https://cloud.ibm.com/docs/containers?topic=containers-strategysizing) to find information about the default worker node setup and how you can determine the resource requirements of your workloads.\n\n\n\n Available hardware for worker nodes \n\nThe worker node flavors and isolation levels that are available to you depend on your container platform, cluster type, the infrastructure provider that you want to use, and the IBM Cloud Kubernetes Service location where you want to create your cluster.\n\nZoom\n\n![Hardware options for worker nodes in a standard cluster](https://cloud.ibm.com/docs-content/v1/content/4d497aff9e27b92fbbc2ee4e343a9ec4549cb1d7/containers/images/cs_clusters_hardware.png)\n\nFigure 1. Hardware options for worker nodes in a standard cluster\n\n\n\n What flavors are available to me?",
+        "ibmcld_06079-10297-12436": "\nWorker node With IBM Cloud Kubernetes Service, the virtual machines that your cluster manages are instances that are called worker nodes. These worker nodes virtual machines and all the worker node components are dedicated to you only and are not shared with other IBM customers. However, the underlying hardware is shared with other IBM customers. For more information, see [Virtual machines](https://cloud.ibm.com/docs/containers?topic=containers-planning_worker_nodesvm). You manage the worker nodes through the automation tools that are provided by IBM Cloud Kubernetes Service, such as the API, CLI, or console. Unlike classic clusters, you don't see VPC compute worker nodes in your infrastructure portal or separate infrastructure bill, but instead manage all maintenance and billing activity for the worker nodes from IBM Cloud Kubernetes Service. Worker nodes include the same [components](https://cloud.ibm.com/docs/containers?topic=containers-service-archworker-components) as described in the Classic architecture. Community Kubernetes worker nodes run on Ubuntu 18.04 x86_64, 16.04 x86_64 (deprecated). \n Cluster networking Your worker nodes are created in a VPC subnet in the zone that you specify. By default, the public and private cloud service endpoints for your cluster are enabled. Communication between the master and worker nodes is over the private network. Authenticated external users can communicate with the master over the public network, such as to run kubectl commands. You can optionally set up your cluster to communicate with on-prem services by setting up a VPC VPN on the private network. \n App networking You can create a Kubernetes LoadBalancer service for your apps in the cluster, which automatically provisions a VPC load balancer in your VPC outside the cluster. The load balancer is multizonal and routes requests for your app through the private NodePorts that are automatically opened on your worker nodes. For more information, see [Exposing apps with VPC load balancers](https://cloud.ibm.com/docs/containers?topic=containers-vpc-lbaas). Calico is used as the cluster networking policy fabric.",
+        "ibmcld_10444-7-1856": "\nPlanning your worker node setup \n\nRed Hat® OpenShift® on IBM Cloud® provides different worker node flavors and isolation levels so that you can choose the flavor and isolation that best meet the requirements of the workloads that you want to run in the cloud.\n\nA worker node flavor describes the compute resources, such as CPU, memory, and disk capacity that you get when you provision your worker node. Worker nodes of the same flavor are grouped in worker node pools. The total number of worker nodes in a cluster determine the compute capacity that is available to your apps in the cluster.\n\nWant to save on your classic worker node costs? [Create a reservation](https://cloud.ibm.com/docs/containers?topic=containers-reservations) to lock in a discount over 1 or 3 year terms! Then, create your worker pool by using the reserved instances. Note that autoscaling can't be enable on worker pools that use reservations.\n\nTrying to plan how many worker nodes your need in your cluster? Check out [Sizing your Kubernetes cluster to support your workload](https://cloud.ibm.com/docs/openshift?topic=openshift-strategysizing) to find information about the default worker node setup and how you can determine the resource requirements of your workloads.\n\n\n\n Available hardware for worker nodes \n\nThe worker node flavors and isolation levels that are available to you depend on your container platform, cluster type, the infrastructure provider that you want to use, and the Red Hat OpenShift on IBM Cloud location where you want to create your cluster.\n\nZoom\n\n![Hardware options for worker nodes in a standard cluster](https://cloud.ibm.com/docs-content/v1/content/bce0f0917a9eea684d1b4b704ac6343a1f65f446/openshift/images/cs_clusters_hardware.png)\n\nFigure 1. Hardware options for worker nodes in a standard cluster\n\n\n\n What flavors are available to me?"
+      }
+    },
+    {
+      "task_id": "72ba19c38518da1fc894fc638a2802f7<::>1",
+      "domain": "govt",
+      "conversation": [
+        {
+          "speaker": "user",
+          "text": "If I include a scoring system, how should I total the points?"
+        }
+      ],
+      "relevance": {
+        "6e97640495151e68-4584-6689": 1,
+        "6e97640495151e68-6174-8304": 1
+      },
+      "runs": {
+        "R00_bm25_latest_rerank": {
+          "ndcg5": 1.0,
+          "queries": [
+            "If I include a scoring system, how should I total the points?"
+          ],
+          "top5": [
+            {
+              "document_id": "6e97640495151e68-6174-8304",
+              "score": 10.0
+            },
+            {
+              "document_id": "6e97640495151e68-4584-6689",
+              "score": 9.0
+            },
+            {
+              "document_id": "a66481068c3edb08-16774-18987",
+              "score": 8.0
+            },
+            {
+              "document_id": "3a4836de992cc6e9-35607-37391",
+              "score": 7.0
+            },
+            {
+              "document_id": "1484aa59a6b10014-3259-5541",
+              "score": 6.0
+            }
+          ],
+          "relevant_candidate_ranks": {
+            "6e97640495151e68-4584-6689": 1,
+            "6e97640495151e68-6174-8304": 3
+          }
+        },
+        "E08_hybrid_fusion": {
+          "ndcg5": 0.0,
+          "queries": [
+            "If I include a scoring system, how should I total the points?",
+            "How do you calculate the total score for multiple-choice questions with different options?"
+          ],
+          "top5": [
+            {
+              "document_id": "a66481068c3edb08-16774-18987",
+              "score": 10.0
+            },
+            {
+              "document_id": "c225494fb67307fa-323904-325381",
+              "score": 9.0
+            },
+            {
+              "document_id": "c225494fb67307fa-317604-319833",
+              "score": 8.0
+            },
+            {
+              "document_id": "dbca74cd38322488-71734-74098",
+              "score": 7.0
+            },
+            {
+              "document_id": "8d42146d9fb40e5c-10838-13220",
+              "score": 6.0
+            }
+          ],
+          "relevant_candidate_ranks": {
+            "6e97640495151e68-4584-6689": null,
+            "6e97640495151e68-6174-8304": 12
+          }
+        }
+      },
+      "passages": {
+        "c225494fb67307fa-323904-325381": "Bill Text - AB-132 Postsecondary education trailer bill.\nTo compute the three-year average for each metric, the chancellor’s office shall compute the sum of data for that metric from the prior year, the year prior to the prior year, and the year prior to the year prior to the prior year, and divide the sum by three.(II) For the calculation of the three-year rolling average for the equity component of the student success allocation for the 2020–21 fiscal year, data from the 2018–19 fiscal year, for purposes of subparagraphs (B) and (C), may be used in place of data from the 2019–20 fiscal year.(B) Each community college district shall receive points for a student\n\twho received a fee waiver pursuant to Section 76300 and generated points for any of the metrics described in paragraph (1), based on the three-year rolling average for this metric calculated pursuant to clause (ii) of subparagraph (A). For each student identified pursuant to this subparagraph, the community college district shall receive the number of points equal to the number of points that the community college was granted for that student for each of the metrics described in paragraph (1).(C) (i) Each community college district shall receive points for a student who received financial aid under the Federal Pell Grant program (20 U.S.C. Sec. 1070a) and generated points for any of the metrics described in paragraph (1), based on the three-year rolling average for this metric calculated pursuant to clause (ii) of subparagraph (A).(ii) Each community",
+        "a66481068c3edb08-16774-18987": "Cadet Selection Process\nWhen POST electronically scans test answers, statistical calculations are performed to convert raw scores (the number of items answered correctly) into a “T-score.” A T-score is a standardized score that places an individual’s performance on the test into a distribution (bell-shaped curve) with a midpoint (average) of 50 and a standard deviation of 10. If the individual’s score falls around 50, his/her performance is considered “average” when compared to other applicants who have taken the test. Scores of 40 or below are considered “below average.” Scores of 60 or above are considered “above average.” Research shows that the likelihood of successful academy completion increases for every point scored above 42.\nAll responses provided by the test taker are a part of the ongoing analyses of the test battery.\n\nThe graph above provides a visual representation of T scores. The bell is comprised of many individual test scores. The bell is widest in the middle because most scores fall in and around the middle. This is why scores near the midpoint of 50 are considered “average.”\n\nFAQS\nCan I take the PELLETB elsewhere?\nYes, unfortunately there is not a list of providers that offer the test, so you would need to contact agencies or academies directly to determine if it is offered.\nHow do I get my test results?\nFor security reasons, POST is unable to provide test results directly to applicants or other unauthorized persons. All agencies/academies that use the PELLETB are required to provide applicants with their test results within 30 days of the test administration. If it has been less than 30 days, please allow time for the agency/academy to process your results. If it has been more than 30 days, contact the agency where the PELLETB was originally administered to inquire about your results. Alternately, an authorized agency representative (i.e., an individual listed on a current POST Security Agreement) from any of POST’s user agencies can contact POST on your behalf to obtain your results.\nHow long is my test score good for?\nA score on the POST test has no shelf life; therefore, a candidate may submit the department letter from the previous administration to the prospective employer.",
+        "6e97640495151e68-4584-6689": "Student Project: Code a Mars Sample Collection Video Game | NASA/JPL Edu\nMake the sample tube sprites reappear when players click the green flag to restart the game.\n\n+ Expand image\n\n4. Add a countdown timer NASA’s missions to Mars and other destinations have a planned life expectancy. Some missions, including every Mars rover to date, have been extended and operated beyond their planned mission life expectancy, while others experience problems that shorten their mission. You can create a timer that counts down to the end of the mission and ends the game. Your timer should not be so short that the game is unplayable or unwinnable, but it should not be so long that there is no challenge to playing the game. As a bonus, you can create code to extend or shorten the planned mission time.\nTasks\n\nCreate a timer that counts from a set time down to zero. Hint: Create a Time variable that you can program to change. (See example image.)\nMake gameplay stop when the timer reaches zero.\nMake a “Mission Over” message appear when the timer reaches zero.\nMake the timer start over when a player clicks the green flag to restart the game.\nBonus: Develop code that will increase or decrease the amount of time on the timer by one or two seconds at random.\n\n+ Expand image\n\n5. Add a scoring system Rover missions on Mars don’t have a scoring system. But the science they collect is valuable, and some discoveries may be more exciting, interesting, or important than others. To determine how well players are doing while playing your game, you can develop a scoring system that includes points earned for collecting sample tubes. How points are totaled is up to you. You could also program your game to reduce point totals in certain scenarios (see Step 6, for example).\nTasks\n\nDevelop code to create a scoring system.\nIncrease the score by one or more points for each sample tube collected.\n\n+ Expand image\n\n6. Add hazards Space travel and other worlds are fraught with hazards. From steep slopes and deep sand to sharp rocks and high radiation, there are countless ways a mission can be delayed or end unexpectedly. Program your game to include hazards that players need to avoid.",
+        "6e97640495151e68-6174-8304": "Student Project: Code a Mars Sample Collection Video Game | NASA/JPL Edu\nYou could also program your game to reduce point totals in certain scenarios (see Step 6, for example).\nTasks\n\nDevelop code to create a scoring system.\nIncrease the score by one or more points for each sample tube collected.\n\n+ Expand image\n\n6. Add hazards Space travel and other worlds are fraught with hazards. From steep slopes and deep sand to sharp rocks and high radiation, there are countless ways a mission can be delayed or end unexpectedly. Program your game to include hazards that players need to avoid. Look for dark areas in your backdrop image. These shadowed regions are often steep slopes that a rover could get stuck on.\nTasks\n\nDevelop code that identifies hazardous locations on the backdrop image.\nAdd in undesirable outcomes that occur when the rover reaches hazardous locations. (For example, the game could stop, time might be taken away, points might go down, etc.)\nMake a “Hazard” message appear when players encounter a hazard.\nMake some hazards hidden and some visible.\nBonus: Make a hidden hazard that changes location each time the game is restarted.\n\n+ Expand image\n\n7. Add landing code Every Mars rover has to first land on the Red Planet before it can start exploring. You can specify a landing site by creating scripts that place the rover at a certain location at the beginning of the game.Tasks Create code that puts the rover in a specific location at the beginning of the game. Bonus: Modify your landing code to make the rover land in a random location on the backdrop image or in a random location within a smaller section of the backdrop image.About the image: This animated image is a clip from a video taken by the Perseverance rover mission as the rover was being lowered onto the surface of Mars. › Full video and caption\n\n8. Take it farther Now that you’ve created your game, let others play it and suggest improvements! Also, check out this Mars rover game from NASA for more inspiration.\n \n\nRelated TagsCodingProgrammingMars RoverGamespace travelDesign Your Spacecraftsample returnperseveranceperseverencemars 2020Sample Handlingmars sample returnMarsMissionsRoversJump ToMaterials1."
+      }
+    }
+  ]
+}
