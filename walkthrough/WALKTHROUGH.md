@@ -3,7 +3,8 @@
 For exact spoken narration and navigation cues, use [RECORDING_SCRIPT.md](RECORDING_SCRIPT.md).
 
 The architecture diagram is available as [PNG](ARCHITECTURE.png), [PDF](ARCHITECTURE.pdf),
-and [SVG](ARCHITECTURE.svg). Show it during the opening 15 to 20 seconds, then switch to code.
+and [SVG](ARCHITECTURE.svg). Show it during the opening 35 seconds, then switch to code.
+The checked file roles and example provenance are recorded in [DEMO_VERIFICATION.md](DEMO_VERIFICATION.md).
 
 Record your own explanation of the implemented system in VS Code. Aim for 4 minutes
 45 seconds; the assignment maximum is five minutes. A camera is not required.
@@ -23,10 +24,10 @@ BM25 and rerankers were comparison experiments. All full neural indexes are comp
 
 | Time | What to show | Explain in your own words |
 |---|---|---|
-| 0:00 to 0:40 | `walkthrough/ARCHITECTURE.png` | Trace input, two query views, sparse and dense searches, fusion and ten passage IDs. |
-| 0:40 to 1:15 | Selected configuration; `src/convrag/data.py:45` | Identify both retrievers, explain the input whitelist and state the assigned-collection assumption. |
-| 1:15 to 1:55 | `src/convrag/queries.py:4` and `:33` | Explain the rewrite prompt, final-user-turn assumption and retention of the original query. |
-| 1:55 to 2:50 | `src/convrag/neural.py:51` and `:118` | Explain sparse/dense representations, truncation and document pruning, then similarity search. |
+| 0:00 to 0:35 | `walkthrough/ARCHITECTURE.png` | Trace input, two query views, sparse and dense searches, fusion and ten passage IDs. |
+| 0:35 to 1:10 | Selected configuration; `src/convrag/data.py:45` | Identify both retrievers, explain the input whitelist and state the assigned-collection assumption. |
+| 1:10 to 2:00 | `src/convrag/queries.py:4`; `src/convrag/neural.py:160`; `src/convrag/queries.py:33` | Explain the rewrite prompt, final-user-turn assumption, actual generation call, saved rewrites and original query retention. |
+| 2:00 to 2:50 | `src/convrag/neural.py:51` and `:118` | Explain sparse/dense representations, truncation and document pruning, then similarity search. |
 | 2:50 to 3:40 | `src/convrag/retrieval.py:11`; `src/convrag/cli.py:58` | Explain RRF, the nested searches, the 100-candidate pool and final ten original IDs. |
 | 3:40 to 4:05 | `walkthrough/RECORDING_EXAMPLE.json` | Show the saved validation question and passage, clearly identifying this as saved output. |
 | 4:05 to 4:45 | Final `metrics.json:64` | Explain 0.4334 mean nDCG@5, the validation comparisons, uncertainty over the stronger baseline and rewrite limitations. |
