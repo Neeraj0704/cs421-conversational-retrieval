@@ -1,27 +1,29 @@
 {
   "status": "passed_content_and_pdf_checks",
-  "pdf_pages": 9,
-  "word_tables": 5,
-  "validation_rows": 19,
-  "rubric_coverage": {
-    "Task identified": true,
-    "Official metric explained": true,
-    "Data used described": true,
-    "Differences from published data": true,
-    "Implementation detail": true,
-    "Models libraries external data": true,
-    "Motivation": true,
-    "Official metric scores": true,
-    "Published baseline and top score": true,
-    "Evaluation comparability": true,
-    "Concrete successes and failures": true,
-    "Behaviour linked to method": true,
-    "Ethical considerations": true,
-    "Limitations and next steps": true
-  },
+  "pdf_pages": 7,
+  "main_report_pages": 6,
+  "references_pages": [
+    7
+  ],
+  "references_on_separate_page": true,
+  "word_explicit_page_breaks": 6,
+  "word_tables": 3,
   "all_recorded_ndcg_values_match": true,
-  "frozen_source_unchanged": true,
-  "pdf_visual_review": "All pages inspected; final wording change on page 4 rechecked separately",
-  "word_validation": "OOXML structure checked and document opened in Microsoft Word. Complete automated Word-to-PDF rendering unavailable in this session. PDF independently typeset from the same reviewed Markdown.",
+  "rubric_sections_present": [
+    "task_and_metric",
+    "data_and_differences",
+    "reimplementation_and_models",
+    "libraries",
+    "motivation",
+    "official_scores",
+    "published_comparison",
+    "comparability",
+    "examples",
+    "behaviour_analysis",
+    "ethics",
+    "limitations_and_next_steps"
+  ],
+  "word_layout_note": "Same six content sections and separate references page with explicit breaks; full native Word pagination not independently rendered in this session.",
+  "pdf_visual_review": "Seven page images inspected",
   "course_grade_guaranteed": false
 }

@@ -6,128 +6,96 @@ CS 421 Natural Language Processing
 
 November 25 2026
 
-## Overview
+## 1 Task metric and data
 
-I built a system that retrieves ten passages for the latest question in a conversation. The project addresses SemEval 2026 Task 8, MTRAGEval Subtask A. I compared 19 configurations on held-out conversations, starting with BM25 word matching and adding query rewriting, learned sparse retrieval, dense retrieval and reranking. The best validation configuration combined SPLADE and BGE searches for both the original question and a standalone rewrite. Its final nDCG@5 was 0.4334, compared with 0.2896 for my BM25 baseline and 0.4161 for BM25 with a reranker. The improvement over the stronger reranker baseline was small and its uncertainty interval included zero. The clearest practical finding was that combining search signals helped, while adding more context or another model did not always help.
+I built a passage retrieval system for SemEval 2026 Task 8, MTRAGEval Subtask A [1]. Given a conversation ending in a user question, it returns ten ranked original passages from the assigned collection. A follow-up such as “What about its cost?” requires resolving what “it” refers to. The project tests whether conversation history, query rewriting, complementary retrievers and reranking improve that search. It uses pretrained models and does not generate answers or train new model weights.
 
-## 1 Task and evaluation
+The official ranking metric is normalized discounted cumulative gain at five, or nDCG@5. It rewards relevant passages in the first five positions, giving more credit to earlier results, and divides by the score of an ideal ranking. Higher is better; 1 is ideal. With one relevant passage, placing it first gives 1 and placing it fifth gives about 0.387. It is a ranking score, not answer accuracy. Recall@10 measures the fraction of relevant passages recovered in the returned ten; candidate Recall@100 measures coverage before final selection.
 
-A follow-up such as “What about its cost?” is difficult to search without knowing what “it” refers to. My task is to use the conversation supplied so far, search the assigned collection and return ten original passage IDs in relevance order. I implement retrieval only; I do not generate an answer. Each task ends at the current user question, so the system has no access to future turns [1, 2].
+I used IBM's official passage-level archives at commit e0970de1b1207c2a9506adf238e6e1a22037e38a [2]: CLAPNQ 183408 passages, Cloud 72442, FiQA 61022 and Government 49607, totalling 366479. Each task searches its assigned collection. Counts were checked against the archives. Passage boundaries, collection assignments and offset-bearing IDs were preserved, with no added documents or custom rechunking.
 
-The official ranking metric is normalized discounted cumulative gain at five, or nDCG@5 [1]. It rewards relevant passages in the first five positions, with more credit for passages near the top. The score is divided by the score of an ideal ranking for that question, making the result comparable across questions. A perfect ranking scores 1. For a question with exactly one relevant passage, placing it first gives 1, whereas placing it fifth gives about 0.387. A score of 0.4334 is a ranking measure, not 43.34 percent answer accuracy.
+MTRAG provides 842 tasks from 110 conversations. A seed-42 split within each domain held out 22 whole conversations: 174 validation tasks, including 161 judged tasks. The other 88 conversations were not used to train weights. All 19 validation configurations use the same judged questions. This local split differs from evaluation on the full development set.
 
-I also report Recall@10, the fraction of judged relevant passages recovered in the ten returned results, averaged over questions. Candidate Recall@100 measures coverage in the larger candidate pool before the final ten are selected. This separates failure to find a useful passage from failure to rank it highly.
+The final task file contains 507 inputs, matching the published four-domain task scope [1]. Relevance files score 332; the other 175 receive predictions but are excluded from retrieval quality averages. Inputs exclude gold answers, relevance lists, supplied rewrites and future turns. Labels are read for scoring after prediction. The GPU study followed an earlier CPU evaluation on this public final set, so its final results are disclosed follow-up evaluations, not a fresh unseen holdout.
 
-Two aggregation methods are kept separate. My main score is the arithmetic mean over judged questions. I also reproduce the upstream script's domain aggregation: round each domain score to five decimals, weight it by the number of submitted tasks in that domain, and average. The hybrid scores 0.4334 by the first method and 0.4379 by the second. I never mix these aggregates within a local comparison.
+<!-- pagebreak -->
 
-## 2 Data and experimental setup
+## 2 Approach and implementation
 
-I used the official IBM passage-level archives and task files at commit e0970de1b1207c2a9506adf238e6e1a22037e38a. Counts below come from reading the archives rather than copying a summary table. Every question searches only its assigned collection.
+BM25 provides a fast baseline for exact wording. I used bm25s with English stopwords, Snowball stemming, Lucene-style k1 of 1.2 and b of 0.75. The latest-only configuration searches the current question; the history baseline concatenates earlier user questions and the current one, excluding assistant responses.
 
-| Collection | Content | Passages used |
+### Rewriting and preserving the original
+
+Qwen/Qwen2.5-0.5B-Instruct [5] receives the full supplied conversation prefix with speaker labels. Its prompt requests one standalone search question, resolving references while preserving names, dates, negation and numerical constraints. It must not answer or add facts; assistant messages supply context rather than verified evidence. Decoding is greedy with at most 128 new tokens; empty output falls back to the original. Cached rewrites preserve identical query text across comparisons.
+
+A rewrite can omit useful terms or invent context. I therefore tested separate searches for the original and rewritten questions, combining their rankings. Exactly identical query views are removed. One experiment adds a keyword view by removing selected common words from the rewrite.
+
+### Learned sparse and dense retrieval
+
+SPLADE uses naver/splade-cocondenser-ensembledistil [3]. It learns weighted vocabulary representations, providing expansion beyond literal word overlap. Input is truncated to 256 tokens. I apply log one plus ReLU to token logits, mask padding and take the maximum across token positions. Each document retains its 128 largest term weights; query vectors are not pruned this way.
+
+BAAI/bge-small-en-v1.5 [4] supplies a complementary semantic signal. It produces normalized 384-dimensional CLS vectors from up to 256 tokens. Queries receive the prefix “Represent this sentence for searching relevant passages: ”. Search uses exact inner products within the assigned collection. Truncation and sparse pruning change the index representation, not the source passages or IDs.
+
+### Combining candidates and reranking
+
+Each retriever and query view returns up to 100 candidates. Reciprocal rank fusion, RRF, adds 1 divided by the sum of 60 and a passage's rank in each list. Lists have equal weight; the fused pool is limited to 100. This combines positions without assuming that model scores share a scale.
+
+The optional cross-encoder/ms-marco-MiniLM-L6-v2 [6] reads query-passage pairs, with a 384-token limit and batch size 32. Fusion configurations rerank using the rewrite; latest-only configurations use the current question. Pure reranking follows the model's order. Rank blending instead applies RRF to retrieval and reranker lists with weights of 0.5 each. The first ten IDs are returned with strictly decreasing scores. The selected E08 combines SPLADE and dense original/rewrite searches without a reranker.
+
+Implementation uses Python 3.11, bm25s, PyStemmer, PyTorch, Transformers, Sentence Transformers, NumPy, SciPy and pytrec-eval-terrier. Dependencies are locked in uv.lock; model revisions, prompts, queries, settings and hashes are saved [7]. No paid inference API or external training data was used.
+
+<!-- pagebreak -->
+
+## 3 Validation experiments
+
+I completed seven CPU-stage comparisons and twelve additional configurations using full neural indexes. Table 1 gives mean nDCG@5 over the same 161 judged validation questions. “Fusion” means original and rewritten query searches unless specified otherwise; “blend” combines retrieval and reranker ranks.
+
+| Run | Configuration | nDCG at 5 |
 |---|---|---:|
-| CLAPNQ | Wikipedia passages | 183408 |
-| Cloud | Technical documentation | 72442 |
-| FiQA | Financial questions and answers | 61022 |
-| Government | Government and public information | 49607 |
-| Total | Four original collections | 366479 |
-
-MTRAG contains 842 conversational tasks from 110 conversations. Using seed 42, I split whole conversations within each domain: 88 conversations in the remaining development partition and 22 in validation. Validation contains 174 tasks, of which 161 have relevance judgments. All 19 validation comparisons use those same 161 judged tasks. I did not train model weights on the remaining development partition; all neural components were pretrained.
-
-The released final task file contains 507 inputs. My qrels, the files that identify relevant passages, score 332 of them; the remaining 175 receive predictions but do not enter the retrieval quality average. The available labels cover answerable and partially answerable tasks; other question types still receive outputs.
-
-### Differences from the published setup
-
-I retained the official passage boundaries, collection assignments and offset-bearing IDs. I used all passages in the four archived collections, with no added documents, synthetic training examples or custom rechunking. The published SemEval task used the same four-domain, 507-task scope [1]. Neural input truncation and SPLADE term pruning affect the index representation, not the stored source passages.
-
-My 22-conversation validation split is a local choice. It differs from evaluation on the complete development set, so my validation scores should not be compared directly with full-development results. The GPU study also followed an earlier CPU evaluation on the public final set. I froze GPU configurations using validation results before their new final runs, but these remain follow-up evaluations on a previously used test set rather than a fresh unseen holdout.
-
-### Controls and software
-
-The model input loader keeps only task identifiers, the collection and the supplied speaker-labelled conversation. Gold answers, relevance lists and provided benchmark rewrites are excluded. Evaluation reads relevance labels only after predictions are produced. I checked archive integrity, original IDs, collection routing and exact prediction coverage.
-
-The implementation uses Python 3.11, bm25s and PyStemmer for lexical retrieval; PyTorch and Transformers for neural inference; Sentence Transformers for the cross-encoder; NumPy and SciPy for vector storage and search; and pytrec-eval-terrier for metrics. Dependencies are locked in uv.lock. Model revisions, data hashes, generated queries and per-run settings are saved in the repository. No paid model API or external training dataset was used.
-
-## 3 Approach and motivation
-
-I tested components separately because each solves a different problem. Conversation context can resolve an incomplete question, but old topics can also distract a search. Sparse models retain useful vocabulary signals, dense models can match similar meanings, and a reranker can read candidate passages more carefully. My experiments ask when those benefits survive in this particular task and resource budget.
-
-### Query handling
-
-The latest-only baseline searches the current user question. The history baseline concatenates all earlier user questions with the current one. It does not concatenate assistant responses. For rewriting, Qwen2.5-0.5B-Instruct [5] receives the full supplied conversation prefix with speaker labels. The prompt asks it to resolve references, preserve names, dates, negation and numerical constraints, and return one standalone search question without answering or adding facts. Assistant messages are context for reference resolution, not verified evidence.
-
-Rewrites use greedy decoding with at most 128 new tokens. An empty rewrite falls back to the original question. Generated rewrites are cached with the prompt, model revision and conversation content so experiments reuse identical query text. Fusion searches both original and rewritten queries; exactly identical views are removed. The keyword experiment adds a simple rewrite-derived view with selected common words removed.
-
-### Retrieval models
-
-| Component | Model or method | Main settings |
-|---|---|---|
-| Lexical retriever | BM25 using bm25s | English stopwords and Snowball stemming; k1 1.2; b 0.75 |
-| Sparse retriever | SPLADE ensemble distilled | 256 tokens; maximum log one plus ReLU pooling; 128 document terms |
-| Dense retriever | BAAI/bge-small-en-v1.5 | 256 tokens; normalized 384-dimensional CLS vectors; exact inner-product search |
-| Rewriter | Qwen/Qwen2.5-0.5B-Instruct | Full supplied prefix; greedy decoding; 128 new tokens |
-| Reranker | MiniLM L6 v2 cross encoder | 384 tokens per pair; inference batch size 32 |
-
-BM25 provides a fast, interpretable baseline for exact terms. The SPLADE checkpoint is naver/splade-cocondenser-ensembledistil. It gives vocabulary terms learned weights and can expand the matching signal beyond literal overlap [3]. I form sparse vectors by applying log one plus ReLU to token logits, masking padding and taking the maximum over token positions. Document vectors retain their 128 largest term weights; query vectors are not pruned this way.
-
-BGE encodes passages and questions separately [4]. I normalize the CLS vector, then compare each query with the stored vectors from its collection. Query text receives the documented prefix “Represent this sentence for searching relevant passages: ”. Dense search is exact rather than approximate. These choices allow a controlled, compact semantic branch without introducing a separate approximate-search parameter sweep.
-
-### Fusion and reranking
-
-Each retriever and query view produces up to 100 candidates. For each list containing a passage, reciprocal rank fusion adds 1 divided by the sum of 60 and that passage's rank. All query and retriever lists have equal weight. This combines positions without assuming that BM25, sparse and dense scores share a scale. The combined pool is truncated to 100.
-
-In reranked configurations, cross-encoder/ms-marco-MiniLM-L6-v2 reads the question and each candidate passage together [6]. Fusion configurations use the rewrite as the rerank query; latest-only configurations use the latest question. Pure reranking follows its order. The blended version instead combines the retrieval and reranker lists through RRF with equal weights of 0.5. The ten highest-ranked passages are returned. Submission scores encode that final order strictly, avoiding ties.
-
-The selected E08 configuration has up to four searches: original and rewritten questions through SPLADE, and the same two views through BGE. It combines their rankings and returns ten passages without a cross-encoder. It uses more search calls than a single-query baseline, although the final candidate pool remains 100. The frozen settings and exact model revisions are included with the code; no model was fine-tuned for this study.
-
-## 4 Results
-
-I first completed seven CPU comparisons, then twelve comparisons using full neural indexes built through Apple Metal. Table 3 lists every validation configuration. nDCG@5 is the mean over the same 161 judged questions. The CPU and GPU labels describe experiment stages; they do not imply that all search arithmetic ran on the GPU.
-
-| Run | Validation configuration | nDCG at 5 |
-|---|---|---:|
-| E00 | BM25 latest question | 0.2249 |
+| E00 | BM25 latest | 0.2249 |
 | E01 | BM25 raw user history | 0.1842 |
 | E02 | BM25 rewrite only | 0.2114 |
-| B02 | BM25 original and rewrite fusion | 0.2472 |
+| B02 | BM25 query fusion | 0.2472 |
 | B03 | B02 with pure reranking | 0.3464 |
-| B04 | B02 with retrieval and reranker rank blend | 0.3138 |
+| B04 | B02 with rank blend | 0.3138 |
 | R00 | BM25 latest with reranking | 0.3898 |
-| D00 | Dense latest question | 0.3850 |
-| D01 | Dense original and rewrite fusion | 0.3966 |
+| D00 | Dense latest | 0.3850 |
+| D01 | Dense query fusion | 0.3966 |
 | G02 | Dense latest with reranking | 0.4366 |
-| E03 | SPLADE latest question | 0.3990 |
+| E03 | SPLADE latest | 0.3990 |
 | E04 | SPLADE rewrite only | 0.3611 |
-| E05 | SPLADE original and rewrite fusion | 0.4107 |
+| E05 | SPLADE query fusion | 0.4107 |
 | E06 | E05 with pure reranking | 0.3795 |
-| E07 | E05 with retrieval and reranker rank blend | 0.4121 |
+| E07 | E05 with rank blend | 0.4121 |
 | E10 | SPLADE original rewrite and keyword fusion | 0.3909 |
 | G01 | SPLADE latest with reranking | 0.4281 |
 | G03 | Sparse and dense latest with reranking | 0.4291 |
-| E08 | Sparse and dense original and rewrite fusion | 0.4479 |
+| E08 | Sparse and dense query fusion | 0.4479 |
 
-Raw history and rewrite-only BM25 underperformed the latest-question baseline. Preserving both query views helped BM25 and SPLADE. Reranking strongly helped BM25, but reduced SPLADE fusion from 0.4107 to 0.3795 on the same candidates. Blending ranks recovered that loss to 0.4121. Adding the keyword view did not improve SPLADE fusion. These results argue for testing each component rather than assuming that a longer pipeline is better.
+Raw history and rewrite-only search underperformed the latest-question baselines. Preserving both query views helped BM25 and SPLADE. Reranking helped BM25, but reduced SPLADE fusion from 0.4107 to 0.3795 on identical candidates; rank blending recovered the loss. The keyword view did not help.
 
-E08 had the highest validation nDCG@5 and was selected before the GPU final runs. Against the earlier CPU R00, it improved 61 validation questions, tied on 62 and worsened 38. Its validation candidate Recall@100 was 0.7917, almost the same as SPLADE fusion's 0.7925, while nDCG@5 rose from 0.4107 to 0.4479. On this split, the hybrid's benefit was therefore not simply finding a larger fraction of relevant candidates; the combined ordering also mattered.
+E08 was selected by validation before its final run, alongside G01 and G02 as family comparators. Against R00, it improved 61 questions, tied on 62 and worsened 38. Its candidate Recall@100 of 0.7917 was almost identical to E05's 0.7925, while nDCG@5 improved. Better ordering, not simply greater candidate coverage, contributed on this split. E08 uses more search calls than single-query methods, though the final pool remains 100. G03 and E08 differ in both queries and reranking, so they do not isolate a reranking effect on E08.
 
-### Final comparisons
+<!-- pagebreak -->
 
-The first three rows below are the earlier frozen CPU evaluations. The last three are the frozen GPU follow-up. Every row returns ten passages for 507 tasks and is scored on the same 332 judged questions. Mean and weighted nDCG use the distinct aggregates described in Section 1.
+## 4 Final results and published comparisons
 
-| Final system | Mean nDCG at 5 | Weighted nDCG at 5 | Recall at 10 | Candidate recall at 100 |
+Table 2 reports all six frozen final comparisons on the same 332 judged tasks, with outputs for all 507 inputs. The first three are the earlier CPU evaluations; the final three are the GPU follow-up. Main scores average judged questions equally. The separate upstream-style aggregate rounds domain scores to five decimals and weights them by submitted domain counts. Both are shown to avoid mixing aggregates.
+
+| System | Mean nDCG at 5 | Weighted nDCG at 5 | Recall at 10 | Candidate recall at 100 |
 |---|---:|---:|---:|---:|
 | BM25 latest | 0.2896 | 0.2918 | 0.4261 | 0.6989 |
 | BM25 query fusion | 0.3306 | 0.3332 | 0.4872 | 0.8187 |
-| BM25 latest with reranker | 0.4161 | 0.4188 | 0.5347 | 0.6989 |
-| SPLADE latest with reranker | 0.4199 | 0.4239 | 0.5470 | 0.7570 |
-| Dense latest with reranker | 0.4040 | 0.4082 | 0.5309 | 0.6810 |
-| Selected hybrid query fusion | 0.4334 | 0.4379 | 0.6211 | 0.8610 |
+| BM25 latest reranked | 0.4161 | 0.4188 | 0.5347 | 0.6989 |
+| SPLADE latest reranked | 0.4199 | 0.4239 | 0.5470 | 0.7570 |
+| Dense latest reranked | 0.4040 | 0.4082 | 0.5309 | 0.6810 |
+| Selected hybrid fusion | 0.4334 | 0.4379 | 0.6211 | 0.8610 |
 
-The hybrid improved mean nDCG@5 over plain BM25 by 0.1438. A paired bootstrap with 3000 whole-conversation resamples and seed 42 gave a 95 percent interval of 0.1017 to 0.1879. Against BM25 with reranking, the difference was only 0.0173, with an interval of -0.0178 to 0.0525. That interval includes zero, so the smaller ranking gain is not statistically resolved by this analysis. The final hybrid also recovered more relevant passages in its top ten, with Recall@10 of 0.6211 versus 0.5347 for the BM25 reranker. The intervals are exploratory and do not correct for multiple comparisons or validation selection.
+The hybrid's nDCG gain over plain BM25 is 0.1438, with a 95 percent paired conversation-bootstrap interval of 0.1017 to 0.1879. Against the stronger BM25 reranker, the gain is 0.0173 with interval -0.0178 to 0.0525. That interval includes zero, so the smaller gain is not statistically resolved. Resampling uses 3000 whole-conversation samples and seed 42; intervals are exploratory and do not correct for multiple comparisons.
 
-### Published baseline and top score
+### Published final task scores
 
-The figures below come from Table 4 of the task overview, which reports the final Subtask A leaderboard, not the earlier MTRAG development baselines [1]. My local BM25 baseline is a separate implementation and must not be confused with the organizers' BM25 result.
+Table 3 reproduces selected rows from Table 4 of the organizers' overview [1], not its earlier MTRAG development baselines. My local BM25 implementation is a separate baseline.
 
 | Published system | nDCG at 5 | Recall at 5 |
 |---|---:|---:|
@@ -136,75 +104,53 @@ The figures below come from Table 4 of the task overview, which reports the fina
 | ELSER strongest baseline | 0.480 | 0.521 |
 | AILS NTUA winning team | 0.578 | 0.622 |
 
-My selected hybrid's local mean nDCG@5 is 0.4334 and mean Recall@5 is 0.4756; the weighted values are 0.4379 and 0.4816. Numerically, both nDCG aggregates are below the published ELSER and winning scores. I do not claim to beat those systems or assign myself a leaderboard rank. Although the broad task scope and judged-task count agree, exact historical qrels identity, aggregation and baseline query construction have not been matched end to end. Official metric parity and valid output files establish local evaluation correctness, not complete historical equivalence. Differences between my BM25 score and the published BM25 score reinforce the need for this qualification.
+My hybrid's mean Recall@5 is 0.4756; its weighted value is 0.4816. Both local nDCG aggregates are numerically below the published ELSER and winning scores. I do not claim a leaderboard rank. Task scope and judged counts agree, but exact historical qrels identity, aggregation and baseline query construction have not been reproduced end to end. Format checking and metric parity support local correctness, not complete historical equivalence. The GPU follow-up also reuses a previously inspected public final set. These conditions limit direct comparison.
 
-## 5 Analysis of successes and failures
+<!-- pagebreak -->
 
-I inspected four validation cases to explain the aggregate results. They were selected to illustrate gains and regressions, not sampled to estimate how frequently a behaviour occurs. Scores and ranks below come from saved predictions and relevance files. Passage descriptions are paraphrases unless shown in quotation marks. The full task IDs and supporting passages are retained in analysis/report_case_studies.json.
+## 5 Concrete successes and failures
 
-### History can distract from the current question
+I inspected four validation cases selected to illustrate gains and regressions, not estimate their frequency. Scores and ranks come from saved predictions; full IDs and passages are retained in analysis/report_case_studies.json. Passage descriptions below are paraphrases except for quotations.
 
-In one CLAPNQ conversation, the seventh question is “Do you have any information about how the ancient civilization deal with the stormwater?” Earlier turns discuss modern storm drains, catchbasins, litter and recycling runoff.
+### Extra history can distract
 
-Latest-question BM25 puts a relevant historical passage first. It describes Minoan stormwater systems, including drains and channels in ancient Crete. With all earlier user questions appended, that same passage falls to rank 8. The first result instead defines a modern storm drain and the next discusses catchbasins. nDCG@5 drops from 0.6131 to 0.0000.
+A CLAPNQ question asks, “Do you have any information about how the ancient civilization deal with the stormwater?” Earlier turns discuss modern drains and catchbasins. Latest-question BM25 ranks a passage about ancient Minoan stormwater systems first. Appending user history moves it to rank 8, behind modern drainage passages, dropping nDCG@5 from 0.6131 to 0.0000. The passage was found but ordered poorly: repeated older terms are consistent with query dilution.
 
-The useful historical passage was still found, but repeated vocabulary from older turns dominated the top of the list. This is a ranking failure consistent with query dilution. It explains why raw history can hurt even when every earlier message is related to the broad topic.
+### History can recover an omitted subject
 
-### History can recover a missing topic
+Another CLAPNQ message says only “The end of use of slave labor.” Earlier questions concern the cotton gin and Southern cotton. Latest-question BM25 returns general slavery-related passages and scores 0.0000. User history brings a judged cotton-gin passage to rank 1, raising nDCG@5 to 0.6131. It discusses cotton production and the growth of slavery. Context supplies the missing subject, although relevance does not establish that the passage fully answers the fragment.
 
-In another CLAPNQ conversation, the seventh message is only “The end of use of slave labor.” Earlier questions concern the cotton gin, cotton production, the American Civil War and Southern cotton.
+### A better candidate set can help
 
-Latest-question BM25 returns general slavery-related material, including a passage about plantation labour in the Columbian Exchange. Neither judged relevant passage appears in its top five. Adding user history moves a relevant cotton-gin passage to rank 1, raising nDCG@5 from 0.0000 to 0.6131. The passage connects the invention to cotton production and the growth of slavery in the American South.
+For the Cloud question “what are worker nodes?”, the rewrite only changes capitalization. None of the three judged relevant passages enters BM25's 100-candidate pool, so BM25 with reranking scores 0.0000. The hybrid places all three at ranks 1 to 3 and scores 1.0000. They describe worker nodes carrying deployments and services and being virtual machines managed by the cluster. A reranker cannot recover missing candidates. Some BM25 results were topically related but unjudged, so zero does not imply complete semantic irrelevance.
 
-This example shows why simply ignoring context is also inadequate. The current utterance omits the subject; earlier turns supply it. The relevance label supports retrieving this passage, but I should not read the score as proof that it fully answers the user's fragment.
+### A rewrite can invent a setting
 
-### Hybrid search can recover candidates that BM25 missed
+A Government task begins, “If I include a scoring system, how should I total the points?” The rewriter invents a multiple-choice exam setting. Hybrid fusion ranks a standardized-test T-score passage first; a relevant NASA game-tutorial passage remains at rank 12. Its nDCG@5 is 0.0000. BM25 with reranking scores 1.0000, placing the two judged passages first. One says, “Increase the score by one or more points for each sample tube collected.” The invented setting is visible, but retriever and reranking also differ, so rewriting is not isolated as the sole cause. Retaining the original query does not guarantee protection from misleading fused branches.
 
-In a Cloud conversation, the second question is “what are worker nodes?” The rewrite is just “What are worker nodes?” It changes capitalization rather than adding useful context.
+<!-- pagebreak -->
 
-The BM25 reranker configuration scores 0.0000. Its first result concerns planning worker-node setup, but none of the three judged relevant passages reached its 100-candidate pool. The hybrid places all three judged passages at ranks 1 to 3 and scores 1.0000. One explains that worker nodes carry the deployments and services of an application; another defines them as virtual machines managed by the cluster.
+## 6 Ethics limitations and conclusion
 
-A reranker cannot promote a passage it never receives. This case illustrates the value of the hybrid's candidate set, while also showing that the improvement did not come from a more informative rewrite. Some BM25 results are topically related but unjudged, so the zero score should not be interpreted as total semantic irrelevance.
+Retrieval shapes the evidence a later answer generator sees. A highly ranked passage can be biased, outdated or unsuitable for a user's situation, especially in financial and government material. Relevance does not establish truth or safe advice. A deployed interface should preserve source provenance rather than present retrieved text as an authoritative answer.
 
-### A rewrite can invent the wrong setting
+The organizers describe general or fictitious questions and anonymized annotators [1]. Real conversation logs could contain sensitive information. My pipeline caches conversations and rewrites, so deployment would require data minimization, access controls and a retention policy. No commercial inference API received these inputs. The SPLADE checkpoint's CC BY NC SA 4.0 license restricts commercial reuse [3]; attribution and license review would be needed before deployment.
 
-One Government task begins with “If I include a scoring system, how should I total the points?” The supplied prefix has no earlier turns. The relevant passage is from a NASA Mars sample-collection game tutorial and includes “Increase the score by one or more points for each sample tube collected.”
+Incomplete judgments can penalize useful unlabelled passages. The overview also notes possible preference for sparse methods because sparse retrieval contributed to benchmark creation [1]. Performance is uneven: hybrid final nDCG@5 is 0.3086 in FiQA, 0.4608 in Cloud, 0.4885 in CLAPNQ and 0.4364 in Government. One overall score does not establish equal reliability across domains.
 
-The rewriter produces “How do you calculate the total score for multiple-choice questions with different options?” Nothing in the input supplies an exam setting. The hybrid's first result describes standardized test T-scores, while a relevant game passage remains at rank 12 in its fused candidate list. Its nDCG@5 is 0.0000. BM25 with reranking places the two judged relevant passages first and second and scores 1.0000.
+The main limits are the small validation set, selection among multiple configurations and reuse of a public final set for the GPU follow-up. Token truncation, sparse pruning and the candidate budget can discard evidence. Models were not adapted to these domains. E08 was not tested with a reranker, so these results do not prove that reranking would hurt that exact configuration. Next work should test more reliable rewriting, unsupported-context detection and matched search-call budgets, with genuinely untouched evaluation data where available.
 
-The added exam context is directly visible in the rewrite. Its role in the failed fusion is plausible, but this comparison also changes the retriever and reranking, so it does not isolate rewriting as the sole cause. Keeping an original branch reduces dependence on a rewrite; it does not guarantee protection when misleading branches influence the final order.
+Both neural indexes cover all 366479 passages. Dense indexing took about 36 minutes and SPLADE 156 minutes using MPS. The hybrid's final run recorded 44.0 seconds for 507 tasks, excluding index construction and cached rewrite generation; this is not end-to-end latency. Vector search runs on CPU. All runs passed format and metric checks; 26 automated tests pass. A separate Python environment reproduced BM25 exactly. Configurations, model revisions, query snapshots and frozen source hashes support reproduction [7].
 
-## 6 Ethics and limitations
+The strongest validated configuration combines sparse and dense search while preserving the original question. It improves clearly over my plain BM25 baseline; its smaller gain over the stronger reranker remains uncertain. The examples explain why additional context and models require testing. AI assistance supported implementation, verification and writing; the author remains responsible for understanding and reviewing the submitted work.
 
-Retrieval determines which information a later answer generator is likely to see. A confidently ranked passage can still be outdated, biased or unsuitable for the user's situation. This matters especially for financial and government material. My system returns evidence and makes no claim that a high relevance score establishes factual correctness or safe advice. A deployed interface should preserve provenance and distinguish source content from a generated answer.
-
-The organizers describe the benchmark questions as general or fictitious and report anonymizing annotators [1]. Real conversations could still contain account details or other sensitive information. My local pipeline saves conversations and rewrites for reproducibility, so deployment would require data minimization, restricted access and a retention policy. I would not publish real user logs merely because benchmark logs are shareable. No commercial inference API received the benchmark inputs in this study.
-
-Incomplete relevance judgments can penalize useful but unlabelled passages. In addition, the overview notes that a sparse retriever was involved in benchmark creation, which may favour passages found by similar methods [1]. These are reasons to avoid treating one aggregate score as a complete measure of user benefit. My own final hybrid score also varies by domain: 0.3086 in FiQA, 0.4608 in Cloud, 0.4885 in CLAPNQ and 0.4364 in Government. These figures show uneven performance, not evidence of equal reliability across domains.
-
-I used released data and pretrained models under their respective licenses. The SPLADE checkpoint is marked CC BY NC SA 4.0, which restricts commercial reuse [3]. The repository does not redistribute model weights or the large corpora. Attribution and license review would be necessary before a different deployment.
-
-The main methodological limits are the small validation sample, selection across several configurations and the GPU follow-up's reuse of a public final set. The small Qwen rewriter and MS MARCO reranker were not adapted to these collections. Token truncation, sparse pruning and the 100-candidate budget can discard useful evidence. E08 also uses more search calls than simpler baselines. I did not directly test E08 followed by the reranker, so the experiments do not prove that reranking would hurt that exact hybrid.
-
-The next useful experiment is to improve query reliability: keep already explicit questions unchanged, detect unsupported additions and evaluate a stronger rewriter on a new development protocol. Other bounded comparisons could test longer encoder inputs, sparse pruning, domain-specific reranking and a matched search-call budget. Any new selection should be evaluated on genuinely untouched data if available. Fine-tuning, ColBERT and adaptive retrieval remain future work rather than completed results.
-
-## 7 Reproducibility and conclusion
-
-Both full neural indexes contain 366479 original passages. On the Apple Silicon Mac, dense indexing took about 36 minutes and SPLADE about 156 minutes using MPS. The full GPU validation workflow took about 3 hours 19 minutes. The selected final hybrid recorded 44.0 seconds for 507 tasks, with median per-query time 0.0629 seconds. Those timings use cached rewrites and exclude index construction and rewrite generation; they are not an end-to-end latency claim. Vector search runs on CPU while supported neural inference uses MPS.
-
-All recorded predictions passed the official format checker and independent coverage and metric checks. The project has 26 passing automated tests. A separate Python environment reproduced the BM25 baseline with zero metric differences. Source and configuration fingerprints preserve the frozen evaluations. Exact query snapshots make it possible to replay the same experiments without regenerating different rewrites.
-
-The code and run artifacts are available in the project repository [7]. scripts/reproduce.py recreates the CPU comparisons in an isolated output folder. scripts/start_gpu_study.command and scripts/start_gpu_final.command restore and resume the separate GPU study. The original CPU checkpoint is preserved; changes to models or settings should use a new study rather than overwrite these results.
-
-My strongest validated configuration combines complementary retrieval methods and retains the original question alongside its rewrite. It improves clearly over my plain BM25 baseline, but its smaller nDCG gain over the stronger BM25 reranker remains uncertain. The failure examples explain why the result is not a simple endorsement of adding more components: context can distract, a rewrite can invent a setting, and reranking depends on the candidates it receives.
-
-AI assistance was used in implementation, experiment verification and report preparation. The reported scores come from saved program outputs. This assistance does not replace the author's responsibility to understand the methods and review the submitted work.
+<!-- pagebreak -->
 
 ## References
 
 [1] Sara Rosenthal, Vraj Shah, Yannis Katsis and Marina Danilevsky. 2026. SemEval 2026 Task 8 MTRAGEval Evaluating Multi Turn RAG Conversations. Proceedings of SemEval, pages 3673 to 3690. Sections 2, 3 and 5; Table 4. https://aclanthology.org/2026.semeval-1.447/
 
-[2] IBM Research. MTRAG benchmark data and evaluation code. Archived project version e0970de1b1207c2a9506adf238e6e1a22037e38a. https://github.com/IBM/mt-rag-benchmark/tree/e0970de1b1207c2a9506adf238e6e1a22037e38a
+[2] IBM Research. MTRAG benchmark data and evaluation code. Project version e0970de1b1207c2a9506adf238e6e1a22037e38a. https://github.com/IBM/mt-rag-benchmark/tree/e0970de1b1207c2a9506adf238e6e1a22037e38a
 
 [3] NAVER. SPLADE ensemble distilled checkpoint and model documentation. https://huggingface.co/naver/splade-cocondenser-ensembledistil
 

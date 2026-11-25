@@ -564,3 +564,10 @@ The previous combined report is archived. Scores and frozen retrieval source are
 The Word document opens in Microsoft Word; full Word-to-PDF visual verification was unavailable.
 The separately typeset PDF was inspected page by page. Neither course upload nor a new experiment
 was performed. The complete final brief and any additional page-limit requirements remain unknown.
+
+## Page limit correction — November 25, 2026
+
+The user supplied a six-page maximum excluding references. Condensed the report without
+changing scores: the final PDF has exactly six main pages and a separate references page 7.
+The Word version uses the same six content sections and six explicit page breaks. Native Word
+pagination has not been independently checked. The superseded nine-page report is archived.
