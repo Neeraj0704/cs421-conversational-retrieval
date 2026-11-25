@@ -27,8 +27,10 @@ no models, full indexing or benchmark runs were started.
 - The excerpt matches the source corpus passage after trimming leading whitespace.
 - Final mean nDCG@5 rounds to 0.4334; 332 questions are judged out of 507 inputs.
 - There are seven saved CPU and twelve saved GPU validation configurations, nineteen in total.
-- All eleven code/result navigation destinations exist and their line numbers are in range.
-- Narration has 538 words. Duration still needs a timed rehearsal by the speaker.
+- The expanded function-by-function revision has sixteen code/result navigation destinations;
+  all exist and their line numbers are in range. Named functions were checked against their definitions.
+- Expanded narration has 1297 words. It is an editing master rather than a five-minute cut;
+  the speaker will shorten it and check duration in rehearsal.
 
 The saved example is illustrative; it does not establish the benefit of rewriting because
 its rewrite changes capitalization only. The GPU final study is a disclosed follow-up on

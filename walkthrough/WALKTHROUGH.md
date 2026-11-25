@@ -1,6 +1,8 @@
 # Student code walkthrough recording guide
 
-For exact spoken narration and navigation cues, use [RECORDING_SCRIPT.md](RECORDING_SCRIPT.md).
+For expanded spoken narration, function explanations and navigation cues, use
+[RECORDING_SCRIPT.md](RECORDING_SCRIPT.md). It is an editing master, longer than five minutes;
+shorten it after rehearsing. The table below remains a suggested five-minute allocation.
 
 The architecture diagram is available as [PNG](ARCHITECTURE.png), [PDF](ARCHITECTURE.pdf),
 and [SVG](ARCHITECTURE.svg). Show it during the opening 35 seconds, then switch to code.
